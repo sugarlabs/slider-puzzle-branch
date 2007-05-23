@@ -1,0 +1,7 @@
+[Activity]
+name = SliderPuzzle
+service_name = org.worldwideworkshop.olpc.SliderPuzzle
+class = SliderPuzzleActivity.SliderPuzzleActivity
+icon = activity-sliderpuzzle
+activity_version = 0
+show_launcher = yes
