@@ -1,5 +1,5 @@
 [Activity]
-name = SliderPuzzle
+name = Slider Puzzle
 service_name = org.worldwideworkshop.olpc.SliderPuzzle
 class = SliderPuzzleActivity.SliderPuzzleActivity
 icon = activity-sliderpuzzle

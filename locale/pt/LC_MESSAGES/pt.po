@@ -1,0 +1,49 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2007-05-23 23:14+0100\n"
+"PO-Revision-Date: 2007-05-23 10:48+0100\n"
+"Last-Translator: Carlos Neves <cn@sueste>\n"
+"Language-Team: Portuguese <info@worldwideworkshop.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: SliderPuzzleActivity.py:15
+msgid "SliderPuzzle"
+msgstr ""
+
+#: SliderPuzzleUI.py:91
+msgid "Time: "
+msgstr "Tempo: "
+
+#: SliderPuzzleUI.py:264
+msgid "Slider Puzzle Activity"
+msgstr ""
+
+#: SliderPuzzleUI.py:298
+msgid "My Own Picture"
+msgstr "Minha Imagem"
+
+#: SliderPuzzleUI.py:300
+msgid "Solve"
+msgstr "Resolver"
+
+#: SliderPuzzleUI.py:303
+msgid "Jumble"
+msgstr "Baralhar"
+
+#: SliderPuzzleUI.py:369
+msgid "Select Image Category"
+msgstr "Selecciona a Categoria das Imagens"
+
+msgid "jumbler starter pics"
+msgstr "Imagens iniciais do Jumbler"

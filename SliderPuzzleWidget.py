@@ -29,11 +29,11 @@ import pygtk
 pygtk.require('2.0')
 import gtk, gobject
 
-from math import sqrt, pow, ceil
+from utils import load_image, calculate_matrix, debug
+
 from types import TupleType, ListType
 from random import random
 from time import time
-import sys
 
 ###
 # General Information
@@ -48,47 +48,6 @@ SLIDE_UP = 1
 SLIDE_DOWN = 2
 SLIDE_LEFT = 3
 SLIDE_RIGHT = 4
-
-DEBUG = True
-
-def debug (what):
-    if DEBUG:
-        print >> sys.stderr, what
-
-def calculate_matrix (pieces):
-    """ Given a number of pieces, calculate the best fit 2 dimensional matrix """
-    rows = int(sqrt(pieces))
-    cols = int(float(pieces) / rows)
-    return rows*cols, rows, cols
-
-def calculate_relative_size (orig_width, orig_height, width, height):
-    """ If any of width or height is -1, the returned width or height will be in the same relative scale as the
-    given part.
-    >>> calculate_relative_size(100, 100, 50, -1)
-    (50, 50)
-    >>> calculate_relative_size(200, 100, -1, 50)
-    (100, 50)
-
-    If both width and height are given, the same values will be returned. If none is given, the orig_* will be returned.
-    >>> calculate_relative_size(200,200,100,150)
-    (100, 150)
-    >>> calculate_relative_size(200,200,-1,-1)
-    (200, 200)
-    """
-    if width < 0:
-        if height >= 0:
-            out_w = int(orig_width * (float(height)/orig_height))
-            out_h = height
-        else:
-            out_w = orig_width
-            out_h = orig_height
-    else:
-        out_w = width
-        if height < 0:
-            out_h = int(orig_height * (float(width)/orig_width))
-        else:
-            out_h = height
-    return out_w, out_h
 
 ###
 # Game Logic
@@ -363,13 +322,15 @@ class SliderPuzzleMap (object):
 class SliderPuzzleWidget (gtk.Table):
     __gsignals__ = {'solved' : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, ())}
     
-    def __init__ (self, pieces=9):
+    def __init__ (self, pieces=9, width=480, height=480):
         self.jumbler = SliderPuzzleMap(pieces, self.jumblermap_piece_move_cb)
         # We take this from the jumbler object because it may have altered our requested value
         self.nr_pieces = self.jumbler.pieces
         gtk.Table.__init__(self, self.jumbler.rowsize, self.jumbler.colsize)
         self.image = gtk.Image()
-        self.randomize()
+        self.width = width
+        self.height = height
+        self.set_size_request(width, height)
 
     def prepare_pieces (self):
         """ set up a list of UI objects that will serve as pieces, ordered correctly """
@@ -411,7 +372,7 @@ class SliderPuzzleWidget (gtk.Table):
         # i is the 1 based index of the piece
         self.jumbler.do_move_piece(i)
 
-    def process_key (self, w, e, o):
+    def process_key (self, w, e):
         k = gtk.gdk.keyval_name(e.keyval)
         if k in up_key:
             self.jumbler.do_move(SLIDE_UP)
@@ -450,17 +411,20 @@ class SliderPuzzleWidget (gtk.Table):
         self.jumbler.randomize()
         self.full_refresh()
 
-    def load_image (self, filename, width=-1, height=-1):
-        """ Loads an image from the file """
+    def load_image (self, filename, width=0, height=0):
+        """ Loads an image from the file.
+        width and height are processed as follows:
+          -1 : follow the loaded image size
+           0 : follow the size set on widget instantiation
+           * : use that specific size"""
+        if width == 0:
+            width = self.width
+        if height == 0:
+            height = self.height
         if width == height == -1:
             self.image.set_from_file(filename)
         else:
-            img = gtk.Image()
-            img.set_from_file(filename)
-            pb = img.get_pixbuf()
-            w,h = calculate_relative_size(pb.get_width(), pb.get_height(), width, height)
-            scaled_pb = pb.scale_simple(w,h, gtk.gdk.INTERP_BILINEAR)
-            self.image.set_from_pixbuf(scaled_pb)
+            self.image.set_from_pixbuf(load_image(filename, width, height))
         self.full_refresh()
 
     def show_image (self):

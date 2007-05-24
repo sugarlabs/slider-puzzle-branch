@@ -27,9 +27,11 @@ import pygtk
 pygtk.require('2.0')
 import gtk, gobject, pango
 
+from utils import load_image
+
 from gettext import gettext as _
 from glob import glob
-from SliderPuzzleWidget import SliderPuzzleWidget, calculate_relative_size
+from SliderPuzzleWidget import SliderPuzzleWidget
 from time import time
 import os
 
@@ -44,7 +46,7 @@ BORDER_ALL = BORDER_VERTICAL | BORDER_HORIZONTAL
 class BorderFrame (gtk.EventBox):
     def __init__ (self, border=BORDER_ALL, size=5, color="#0000FF"):
         gtk.EventBox.__init__(self)
-        self.modify_bg(gtk.STATE_NORMAL, gtk.gdk.color_parse(color))
+        self.set_border_color(gtk.gdk.color_parse(color))
         self.inner = gtk.EventBox()
         align = gtk.Alignment(1.0,1.0,1.0,1.0)
         padding = [0,0,0,0]
@@ -58,34 +60,67 @@ class BorderFrame (gtk.EventBox):
             padding[3] = size
         align.set_padding(*padding)
         align.add(self.inner)
-        #self.inner = align
         gtk.EventBox.add(self, align)
+        self.stack = []
+
+    def set_border_color (self, color):
+        gtk.EventBox.modify_bg(self, gtk.STATE_NORMAL, color)
+
+    def modify_bg (self, state, color):
+        self.inner.modify_bg(state, color)
 
     def add (self, widget):
+        self.stack.append(widget)
         self.inner.add(widget)
 
-    def do_size_request (self, requisition):
-        print requisition.width, requisition.height, self.inner.child
-        gtk.EventBox.do_size_request(self, requisition)
-        self.inner.child.request_resize()
+    def push (self, widget):
+        widget.set_size_request(*self.inner.child.get_size_request())
+        self.inner.remove(self.inner.child)
+        self.add(widget)
+
+    def pop (self):
+        if len(self.stack) > 1:
+            self.inner.remove(self.inner.child)
+            del self.stack[-1]
+            self.inner.add(self.stack[-1])
+
+    def get_allocation (self):
+        return self.inner.get_allocation()
 
 
 class TimerWidget (gtk.HBox):
     def __init__ (self):
         gtk.HBox.__init__(self)
-        self.pack_start(gtk.Label(), True, True, 0)
-        eb = gtk.EventBox()
-        eb.add(gtk.Label(_("Time: ")))
-        self.pack_start(eb, False)
-        eb = gtk.EventBox()
+        spacer = gtk.Label()
+        spacer.set_size_request(20, -1)
+        self.counter = BorderFrame(size=1, color="#4444FF")
+        self.counter.set_size_request(100, -1)
+        self.counter.modify_bg(gtk.STATE_NORMAL, gtk.gdk.color_parse("#DD4040"))
+        hb = gtk.HBox()
+        self.counter.add(hb)
+        self.pack_start(spacer, False)
+        self.pack_start(gtk.Label(_("Time: ")), False)
+        
+        #eb = gtk.EventBox()
+        self.prepare_icons()
+        self.icon = gtk.Image()
+        self.icon.set_from_pixbuf(self.icons[1])
+        hb.pack_start(self.icon, False, False, 5)
         self.time_label = gtk.Label("--:--")
-        eb.add(self.time_label)
-        self.pack_start(eb, False)
-        self.pack_end(gtk.Label(), True, True, 0)
+        hb.pack_end(self.time_label, False, False, 5)
+        self.pack_start(self.counter, False)
         self.connect("button-press-event", self.process_click)
         self.start_time = None
         self.timer_id = None
         self.finished = False
+
+    def prepare_icons (self):
+        self.icons = []
+        self.icons.append(load_image("icons/circle-x.svg"))
+        self.icons.append(load_image("icons/circle-check.svg"))
+
+    def modify_bg(self, state, color):
+        self.foreach(lambda x: x is not self.counter and x.modify_bg(state, color))
 
     def reset (self):
         self.finished = False
@@ -99,6 +134,7 @@ class TimerWidget (gtk.HBox):
     def start (self):
         if self.finished:
             return
+        self.icon.set_from_pixbuf(self.icons[0])
         if self.start_time is None:
             self.start_time = time()
         else:
@@ -108,6 +144,7 @@ class TimerWidget (gtk.HBox):
             self.timer_id = gobject.timeout_add(1000, self.do_tick)
 
     def stop (self, finished=False):
+        self.icon.set_from_pixbuf(self.icons[1])
         if self.timer_id is not None:
             gobject.source_remove(self.timer_id)
             self.timer_id = None
@@ -125,7 +162,7 @@ class TimerWidget (gtk.HBox):
 
     def do_tick (self):
         t = time() - self.start_time
-        self.time_label.set_text("%0.2i:%0.2i" % (t/60, t%60))
+        self.time_label.set_text("%i:%0.2i" % (t/60, t%60))
         return True
 
 class ImageSelectorWidget (gtk.Table):
@@ -149,8 +186,12 @@ class ImageSelectorWidget (gtk.Table):
         self.attach(br, 2,3,1,2)
         self.attach(gtk.Label(),3,4,1,2)
         self.filename = None
+        self.show_all()
+        self.image.set_size_request(width, height)
 
     def next (self, *args, **kwargs):
+        if not len(self.images):
+            return
         if self.filename is None or self.filename not in self.images:
             pos = -1
         else:
@@ -161,6 +202,8 @@ class ImageSelectorWidget (gtk.Table):
         self.load_image(self.images[pos])
 
     def previous (self, *args, **kwargs):
+        if not len(self.images):
+            return
         if self.filename is None or self.filename not in self.images:
             pos = len(self.images)
         else:
@@ -172,36 +215,87 @@ class ImageSelectorWidget (gtk.Table):
 
     def set_image_dir (self, directory):
         self.images = glob(os.path.join(directory, "image_*"))
-        self.load_image(self.images[0])
+        if len(self.images):
+            self.load_image(self.images[0])
+#        else:
+#            self.load_image("activity/activity-sliderpuzzle.svg")
 
     def load_image(self, filename):
         """ Loads an image from the file """
-        img = gtk.Image()
-        img.set_from_file(filename)
-        pb = img.get_pixbuf()
-        w,h = calculate_relative_size(pb.get_width(), pb.get_height(), self.width, self.height)
-        scaled_pb = pb.scale_simple(w,h, gtk.gdk.INTERP_BILINEAR)
-        self.image.set_from_pixbuf(scaled_pb)
-        self.filename = filename
+        self.image.set_from_pixbuf(load_image(filename, self.width, self.height))
+        if len(self.images):
+            self.filename = filename
+
+class CategorySelector (gtk.ScrolledWindow):
+    __gsignals__ = {'selected' : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, (str,))}
+    
+    def __init__ (self, path, title=None):
+        gtk.ScrolledWindow.__init__ (self)
+        self.set_policy(gtk.POLICY_AUTOMATIC, gtk.POLICY_AUTOMATIC)
+
+        self.path = path
+        self.thumbs = []
+        model = self.get_model(path)
+        
+        treeview = gtk.TreeView()
+        col = gtk.TreeViewColumn(title)
+        r1 = gtk.CellRendererPixbuf()
+        r2 = gtk.CellRendererText()
+        col.pack_start(r1, False)
+        col.pack_start(r2, True)
+        col.set_cell_data_func(r1, self.cell_pb)
+        col.set_attributes(r2, text=1)
+        treeview.append_column(col)
+        treeview.set_model(model)
+
+        treeview.connect("cursor-changed", self.do_select)
+        self.add(treeview)
+        self.show_all()
+
+    def cell_pb (self, tvcolumn, cell, model, it):
+        cell.set_property('pixbuf', self.thumbs[model.get_value(it, 2)])
+
+    def get_pb (self, path):
+        thumbs = glob(os.path.join(path, "thumb.*"))
+        thumbs.extend(glob(os.path.join(self.path, "default_thumb.*")))
+        thumbs = filter(lambda x: os.path.exists(x), thumbs)
+        thumbs.append(None)
+        return load_image(thumbs[0], 32,32)
+
+    def get_model (self, path):
+        # Each row is (path/dirname, pretty name, 0 based index)
+        store = gtk.ListStore(str, str, int)
+        files = [os.path.join(path, x) for x in os.listdir(path) if not x.startswith('.')]
+        i = 0
+        for fullpath, prettyname in [(x, _(os.path.basename(x))) for x in files if os.path.isdir(x)]:
+            store.append([fullpath, prettyname, len(self.thumbs)])
+            self.thumbs.append(self.get_pb(fullpath))
+        return store
+
+    def do_select (self, tree, *args, **kwargs):
+        tv, it = tree.get_selection().get_selected()
+        self.emit("selected", tv.get_value(it,0))
 
 class SliderPuzzleUI:
     def __init__(self, parent):
         # Basic window settings
         self.window = parent
-        settings = self.window.get_settings()
-        settings.set_string_property("gtk-font-name", "sans bold 10", "SliderPuzzleUI")
-        self.window.set_title("Slider Puzzle Activity")
+        #settings = self.window.get_settings()
+        #settings.set_string_property("gtk-font-name", "sans bold 10", "SliderPuzzleUI")
+        self.window.set_title(_("Slider Puzzle Activity"))
+
+        bgcolor = gtk.gdk.color_parse("#DDDD40")
 
         # The actual game widget
-        self.game = SliderPuzzleWidget()
+        self.game = SliderPuzzleWidget(9, 480, 480)
         self.game.connect("solved", self.do_solve)
-	self.game.load_image("images/image_XO.svg", 480, 480)
+        self.window.connect("key_press_event",self.game.process_key)
 
         # The image selector with thumbnail
-        self.thumb = ImageSelectorWidget(200)
+        self.thumb = ImageSelectorWidget(200, 200)
         self.thumb.set_image_dir("images")
+        self.thumb.connect("button_press_event", self.do_select_category)
         #self.thumb.load_image("images/image_XO.svg")
-        self.window.connect("key_press_event",self.game.process_key, None)
 
         # Buttons for selecting the number of pieces
         cutter = gtk.VBox()
@@ -223,8 +317,10 @@ class SliderPuzzleUI:
 
         # The bottom left buttons
         buttons_box = BorderFrame(BORDER_TOP)
+        buttons_box.modify_bg(gtk.STATE_NORMAL, bgcolor)
         inner_buttons_box = gtk.VBox(False, 5)
-        btn_add = gtk.Button(_("Add My Own Picture"))
+        inner_buttons_box.set_border_width(10)
+        btn_add = gtk.Button(_("My Own Picture"))
         inner_buttons_box.add(btn_add)
         btn_solve = gtk.Button(_("Solve"))
         btn_solve.connect("clicked", self.do_solve)
@@ -236,19 +332,23 @@ class SliderPuzzleUI:
 
         # The timer widget
         self.timer = TimerWidget()
+        self.timer.modify_bg(gtk.STATE_NORMAL, bgcolor)
+        self.timer.set_border_width(3)
 
         # Everything on the left side of the game widget goes here
+        event_controls_box = gtk.EventBox()
+        event_controls_box.modify_bg(gtk.STATE_NORMAL, bgcolor)
         controls_box = gtk.VBox(False, 5)
-        controls_box.add(self.timer)
+        controls_box.pack_start(self.timer, False, False)
         controls_box.add(thumb_box)
         controls_box.add(buttons_box)
-
+        event_controls_box.add(controls_box)
         # This is the horizontal container that holds everything
         wrapping_box = gtk.HBox()
-        wrapping_box.add(controls_box)
-        game_box = BorderFrame(BORDER_LEFT)
-        game_box.add(self.game)
-        wrapping_box.add(game_box)
+        wrapping_box.add(event_controls_box)
+        self.game_box = BorderFrame(BORDER_LEFT)
+        self.game_box.add(self.game)
+        wrapping_box.add(self.game_box)
         # Put a border around the whole thing
         inner = BorderFrame()
         inner.add(wrapping_box)
@@ -262,31 +362,48 @@ class SliderPuzzleUI:
         try:
             # This fails if testing outside Sugar
             self.window.set_canvas(outter)
-            self.dcntr = 0
-            self.window.connect("activated", do_check_resize)
-            self.window.connect("deactivated", do_check_resize)
         except:
             self.window.add(outter)
-            
+
         self.window.show_all()
-        self.timer.start()
+        self.do_select_category(self)
+        #self.timer.start()
 
     def set_nr_pieces (self, btn, nr_pieces):
-        self.game.load_image(self.thumb.filename)
-        self.game.set_nr_pieces(nr_pieces)
-        self.timer.reset()
+        if self.thumb.filename:
+            if not self.game.get_parent():
+                self.game_box.pop()
+            self.game.load_image(self.thumb.filename)
+            self.game.set_nr_pieces(nr_pieces)
+            self.timer.reset()
 
-    def do_jumble (self, btn):
-        self.game.randomize()
-        self.timer.reset()
+    def do_jumble (self, *args, **kwargs):
+        if self.thumb.filename:
+            if not self.game.get_parent():
+                self.game_box.pop()
+            self.game.load_image(self.thumb.filename)
+            self.game.randomize()
+            self.timer.reset()
 
     def do_solve (self, btn):
-        self.game.show_image()
-        self.timer.stop(True)
+        if self.thumb.filename:
+            if not self.game.get_parent():
+                self.game_box.pop()
+            self.game.show_image()
+            self.timer.stop(True)
 
-    def do_check_resize (self, *args, **kwargs):
-        self.dbg_label.set_text("%i" % self.dcntr)
-        self.dcntr += 1
+    def do_select_category(self, owner, *args, **kwargs):
+        if isinstance(owner, CategorySelector):
+            self.thumb.set_image_dir(args[0])
+            self.game_box.pop()
+        else:
+            if self.game.get_parent():
+                s = CategorySelector("images", _("Select Image Category"))
+                s.connect("selected", self.do_select_category)
+                s.show()
+                self.game_box.push(s)
+            else:
+                self.game_box.pop()
 
 def main():
     win = gtk.Window(gtk.WINDOW_TOPLEVEL)
