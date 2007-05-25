@@ -220,11 +220,19 @@ class ImageSelectorWidget (gtk.Table):
 #        else:
 #            self.load_image("activity/activity-sliderpuzzle.svg")
 
-    def load_image(self, filename):
+    def load_image(self, filename, force_filename=False):
         """ Loads an image from the file """
+        pb = self.image.get_pixbuf()
         self.image.set_from_pixbuf(load_image(filename, self.width, self.height))
-        if len(self.images):
-            self.filename = filename
+        if self.image.get_pixbuf() is not None:
+            if (len(self.images) or force_filename):
+                self.filename = filename
+                if force_filename:
+                    self.images = []
+                return True
+        else:
+            self.image.set_from_pixbuf(pb)
+        return False
 
 class CategorySelector (gtk.ScrolledWindow):
     __gsignals__ = {'selected' : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, (str,))}
@@ -321,6 +329,7 @@ class SliderPuzzleUI:
         inner_buttons_box = gtk.VBox(False, 5)
         inner_buttons_box.set_border_width(10)
         btn_add = gtk.Button(_("My Own Picture"))
+        btn_add.connect("clicked", self.do_add_image)
         inner_buttons_box.add(btn_add)
         btn_solve = gtk.Button(_("Solve"))
         btn_solve.connect("clicked", self.do_solve)
@@ -395,7 +404,7 @@ class SliderPuzzleUI:
     def do_select_category(self, owner, *args, **kwargs):
         if isinstance(owner, CategorySelector):
             self.thumb.set_image_dir(args[0])
-            self.game_box.pop()
+            #self.game_box.pop()
         else:
             if self.game.get_parent():
                 s = CategorySelector("images", _("Select Image Category"))
@@ -404,6 +413,30 @@ class SliderPuzzleUI:
                 self.game_box.push(s)
             else:
                 self.game_box.pop()
+
+    def do_add_image (self, widget, response=None, *args):
+        if response is None:
+            imgfilter = gtk.FileFilter()
+            imgfilter.set_name(_("Image Files"))
+            imgfilter.add_mime_type('image/*')
+            fd = gtk.FileChooserDialog(title=("Select Image File"), parent=self.window, action=gtk.FILE_CHOOSER_ACTION_OPEN,
+                                       buttons=(gtk.STOCK_CANCEL, gtk.RESPONSE_REJECT,gtk.STOCK_OK, gtk.RESPONSE_ACCEPT))
+            fd.set_current_folder(os.path.expanduser("~/"))
+            fd.set_modal(True)
+            fd.add_filter(imgfilter)
+            fd.connect("response", self.do_add_image)
+            fd.show()
+        else:
+            if response == gtk.RESPONSE_ACCEPT:
+                if self.thumb.load_image(widget.get_filename(), True):
+                    self.do_jumble()
+                else:
+                    err = gtk.MessageDialog(self.window, gtk.DIALOG_MODAL, gtk.MESSAGE_ERROR, gtk.BUTTONS_OK,
+                                            _("Not a valid image file"))
+                    err.run()
+                    err.destroy()
+                    return
+            widget.destroy()
 
 def main():
     win = gtk.Window(gtk.WINDOW_TOPLEVEL)

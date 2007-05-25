@@ -373,6 +373,8 @@ class SliderPuzzleWidget (gtk.Table):
         self.jumbler.do_move_piece(i)
 
     def process_key (self, w, e):
+        if self.get_parent() == None:
+            return False
         k = gtk.gdk.keyval_name(e.keyval)
         if k in up_key:
             self.jumbler.do_move(SLIDE_UP)
