@@ -325,7 +325,6 @@ class SliderPuzzleWidget (gtk.Table):
     def __init__ (self, pieces=9, width=480, height=480):
         self.jumbler = SliderPuzzleMap(pieces, self.jumblermap_piece_move_cb)
         # We take this from the jumbler object because it may have altered our requested value
-        self.nr_pieces = self.jumbler.pieces
         gtk.Table.__init__(self, self.jumbler.rowsize, self.jumbler.colsize)
         self.image = gtk.Image()
         self.width = width
@@ -338,7 +337,7 @@ class SliderPuzzleWidget (gtk.Table):
         if self.image is not None:
             pb = self.image.get_pixbuf()
         if self.image is None or pb is None:
-            for i in range(self.nr_pieces):
+            for i in range(self.jumbler.pieces):
                 self.pieces.append(gtk.Button(str(i+1)))
                 self.pieces[-1].connect("button-release-event", self.process_mouse_click, i+1)
                 self.pieces[-1].show()
@@ -402,6 +401,9 @@ class SliderPuzzleWidget (gtk.Table):
             self.emit("solved")
 
     ### Parent callable interface ###
+
+    def get_nr_pieces (self):
+        return self.jumbler.pieces
 
     def set_nr_pieces (self, nr_pieces):
         self.jumbler.reset(nr_pieces)

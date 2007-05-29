@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-05-23 23:14+0100\n"
+"POT-Creation-Date: 2007-05-29 00:36+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,26 +20,134 @@ msgstr ""
 msgid "SliderPuzzle"
 msgstr ""
 
-#: SliderPuzzleUI.py:91
-msgid "Time: "
-msgstr ""
-
-#: SliderPuzzleUI.py:264
-msgid "Slider Puzzle Activity"
-msgstr ""
-
-#: SliderPuzzleUI.py:298
+#: SliderPuzzleUI.py:433
 msgid "My Own Picture"
 msgstr ""
 
-#: SliderPuzzleUI.py:300
+#: SliderPuzzleUI.py:437
 msgid "Solve"
 msgstr ""
 
-#: SliderPuzzleUI.py:303
+#: SliderPuzzleUI.py:441
 msgid "Jumble"
 msgstr ""
 
-#: SliderPuzzleUI.py:369
+#: SliderPuzzleUI.py:450
+msgid "Time: "
+msgstr ""
+
+#: SliderPuzzleUI.py:541
+msgid "Slider Puzzle Activity"
+msgstr ""
+
+#: SliderPuzzleUI.py:580
 msgid "Select Image Category"
+msgstr ""
+
+#: SliderPuzzleUI.py:590
+msgid "Image Files"
+msgstr ""
+
+#: SliderPuzzleUI.py:592
+msgid "Select Image File"
+msgstr ""
+
+#: SliderPuzzleUI.py:605
+msgid "Not a valid image file"
+msgstr ""
+
+#: i18n.py:35
+msgid "Chinese (simplified)"
+msgstr ""
+
+#: i18n.py:36
+msgid "Chinese (traditional)"
+msgstr ""
+
+#: i18n.py:37
+msgid "Czech"
+msgstr ""
+
+#: i18n.py:38
+msgid "Danish"
+msgstr ""
+
+#: i18n.py:39
+msgid "Dutch"
+msgstr ""
+
+#: i18n.py:40
+msgid "English"
+msgstr ""
+
+#: i18n.py:41
+msgid "English - Great Britain"
+msgstr ""
+
+#: i18n.py:42
+msgid "English - U.S."
+msgstr ""
+
+#: i18n.py:43
+msgid "Finnish"
+msgstr ""
+
+#: i18n.py:44
+msgid "French"
+msgstr ""
+
+#: i18n.py:45
+msgid "German"
+msgstr ""
+
+#: i18n.py:46
+msgid "Hungarian"
+msgstr ""
+
+#: i18n.py:47
+msgid "Italian"
+msgstr ""
+
+#: i18n.py:48
+msgid "Japanese"
+msgstr ""
+
+#: i18n.py:49
+msgid "Korean"
+msgstr ""
+
+#: i18n.py:50
+msgid "Norwegian"
+msgstr ""
+
+#: i18n.py:51
+msgid "Polish"
+msgstr ""
+
+#: i18n.py:52
+msgid "Portuguese"
+msgstr ""
+
+#: i18n.py:53
+msgid "Portuguese - Brazilian"
+msgstr ""
+
+#: i18n.py:54
+msgid "Russian"
+msgstr ""
+
+#: i18n.py:55
+msgid "Slovak"
+msgstr ""
+
+#: i18n.py:56
+msgid "Spanish"
+msgstr ""
+
+#: i18n.py:57
+msgid "Swedish"
+msgstr ""
+
+#: i18n.py:58
+msgid "Turkish"
 msgstr ""

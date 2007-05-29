@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-05-23 23:14+0100\n"
+"POT-Creation-Date: 2007-05-29 00:36+0100\n"
 "PO-Revision-Date: 2007-05-23 10:48+0100\n"
 "Last-Translator: Carlos Neves <cn@sueste>\n"
 "Language-Team: Portuguese <info@worldwideworkshop.org>\n"
@@ -21,29 +21,138 @@ msgstr ""
 msgid "SliderPuzzle"
 msgstr ""
 
-#: SliderPuzzleUI.py:91
-msgid "Time: "
-msgstr "Tempo: "
-
-#: SliderPuzzleUI.py:264
-msgid "Slider Puzzle Activity"
-msgstr ""
-
-#: SliderPuzzleUI.py:298
+#: SliderPuzzleUI.py:433
 msgid "My Own Picture"
 msgstr "Minha Imagem"
 
-#: SliderPuzzleUI.py:300
+#: SliderPuzzleUI.py:437
 msgid "Solve"
 msgstr "Resolver"
 
-#: SliderPuzzleUI.py:303
+#: SliderPuzzleUI.py:441
 msgid "Jumble"
 msgstr "Baralhar"
 
-#: SliderPuzzleUI.py:369
+#: SliderPuzzleUI.py:450
+msgid "Time: "
+msgstr "Tempo: "
+
+#: SliderPuzzleUI.py:541
+msgid "Slider Puzzle Activity"
+msgstr ""
+
+#: SliderPuzzleUI.py:580
 msgid "Select Image Category"
 msgstr "Selecciona a Categoria das Imagens"
+
+#: SliderPuzzleUI.py:590
+msgid "Image Files"
+msgstr "Imagens"
+
+#: SliderPuzzleUI.py:592
+#, fuzzy
+msgid "Select Image File"
+msgstr "Selecciona a Categoria das Imagens"
+
+#: SliderPuzzleUI.py:605
+msgid "Not a valid image file"
+msgstr "Imagem inválida"
+
+#: i18n.py:35
+msgid "Chinese (simplified)"
+msgstr "Chinês (simplificado)"
+
+#: i18n.py:36
+msgid "Chinese (traditional)"
+msgstr "Chinês (tradicional)"
+
+#: i18n.py:37
+msgid "Czech"
+msgstr "Checo"
+
+#: i18n.py:38
+msgid "Danish"
+msgstr "Dinamarquês"
+
+#: i18n.py:39
+msgid "Dutch"
+msgstr "Holandês"
+
+#: i18n.py:40
+msgid "English"
+msgstr "Inglês"
+
+#: i18n.py:41
+msgid "English - Great Britain"
+msgstr "Inglês - Reino Unido"
+
+#: i18n.py:42
+msgid "English - U.S."
+msgstr "Inglês - E.U.A."
+
+#: i18n.py:43
+msgid "Finnish"
+msgstr "Filandês"
+
+#: i18n.py:44
+msgid "French"
+msgstr "Francês"
+
+#: i18n.py:45
+msgid "German"
+msgstr "Alemão"
+
+#: i18n.py:46
+msgid "Hungarian"
+msgstr "Hungaro"
+
+#: i18n.py:47
+msgid "Italian"
+msgstr "Italiano"
+
+#: i18n.py:48
+msgid "Japanese"
+msgstr "Japonês"
+
+#: i18n.py:49
+msgid "Korean"
+msgstr "Coreano"
+
+#: i18n.py:50
+msgid "Norwegian"
+msgstr "Norueguês"
+
+#: i18n.py:51
+msgid "Polish"
+msgstr "Polaco"
+
+#: i18n.py:52
+msgid "Portuguese"
+msgstr "Português"
+
+#: i18n.py:53
+msgid "Portuguese - Brazilian"
+msgstr "Portugês - Brasil"
+
+#: i18n.py:54
+msgid "Russian"
+msgstr "Russo"
+
+#: i18n.py:55
+msgid "Slovak"
+msgstr "Eslovaco"
+
+#: i18n.py:56
+msgid "Spanish"
+msgstr "Espanhol"
+
+#: i18n.py:57
+msgid "Swedish"
+msgstr "Sueco"
+
+#: i18n.py:58
+msgid "Turkish"
+msgstr "Turco"
 
 msgid "jumbler starter pics"
 msgstr "Imagens iniciais do Jumbler"
