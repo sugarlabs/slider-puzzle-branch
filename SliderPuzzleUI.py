@@ -301,6 +301,9 @@ class ImageSelectorWidget (gtk.Table):
     def previous (self, *args, **kwargs):
         self.image.set_from_pixbuf(self.category.get_previous_image())
 
+    def get_image_dir (self):
+        return self.category.path
+
     def set_image_dir (self, directory):
         self.category = CategoryDirectory(directory, self.width, self.height)
         self.cat_thumb.set_from_pixbuf(self.category.thumb)
@@ -317,13 +320,14 @@ class ImageSelectorWidget (gtk.Table):
 class CategorySelector (gtk.ScrolledWindow):
     __gsignals__ = {'selected' : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, (str,))}
     
-    def __init__ (self, path, title=None):
+    def __init__ (self, path, title=None, selected_category_path=None):
         gtk.ScrolledWindow.__init__ (self)
         self.set_policy(gtk.POLICY_AUTOMATIC, gtk.POLICY_AUTOMATIC)
 
         self.path = path
         self.thumbs = []
-        model = self.get_model(path)
+        model, selected = self.get_model(path, selected_category_path)
+        self.ignore_first = selected is not None
         
         self.treeview = gtk.TreeView()
         col = gtk.TreeViewColumn(title)
@@ -336,9 +340,11 @@ class CategorySelector (gtk.ScrolledWindow):
         self.treeview.append_column(col)
         self.treeview.set_model(model)
 
-        self.treeview.connect("cursor-changed", self.do_select)
         self.add(self.treeview)
         self.show_all()
+        if selected is not None:
+            self.treeview.get_selection().select_path(selected)
+        self.treeview.connect("cursor-changed", self.do_select)
 
     def grab_focus (self):
         self.treeview.grab_focus()
@@ -354,19 +360,24 @@ class CategorySelector (gtk.ScrolledWindow):
         thumbs.append(None)
         return load_image(thumbs[0], 32,32)
 
-    def get_model (self, path):
+    def get_model (self, path, selected_path):
         # Each row is (path/dirname, pretty name, 0 based index)
+        selected = None
         store = gtk.ListStore(str, str, int)
         files = [os.path.join(path, x) for x in os.listdir(path) if not x.startswith('.')]
-        i = 0
         for fullpath, prettyname in [(x, _(os.path.basename(x))) for x in files if os.path.isdir(x)]:
             store.append([fullpath, prettyname, len(self.thumbs)])
             self.thumbs.append(self.get_pb(fullpath))
-        return store
+            if selected_path == fullpath:
+                selected = (len(self.thumbs)-1,)
+        return store, selected
 
     def do_select (self, tree, *args, **kwargs):
-        tv, it = tree.get_selection().get_selected()
-        self.emit("selected", tv.get_value(it,0))
+        if self.ignore_first:
+            self.ignore_first = False
+        else:
+            tv, it = tree.get_selection().get_selected()
+            self.emit("selected", tv.get_value(it,0))
 
 class SliderPuzzleUI:
     def __init__(self, parent):
@@ -404,14 +415,15 @@ class SliderPuzzleUI:
 
         # Buttons for selecting the number of pieces
         cutter = gtk.VBox()
-        self.btn_9 = gtk.Button("9")
+        self.btn_9 = gtk.ToggleButton("9")
         self.btn_9.set_size_request(50,-1)
+        self.btn_9.set_active(True)
         self.btn_9.connect("clicked", self.set_nr_pieces, 9)
         cutter.add(self.btn_9)
-        self.btn_12 = gtk.Button("12")
+        self.btn_12 = gtk.ToggleButton("12")
         self.btn_12.connect("clicked", self.set_nr_pieces, 12)
         cutter.add(self.btn_12)
-        self.btn_16 = gtk.Button("16")
+        self.btn_16 = gtk.ToggleButton("16")
         self.btn_16.connect("clicked", self.set_nr_pieces, 16)
         cutter.add(self.btn_16)
 
@@ -483,7 +495,7 @@ class SliderPuzzleUI:
             self.do_select_language(self.tb_lang_select)
         else:
             _ = gettext.gettext
-            self.refresh_labels()
+            self.refresh_labels(True)
         #self.timer.start()
 
 
@@ -528,16 +540,23 @@ class SliderPuzzleUI:
                 combo.set_active(0)
         self.refresh_labels()
 
-    def refresh_labels (self):
+    def refresh_labels (self, first_time=False):
         logging.debug(str(_))
         self.window.set_title(_("Slider Puzzle Activity"))
         for lbl in self.labels_to_translate:
             lbl[0].set_label(_(lbl[1]))
-        if not self.game.get_parent():
+        if not self.game.get_parent() and not first_time:
             self.game_box.pop()
             self.do_select_category(self)
 
     def set_nr_pieces (self, btn, nr_pieces=None):
+        if isinstance(btn, gtk.ToggleButton):
+            print nr_pieces, btn.get_active()
+            if not btn.get_active():
+                print nr_pieces, self.game.get_nr_pieces()
+                if nr_pieces == self.game.get_nr_pieces():
+                    btn.set_active(True)
+                return
         if nr_pieces is None:
             nr_pieces = self.game.get_nr_pieces()
         if self.thumb.has_image():
@@ -546,6 +565,10 @@ class SliderPuzzleUI:
             self.game.load_image(self.thumb.get_filename())
             self.game.set_nr_pieces(nr_pieces)
             self.timer.reset()
+        if isinstance(btn, gtk.ToggleButton):
+            for b in (self.btn_9, self.btn_12, self.btn_16):
+                if b is not btn:
+                    b.set_active(False)
 
     def do_jumble (self, *args, **kwargs):
         if self.thumb.has_image():
@@ -568,7 +591,7 @@ class SliderPuzzleUI:
             #self.game_box.pop()
         else:
             if self.game.get_parent():
-                s = CategorySelector("images", _("Select Image Category"))
+                s = CategorySelector("images", _("Select Image Category"), self.thumb.get_image_dir())
                 s.connect("selected", self.do_select_category)
                 s.show()
                 self.game_box.push(s)
