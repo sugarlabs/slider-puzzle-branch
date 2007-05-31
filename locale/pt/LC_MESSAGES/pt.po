@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-05-29 00:36+0100\n"
+"POT-Creation-Date: 2007-05-31 00:30+0100\n"
 "PO-Revision-Date: 2007-05-23 10:48+0100\n"
 "Last-Translator: Carlos Neves <cn@sueste>\n"
 "Language-Team: Portuguese <info@worldwideworkshop.org>\n"
@@ -21,40 +21,44 @@ msgstr ""
 msgid "SliderPuzzle"
 msgstr ""
 
-#: SliderPuzzleUI.py:433
+#: SliderPuzzleUI.py:402
+msgid "Slider Puzzle Toolbar"
+msgstr ""
+
+#: SliderPuzzleUI.py:450
 msgid "My Own Picture"
 msgstr "Minha Imagem"
 
-#: SliderPuzzleUI.py:437
+#: SliderPuzzleUI.py:454
 msgid "Solve"
 msgstr "Resolver"
 
-#: SliderPuzzleUI.py:441
+#: SliderPuzzleUI.py:458
 msgid "Jumble"
 msgstr "Baralhar"
 
-#: SliderPuzzleUI.py:450
+#: SliderPuzzleUI.py:467
 msgid "Time: "
 msgstr "Tempo: "
 
-#: SliderPuzzleUI.py:541
+#: SliderPuzzleUI.py:517
 msgid "Slider Puzzle Activity"
 msgstr ""
 
-#: SliderPuzzleUI.py:580
+#: SliderPuzzleUI.py:566
 msgid "Select Image Category"
 msgstr "Selecciona a Categoria das Imagens"
 
-#: SliderPuzzleUI.py:590
+#: SliderPuzzleUI.py:577
 msgid "Image Files"
 msgstr "Imagens"
 
-#: SliderPuzzleUI.py:592
+#: SliderPuzzleUI.py:579
 #, fuzzy
 msgid "Select Image File"
 msgstr "Selecciona a Categoria das Imagens"
 
-#: SliderPuzzleUI.py:605
+#: SliderPuzzleUI.py:592
 msgid "Not a valid image file"
 msgstr "Imagem inválida"
 
@@ -153,6 +157,14 @@ msgstr "Sueco"
 #: i18n.py:58
 msgid "Turkish"
 msgstr "Turco"
+
+#: toolbar.py:74
+msgid "Lesson Plan"
+msgstr "Plano de Ensino"
+
+#: toolbar.py:79
+msgid "Dismiss"
+msgstr "Fechar"
 
 msgid "jumbler starter pics"
 msgstr "Imagens iniciais do Jumbler"

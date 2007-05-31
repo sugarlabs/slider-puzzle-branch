@@ -3,6 +3,7 @@ SliderPuzzleUI.py
 SliderPuzzleWidget.py
 i18n.py
 utils.py
+toolbar.py
 icons/brazil.png
 icons/china.svg
 icons/circle-check.svg
@@ -82,3 +83,5 @@ images/jumbler starter pics/image_wpwa_h250_w250_lg.gif
 images/jumbler starter pics/image_xxmrtwigxx_lg.gif
 images/jumbler starter pics/thumb.gif
 locale/pt/LC_MESSAGES/pt.po
+texts/lesson_plan.abw
+texts/lesson_plan_pt.abw

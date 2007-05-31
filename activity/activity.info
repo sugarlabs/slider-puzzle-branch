@@ -3,5 +3,5 @@ name = Slider Puzzle
 service_name = org.worldwideworkshop.olpc.SliderPuzzle
 class = SliderPuzzleActivity.SliderPuzzleActivity
 icon = activity-sliderpuzzle
-activity_version = 0
+activity_version = 1
 show_launcher = yes

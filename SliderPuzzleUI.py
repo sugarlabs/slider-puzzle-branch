@@ -28,18 +28,16 @@ pygtk.require('2.0')
 import gtk, gobject, pango
 
 from utils import load_image
-from i18n import list_available_translations
+from toolbar import SliderToolbar
 
 import logging
-import gettext
-import locale
 from glob import glob
 from SliderPuzzleWidget import SliderPuzzleWidget
 from time import time
 import os
 
 try:
-    from sugar.graphics.combobox import ComboBox
+    from sugar.activity import activity
     from sugar.graphics import units
     _inside_sugar = True
 except:
@@ -379,6 +377,11 @@ class CategorySelector (gtk.ScrolledWindow):
             tv, it = tree.get_selection().get_selected()
             self.emit("selected", tv.get_value(it,0))
 
+#class PopupDialog (gtk.Dialog):
+#    def __init__ (self, title=None, parent=None):
+#        gtk.Dialog.__init__(self, title, parent, 
+#        
+
 class SliderPuzzleUI:
     def __init__(self, parent):
         # Add our own icons here, needed for the translation flags
@@ -394,8 +397,14 @@ class SliderPuzzleUI:
         self.window = parent
 
         if _inside_sugar:
-            self.update_toolbar()
+            toolbox = activity.ActivityToolbox(parent)
+            toolbar = SliderToolbar()
+            toolbox.add_toolbar(_('Slider Puzzle Toolbar'), toolbar)
+            toolbar.show()
+            parent.set_toolbox(toolbox)
+            toolbox.show()
         else:
+            import gettext
             gettext.bindtextdomain('org.worldwideworkshop.olpc.SliderPuzzle', 'locale')
             gettext.textdomain('org.worldwideworkshop.olpc.SliderPuzzle')
         bgcolor = gtk.gdk.color_parse("#DDDD40")
@@ -492,52 +501,15 @@ class SliderPuzzleUI:
         # Push the gettext translator into the global namespace
         del _
         if _inside_sugar:
-            self.do_select_language(self.tb_lang_select)
+            toolbar.set_language_callback(self.do_select_language)
+            #self.do_select_language(self.tb_lang_select)
+            pass
         else:
             _ = gettext.gettext
             self.refresh_labels(True)
         #self.timer.start()
 
-
-    def update_toolbar (self):
-        """ This method lists all available translations in a ComboBox widget.
-        The first translation is English, for that is the 'no translation' language in the code."""
-        self.translations = list_available_translations()
-        logging.debug(self.translations)
-        self.tb_lang_select = ComboBox()
-        for i,x in enumerate(self.translations):
-            self.tb_lang_select.append_item(i+1,gettext.gettext(x.name), x.image)
-        self.tb_lang_select.connect('changed', self.do_select_language)
-        # Attach the ComboBox to Sugar activity default toolbar
-        toolbox = self.window.toolbox
-        toolbar = toolbox.get_activity_toolbar()
-        tool_item = gtk.ToolItem()
-        tool_item.set_expand(False)
-        tool_item.add(self.tb_lang_select)
-        self.tb_lang_select.show()
-        toolbar.insert(tool_item, 2)
-        tool_item.show()
-        self.tb_lang_select._icon_renderer.props.stock_size = 3
-
     def do_select_language (self, combo, *args):
-        if combo.get_active() > -1:
-            self.translations[combo.get_active()].install()
-        else:
-            code, encoding = locale.getdefaultlocale()
-            # Try to find the exact translation
-            for i,t in enumerate(self.translations):
-                if t.matches(code):
-                    combo.set_active(i)
-                    break
-            if combo.get_active() < 0:
-                # Failed, try to get the translation based only in the country
-                for i,t in enumerate(self.translations):
-                    if t.matches(code, False):
-                        combo.set_active(i)
-                        break
-            if combo.get_active() < 0:
-                # nothing found, select first translation
-                combo.set_active(0)
         self.refresh_labels()
 
     def refresh_labels (self, first_time=False):

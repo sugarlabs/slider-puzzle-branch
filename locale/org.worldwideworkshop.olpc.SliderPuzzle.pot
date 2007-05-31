@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-05-29 00:36+0100\n"
+"POT-Creation-Date: 2007-05-31 00:30+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,39 +20,43 @@ msgstr ""
 msgid "SliderPuzzle"
 msgstr ""
 
-#: SliderPuzzleUI.py:433
-msgid "My Own Picture"
-msgstr ""
-
-#: SliderPuzzleUI.py:437
-msgid "Solve"
-msgstr ""
-
-#: SliderPuzzleUI.py:441
-msgid "Jumble"
+#: SliderPuzzleUI.py:402
+msgid "Slider Puzzle Toolbar"
 msgstr ""
 
 #: SliderPuzzleUI.py:450
+msgid "My Own Picture"
+msgstr ""
+
+#: SliderPuzzleUI.py:454
+msgid "Solve"
+msgstr ""
+
+#: SliderPuzzleUI.py:458
+msgid "Jumble"
+msgstr ""
+
+#: SliderPuzzleUI.py:467
 msgid "Time: "
 msgstr ""
 
-#: SliderPuzzleUI.py:541
+#: SliderPuzzleUI.py:517
 msgid "Slider Puzzle Activity"
 msgstr ""
 
-#: SliderPuzzleUI.py:580
+#: SliderPuzzleUI.py:566
 msgid "Select Image Category"
 msgstr ""
 
-#: SliderPuzzleUI.py:590
+#: SliderPuzzleUI.py:577
 msgid "Image Files"
 msgstr ""
 
-#: SliderPuzzleUI.py:592
+#: SliderPuzzleUI.py:579
 msgid "Select Image File"
 msgstr ""
 
-#: SliderPuzzleUI.py:605
+#: SliderPuzzleUI.py:592
 msgid "Not a valid image file"
 msgstr ""
 
@@ -150,4 +154,12 @@ msgstr ""
 
 #: i18n.py:58
 msgid "Turkish"
+msgstr ""
+
+#: toolbar.py:74
+msgid "Lesson Plan"
+msgstr ""
+
+#: toolbar.py:79
+msgid "Dismiss"
 msgstr ""
