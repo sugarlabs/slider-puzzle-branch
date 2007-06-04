@@ -137,3 +137,20 @@ def load_image (filename, width=-1, height=-1, method=RESIZE_CUT):
         # now we cut whatever is left to make the requested size
         scaled_pb = scaled_pb.subpixbuf(abs((width-w)/2),abs((height-h)/2), width, height)
     return scaled_pb
+
+def scale_images(img_dir, outdir):
+    import os
+    images = os.listdir(img_dir)
+    for img_name in [x for x in images if x.startswith('image_')]:
+        try:
+            img = load_image(os.path.join(img_dir, img_name), 480, 480)
+            h_p = img_name.rfind('_h')
+            if h_p == -1:
+                h_p = img_name.rfind('_w')
+            if h_p == -1:
+                h_p = img_name.rfind('_lg')
+            name = img_name[:h_p]
+            img.save(os.path.join(outdir, name+'.png'), 'png', {'compression':'9'})
+            img.save(os.path.join(outdir, name+'.jpg'), 'jpeg', {'quality':'75'})
+        except:
+            raise

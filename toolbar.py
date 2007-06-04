@@ -39,8 +39,7 @@ class LanguageComboBox (ComboBox):
         ComboBox.__init__(self)
         self.translations = list_available_translations()
         for i,x in enumerate(self.translations):
-            self.append_item(i+1,gettext.gettext(x.name), x.image)
-        self._icon_renderer.props.stock_size = 3
+            self.append_item(i+1,gettext.gettext(x.name))
         self.connect('changed', self.install)
 
     def install (self, *args):
