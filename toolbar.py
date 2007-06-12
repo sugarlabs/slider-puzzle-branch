@@ -21,6 +21,8 @@
 ### author: Carlos Neves (cn (at) sueste.net)
 ### (c) 2007 World Wide Workshop Foundation
 
+raise RuntimeError('not to be used for now')
+
 import gtk
 import gettext
 import locale

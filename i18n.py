@@ -1,5 +1,4 @@
-﻿#!/usr/bin/env python
-
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 # This program is free software; you can redistribute it and/or modify
@@ -146,3 +145,17 @@ class LanguageComboBox (gtk.ComboBox):
                 self.set_active(0)
         # Allow for other callbacks
         return False
+
+###
+def gather_other_translations ():
+    from glob import glob
+    entries = filter(lambda x: os.path.isdir(x), glob('images/*'))
+    entries.extend(filter(lambda x: os.path.isdir(x), glob('lessons/*')))
+    entries = map(lambda x: os.path.basename(x), entries)
+    f = file('i18n_misc_strings', 'w')
+    for e in entries:
+        f.write('_("%s")\n' % e)
+    f.close()
+
+if __name__ == '__main__':
+    gather_other_translations()

@@ -97,6 +97,12 @@ class MatrixPosition (object):
 
     def clone (self):
         return MatrixPosition(self.rowsize, self.colsize, self.x, self.y)
+
+    def _freeze (self):
+        return (self.rowsize, self.colsize, self.x, self.y)
+
+    def _thaw (self, obj):
+        self.rowsize, self.colsize, self.x, self.y = obj
         
 
 class SliderPuzzleMap (object):
@@ -314,6 +320,13 @@ class SliderPuzzleMap (object):
     def __call__ (self):
         self.debug_map()
 
+    def _freeze (self):
+        return (self.pieces_map, self.hole_pos._freeze())
+
+    def _thaw (self, obj):
+        self.pieces_map = obj[0]
+        self.hole_pos._thaw(obj[1])
+
 
 ###
 # Widget Definition
@@ -441,6 +454,15 @@ class SliderPuzzleWidget (gtk.Table):
         self.resize(1,1)
         self.attach(self.image, 0,1,0,1)
         self.image.show()
+
+    def _freeze (self):
+        """ returns a json writable object representation capable of being used to restore our current status """
+        return self.jumbler._freeze()
+
+    def _thaw (self, obj):
+        """ retrieves a frozen status from a python object, as per _freeze """
+        self.jumbler._thaw(obj)
+        self.full_refresh()
 
 def _test():
     import doctest

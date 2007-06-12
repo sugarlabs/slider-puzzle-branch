@@ -2,86 +2,70 @@ SliderPuzzleActivity.py
 SliderPuzzleUI.py
 SliderPuzzleWidget.py
 i18n.py
+i18n_misc_strings.py
 utils.py
-toolbar.py
-icons/brazil.png
-icons/china.svg
+json.py
 icons/circle-check.svg
 icons/circle-x.svg
-icons/czech_republic.svg
-icons/denmark.svg
-icons/finland.svg
-icons/france.svg
-icons/germany.svg
-icons/hungary.svg
-icons/italy.svg
-icons/japan.svg
-icons/netherlands.svg
-icons/norway.svg
-icons/poland.svg
-icons/portugal.png
-icons/russian_federation.svg
-icons/slovenia.svg
-icons/spain.png
-icons/sweden.svg
-icons/turkey.svg
-icons/united_kingdom.svg
-icons/united_states.png
+icons/logo.png
+images/Sea Life/image_dan_h250_w424_lg.gif
+images/Sea Life/image_atlo_h250_w333_lg.gif
+images/Sea Life/image_col_h250_w333_lg.gif
+images/Sea Life/image_joc_h250_w333_lg.gif
+images/Sea Life/image_xxmrtwigxx_lg.gif
+images/Sea Life/image_higc_h250_w250_lg.gif
+images/Sea Life/image_clor_h250_w250_lg.gif
+images/Sea Life/image_fsuw_h250_w250_lg.gif
+images/Sea Life/image_tsoc_h250_w421_lg.gif
+images/Sea Life/image_sxykitton_lg.gif
+images/Sea Life/image_cal_h250_w165_lg.gif
+images/Sea Life/image_kitty_lg.gif
+images/Sea Life/thumb.gif
+images/Sea Life/image_btfi_h250_w331_lg.gif
+images/Animals/image_mdic_h250_w250_lg.gif
+images/Animals/image_mdwl_h250_w250_lg.gif
+images/Animals/image_justi_h250_w333_lg.gif
+images/Animals/image_chmk_h250_w250_lg.gif
+images/Animals/image_howl_h250_w250_lg.gif
+images/Animals/image_mrfg_h250_w333_lg.gif
+images/Animals/image_hsnr_h250_w421_lg.gif
+images/Animals/image_kili_h250_w387_lg.gif
+images/Animals/image_djstf_h250_w411_lg.gif
+images/Animals/image_lehf_h250_w250_lg.gif
+images/Animals/image_drti_h250_w322_lg.gif
+images/Animals/thumb.gif
+images/Animals/image_nimo_h250_w299_lg.gif
+images/Animals/image_skat_h250_w363_lg.gif
+images/Birds/image_mbmg_h250_w250_lg.gif
+images/Birds/image_oitn_h250_w250_lg.gif
+images/Birds/image_s1macaw_lg.gif
+images/Birds/thumb.gif
+images/Sports/image_czvb_h250_w250_lg.gif
+images/Sports/image_skst_h250_w253_lg.gif
+images/Sports/image_sdkc_h250_w250_lg.gif
+images/Sports/image_bbof_h250_w250_lg.gif
+images/Sports/thumb.gif
+images/Sports/image_jppr_h250_w403_lg.gif
+images/Insects/image_evms_h250_w320_lg.gif
+images/Insects/image_bgim_h250_w250_lg.gif
+images/Insects/image_slls_h250_w333_lg.gif
+images/Insects/image_bbhs_h250_w250_lg.gif
+images/Insects/thumb.gif
+images/Insects/image_bmar_h250_w230_lg.gif
+images/Insects/image_atih_h250_w250_lg.gif
+images/Music/image_tbtn_h250_w365_lg.gif
+images/Music/image_2kgl_h250_w250_lg.gif
+images/Music/image_devin_music_w333_lg.gif
+images/Music/image_weird_h250_w384_lg.gif
+images/Music/image_wpwa_h250_w250_lg.gif
+images/Music/thumb.gif
+images/Space/image_esim_h250_w250_lg.gif
+images/Space/image_tral_h250_w404_lg.gif
+images/Space/thumb.gif
+images/Space/image_aisc_h250_w313_lg.gif
 images/default_thumb.svg
-images/XO's/image_XO.svg
-images/XO's/image_XO2.svg
-images/XO's/image_XO3.svg
-images/XO's/thumb.svg
-images/jumbler starter pics/image_2kgl_h250_w250_lg.gif
-images/jumbler starter pics/image_aisc_h250_w313_lg.gif
-images/jumbler starter pics/image_atih_h250_w250_lg.gif
-images/jumbler starter pics/image_atlo_h250_w333_lg.gif
-images/jumbler starter pics/image_bbhs_h250_w250_lg.gif
-images/jumbler starter pics/image_bbof_h250_w250_lg.gif
-images/jumbler starter pics/image_bgim_h250_w250_lg.gif
-images/jumbler starter pics/image_bmar_h250_w230_lg.gif
-images/jumbler starter pics/image_btfi_h250_w331_lg.gif
-images/jumbler starter pics/image_cal_h250_w165_lg.gif
-images/jumbler starter pics/image_chmk_h250_w250_lg.gif
-images/jumbler starter pics/image_clor_h250_w250_lg.gif
-images/jumbler starter pics/image_col_h250_w333_lg.gif
-images/jumbler starter pics/image_czvb_h250_w250_lg.gif
-images/jumbler starter pics/image_dan_h250_w424_lg.gif
-images/jumbler starter pics/image_devin_music_w333_lg.gif
-images/jumbler starter pics/image_djstf_h250_w411_lg.gif
-images/jumbler starter pics/image_drti_h250_w322_lg.gif
-images/jumbler starter pics/image_esim_h250_w250_lg.gif
-images/jumbler starter pics/image_evms_h250_w320_lg.gif
-images/jumbler starter pics/image_fsuw_h250_w250_lg.gif
-images/jumbler starter pics/image_higc_h250_w250_lg.gif
-images/jumbler starter pics/image_howl_h250_w250_lg.gif
-images/jumbler starter pics/image_hsnr_h250_w421_lg.gif
-images/jumbler starter pics/image_joc_h250_w333_lg.gif
-images/jumbler starter pics/image_jppr_h250_w403_lg.gif
-images/jumbler starter pics/image_justi_h250_w333_lg.gif
-images/jumbler starter pics/image_kili_h250_w387_lg.gif
-images/jumbler starter pics/image_kitty_lg.gif
-images/jumbler starter pics/image_lehf_h250_w250_lg.gif
-images/jumbler starter pics/image_mbmg_h250_w250_lg.gif
-images/jumbler starter pics/image_mdic_h250_w250_lg.gif
-images/jumbler starter pics/image_mdwl_h250_w250_lg.gif
-images/jumbler starter pics/image_mrfg_h250_w333_lg.gif
-images/jumbler starter pics/image_nimo_h250_w299_lg.gif
-images/jumbler starter pics/image_oitn_h250_w250_lg.gif
-images/jumbler starter pics/image_s1macaw_lg.gif
-images/jumbler starter pics/image_sdkc_h250_w250_lg.gif
-images/jumbler starter pics/image_skat_h250_w363_lg.gif
-images/jumbler starter pics/image_skst_h250_w253_lg.gif
-images/jumbler starter pics/image_slls_h250_w333_lg.gif
-images/jumbler starter pics/image_smrr_h250_w371_lg.gif
-images/jumbler starter pics/image_sxykitton_lg.gif
-images/jumbler starter pics/image_tbtn_h250_w365_lg.gif
-images/jumbler starter pics/image_tral_h250_w404_lg.gif
-images/jumbler starter pics/image_tsoc_h250_w421_lg.gif
-images/jumbler starter pics/image_weird_h250_w384_lg.gif
-images/jumbler starter pics/image_wpwa_h250_w250_lg.gif
-images/jumbler starter pics/image_xxmrtwigxx_lg.gif
-images/jumbler starter pics/thumb.gif
 locale/pt/LC_MESSAGES/pt.po
-texts/lesson_plan.abw
-texts/lesson_plan_pt.abw
+lessons/Lesson 1/default.abw
+lessons/Lesson 2/default.abw
+lessons/Lesson 3/default.abw
+lessons/Lesson 4/default.abw
