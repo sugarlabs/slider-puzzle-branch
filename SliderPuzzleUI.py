@@ -60,6 +60,10 @@ BORDER_ALL_BUT_LEFT = BORDER_VERTICAL | BORDER_RIGHT
 
 SLICE_BTN_WIDTH = 50
 
+THUMB_SIZE = 48
+GAME_SIZE = 520
+
+MYOWNPIC_FOLDER = os.path.expanduser("~/.sugar/default/org.worldwideworkshop.olpc.SliderPuzzle.MyOwnPictures")
 # Colors from Rich's UI design
 
 COLOR_FRAME_OUTER = "#B7B7B7"
@@ -252,7 +256,7 @@ class CategoryDirectory (object):
             self.gather_images()
         else:
             self.images = [path]
-        self.set_thumb_size(32, 32)
+        self.set_thumb_size(THUMB_SIZE, THUMB_SIZE)
         self.set_image_size(width, height)
         self.filename = None
         self.name = os.path.basename(path)
@@ -323,7 +327,7 @@ class CategoryDirectory (object):
     def _get_category_thumb (self):
         if os.path.isdir(self.path):
             thumbs = glob(os.path.join(self.path, "thumb.*"))
-            thumbs.extend(glob(os.path.join(self.path, os.path.join("..", "default_thumb.*"))))
+            thumbs.extend(glob("images/default_thumb.*"))
             thumbs = filter(lambda x: os.path.exists(x), thumbs)
             thumbs.append(None)
         else:
@@ -348,19 +352,25 @@ class ImageSelectorWidget (gtk.Table):
         self.attach(img_box, 0,5,0,1,0,0)
         self.attach(gtk.Label(), 0,1,1,2)
         bl = gtk.Button()
-        bl.add(gtk.Arrow(gtk.ARROW_LEFT, gtk.SHADOW_IN))
+
+        il = gtk.Image()
+        il.set_from_pixbuf(load_image('icons/arrow_left.png'))
+        bl.set_image(il)
+
         bl.connect('clicked', self.previous)
         self.attach(prepare_btn(bl), 1,2,1,2,0,0)
 
         cteb = gtk.EventBox()
         self.cat_thumb = gtk.Image()
-        self.cat_thumb.set_size_request(32,32)
+        self.cat_thumb.set_size_request(THUMB_SIZE, THUMB_SIZE)
         cteb.add(self.cat_thumb)
         cteb.connect('button_press_event', self.emit_cat_pressed)
         self.attach(cteb, 2,3,1,2,0,0,xpadding=10)
         
         br = gtk.Button()
-        br.add(gtk.Arrow(gtk.ARROW_RIGHT, gtk.SHADOW_IN))
+        ir = gtk.Image()
+        ir.set_from_pixbuf(load_image('icons/arrow_right.png'))
+        br.set_image(ir)
         br.connect('clicked', self.next)
         self.attach(prepare_btn(br), 3,4,1,2,0,0)
         self.attach(gtk.Label(),4,5,1,2)
@@ -474,7 +484,7 @@ class CategorySelector (gtk.ScrolledWindow):
         thumbs.extend(glob(os.path.join(self.path, "default_thumb.*")))
         thumbs = filter(lambda x: os.path.exists(x), thumbs)
         thumbs.append(None)
-        return load_image(thumbs[0], 32,32)
+        return load_image(thumbs[0], THUMB_SIZE, THUMB_SIZE)
 
     def get_model (self, path, selected_path):
         # Each row is (path/dirname, pretty name, 0 based index)
@@ -486,6 +496,11 @@ class CategorySelector (gtk.ScrolledWindow):
             count = CategoryDirectory(fullpath).count_images()
             store.append([fullpath, prettyname + (" (%i)" % count), len(self.thumbs)])
             self.thumbs.append(self.get_pb(fullpath))
+        if os.path.isdir(MYOWNPIC_FOLDER):
+            count = CategoryDirectory(MYOWNPIC_FOLDER).count_images()
+            store.append([MYOWNPIC_FOLDER, _("My Own Pictures") + (" (%i)" % count), len(self.thumbs)])
+            self.thumbs.append(self.get_pb(MYOWNPIC_FOLDER))
+
         i = store.get_iter_first()
         while i:
             if selected_path == store.get_value(i, 0):
@@ -590,7 +605,7 @@ class SliderPuzzleUI (gtk.Table):
         # The image selector with thumbnail
         self.thumb = ImageSelectorWidget(180, 180, frame_color=COLOR_FRAME_THUMB)
         self.thumb.set_image_dir("images")
-        self.thumb.set_myownpath("images/My Own Pictures")
+        self.thumb.set_myownpath(MYOWNPIC_FOLDER)
         self.thumb.connect("category_press", self.do_select_category)
         self.thumb.connect("image_press", self.set_nr_pieces, None)
         controls_area_1_box.pack_start(self.thumb, False)
@@ -632,7 +647,7 @@ class SliderPuzzleUI (gtk.Table):
         inner_table.attach(controls_area_2, 0,1,1,2)
 
         # The actual game widget
-        self.game = SliderPuzzleWidget(9, 500, 500)
+        self.game = SliderPuzzleWidget(9, GAME_SIZE, GAME_SIZE)
         self.game.show()
         self.game.connect("solved", self.do_solve)
         self._parent.connect("key_press_event",self.game.process_key)
@@ -688,10 +703,10 @@ class SliderPuzzleUI (gtk.Table):
                 lbl[0].set_label(_(lbl[1]))
         if not self.game.get_parent() and not first_time:
             self.game_box.pop()
-            if isinstance(self.get_box.get_child(), LessonPlanWidget):
-                m = do_lesson_plan
+            if isinstance(self.game_box.get_child(), LessonPlanWidget):
+                m = self.do_lesson_plan
             else:
-                m = do_select_category
+                m = self.do_select_category
             m(self)
 
     def set_nr_pieces (self, btn, nr_pieces=None):
@@ -732,6 +747,8 @@ class SliderPuzzleUI (gtk.Table):
         if isinstance(owner, CategorySelector):
             self.thumb.set_image_dir(args[0])
             #self.game_box.pop()
+            if not self.thumb.category.has_images():
+                self.do_add_image(None)
         else:
             if self.game.get_parent():
                 s = CategorySelector("images", _("Choose a Subject"), self.thumb.get_image_dir())

@@ -129,6 +129,9 @@ class LanguageComboBox (gtk.ComboBox):
             self.translations[self.get_active()].install()
         else:
             code, encoding = locale.getdefaultlocale()
+            if code is None:
+                self.set_active(0)
+                return False
             # Try to find the exact translation
             for i,t in enumerate(self.translations):
                 if t.matches(code):

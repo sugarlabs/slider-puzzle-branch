@@ -14,40 +14,43 @@ import json
 
 class SliderPuzzleActivity(Activity):
 	def __init__(self, handle):
-		print "1"
 		Activity.__init__(self, handle)
-		print "2"
 		logger.debug('Starting Slider Puzzle activity... %s' % str(get_bundle_path()))
 		os.chdir(get_bundle_path())
 		self.connect('destroy', self._destroy_cb)
 
-		self.set_title(_('SliderPuzzle'))
+		#self._jobject.metadata['title'] = _('Slider Puzzle')
+		
 		toolbox = ActivityToolbox(self)
 		self.set_toolbox(toolbox)
 		toolbox.show()
 
-		print "3"
+		title_widget = toolbox._activity_toolbar.title
+		title_widget.set_size_request(title_widget.get_layout().get_pixel_size()[0] + 20, -1)
+		
 		if getattr(self, 'game', None) is None:
 			self.game = SliderPuzzleUI(self)
-		print "4"
 
 		self.set_canvas(self.game)
 		self.game.show_all()
 
+
 #		self.connect('shared', self._shared_cb)
-#		self.pservice = presenceservice.get_instance()
-#
-#		name, path = self.pservice.get_preferred_connection()
-#		self.tp_conn_name = name
-#		self.tp_conn_path = path
-#		self.conn = telepathy.client.Connection(name, path)
+
+		#name, path = self._pservice.get_preferred_connection()
+		#self.conn = telepathy.client.Connection(name, path)
+
+		#self.tp_conn_name = name
+		#self.tp_conn_path = path
 #		self.initiating = None
 #
-#		owner = self.pservice.get_owner()
+#		owner = self._pservice.get_owner()
 #		self.owner = owner
 #
 #		if self._shared_activity:
-#			print "Joining activity from %s" % owner.get_property('nick')
+#			print self._shared_activity
+#			print dir(self._shared_activity)
+#			print "Joining activity with %s" % [x.get_property('nick') for x in self._shared_activity.get_joined_buddies()]
 #			# we are joining the activity
 #			#self.buddies_panel.add_watcher(owner)
 #			self.connect('joined', self._joined_cb)
@@ -115,9 +118,6 @@ class SliderPuzzleActivity(Activity):
 		return True
 
 	def read_file(self, file_path):
-		import traceback
-		traceback.print_stack()
-		print "A"
 		f = open(file_path, 'r')
 		try:
 			session_data = f.read()
@@ -140,4 +140,5 @@ class SliderPuzzleActivity(Activity):
 			f.write(session_data)
 		finally:
 			f.close()
+
 
