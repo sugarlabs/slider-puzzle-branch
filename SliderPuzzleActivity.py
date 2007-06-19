@@ -24,18 +24,20 @@ class SliderPuzzleActivity(Activity):
 		toolbox = ActivityToolbox(self)
 		self.set_toolbox(toolbox)
 		toolbox.show()
-
+    #if hasattr(self, '_jobject'):
 		title_widget = toolbox._activity_toolbar.title
 		title_widget.set_size_request(title_widget.get_layout().get_pixel_size()[0] + 20, -1)
 		
 		if getattr(self, 'game', None) is None:
 			self.game = SliderPuzzleUI(self)
 
+		#self._prepare_shared()
+
 		self.set_canvas(self.game)
 		self.game.show_all()
 
-
-#		self.connect('shared', self._shared_cb)
+	def _prepare_shared (self):
+		self.connect('shared', self._shared_cb)
 
 		#name, path = self._pservice.get_preferred_connection()
 		#self.conn = telepathy.client.Connection(name, path)
@@ -44,13 +46,13 @@ class SliderPuzzleActivity(Activity):
 		#self.tp_conn_path = path
 #		self.initiating = None
 #
-#		owner = self._pservice.get_owner()
-#		self.owner = owner
-#
-#		if self._shared_activity:
-#			print self._shared_activity
-#			print dir(self._shared_activity)
-#			print "Joining activity with %s" % [x.get_property('nick') for x in self._shared_activity.get_joined_buddies()]
+		owner = self._pservice.get_owner()
+		self.owner = owner
+
+		if self._shared_activity:
+			print self._shared_activity
+			print dir(self._shared_activity)
+			print "Joining activity with %s" % [x.get_property('nick') for x in self._shared_activity.get_joined_buddies()]
 #			# we are joining the activity
 #			#self.buddies_panel.add_watcher(owner)
 #			self.connect('joined', self._joined_cb)
@@ -61,9 +63,11 @@ class SliderPuzzleActivity(Activity):
 #				self._joined_cb()
 #
 #
-#	def _shared_cb(self, activity):
-#		print 'My Connect activity was shared'
-#		
+	
+
+	def _shared_cb(self, activity):
+		print 'My Connect activity was shared'
+		
 #		print [x.get_property('nick') for x in self._shared_activity.get_joined_buddies()]
 #
 #		self._shared_activity.connect('buddy-joined', self._buddy_joined_cb)

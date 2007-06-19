@@ -130,8 +130,7 @@ class LanguageComboBox (gtk.ComboBox):
         else:
             code, encoding = locale.getdefaultlocale()
             if code is None:
-                self.set_active(0)
-                return False
+                code = 'en'
             # Try to find the exact translation
             for i,t in enumerate(self.translations):
                 if t.matches(code):
@@ -152,11 +151,13 @@ class LanguageComboBox (gtk.ComboBox):
 ###
 def gather_other_translations ():
     from glob import glob
-    entries = filter(lambda x: os.path.isdir(x), glob('images/*'))
-    entries.extend(filter(lambda x: os.path.isdir(x), glob('lessons/*')))
-    entries = map(lambda x: os.path.basename(x), entries)
+    lessons = filter(lambda x: os.path.isdir(x), glob('lessons/*'))
+    lessons = map(lambda x: os.path.basename(x), lessons)
+    lessons = map(lambda x: x[0].isdigit() and x[1:] or x, lessons)
+    images = filter(lambda x: os.path.isdir(x), glob('images/*'))
+    images = map(lambda x: os.path.basename(x), images)
     f = file('i18n_misc_strings', 'w')
-    for e in entries:
+    for e in images+lessons:
         f.write('_("%s")\n' % e)
     f.close()
 

@@ -524,10 +524,16 @@ class LessonPlanWidget (gtk.Notebook):
         lessons = filter(lambda x: os.path.isdir(os.path.join('lessons', x)), os.listdir('lessons'))
         lessons.sort()
         for lesson in lessons:
-            self._load_lesson(os.path.join('lessons', lesson), _(lesson))
+            if lesson[0].isdigit():
+                name = _(lesson[1:])
+            else:
+                name = _(lesson)
+            self._load_lesson(os.path.join('lessons', lesson), name)
 
     def _load_lesson (self, path, name):
         code, encoding = locale.getdefaultlocale()
+        if code is None:
+            code = 'en'
         canvas = Canvas()
         canvas.show()
         files = map(lambda x: os.path.join(path, '%s.abw' % x),
