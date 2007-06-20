@@ -28,9 +28,9 @@ pygtk.require('2.0')
 import gtk, gobject, pango
 
 from utils import load_image
+from mamamedia_ui import NotebookReaderWidget, BorderFrame, BORDER_ALL_BUT_BOTTOM, BORDER_ALL_BUT_LEFT
 #from toolbar import SliderToolbar
 from i18n import LanguageComboBox
-from abiword import Canvas
 import locale
 
 import logging
@@ -47,16 +47,6 @@ try:
 except:
     _inside_sugar = False
 
-
-BORDER_LEFT = 1
-BORDER_RIGHT = 2
-BORDER_TOP = 4
-BORDER_BOTTOM = 8
-BORDER_VERTICAL = BORDER_TOP | BORDER_BOTTOM
-BORDER_HORIZONTAL = BORDER_LEFT | BORDER_RIGHT
-BORDER_ALL = BORDER_VERTICAL | BORDER_HORIZONTAL
-BORDER_ALL_BUT_BOTTOM = BORDER_HORIZONTAL | BORDER_TOP
-BORDER_ALL_BUT_LEFT = BORDER_VERTICAL | BORDER_RIGHT
 
 SLICE_BTN_WIDTH = 50
 
@@ -99,58 +89,6 @@ def prepare_btn(btn, w=-1, h=-1):
     if w>0 or h>0:
         btn.set_size_request(w, h)
     return btn
-
-# This is me trying to get to the translation message bundles:
-
-class BorderFrame (gtk.EventBox):
-    def __init__ (self, border=BORDER_ALL, size=5, bg_color=None, border_color=None):
-        gtk.EventBox.__init__(self)
-        if border_color is not None:
-            self.set_border_color(gtk.gdk.color_parse(border_color))
-        self.inner = gtk.EventBox()
-        if bg_color is not None:
-            self.modify_bg(gtk.STATE_NORMAL, gtk.gdk.color_parse(bg_color))
-        align = gtk.Alignment(1.0,1.0,1.0,1.0)
-        padding = [0,0,0,0]
-        if (border & BORDER_TOP) != 0:
-            padding[0] = size
-        if (border & BORDER_BOTTOM) != 0:
-            padding[1] = size
-        if (border & BORDER_LEFT) != 0:
-            padding[2] = size
-        if (border & BORDER_RIGHT) != 0:
-            padding[3] = size
-        align.set_padding(*padding)
-        align.add(self.inner)
-        gtk.EventBox.add(self, align)
-        self.stack = []
-
-    def set_border_color (self, color):
-        gtk.EventBox.modify_bg(self, gtk.STATE_NORMAL, color)
-
-    def modify_bg (self, state, color):
-        self.inner.modify_bg(state, color)
-
-    def add (self, widget):
-        self.stack.append(widget)
-        self.inner.add(widget)
-
-    def push (self, widget):
-        widget.set_size_request(*self.inner.child.get_size_request())
-        self.inner.remove(self.inner.child)
-        self.add(widget)
-
-    def pop (self):
-        if len(self.stack) > 1:
-            self.inner.remove(self.inner.child)
-            del self.stack[-1]
-            self.inner.add(self.stack[-1])
-
-    def get_child (self):
-        return self.inner.child
-
-    def get_allocation (self):
-        return self.inner.get_allocation()
 
 
 class TimerWidget (gtk.HBox):
@@ -518,35 +456,6 @@ class CategorySelector (gtk.ScrolledWindow):
             tv, it = tree.get_selection().get_selected()
             self.emit("selected", tv.get_value(it,0))
 
-class LessonPlanWidget (gtk.Notebook):
-    def __init__ (self):
-        super(LessonPlanWidget, self).__init__()
-        lessons = filter(lambda x: os.path.isdir(os.path.join('lessons', x)), os.listdir('lessons'))
-        lessons.sort()
-        for lesson in lessons:
-            if lesson[0].isdigit():
-                name = _(lesson[1:])
-            else:
-                name = _(lesson)
-            self._load_lesson(os.path.join('lessons', lesson), name)
-
-    def _load_lesson (self, path, name):
-        code, encoding = locale.getdefaultlocale()
-        if code is None:
-            code = 'en'
-        canvas = Canvas()
-        canvas.show()
-        files = map(lambda x: os.path.join(path, '%s.abw' % x),
-                    ('_'+code.lower(), '_'+code.split('_')[0].lower(), 'default'))
-        files = filter(lambda x: os.path.exists(x), files)
-        try:
-            canvas.load_file('file://%s/%s' % (os.getcwd(), files[0]), 'text/plain')
-        except:
-            canvas.load_file('file://%s/%s' % (os.getcwd(), files[0]))
-        canvas.view_online_layout()
-        canvas.zoom_width()
-        canvas.set_show_margin(False)
-        self.append_page(canvas, gtk.Label(name))
         
 
 class SliderPuzzleUI (gtk.Table):
@@ -709,7 +618,7 @@ class SliderPuzzleUI (gtk.Table):
                 lbl[0].set_label(_(lbl[1]))
         if not self.game.get_parent() and not first_time:
             self.game_box.pop()
-            if isinstance(self.game_box.get_child(), LessonPlanWidget):
+            if isinstance(self.game_box.get_child(), NotebookReaderWidget):
                 m = self.do_lesson_plan
             else:
                 m = self.do_select_category
@@ -793,10 +702,10 @@ class SliderPuzzleUI (gtk.Table):
             widget.destroy()
 
     def do_lesson_plan (self, btn):
-        if isinstance(self.game_box.get_child(), LessonPlanWidget):
+        if isinstance(self.game_box.get_child(), NotebookReaderWidget):
             self.game_box.pop()
         else:
-            s = LessonPlanWidget()
+            s = NotebookReaderWidget('lessons')
             s.connect('parent-set', self.do_lesson_plan_reparent)
             s.show_all()
             self.game_box.push(s)

@@ -3,6 +3,7 @@ SliderPuzzleUI.py
 SliderPuzzleWidget.py
 i18n.py
 i18n_misc_strings.py
+mamamedia_ui.py
 utils.py
 json.py
 icons/arrow_left.png

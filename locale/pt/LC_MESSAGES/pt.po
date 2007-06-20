@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-06-12 14:21+0100\n"
+"POT-Creation-Date: 2007-06-20 11:05+0100\n"
 "PO-Revision-Date: 2007-05-23 10:48+0100\n"
 "Last-Translator: Carlos Neves <cn@sueste>\n"
 "Language-Team: Portuguese <info@worldwideworkshop.org>\n"
@@ -17,51 +17,51 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: SliderPuzzleActivity.py:24
-msgid "SliderPuzzle"
-msgstr ""
+#: SliderPuzzleUI.py:439
+msgid "My Own Pictures"
+msgstr "As Minhas Imagens"
 
-#: SliderPuzzleUI.py:608
+#: SliderPuzzleUI.py:538
 msgid "Solve"
 msgstr "Resolver"
 
-#: SliderPuzzleUI.py:612
+#: SliderPuzzleUI.py:542
 msgid "Shuffle"
 msgstr "Baralhar"
 
-#: SliderPuzzleUI.py:616
+#: SliderPuzzleUI.py:546
 msgid "My Own Picture"
 msgstr "Minha Imagem"
 
-#: SliderPuzzleUI.py:653
+#: SliderPuzzleUI.py:583
 msgid "Time: "
 msgstr "Tempo: "
 
-#: SliderPuzzleUI.py:658 SliderPuzzleUI.py:787
+#: SliderPuzzleUI.py:588 SliderPuzzleUI.py:719
 msgid "Lesson Plan"
 msgstr "Plano de Ensino"
 
-#: SliderPuzzleUI.py:683
+#: SliderPuzzleUI.py:613
 msgid "Slider Puzzle Activity"
 msgstr ""
 
-#: SliderPuzzleUI.py:737
+#: SliderPuzzleUI.py:669
 msgid "Choose a Subject"
 msgstr "Escolhe um Assunto"
 
-#: SliderPuzzleUI.py:748
+#: SliderPuzzleUI.py:680
 msgid "Image Files"
 msgstr "Imagens"
 
-#: SliderPuzzleUI.py:750
+#: SliderPuzzleUI.py:682
 msgid "Select Image File"
 msgstr "Selecciona uma Imagen"
 
-#: SliderPuzzleUI.py:766
+#: SliderPuzzleUI.py:698
 msgid "Not a valid image file"
 msgstr "Imagem inválida"
 
-#: SliderPuzzleUI.py:793
+#: SliderPuzzleUI.py:725
 msgid "Close Lesson"
 msgstr "Fechar Plano"
 
@@ -182,33 +182,41 @@ msgid "Sports"
 msgstr "Desporto"
 
 #: i18n_misc_strings.py:6
-msgid "My Own Pictures"
-msgstr "As Minhas Imagens"
-
-#: i18n_misc_strings.py:7
 msgid "Insects"
 msgstr "Insetos"
 
-#: i18n_misc_strings.py:8
+#: i18n_misc_strings.py:7
 msgid "Music"
 msgstr "Música"
 
-#: i18n_misc_strings.py:9
+#: i18n_misc_strings.py:8
 msgid "Space"
 msgstr "Espaço"
+
+#: i18n_misc_strings.py:9
+msgid "Lesson 5"
+msgstr "Lição 5"
 
 #: i18n_misc_strings.py:10
 msgid "Lesson 4"
 msgstr "Lição 4"
 
 #: i18n_misc_strings.py:11
+msgid "Overview"
+msgstr "Resumo"
+
+#: i18n_misc_strings.py:12
 msgid "Lesson 3"
 msgstr "Lição 3"
 
-#: i18n_misc_strings.py:12
+#: i18n_misc_strings.py:13
+msgid "Lesson 6"
+msgstr "Lição 6"
+
+#: i18n_misc_strings.py:14
 msgid "Lesson 1"
 msgstr "Lição 1"
 
-#: i18n_misc_strings.py:13
+#: i18n_misc_strings.py:15
 msgid "Lesson 2"
 msgstr "Lição 2"

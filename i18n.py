@@ -156,7 +156,7 @@ def gather_other_translations ():
     lessons = map(lambda x: x[0].isdigit() and x[1:] or x, lessons)
     images = filter(lambda x: os.path.isdir(x), glob('images/*'))
     images = map(lambda x: os.path.basename(x), images)
-    f = file('i18n_misc_strings', 'w')
+    f = file('i18n_misc_strings.py', 'w')
     for e in images+lessons:
         f.write('_("%s")\n' % e)
     f.close()
