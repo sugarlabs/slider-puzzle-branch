@@ -1,11 +1,14 @@
 SliderPuzzleActivity.py
 SliderPuzzleUI.py
 SliderPuzzleWidget.py
+setup.py
 i18n.py
 i18n_misc_strings.py
 mamamedia_ui.py
 utils.py
 json.py
+tubeconn.py
+tube_helper.py
 icons/arrow_left.png
 icons/arrow_right.png
 icons/circle-check.svg
@@ -67,11 +70,14 @@ images/Space/image_tral_h250_w404_lg.gif
 images/Space/thumb.gif
 images/Space/image_aisc_h250_w313_lg.gif
 images/default_thumb.svg
-locale/pt/LC_MESSAGES/pt.po
 lessons/0Overview/default.abw
 lessons/Lesson 1/default.abw
+lessons/Lesson 1/_pt.abw
 lessons/Lesson 2/default.abw
 lessons/Lesson 3/default.abw
 lessons/Lesson 4/default.abw
 lessons/Lesson 5/default.abw
 lessons/Lesson 6/default.abw
+po/SliderPuzzle.pot
+po/pt.po
+

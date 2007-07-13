@@ -31,7 +31,7 @@ import os
 import locale
 from abiword import Canvas
 
-from gettext import gettext as _
+#from gettext import gettext as _
 
 BORDER_LEFT = 1
 BORDER_RIGHT = 2

@@ -28,6 +28,7 @@
 import pygtk
 pygtk.require('2.0')
 import gtk, gobject
+import md5
 
 from utils import load_image, calculate_matrix, debug
 
@@ -333,7 +334,9 @@ class SliderPuzzleMap (object):
 ###
 
 class SliderPuzzleWidget (gtk.Table):
-    __gsignals__ = {'solved' : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, ())}
+    __gsignals__ = {'solved' : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, ()),
+                    'shuffled' : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, ()),
+                    'moved' : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, ()),}
     
     def __init__ (self, pieces=9, width=480, height=480):
         self.jumbler = SliderPuzzleMap(pieces, self.jumblermap_piece_move_cb)
@@ -343,6 +346,8 @@ class SliderPuzzleWidget (gtk.Table):
         self.width = width
         self.height = height
         self.set_size_request(width, height)
+        self.filename = None
+        self.image_digest = None
 
     def prepare_pieces (self):
         """ set up a list of UI objects that will serve as pieces, ordered correctly """
@@ -410,6 +415,7 @@ class SliderPuzzleWidget (gtk.Table):
         piece = self.pieces[self.jumbler.get_cell_at(px, py)-1]
         self.remove(piece)
         self.attach(piece, px, px+1, py, py+1)
+        self.emit("moved")
         if self.jumbler.solved:
             self.emit("solved")
 
@@ -427,6 +433,7 @@ class SliderPuzzleWidget (gtk.Table):
         """ Jumble the SliderPuzzle """
         self.jumbler.randomize()
         self.full_refresh()
+        self.emit("shuffled")
 
     def load_image (self, filename, width=0, height=0):
         """ Loads an image from the file.
@@ -442,6 +449,8 @@ class SliderPuzzleWidget (gtk.Table):
             self.image.set_from_file(filename)
         else:
             self.image.set_from_pixbuf(load_image(filename, width, height))
+        self.filename = filename
+        self.image_digest = md5.new(file(filename, 'rb').read()).hexdigest()
         self.full_refresh()
 
     def show_image (self):

@@ -35,6 +35,12 @@ DEBUG = True
 RESIZE_STRETCH = 1
 RESIZE_CUT = 2
 
+GAME_IDLE = (10, 'idle')
+GAME_SELECTED = (20, 'selected')
+GAME_STARTED = (30, 'started')
+GAME_FINISHED = (40, 'finished')
+GAME_QUIT = (50, 'quit')
+
 def debug (what):
     if DEBUG:
         print >> sys.stderr, what
