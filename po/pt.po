@@ -8,129 +8,128 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-07-12 02:30+0100\n"
+"POT-Creation-Date: 2007-07-14 20:17+0100\n"
 "PO-Revision-Date: 2007-05-23 10:48+0100\n"
 "Last-Translator: Carlos Neves <cn@sueste>\n"
 "Language-Team: Portuguese <info@worldwideworkshop.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: SliderPuzzleUI.py:502
+#: SliderPuzzleUI.py:508
 msgid "My Pictures"
 msgstr "Minhas Imagens"
 
-#: SliderPuzzleUI.py:531
+#: SliderPuzzleUI.py:537
 msgid "Buddy"
 msgstr ""
 
-#: SliderPuzzleUI.py:537
+#: SliderPuzzleUI.py:543
 msgid "Status"
 msgstr "Estado"
 
-#: SliderPuzzleUI.py:543
+#: SliderPuzzleUI.py:549
 msgid "Play Time"
 msgstr "Tempo de Jogo"
 
-#: SliderPuzzleUI.py:564
+#: SliderPuzzleUI.py:570
 msgid "synchronizing"
 msgstr "sincronizando"
 
-#: SliderPuzzleUI.py:572
+#: SliderPuzzleUI.py:578
 msgid "Playing"
 msgstr "Jogando"
 
-#: SliderPuzzleUI.py:572
+#: SliderPuzzleUI.py:578
 msgid "Paused"
 msgstr "Em Pausa"
 
-#: SliderPuzzleUI.py:574
+#: SliderPuzzleUI.py:580
 msgid "Finished"
 msgstr "Terminado"
 
-#: SliderPuzzleUI.py:576
+#: SliderPuzzleUI.py:582
 msgid "Gave up"
 msgstr "Desistiu"
 
-#: SliderPuzzleUI.py:578
+#: SliderPuzzleUI.py:584
 msgid "Unknown"
 msgstr "Desconhecido"
 
-#: SliderPuzzleUI.py:580
+#: SliderPuzzleUI.py:586
 #, python-format
 msgid "%i minutes"
 msgstr "%i minutos"
 
-#: SliderPuzzleUI.py:679
+#: SliderPuzzleUI.py:685
 msgid "Solve"
 msgstr "Resolver"
 
-#: SliderPuzzleUI.py:683
+#: SliderPuzzleUI.py:689
 msgid "Shuffle"
 msgstr "Baralhar"
 
-#: SliderPuzzleUI.py:687
+#: SliderPuzzleUI.py:693
 msgid "My Picture"
 msgstr "Minha Imagem"
 
-#: SliderPuzzleUI.py:730
+#: SliderPuzzleUI.py:736
 msgid "Time: "
 msgstr "Tempo: "
 
-#: SliderPuzzleUI.py:735 SliderPuzzleUI.py:1009
+#: SliderPuzzleUI.py:741 SliderPuzzleUI.py:1015
 msgid "Lesson Plans"
 msgstr "Planos de Ensino"
 
-#: SliderPuzzleUI.py:755
+#: SliderPuzzleUI.py:761
 msgid "Waiting for remote game..."
 msgstr "Esperando por jogo remoto..."
 
-#: SliderPuzzleUI.py:806
+#: SliderPuzzleUI.py:812
 msgid "Select image to share..."
 msgstr "Seleccione imagem para partilhar..."
 
-#: SliderPuzzleUI.py:810
+#: SliderPuzzleUI.py:816
 msgid "Waiting for game image..."
 msgstr "Esperando pela imagem para jogar..."
 
-#: SliderPuzzleUI.py:812 SliderPuzzleUI.py:822
+#: SliderPuzzleUI.py:818 SliderPuzzleUI.py:828
 msgid "Buddies"
 msgstr ""
 
-#: SliderPuzzleUI.py:820
+#: SliderPuzzleUI.py:826
 msgid "Game Started!"
 msgstr "O Jogo Comecou!"
 
-#: SliderPuzzleUI.py:840
+#: SliderPuzzleUI.py:846
 msgid "Give Up"
 msgstr "Desistir"
 
-#: SliderPuzzleUI.py:842
+#: SliderPuzzleUI.py:848
 msgid "Start Game"
 msgstr "Iniciar Jogo"
 
-#: SliderPuzzleUI.py:851
+#: SliderPuzzleUI.py:857
 msgid "Slider Puzzle Activity"
 msgstr "Actividade Slider Puzzle"
 
-#: SliderPuzzleUI.py:947
+#: SliderPuzzleUI.py:953
 msgid "Choose a Subject"
 msgstr "Escolha um Assunto"
 
-#: SliderPuzzleUI.py:972
+#: SliderPuzzleUI.py:978
 msgid "Image Files"
 msgstr "Imagens"
 
-#: SliderPuzzleUI.py:974
+#: SliderPuzzleUI.py:980
 msgid "Select Image File"
 msgstr "Seleccione uma Imagen"
 
-#: SliderPuzzleUI.py:990
+#: SliderPuzzleUI.py:996
 msgid "Not a valid image file"
 msgstr "Imagem inválida"
 
-#: SliderPuzzleUI.py:1012
+#: SliderPuzzleUI.py:1018
 msgid "Close Lesson"
 msgstr "Fechar Plano"
 
