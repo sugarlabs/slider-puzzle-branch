@@ -29,6 +29,7 @@ import gtk, gobject, pango
 
 import os
 import locale
+import gettext
 from abiword import Canvas
 
 #from gettext import gettext as _
@@ -97,8 +98,9 @@ class BorderFrame (gtk.EventBox):
 
 
 class NotebookReaderWidget (gtk.Notebook):
-    def __init__ (self, path):
+    def __init__ (self, path, lang_details=None):
         super(NotebookReaderWidget, self).__init__()
+        self.lang_details = lang_details
         lessons = filter(lambda x: os.path.isdir(os.path.join(path, x)), os.listdir(path))
         lessons.sort()
         for lesson in lessons:
@@ -109,7 +111,10 @@ class NotebookReaderWidget (gtk.Notebook):
             self._load_lesson(os.path.join(path, lesson), name)
 
     def _load_lesson (self, path, name):
-        code, encoding = locale.getdefaultlocale()
+        if self.lang_details:
+            code = self.lang_details.code
+        else:
+            code, encoding = locale.getdefaultlocale()
         if code is None:
             code = 'en'
         canvas = Canvas()

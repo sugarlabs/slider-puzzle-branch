@@ -843,6 +843,7 @@ class SliderPuzzleUI (gtk.Table):
         return self._contest_mode and self.game.filename
 
     def do_select_language (self, combo, *args):
+        self.selected_lang_details = combo.translations[combo.get_active()]
         self.refresh_labels()
 
     def refresh_labels (self, first_time=False):
@@ -995,7 +996,7 @@ class SliderPuzzleUI (gtk.Table):
         if isinstance(self.game_box.get_child(), NotebookReaderWidget):
             self.game_box.pop()
         else:
-            s = NotebookReaderWidget('lessons')
+            s = NotebookReaderWidget('lessons', self.selected_lang_details)
             s.connect('parent-set', self.do_lesson_plan_reparent)
             s.show_all()
             self.game_box.push(s)

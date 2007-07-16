@@ -167,7 +167,8 @@ class SliderCreator (gtk.gdk.Pixbuf):
 
     def prepare_stringed (self, rows, cols):
         # We use a Pixmap as offscreen drawing canvas
-        pm = gtk.gdk.Pixmap(None, self.width, self.height, 24)
+        cm = gtk.gdk.colormap_get_system()
+        pm = gtk.gdk.Pixmap(None, self.width, self.height, cm.get_visual().depth)
         #pangolayout = pm.create_pango_layout("")
         font_size = int(self.width / cols / 4)
         l = gtk.Label()
@@ -175,7 +176,6 @@ class SliderCreator (gtk.gdk.Pixbuf):
         pangolayout.set_font_description(pango.FontDescription("sans bold %i" % font_size))
         gc = pm.new_gc()
         gc.set_colormap(gtk.gdk.colormap_get_system())
-        cm = gc.get_colormap()
         color = cm.alloc_color('white')
         gc.set_foreground(color)
         pm.draw_rectangle(gc, True, 0, 0, self.width, self.height)
