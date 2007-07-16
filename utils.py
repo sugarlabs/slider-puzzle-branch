@@ -26,6 +26,7 @@
 import pygtk
 pygtk.require('2.0')
 import gtk
+import pango
 
 from math import sqrt, pow, ceil
 import sys
@@ -93,6 +94,19 @@ def load_image (filename, width=-1, height=-1, method=RESIZE_CUT):
       - RESIZE_CUT: scale to 200x200, cut 50 off each top and bottom to fit 200x100
       - RESIZE STRETCH : scale to 200x100, by changing the image WxH ratio from 1:1 to 2:1, thus distorting it.
     """
+    if filename.lower().endswith('.sequence'):
+        slider = None
+        cmds = file(filename).readlines()
+        if len(cmds) > 1:
+            _x_ = eval(cmds[0])
+            items = []
+            for i in range(16):
+                items.append(_x_)
+                _x_ = eval(cmds[1])
+            slider = SliderCreator(width, height, items)
+            slider.prepare_stringed(2,2)
+        return slider
+
     img = gtk.Image()
     try:
         img.set_from_file(filename)
@@ -143,6 +157,49 @@ def load_image (filename, width=-1, height=-1, method=RESIZE_CUT):
         # now we cut whatever is left to make the requested size
         scaled_pb = scaled_pb.subpixbuf(abs((width-w)/2),abs((height-h)/2), width, height)
     return scaled_pb
+
+class SliderCreator (gtk.gdk.Pixbuf):
+    def __init__ (self, width, height, tlist):
+        super(SliderCreator, self).__init__(gtk.gdk.COLORSPACE_RGB, False, 8, width, height)
+        self.width = width
+        self.height = height
+        self.tlist = tlist
+
+    def prepare_stringed (self, rows, cols):
+        # We use a Pixmap as offscreen drawing canvas
+        pm = gtk.gdk.Pixmap(None, self.width, self.height, 24)
+        #pangolayout = pm.create_pango_layout("")
+        font_size = int(self.width / cols / 4)
+        l = gtk.Label()
+        pangolayout = pango.Layout(l.create_pango_context())
+        pangolayout.set_font_description(pango.FontDescription("sans bold %i" % font_size))
+        gc = pm.new_gc()
+        gc.set_colormap(gtk.gdk.colormap_get_system())
+        cm = gc.get_colormap()
+        color = cm.alloc_color('white')
+        gc.set_foreground(color)
+        pm.draw_rectangle(gc, True, 0, 0, self.width, self.height)
+        color = cm.alloc_color('black')
+        gc.set_foreground(color)
+
+        sw, sh = (self.width / cols), (self.height / rows)
+        item = iter(self.tlist)
+        for r in range(rows):
+            for c in range(cols):
+                px = sw * c
+                py = sh * r
+                #if c > 0 and r > 0:
+                #    pm.draw_line(gc, px, 0, px, self.height-1)
+                #    pm.draw_line(gc, 0, py, self.width-1, py)
+                pangolayout.set_text(str(item.next()))
+                pe = pangolayout.get_pixel_extents()
+                print pe
+                pe = pe[1][2]/2, pe[1][3]/2
+                print pe
+                print "**%s**" % pangolayout.get_text(), px + (sw / 2) - pe[0],  py + (sh / 2) - pe[1]
+                pm.draw_layout(gc, px + (sw / 2) - pe[0],  py + (sh / 2) - pe[1], pangolayout)
+        self.get_from_drawable(pm, cm, 0, 0, 0, 0, -1, -1)
+
 
 def scale_images(img_dir, outdir):
     import os

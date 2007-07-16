@@ -27,7 +27,7 @@ import pygtk
 pygtk.require('2.0')
 import gtk, gobject, pango
 
-from utils import load_image, GAME_IDLE, GAME_STARTED, GAME_FINISHED, GAME_QUIT
+from utils import load_image, SliderCreator, GAME_IDLE, GAME_STARTED, GAME_FINISHED, GAME_QUIT
 #from buddy_handler import BuddyPanel
 from mamamedia_ui import NotebookReaderWidget, BorderFrame, BORDER_ALL_BUT_BOTTOM, BORDER_ALL_BUT_LEFT
 #from toolbar import SliderToolbar
@@ -97,15 +97,11 @@ class TimerWidget (gtk.HBox):
     __gsignals__ = {'timer_toggle' : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, (bool,)),}
     def __init__ (self, bg_color="#DD4040", fg_color="#4444FF", lbl_color="#DD4040"):
         gtk.HBox.__init__(self)
-        #spacer = gtk.Label()
-        #spacer.set_size_request(20, -1)
-        #self.counter = BorderFrame(size=1, bg_color=bg_color, border_color=border_color)
         self.counter = gtk.EventBox()
         self.counter.modify_bg(gtk.STATE_NORMAL, gtk.gdk.color_parse(bg_color))
         self.counter.set_size_request(90, -1)
         hb = gtk.HBox()
         self.counter.add(hb)
-        #self.pack_start(spacer, False)
         self.lbl_time = gtk.Label()
         self.lbl_time.modify_fg(gtk.STATE_NORMAL, gtk.gdk.color_parse(lbl_color))
         self.pack_start(self.lbl_time, False)
@@ -434,6 +430,10 @@ class ImageSelectorWidget (gtk.Table):
         self.cat_thumb.set_from_pixbuf(self.category.thumb)
         return self.image.get_pixbuf() is not None
 
+    def set_game_widget(self, game_widget):
+        if self.has_image():
+            game_widget.load_image(self.get_filename())
+
     def _freeze (self):
         """ returns a json writable object representation capable of being used to restore our current status """
         return {'image_dir': self.get_image_dir(),
@@ -508,8 +508,6 @@ class CategorySelector (gtk.ScrolledWindow):
                 selected = store.get_path(i)
                 break
             i = store.iter_next(i)
-        #if selected_path == fullpath:
-        #    selected = (len(self.thumbs)-1,)
         return store, selected
 
     def do_select (self, tree, *args, **kwargs):
@@ -890,7 +888,7 @@ class SliderPuzzleUI (gtk.Table):
         if self.thumb.has_image():
             if not self.game.get_parent():
                 self.game_box.pop()
-            self.game.load_image(self.thumb.get_filename())
+            self.thumb.set_game_widget(self.game)
             self.game.set_nr_pieces(nr_pieces)
             self.timer.reset(False)
         logging.debug("6")
@@ -918,7 +916,7 @@ class SliderPuzzleUI (gtk.Table):
         elif self.thumb.has_image():
             if not self.game.get_parent():
                 self.game_box.pop()
-            self.game.load_image(self.thumb.get_filename())
+            self.thumb.set_game_widget(self.game)
             self.game.randomize()
             self.timer.reset(False)
 
@@ -1045,7 +1043,6 @@ class SliderPuzzleUI (gtk.Table):
             if k in ('Escape', 'q'):
                 gtk.main_quit()
                 return True
-        #logging.debug("%s %s %s" % (str(self._parent.get_focus()), str(isinstance(self.window.get_focus(), gtk.Editable)), str(k)))
         return False
 
     def _freeze (self):
@@ -1055,13 +1052,14 @@ class SliderPuzzleUI (gtk.Table):
     def _thaw (self, obj):
         """ retrieves a frozen status from a python object, as per _freeze """
         self.thumb._thaw(obj[0])
-        self.game.load_image(self.thumb.get_filename())
+        self.thumb.set_game_widget(self.game)
         self.set_nr_pieces(None, obj[2])
         self.game._thaw(obj[1])
         self.timer._thaw(obj[3])
 
     def _send_status_update (self):
-        self._parent.game_tube.StatusUpdate(self._state[1], self.timer.is_running(), self.timer.ellapsed())
+        if self._parent._shared_activity:
+            self._parent.game_tube.StatusUpdate(self._state[1], self.timer.is_running(), self.timer.ellapsed())
 
 def main():
     win = gtk.Window(gtk.WINDOW_TOPLEVEL)

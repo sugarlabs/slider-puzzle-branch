@@ -170,6 +170,7 @@ class TubeHelper (object):
         self.tp_conn_name = name
         self.tp_conn_path = path
         self.conn = telepathy.client.Connection(name, path)
+        self.game_tube = False
         self.initiating = None
         
         self.connect('shared', self._shared_cb)

@@ -30,7 +30,7 @@ pygtk.require('2.0')
 import gtk, gobject
 import md5
 
-from utils import load_image, calculate_matrix, debug
+from utils import load_image, calculate_matrix, debug, SliderCreator
 
 from types import TupleType, ListType
 from random import random
@@ -342,7 +342,7 @@ class SliderPuzzleWidget (gtk.Table):
         self.jumbler = SliderPuzzleMap(pieces, self.jumblermap_piece_move_cb)
         # We take this from the jumbler object because it may have altered our requested value
         gtk.Table.__init__(self, self.jumbler.rowsize, self.jumbler.colsize)
-        self.image = gtk.Image()
+        self.image = None #gtk.Image()
         self.width = width
         self.height = height
         self.set_size_request(width, height)
@@ -352,20 +352,24 @@ class SliderPuzzleWidget (gtk.Table):
     def prepare_pieces (self):
         """ set up a list of UI objects that will serve as pieces, ordered correctly """
         self.pieces = []
-        if self.image is not None:
-            pb = self.image.get_pixbuf()
-        if self.image is None or pb is None:
+        if self.image is None:
+        #    pb = self.image.get_pixbuf()
+        #if self.image is None or pb is None:
             for i in range(self.jumbler.pieces):
                 self.pieces.append(gtk.Button(str(i+1)))
                 self.pieces[-1].connect("button-release-event", self.process_mouse_click, i+1)
                 self.pieces[-1].show()
         else:
-            w = pb.get_width() / self.jumbler.colsize
-            h = pb.get_height() / self.jumbler.rowsize
+            if isinstance(self.image, SliderCreator):
+                # ask for image creation
+                self.image.prepare_stringed(self.jumbler.rowsize, self.jumbler.colsize)
+        
+            w = self.image.get_width() / self.jumbler.colsize
+            h = self.image.get_height() / self.jumbler.rowsize
             for y in range(self.jumbler.rowsize):
                 for x in range(self.jumbler.colsize):
                     img = gtk.Image()
-                    img.set_from_pixbuf(pb.subpixbuf(x*w, y*h, w-1, h-1))
+                    img.set_from_pixbuf(self.image.subpixbuf(x*w, y*h, w-1, h-1))
                     img.show()
                     self.pieces.append(gtk.EventBox())
                     self.pieces[-1].add(img)
@@ -445,13 +449,15 @@ class SliderPuzzleWidget (gtk.Table):
             width = self.width
         if height == 0:
             height = self.height
-        if width == height == -1:
-            self.image.set_from_file(filename)
-        else:
-            self.image.set_from_pixbuf(load_image(filename, width, height))
+        self.image = load_image(filename, width, height)
         self.filename = filename
         self.image_digest = md5.new(file(filename, 'rb').read()).hexdigest()
         self.full_refresh()
+
+    def set_image (self, image):
+        # image is a pixbuf!
+        self.image = image
+        self.filename = False # but not None...
 
     def show_image (self):
         """ Shows the full image, used as visual clue for solved puzzle """
@@ -461,8 +467,10 @@ class SliderPuzzleWidget (gtk.Table):
             del self.pieces
         # Resize to a single cell and use that for the image
         self.resize(1,1)
-        self.attach(self.image, 0,1,0,1)
-        self.image.show()
+        img = gtk.Image()
+        img.set_from_pixbuf(self.image)
+        self.attach(img, 0,1,0,1)
+        img.show()
 
     def _freeze (self):
         """ returns a json writable object representation capable of being used to restore our current status """
