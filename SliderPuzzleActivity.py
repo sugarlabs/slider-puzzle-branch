@@ -45,6 +45,7 @@ class FrozenState (object):
 		""" apply the previously saved state to the running game """
 		try:
 			self._lock = True
+			found = False
 			if state is None:
 				state = self.freeze()
 			for k,v in json.read(state).items():
@@ -54,7 +55,6 @@ class FrozenState (object):
 			if self.image_path:
 				if self.image_path == os.path.basename(self.image_path):
 					# MyOwnPath based image...
-					found = False
 					if forced_image is not None:
 						name = 'image_' + self.image_path
 						while os.path.exists(os.path.join(self.slider_ui.thumb.myownpath, name)):
@@ -94,6 +94,7 @@ class FrozenState (object):
 						tube.NeedImage()
 			else:
 				logger.debug("No image...")
+			return found
 		finally:
 			self._lock = False
 

@@ -552,30 +552,34 @@ class BuddyPanel (gtk.ScrolledWindow):
         self.players = {}
 
     def add_player (self, buddy):
-        op = buddy.object_path()
-        if self.players.get(op) is not None:
-            return
-
-        nick = buddy.props.nick
-        if not nick:
-            nick = ""
-        self.players[op] = (buddy, self.model.append([nick, _('synchronizing'), '']))
+        """Since the current target build (432) does not fully support the contest mode, we are removing this for now. """
+        return
+        #op = buddy.object_path()
+        #if self.players.get(op) is not None:
+        #    return
+        #
+        #nick = buddy.props.nick
+        #if not nick:
+        #    nick = ""
+        #self.players[op] = (buddy, self.model.append([nick, _('synchronizing'), '']))
         
     def update_player (self, buddy, status, clock_running, time_ellapsed):
-        op = buddy.object_path()
-        if self.players.get(op, None) is None:
-            return
-        print self.players[op]
-        if status == GAME_STARTED[1]:
-            stat = clock_running and _("Playing") or _("Paused")
-        elif status == GAME_FINISHED[1]:
-            stat = _("Finished")
-        elif status == GAME_QUIT[1]:
-            stat = _("Gave up")
-        else:
-            stat = _("Unknown")
-        self.model.set_value(self.players[op][1], 1, stat)
-        self.model.set_value(self.players[op][1], 2, _("%i minutes") % (time_ellapsed/60))
+        """Since the current target build (432) does not fully support the contest mode, we are removing this for now. """
+        return
+        #op = buddy.object_path()
+        #if self.players.get(op, None) is None:
+        #    return
+        #print self.players[op]
+        #if status == GAME_STARTED[1]:
+        #    stat = clock_running and _("Playing") or _("Paused")
+        #elif status == GAME_FINISHED[1]:
+        #    stat = _("Finished")
+        #elif status == GAME_QUIT[1]:
+        #    stat = _("Gave up")
+        #else:
+        #    stat = _("Unknown")
+        #self.model.set_value(self.players[op][1], 1, stat)
+        #self.model.set_value(self.players[op][1], 2, _("%i minutes") % (time_ellapsed/60))
         
     def get_buddy_from_path (self, object_path):
         logging.debug("op = " + object_path)
@@ -774,10 +778,12 @@ class SliderPuzzleUI (gtk.Table):
         return self._parent.initiating
 
     def set_readonly (self, ro=True):
-        self.thumb.set_readonly(ro)
-        for b in (self.btn_9, self.btn_12, self.btn_16):
-            if not b.get_active():
-                b.set_sensitive(False)
+        """ Since the current target build (432) does not fully support the contest mode, we are removing this for now."""
+        return
+        #self.thumb.set_readonly(ro)
+        #for b in (self.btn_9, self.btn_12, self.btn_16):
+        #    if not b.get_active():
+        #        b.set_sensitive(False)
 
     def timer_toggle_cb (self, evt, running):
         logging.debug("Timer running: %s" % str(running))
@@ -806,8 +812,8 @@ class SliderPuzzleUI (gtk.Table):
                         self.set_game_state(GAME_STARTED)
                 else:
                     self.set_message(_("Waiting for game image..."))
-                    self.set_button_translation(self.btn_add, "Buddies")
-                    self.btn_add.get_child().set_label(_("Buddies"))
+                    #self.set_button_translation(self.btn_add, "Buddies")
+                    #self.btn_add.get_child().set_label(_("Buddies"))
 
     def set_game_state (self, state, force=False):
         if state[0] > self._state[0] or force:
@@ -815,9 +821,9 @@ class SliderPuzzleUI (gtk.Table):
             self.emit('game-state-changed', state[0])
             self._set_control_area()
             if state == GAME_STARTED:
-                self.set_message(_("Game Started!"))
-                self.set_button_translation(self.btn_add, "Buddies")
-                self.btn_add.get_child().set_label(_("Buddies"))
+                self.set_message("")#_("Game Started!"))
+                #self.set_button_translation(self.btn_add, "Buddies")
+                #self.btn_add.get_child().set_label(_("Buddies"))
             self._send_status_update()
 
     def get_game_state (self):
@@ -833,11 +839,11 @@ class SliderPuzzleUI (gtk.Table):
         if getattr(self, '_contest_mode', None) != mode:
             self._contest_mode = bool(mode)
             self._set_control_area()
-            if self._contest_mode:
-                self.set_button_translation(self.btn_solve, "Give Up")
-                self.btn_solve.get_child().set_label(_("Give Up"))
-                self.set_button_translation(self.btn_shuffle, "Start Game")
-                self.btn_shuffle.get_child().set_label(_("Start Game"))
+            #if self._contest_mode:
+            #    self.set_button_translation(self.btn_solve, "Give Up")
+            #    self.btn_solve.get_child().set_label(_("Give Up"))
+            #    self.set_button_translation(self.btn_shuffle, "Start Game")
+            #    self.btn_shuffle.get_child().set_label(_("Start Game"))
         
     def is_contest_mode (self):
         return self._contest_mode and self.game.filename
@@ -862,22 +868,17 @@ class SliderPuzzleUI (gtk.Table):
             m(self)
 
     def set_nr_pieces (self, btn, nr_pieces=None):
-        logging.debug("0")
         if isinstance(btn, gtk.ToggleButton) and not btn.get_active():
             return
-        logging.debug("1")
         if self.is_contest_mode() and isinstance(btn, gtk.ToggleButton) and nr_pieces == self.game.get_nr_pieces():
             return
-        logging.debug("2")
         if isinstance(btn, gtk.ToggleButton):
             if not btn.get_active():
                 if nr_pieces == self.game.get_nr_pieces():
                     btn.set_active(True)
                 return
-        logging.debug("3")
         if nr_pieces is None:
             nr_pieces = self.game.get_nr_pieces()
-        logging.debug("4")
         if btn is None: #not isinstance(btn, gtk.ToggleButton):
             self.set_game_state(GAME_STARTED)
             for n, b in ((9, self.btn_9),(12, self.btn_12),(16, self.btn_16)):
@@ -885,27 +886,20 @@ class SliderPuzzleUI (gtk.Table):
                     b.set_sensitive(True)
                     b.set_active(True)
                     return
-        logging.debug("5 - %i" % (nr_pieces,))
         if self.thumb.has_image():
             if not self.game.get_parent():
                 self.game_box.pop()
             self.thumb.set_game_widget(self.game)
             self.game.set_nr_pieces(nr_pieces)
             self.timer.reset(False)
-        logging.debug("6")
         if isinstance(btn, gtk.ToggleButton):
             for n, b in ((9, self.btn_9),(12, self.btn_12),(16, self.btn_16)):
                 if b is not btn:
-                    logging.debug("a")
                     b.set_active(False)
-                    logging.debug("b")
-                    b.set_sensitive(not self._contest_mode)
-                    logging.debug("c")
-                logging.debug("Btn %i active: %s, sensitive: %s" % (n, str(b.get_active()), str(b.get_property('sensitive'))))
-        logging.debug("7")
+                    #b.set_sensitive(not self._contest_mode)
 
     def do_shuffle (self, *args, **kwargs):
-        if self._contest_mode:
+        if 0 and self._contest_mode:
             if self.get_game_state() > GAME_IDLE:
                 # Restart
                 self.set_game_state(GAME_STARTED, True)
@@ -955,17 +949,17 @@ class SliderPuzzleUI (gtk.Table):
         """ Use to trigger and process the My Own Image selector.
         Also used for showing the buddies panel on contest mode"""
         if response is None:
-            if self._contest_mode and self.get_game_state() >= GAME_STARTED:
-                # Buddy Panel
-                if not self.buddy_panel.get_parent():
-                    self.timer.stop()
-                    self.game_box.push(self.buddy_panel)
-                else:
-                    self.game_box.pop()
-            elif self._contest_mode and not self.is_initiator():
-                # do nothing
-                pass
-            else:
+            #if self._contest_mode and self.get_game_state() >= GAME_STARTED:
+            #    # Buddy Panel
+            #    if not self.buddy_panel.get_parent():
+            #        self.timer.stop()
+            #        self.game_box.push(self.buddy_panel)
+            #    else:
+            #        self.game_box.pop()
+            #elif self._contest_mode and not self.is_initiator():
+            #    # do nothing
+            #    pass
+            #else:
                 # My Own Image selector
                 imgfilter = gtk.FileFilter()
                 imgfilter.set_name(_("Image Files"))
@@ -1059,8 +1053,10 @@ class SliderPuzzleUI (gtk.Table):
         self.timer._thaw(obj[3])
 
     def _send_status_update (self):
-        if self._parent._shared_activity:
-            self._parent.game_tube.StatusUpdate(self._state[1], self.timer.is_running(), self.timer.ellapsed())
+        """ current build (432) will not fully support this method, so we are removing it for now. """
+        pass
+        #if self._parent._shared_activity:
+        #    self._parent.game_tube.StatusUpdate(self._state[1], self.timer.is_running(), self.timer.ellapsed())
 
 def main():
     win = gtk.Window(gtk.WINDOW_TOPLEVEL)

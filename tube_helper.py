@@ -34,6 +34,7 @@ class GameTube (ExportedGObject):
         self.activity = activity
         self.add_status_update_handler()
         self.get_buddy = activity._get_buddy
+        self.syncd_once = False
         if is_initiator:
             self.add_hello_handler()
             self.add_need_image_handler()
@@ -119,8 +120,10 @@ class GameTube (ExportedGObject):
 
     def re_sync_cb (self, state, sender=None):
         # new grid and possibly image too
+        if self.syncd_once:
+            return
         logger.debug("resync state: '%s' (%s)" % (state, type(state)))
-        self.activity.frozen.thaw(str(state), tube=self)
+        self.syncd_once = self.activity.frozen.thaw(str(state), tube=self)
 
     def status_update_cb (self, status, clock_running, ellapsed_time, sender=None):
         to = self.tube.get_object(sender, PATH)
@@ -155,7 +158,7 @@ class GameTube (ExportedGObject):
     @method(dbus_interface=IFACE, in_signature='s', out_signature='', byte_arrays=True)
     def ImageDetailsSync (self, state):
         """ Signals end of image and shares the rest of the needed data to create the image remotely."""
-        self.activity.frozen.thaw(str(state), forced_image=zlib.decompress(self.image.getvalue()), tube=self)
+        self.syncd_once = self.activity.frozen.thaw(str(state), forced_image=zlib.decompress(self.image.getvalue()), tube=self)
     
 
 class TubeHelper (object):

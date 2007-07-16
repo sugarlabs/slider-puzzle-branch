@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-07-14 20:23+0100\n"
+"POT-Creation-Date: 2007-07-16 21:36+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,120 +16,75 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: SliderPuzzleUI.py:508
+#: SliderPuzzleUI.py:502
 msgid "My Pictures"
 msgstr ""
 
-#: SliderPuzzleUI.py:537
+#: SliderPuzzleUI.py:529
 msgid "Buddy"
 msgstr ""
 
-#: SliderPuzzleUI.py:543
+#: SliderPuzzleUI.py:535
 msgid "Status"
 msgstr ""
 
-#: SliderPuzzleUI.py:549
+#: SliderPuzzleUI.py:541
 msgid "Play Time"
 msgstr ""
 
-#: SliderPuzzleUI.py:570
-msgid "synchronizing"
-msgstr ""
-
-#: SliderPuzzleUI.py:578
-msgid "Playing"
-msgstr ""
-
-#: SliderPuzzleUI.py:578
-msgid "Paused"
-msgstr ""
-
-#: SliderPuzzleUI.py:580
-msgid "Finished"
-msgstr ""
-
-#: SliderPuzzleUI.py:582
-msgid "Gave up"
-msgstr ""
-
-#: SliderPuzzleUI.py:584
-msgid "Unknown"
-msgstr ""
-
-#: SliderPuzzleUI.py:586
-#, python-format
-msgid "%i minutes"
-msgstr ""
-
-#: SliderPuzzleUI.py:685
+#: SliderPuzzleUI.py:681
 msgid "Solve"
 msgstr ""
 
-#: SliderPuzzleUI.py:689
+#: SliderPuzzleUI.py:685
 msgid "Shuffle"
 msgstr ""
 
-#: SliderPuzzleUI.py:693
+#: SliderPuzzleUI.py:689
 msgid "My Picture"
 msgstr ""
 
-#: SliderPuzzleUI.py:736
+#: SliderPuzzleUI.py:732
 msgid "Time: "
 msgstr ""
 
-#: SliderPuzzleUI.py:741 SliderPuzzleUI.py:1015
+#: SliderPuzzleUI.py:737 SliderPuzzleUI.py:1002
 msgid "Lesson Plans"
 msgstr ""
 
-#: SliderPuzzleUI.py:761
+#: SliderPuzzleUI.py:757
 msgid "Waiting for remote game..."
 msgstr ""
 
-#: SliderPuzzleUI.py:812
+#: SliderPuzzleUI.py:810
 msgid "Select image to share..."
 msgstr ""
 
-#: SliderPuzzleUI.py:816
+#: SliderPuzzleUI.py:814
 msgid "Waiting for game image..."
 msgstr ""
 
-#: SliderPuzzleUI.py:818 SliderPuzzleUI.py:828
-msgid "Buddies"
-msgstr ""
-
-#: SliderPuzzleUI.py:826
-msgid "Game Started!"
-msgstr ""
-
-#: SliderPuzzleUI.py:846
-msgid "Give Up"
-msgstr ""
-
-#: SliderPuzzleUI.py:848
-msgid "Start Game"
-msgstr ""
-
-#: SliderPuzzleUI.py:857
+#: SliderPuzzleUI.py:856
 msgid "Slider Puzzle Activity"
 msgstr ""
 
-#: SliderPuzzleUI.py:953
+#: SliderPuzzleUI.py:940
 msgid "Choose a Subject"
 msgstr ""
 
-#: SliderPuzzleUI.py:978
+#: SliderPuzzleUI.py:965
 msgid "Image Files"
 msgstr ""
 
-#: SliderPuzzleUI.py:980
+#: SliderPuzzleUI.py:967
 msgid "Select Image File"
 msgstr ""
 
-#: SliderPuzzleUI.py:996
+#: SliderPuzzleUI.py:983
 msgid "Not a valid image file"
 msgstr ""
 
-#: SliderPuzzleUI.py:1018
+#: SliderPuzzleUI.py:1005
 msgid "Close Lesson"
 msgstr ""
 
@@ -246,45 +201,53 @@ msgid "XO"
 msgstr ""
 
 #: i18n_misc_strings.py:5
-msgid "Sports"
+msgid "Sequencing Puzzles"
 msgstr ""
 
 #: i18n_misc_strings.py:6
-msgid "Insects"
+msgid "Sports"
 msgstr ""
 
 #: i18n_misc_strings.py:7
-msgid "Music"
+msgid "Insects"
 msgstr ""
 
 #: i18n_misc_strings.py:8
-msgid "Space"
+msgid "Music"
 msgstr ""
 
 #: i18n_misc_strings.py:9
-msgid "Lesson 5"
+msgid "Space"
 msgstr ""
 
 #: i18n_misc_strings.py:10
-msgid "Lesson 4"
+msgid "Lesson 5"
 msgstr ""
 
 #: i18n_misc_strings.py:11
-msgid "Overview"
+msgid "Lesson 4"
 msgstr ""
 
 #: i18n_misc_strings.py:12
-msgid "Lesson 3"
+msgid "Overview"
 msgstr ""
 
 #: i18n_misc_strings.py:13
-msgid "Lesson 6"
+msgid "Lesson 3"
 msgstr ""
 
 #: i18n_misc_strings.py:14
-msgid "Lesson 1"
+msgid "Lesson 7"
 msgstr ""
 
 #: i18n_misc_strings.py:15
+msgid "Lesson 6"
+msgstr ""
+
+#: i18n_misc_strings.py:16
+msgid "Lesson 1"
+msgstr ""
+
+#: i18n_misc_strings.py:17
 msgid "Lesson 2"
 msgstr ""
