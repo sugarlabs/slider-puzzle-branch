@@ -78,6 +78,7 @@ class BorderFrame (gtk.EventBox):
     def add (self, widget):
         self.stack.append(widget)
         self.inner.add(widget)
+        self.inner.child.show_now()
 
     def push (self, widget):
         widget.set_size_request(*self.inner.child.get_size_request())
@@ -100,6 +101,7 @@ class BorderFrame (gtk.EventBox):
 class NotebookReaderWidget (gtk.Notebook):
     def __init__ (self, path, lang_details=None):
         super(NotebookReaderWidget, self).__init__()
+        self.set_scrollable(True)
         self.lang_details = lang_details
         lessons = filter(lambda x: os.path.isdir(os.path.join(path, x)), os.listdir(path))
         lessons.sort()

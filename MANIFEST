@@ -13,7 +13,6 @@ icons/arrow_left.png
 icons/arrow_right.png
 icons/circle-check.svg
 icons/circle-x.svg
-icons/logo.png
 images/Sea Life/image_dan_h250_w424_lg.gif
 images/Sea Life/image_atlo_h250_w333_lg.gif
 images/Sea Life/image_col_h250_w333_lg.gif
@@ -71,6 +70,7 @@ images/Space/thumb.gif
 images/Space/image_aisc_h250_w313_lg.gif
 images/Sequencing Puzzles/image_Letters.sequence
 images/Sequencing Puzzles/image_Numbers.sequence
+images/Sequencing Puzzles/thumb.svg
 images/default_thumb.svg
 lessons/0Overview/default.abw
 lessons/0Overview/_es.abw
@@ -85,12 +85,15 @@ lessons/Lesson 3/default.abw
 lessons/Lesson 3/_es.abw
 lessons/Lesson 4/default.abw
 lessons/Lesson 4/_es.abw
+lessons/Lesson 4/_pt.abw
 lessons/Lesson 5/default.abw
 lessons/Lesson 5/_es.abw
 lessons/Lesson 6/default.abw
 lessons/Lesson 6/_es.abw
+lessons/Lesson 6/_pt.abw
 lessons/Lesson 7/default.abw
 lessons/Lesson 7/_es.abw
 po/SliderPuzzle.pot
 po/pt.po
 po/es.po
+po/ko.po

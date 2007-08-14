@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-07-16 21:36+0100\n"
+"POT-Creation-Date: 2007-07-20 15:56+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,75 +16,75 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: SliderPuzzleUI.py:502
+#: SliderPuzzleUI.py:503
 msgid "My Pictures"
 msgstr ""
 
-#: SliderPuzzleUI.py:529
+#: SliderPuzzleUI.py:530
 msgid "Buddy"
 msgstr ""
 
-#: SliderPuzzleUI.py:535
+#: SliderPuzzleUI.py:536
 msgid "Status"
 msgstr ""
 
-#: SliderPuzzleUI.py:541
+#: SliderPuzzleUI.py:542
 msgid "Play Time"
 msgstr ""
 
-#: SliderPuzzleUI.py:681
+#: SliderPuzzleUI.py:682
 msgid "Solve"
 msgstr ""
 
-#: SliderPuzzleUI.py:685
+#: SliderPuzzleUI.py:686
 msgid "Shuffle"
 msgstr ""
 
-#: SliderPuzzleUI.py:689
+#: SliderPuzzleUI.py:690
 msgid "My Picture"
 msgstr ""
 
-#: SliderPuzzleUI.py:732
+#: SliderPuzzleUI.py:733
 msgid "Time: "
 msgstr ""
 
-#: SliderPuzzleUI.py:737 SliderPuzzleUI.py:1002
+#: SliderPuzzleUI.py:738 SliderPuzzleUI.py:1003
 msgid "Lesson Plans"
 msgstr ""
 
-#: SliderPuzzleUI.py:757
+#: SliderPuzzleUI.py:758
 msgid "Waiting for remote game..."
 msgstr ""
 
-#: SliderPuzzleUI.py:810
+#: SliderPuzzleUI.py:811
 msgid "Select image to share..."
 msgstr ""
 
-#: SliderPuzzleUI.py:814
+#: SliderPuzzleUI.py:815
 msgid "Waiting for game image..."
 msgstr ""
 
-#: SliderPuzzleUI.py:856
+#: SliderPuzzleUI.py:857
 msgid "Slider Puzzle Activity"
 msgstr ""
 
-#: SliderPuzzleUI.py:940
+#: SliderPuzzleUI.py:941
 msgid "Choose a Subject"
 msgstr ""
 
-#: SliderPuzzleUI.py:965
+#: SliderPuzzleUI.py:966
 msgid "Image Files"
 msgstr ""
 
-#: SliderPuzzleUI.py:967
+#: SliderPuzzleUI.py:968
 msgid "Select Image File"
 msgstr ""
 
-#: SliderPuzzleUI.py:983
+#: SliderPuzzleUI.py:984
 msgid "Not a valid image file"
 msgstr ""
 
-#: SliderPuzzleUI.py:1005
+#: SliderPuzzleUI.py:1006
 msgid "Close Lesson"
 msgstr ""
 

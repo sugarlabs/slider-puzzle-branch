@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-07-16 21:36+0100\n"
+"POT-Creation-Date: 2007-07-20 15:56+0100\n"
 "PO-Revision-Date: 2007-05-23 10:48+0100\n"
 "Last-Translator: Carlos Neves <cn@sueste>\n"
 "Language-Team: Portuguese <info@worldwideworkshop.org>\n"
@@ -16,75 +16,75 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: SliderPuzzleUI.py:502
+#: SliderPuzzleUI.py:503
 msgid "My Pictures"
 msgstr "Minhas Imagens"
 
-#: SliderPuzzleUI.py:529
+#: SliderPuzzleUI.py:530
 msgid "Buddy"
 msgstr ""
 
-#: SliderPuzzleUI.py:535
+#: SliderPuzzleUI.py:536
 msgid "Status"
 msgstr "Estado"
 
-#: SliderPuzzleUI.py:541
+#: SliderPuzzleUI.py:542
 msgid "Play Time"
 msgstr "Tempo de Jogo"
 
-#: SliderPuzzleUI.py:681
+#: SliderPuzzleUI.py:682
 msgid "Solve"
 msgstr "Resolver"
 
-#: SliderPuzzleUI.py:685
+#: SliderPuzzleUI.py:686
 msgid "Shuffle"
 msgstr "Baralhar"
 
-#: SliderPuzzleUI.py:689
+#: SliderPuzzleUI.py:690
 msgid "My Picture"
 msgstr "Minha Imagem"
 
-#: SliderPuzzleUI.py:732
+#: SliderPuzzleUI.py:733
 msgid "Time: "
 msgstr "Tempo: "
 
-#: SliderPuzzleUI.py:737 SliderPuzzleUI.py:1002
+#: SliderPuzzleUI.py:738 SliderPuzzleUI.py:1003
 msgid "Lesson Plans"
 msgstr "Planos de Ensino"
 
-#: SliderPuzzleUI.py:757
+#: SliderPuzzleUI.py:758
 msgid "Waiting for remote game..."
 msgstr "Esperando por jogo remoto..."
 
-#: SliderPuzzleUI.py:810
+#: SliderPuzzleUI.py:811
 msgid "Select image to share..."
 msgstr "Seleccione imagem para partilhar..."
 
-#: SliderPuzzleUI.py:814
+#: SliderPuzzleUI.py:815
 msgid "Waiting for game image..."
 msgstr "Esperando pela imagem para jogar..."
 
-#: SliderPuzzleUI.py:856
+#: SliderPuzzleUI.py:857
 msgid "Slider Puzzle Activity"
 msgstr "Actividade Slider Puzzle"
 
-#: SliderPuzzleUI.py:940
+#: SliderPuzzleUI.py:941
 msgid "Choose a Subject"
 msgstr "Escolha um Assunto"
 
-#: SliderPuzzleUI.py:965
+#: SliderPuzzleUI.py:966
 msgid "Image Files"
 msgstr "Imagens"
 
-#: SliderPuzzleUI.py:967
+#: SliderPuzzleUI.py:968
 msgid "Select Image File"
 msgstr "Seleccione uma Imagen"
 
-#: SliderPuzzleUI.py:983
+#: SliderPuzzleUI.py:984
 msgid "Not a valid image file"
 msgstr "Imagem inválida"
 
-#: SliderPuzzleUI.py:1005
+#: SliderPuzzleUI.py:1006
 msgid "Close Lesson"
 msgstr "Fechar Plano"
 

@@ -53,6 +53,7 @@ SLICE_BTN_WIDTH = 50
 
 THUMB_SIZE = 48
 IMAGE_SIZE = 200
+#GAME_SIZE = 294
 GAME_SIZE = 564
 
 MYOWNPIC_FOLDER = os.path.expanduser("~/.sugar/default/org.worldwideworkshop.olpc.SliderPuzzle.MyOwnPictures")

@@ -2,7 +2,7 @@ from sugar.activity.activity import Activity, ActivityToolbox, get_bundle_path
 from gettext import gettext as _
 from SliderPuzzleUI import SliderPuzzleUI
 from tube_helper import TubeHelper
-import logging, os
+import logging, os, sys
 import md5
 
 logger = logging.getLogger('sliderpuzzle-activity')
@@ -102,6 +102,7 @@ class SliderPuzzleActivity(Activity, TubeHelper):
 	def __init__(self, handle):
 		Activity.__init__(self, handle)
 		logger.debug('Starting Slider Puzzle activity... %s' % str(get_bundle_path()))
+		logger.debug(str(sys.path))
 		os.chdir(get_bundle_path())
 		self.connect('destroy', self._destroy_cb)
 
