@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-07-20 15:56+0100\n"
+"POT-Creation-Date: 2007-09-10 10:34+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,173 +16,81 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: SliderPuzzleUI.py:503
-msgid "My Pictures"
-msgstr "Mi cuadros"
-
-#: SliderPuzzleUI.py:530
-msgid "Buddy"
+#: activity/activity.info:2
+msgid "Slider Puzzle"
 msgstr ""
 
-#: SliderPuzzleUI.py:536
-msgid "Status"
-msgstr ""
-
-#: SliderPuzzleUI.py:542
-msgid "Play Time"
-msgstr ""
-
-#: SliderPuzzleUI.py:682
+#: SliderPuzzleUI.py:700
 msgid "Solve"
 msgstr "Solucionar"
 
-#: SliderPuzzleUI.py:686
+#: SliderPuzzleUI.py:704
 msgid "Shuffle"
 msgstr "Revoltijo"
 
-#: SliderPuzzleUI.py:690
+#: SliderPuzzleUI.py:708
 msgid "My Picture"
 msgstr "Mi cuadro"
 
-#: SliderPuzzleUI.py:733
+#: SliderPuzzleUI.py:751
 msgid "Time: "
 msgstr "Tiempo: "
 
-#: SliderPuzzleUI.py:738 SliderPuzzleUI.py:1003
+#: SliderPuzzleUI.py:756 SliderPuzzleUI.py:1043
 msgid "Lesson Plans"
 msgstr "Planes de la lección"
 
-#: SliderPuzzleUI.py:758
+#: SliderPuzzleUI.py:776
 msgid "Waiting for remote game..."
 msgstr ""
 
-#: SliderPuzzleUI.py:811
+#: SliderPuzzleUI.py:830
 msgid "Select image to share..."
 msgstr ""
 
-#: SliderPuzzleUI.py:815
+#: SliderPuzzleUI.py:834
 msgid "Waiting for game image..."
 msgstr ""
 
-#: SliderPuzzleUI.py:857
+#: SliderPuzzleUI.py:836 SliderPuzzleUI.py:846
+msgid "Buddies"
+msgstr ""
+
+#: SliderPuzzleUI.py:844
+msgid "Game Started!"
+msgstr ""
+
+#: SliderPuzzleUI.py:864
+msgid "Give Up"
+msgstr ""
+
+#: SliderPuzzleUI.py:866
+msgid "Start Game"
+msgstr ""
+
+#: SliderPuzzleUI.py:876
 msgid "Slider Puzzle Activity"
 msgstr ""
 
-#: SliderPuzzleUI.py:941
+#: SliderPuzzleUI.py:976
 msgid "Choose a Subject"
 msgstr "Elegir un tema"
 
-#: SliderPuzzleUI.py:966
+#: SliderPuzzleUI.py:1004
 msgid "Image Files"
 msgstr ""
 
-#: SliderPuzzleUI.py:968
+#: SliderPuzzleUI.py:1006
 msgid "Select Image File"
 msgstr ""
 
-#: SliderPuzzleUI.py:984
+#: SliderPuzzleUI.py:1022
 msgid "Not a valid image file"
 msgstr ""
 
-#: SliderPuzzleUI.py:1006
+#: SliderPuzzleUI.py:1046
 msgid "Close Lesson"
 msgstr "Cerrar lección"
-
-#: i18n.py:39
-msgid "Chinese (simplified)"
-msgstr ""
-
-#: i18n.py:40
-msgid "Chinese (traditional)"
-msgstr ""
-
-#: i18n.py:41
-msgid "Czech"
-msgstr ""
-
-#: i18n.py:42
-msgid "Danish"
-msgstr ""
-
-#: i18n.py:43
-msgid "Dutch"
-msgstr ""
-
-#: i18n.py:44
-msgid "English"
-msgstr ""
-
-#: i18n.py:45
-msgid "English - Great Britain"
-msgstr ""
-
-#: i18n.py:46
-msgid "English - U.S."
-msgstr ""
-
-#: i18n.py:47
-msgid "Finnish"
-msgstr ""
-
-#: i18n.py:48
-msgid "French"
-msgstr ""
-
-#: i18n.py:49
-msgid "German"
-msgstr ""
-
-#: i18n.py:50
-msgid "Hungarian"
-msgstr ""
-
-#: i18n.py:51
-msgid "Italian"
-msgstr ""
-
-#: i18n.py:52
-msgid "Japanese"
-msgstr ""
-
-#: i18n.py:53
-msgid "Korean"
-msgstr ""
-
-#: i18n.py:54
-msgid "Norwegian"
-msgstr ""
-
-#: i18n.py:55
-msgid "Polish"
-msgstr ""
-
-#: i18n.py:56
-msgid "Portuguese"
-msgstr ""
-
-#: i18n.py:57
-msgid "Portuguese - Brazilian"
-msgstr ""
-
-#: i18n.py:58
-msgid "Russian"
-msgstr ""
-
-#: i18n.py:59
-msgid "Slovak"
-msgstr ""
-
-#: i18n.py:60
-msgid "Spanish"
-msgstr ""
-
-#: i18n.py:61
-msgid "Swedish"
-msgstr ""
-
-#: i18n.py:62
-msgid "Turkish"
-msgstr ""
 
 #: i18n_misc_strings.py:1
 msgid "Sea Life"
@@ -251,3 +159,6 @@ msgstr "Lección 1"
 #: i18n_misc_strings.py:17
 msgid "Lesson 2"
 msgstr "Lección 2"
+
+#~ msgid "My Pictures"
+#~ msgstr "Mi cuadros"

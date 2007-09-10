@@ -28,13 +28,17 @@
 import pygtk
 pygtk.require('2.0')
 import gtk, gobject
+import pango
 import md5
 
-from utils import load_image, calculate_matrix, debug, SliderCreator
+from mamamedia_modules import utils
+
+#from utils import load_image, calculate_matrix, debug, SliderCreator, trace
 
 from types import TupleType, ListType
 from random import random
 from time import time
+from math import sqrt
 
 ###
 # General Information
@@ -49,6 +53,69 @@ SLIDE_UP = 1
 SLIDE_DOWN = 2
 SLIDE_LEFT = 3
 SLIDE_RIGHT = 4
+
+def calculate_matrix (pieces):
+    """ Given a number of pieces, calculate the best fit 2 dimensional matrix """
+    rows = int(sqrt(pieces))
+    cols = int(float(pieces) / rows)
+    return rows*cols, rows, cols
+
+
+class SliderCreator (gtk.gdk.Pixbuf):
+    def __init__ (self, width, height, fname): #tlist):
+        super(SliderCreator, self).__init__(gtk.gdk.COLORSPACE_RGB, False, 8, width, height)
+        items = []
+        cmds = file(fname).readlines()
+        if len(cmds) > 1:
+            _x_ = eval(cmds[0])
+            for i in range(16):
+                items.append(_x_)
+                _x_ = eval(cmds[1])
+        self.width = width
+        self.height = height
+        self.tlist = items
+        self.prepare_stringed(2,2)
+
+    @classmethod
+    def can_handle(klass, fname):
+        return fname.lower().endswith('.sequence')
+
+    def prepare_stringed (self, rows, cols):
+        # We use a Pixmap as offscreen drawing canvas
+        cm = gtk.gdk.colormap_get_system()
+        pm = gtk.gdk.Pixmap(None, self.width, self.height, cm.get_visual().depth)
+        #pangolayout = pm.create_pango_layout("")
+        font_size = int(self.width / cols / 4)
+        l = gtk.Label()
+        pangolayout = pango.Layout(l.create_pango_context())
+        pangolayout.set_font_description(pango.FontDescription("sans bold %i" % font_size))
+        gc = pm.new_gc()
+        gc.set_colormap(gtk.gdk.colormap_get_system())
+        color = cm.alloc_color('white')
+        gc.set_foreground(color)
+        pm.draw_rectangle(gc, True, 0, 0, self.width, self.height)
+        color = cm.alloc_color('black')
+        gc.set_foreground(color)
+
+        sw, sh = (self.width / cols), (self.height / rows)
+        item = iter(self.tlist)
+        for r in range(rows):
+            for c in range(cols):
+                px = sw * c
+                py = sh * r
+                #if c > 0 and r > 0:
+                #    pm.draw_line(gc, px, 0, px, self.height-1)
+                #    pm.draw_line(gc, 0, py, self.width-1, py)
+                pangolayout.set_text(str(item.next()))
+                pe = pangolayout.get_pixel_extents()
+                print pe
+                pe = pe[1][2]/2, pe[1][3]/2
+                print pe
+                print "**%s**" % pangolayout.get_text(), px + (sw / 2) - pe[0],  py + (sh / 2) - pe[1]
+                pm.draw_layout(gc, px + (sw / 2) - pe[0],  py + (sh / 2) - pe[1], pangolayout)
+        self.get_from_drawable(pm, cm, 0, 0, 0, 0, -1, -1)
+
+utils.register_image_type(SliderCreator)
 
 ###
 # Game Logic
@@ -117,8 +184,6 @@ class SliderPuzzleMap (object):
 
     def reset (self, pieces=9):
         self.pieces, self.rowsize, self.colsize = calculate_matrix(pieces)
-        debug("SliderPuzzleMap init: requested %i pieces" % (pieces))
-        debug("   got %i pieces as %ix%i" % (self.pieces, self.colsize, self.rowsize))
         pieces_map = range(1,self.pieces+1)
         self.pieces_map = []
         for i in range(self.rowsize):
@@ -143,7 +208,6 @@ class SliderPuzzleMap (object):
                 pass
 
         t = time() - t
-        debug("Done %i iteractions in %f seconds" % (iteractions, t))
 
         # Now move the hole to the bottom right
         for x in range(self.colsize-self.hole_pos.x-1):
@@ -378,6 +442,7 @@ class SliderPuzzleWidget (gtk.Table):
             self.set_row_spacings(1)
             self.set_col_spacings(1)
 
+    @utils.trace
     def full_refresh (self):
         # Delete everything
         self.foreach(self.remove)
@@ -433,12 +498,14 @@ class SliderPuzzleWidget (gtk.Table):
         self.resize(self.jumbler.rowsize, self.jumbler.colsize)
         self.randomize()
 
+    @utils.trace
     def randomize (self):
         """ Jumble the SliderPuzzle """
         self.jumbler.randomize()
         self.full_refresh()
         self.emit("shuffled")
 
+    @utils.trace
     def load_image (self, filename, width=0, height=0):
         """ Loads an image from the file.
         width and height are processed as follows:
@@ -449,7 +516,7 @@ class SliderPuzzleWidget (gtk.Table):
             width = self.width
         if height == 0:
             height = self.height
-        self.image = load_image(filename, width, height)
+        self.image = utils.load_image(filename, width, height)
         self.filename = filename
         self.image_digest = md5.new(file(filename, 'rb').read()).hexdigest()
         self.full_refresh()
@@ -476,6 +543,7 @@ class SliderPuzzleWidget (gtk.Table):
         """ returns a json writable object representation capable of being used to restore our current status """
         return self.jumbler._freeze()
 
+    @utils.trace
     def _thaw (self, obj):
         """ retrieves a frozen status from a python object, as per _freeze """
         self.jumbler._thaw(obj)

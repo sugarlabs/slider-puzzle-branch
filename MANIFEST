@@ -2,97 +2,12 @@ SliderPuzzleActivity.py
 SliderPuzzleUI.py
 SliderPuzzleWidget.py
 setup.py
-i18n.py
+mamamedia_modules.py
 i18n_misc_strings.py
-mamamedia_ui.py
-utils.py
-json.py
-tubeconn.py
-tube_helper.py
-icons/arrow_left.png
-icons/arrow_right.png
-icons/circle-check.svg
-icons/circle-x.svg
-images/Sea Life/image_dan_h250_w424_lg.gif
-images/Sea Life/image_atlo_h250_w333_lg.gif
-images/Sea Life/image_col_h250_w333_lg.gif
-images/Sea Life/image_joc_h250_w333_lg.gif
-images/Sea Life/image_xxmrtwigxx_lg.gif
-images/Sea Life/image_higc_h250_w250_lg.gif
-images/Sea Life/image_clor_h250_w250_lg.gif
-images/Sea Life/image_fsuw_h250_w250_lg.gif
-images/Sea Life/image_tsoc_h250_w421_lg.gif
-images/Sea Life/image_sxykitton_lg.gif
-images/Sea Life/image_cal_h250_w165_lg.gif
-images/Sea Life/image_kitty_lg.gif
-images/Sea Life/thumb.gif
-images/Sea Life/image_btfi_h250_w331_lg.gif
-images/Animals/image_mdic_h250_w250_lg.gif
-images/Animals/image_mdwl_h250_w250_lg.gif
-images/Animals/image_justi_h250_w333_lg.gif
-images/Animals/image_chmk_h250_w250_lg.gif
-images/Animals/image_howl_h250_w250_lg.gif
-images/Animals/image_mrfg_h250_w333_lg.gif
-images/Animals/image_hsnr_h250_w421_lg.gif
-images/Animals/image_kili_h250_w387_lg.gif
-images/Animals/image_djstf_h250_w411_lg.gif
-images/Animals/image_lehf_h250_w250_lg.gif
-images/Animals/image_drti_h250_w322_lg.gif
-images/Animals/thumb.gif
-images/Animals/image_nimo_h250_w299_lg.gif
-images/Animals/image_skat_h250_w363_lg.gif
-images/Birds/image_mbmg_h250_w250_lg.gif
-images/Birds/image_oitn_h250_w250_lg.gif
-images/Birds/image_s1macaw_lg.gif
-images/Birds/thumb.gif
-images/Sports/image_czvb_h250_w250_lg.gif
-images/Sports/image_skst_h250_w253_lg.gif
-images/Sports/image_sdkc_h250_w250_lg.gif
-images/Sports/image_bbof_h250_w250_lg.gif
-images/Sports/thumb.gif
-images/Sports/image_jppr_h250_w403_lg.gif
-images/Insects/image_evms_h250_w320_lg.gif
-images/Insects/image_bgim_h250_w250_lg.gif
-images/Insects/image_slls_h250_w333_lg.gif
-images/Insects/image_bbhs_h250_w250_lg.gif
-images/Insects/thumb.gif
-images/Insects/image_bmar_h250_w230_lg.gif
-images/Insects/image_atih_h250_w250_lg.gif
-images/Music/image_tbtn_h250_w365_lg.gif
-images/Music/image_2kgl_h250_w250_lg.gif
-images/Music/image_devin_music_w333_lg.gif
-images/Music/image_weird_h250_w384_lg.gif
-images/Music/image_wpwa_h250_w250_lg.gif
-images/Music/thumb.gif
-images/Space/image_esim_h250_w250_lg.gif
-images/Space/image_tral_h250_w404_lg.gif
-images/Space/thumb.gif
-images/Space/image_aisc_h250_w313_lg.gif
+icons/logo.png
 images/Sequencing Puzzles/image_Letters.sequence
 images/Sequencing Puzzles/image_Numbers.sequence
 images/Sequencing Puzzles/thumb.svg
-images/default_thumb.svg
-lessons/0Overview/default.abw
-lessons/0Overview/_es.abw
-lessons/0Overview/_pt.abw
-lessons/Lesson 1/default.abw
-lessons/Lesson 1/_es.abw
-lessons/Lesson 1/_pt.abw
-lessons/Lesson 2/default.abw
-lessons/Lesson 2/_es.abw
-lessons/Lesson 2/_pt.abw
-lessons/Lesson 3/default.abw
-lessons/Lesson 3/_es.abw
-lessons/Lesson 4/default.abw
-lessons/Lesson 4/_es.abw
-lessons/Lesson 4/_pt.abw
-lessons/Lesson 5/default.abw
-lessons/Lesson 5/_es.abw
-lessons/Lesson 6/default.abw
-lessons/Lesson 6/_es.abw
-lessons/Lesson 6/_pt.abw
-lessons/Lesson 7/default.abw
-lessons/Lesson 7/_es.abw
 po/SliderPuzzle.pot
 po/pt.po
 po/es.po
