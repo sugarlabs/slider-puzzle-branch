@@ -533,80 +533,6 @@ def prepare_btn(btn, w=-1, h=-1):
 #            self.emit("selected", tv.get_value(it,0))
 #
 
-#class BuddyPanel (gtk.ScrolledWindow):
-#    def __init__ (self):
-#        super(BuddyPanel, self).__init__()
-#        self.set_policy(gtk.POLICY_AUTOMATIC, gtk.POLICY_AUTOMATIC)
-#
-#        self.model = gtk.ListStore(str, str, str)
-#        self.model.set_sort_column_id(0, gtk.SORT_ASCENDING)
-#        self.treeview = gtk.TreeView()
-#
-#        col = gtk.TreeViewColumn(_("Buddy"))
-#        r = gtk.CellRendererText()
-#        col.pack_start(r, True)
-#        col.set_attributes(r, text=0)
-#        self.treeview.append_column(col)
-#
-#        col = gtk.TreeViewColumn(_("Status"))
-#        r = gtk.CellRendererText()
-#        col.pack_start(r, True)
-#        col.set_attributes(r, text=1)
-#        self.treeview.append_column(col)
-#
-#        col = gtk.TreeViewColumn(_("Play Time"))
-#        r = gtk.CellRendererText()
-#        col.pack_start(r, True)
-#        col.set_attributes(r, text=2)
-#        self.treeview.append_column(col)
-#        
-#        self.treeview.set_model(self.model)
-#
-#        self.add(self.treeview)
-#        self.show_all()
-#
-#        self.players = {}
-#
-#    def add_player (self, buddy):
-#        """Since the current target build (432) does not fully support the contest mode, we are removing this for now. """
-#        #return
-#        op = buddy.object_path()
-#        if self.players.get(op) is not None:
-#            return
-#        
-#        nick = buddy.props.nick
-#        if not nick:
-#            nick = ""
-#        self.players[op] = (buddy, self.model.append([nick, _('synchronizing'), '']))
-#
-#    @utils.trace
-#    def update_player (self, buddy, status, clock_running, time_ellapsed):
-#        """Since the current target build (432) does not fully support the contest mode, we are removing this for now. """
-#        #return
-#        op = buddy.object_path()
-#        if self.players.get(op, None) is None:
-#            logging.debug("Player %s not found" % op)
-#            return
-#        print self.players[op]
-#        if status == GAME_STARTED[1]:
-#            stat = clock_running and _("Playing") or _("Paused")
-#        elif status == GAME_FINISHED[1]:
-#            stat = _("Finished")
-#        elif status == GAME_QUIT[1]:
-#            stat = _("Gave up")
-#        else:
-#            stat = _("Unknown")
-#        self.model.set_value(self.players[op][1], 1, stat)
-#        self.model.set_value(self.players[op][1], 2, _("%i minutes") % (time_ellapsed/60))
-#        
-#    def get_buddy_from_path (self, object_path):
-#        logging.debug("op = " + object_path)
-#        logging.debug(self.players)
-#        return self.players.get(object_path, None)
-#        
-#    def remove_player (self, buddy):
-#        pass
-    
 class SliderPuzzleUI (gtk.Table):
     __gsignals__ = {'game-state-changed' : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, (int,))}
     
@@ -797,8 +723,6 @@ class SliderPuzzleUI (gtk.Table):
         return self._parent.initiating
 
     def set_readonly (self, ro=True):
-        """ Since the current target build (432) does not fully support the contest mode, we are removing this for now."""
-        #return
         self.thumb.set_readonly(ro)
         for b in (self.btn_9, self.btn_12, self.btn_16):
             if not b.get_active():

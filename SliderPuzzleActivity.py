@@ -153,7 +153,8 @@ class GameTube (ExportedGObject):
         """ """
         logger.debug("Received image part #%d, length %d" % (part_nr, len(image_part)))
         if part_nr == 1:
-            self.image = StringIO(image_part)
+            self.image = StringIO()
+            self.image.write(image_part)
         else:
             self.image.write(image_part)
 
