@@ -69,7 +69,7 @@ IMAGE_SIZE = 200
 #GAME_SIZE = 294
 GAME_SIZE = 564
 
-MYOWNPIC_FOLDER = os.path.expanduser("~/.sugar/default/org.worldwideworkshop.olpc.SliderPuzzle.MyOwnPictures")
+#MYOWNPIC_FOLDER = os.path.expanduser("~/.sugar/default/org.worldwideworkshop.olpc.SliderPuzzle.MyOwnPictures")
 # Colors from Rich's UI design
 
 COLOR_FRAME_OUTER = "#B7B7B7"
@@ -106,432 +106,6 @@ def prepare_btn(btn, w=-1, h=-1):
         btn.set_size_request(w, h)
     return btn
 
-
-#class TimerWidget (gtk.HBox):
-#    __gsignals__ = {'timer_toggle' : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, (bool,)),}
-#    def __init__ (self, bg_color="#DD4040", fg_color="#4444FF", lbl_color="#DD4040"):
-#        gtk.HBox.__init__(self)
-#        self.counter = gtk.EventBox()
-#        self.counter.modify_bg(gtk.STATE_NORMAL, gtk.gdk.color_parse(bg_color))
-#        self.counter.set_size_request(90, -1)
-#        hb = gtk.HBox()
-#        self.counter.add(hb)
-#        self.lbl_time = gtk.Label()
-#        self.lbl_time.modify_fg(gtk.STATE_NORMAL, gtk.gdk.color_parse(lbl_color))
-#        self.pack_start(self.lbl_time, False)
-#        self.time_label = gtk.Label("--:--")
-#        self.time_label.modify_fg(gtk.STATE_NORMAL, gtk.gdk.color_parse(fg_color))
-#        hb.pack_start(self.time_label, False, False, 5)
-#        self.prepare_icons()
-#        self.icon = gtk.Image()
-#        self.icon.set_from_pixbuf(self.icons[1])
-#        hb.pack_end(self.icon, False, False, 5)
-#        self.pack_start(self.counter, False)
-#        self.connect("button-press-event", self.process_click)
-#        self.start_time = 0
-#        self.timer_id = None
-#        self.finished = False
-#
-#    def set_label (self, label):
-#        self.lbl_time.set_label(label)
-#
-#    def prepare_icons (self):
-#        self.icons = []
-#        self.icons.append(utils.load_image("icons/circle-x.svg"))
-#        self.icons.append(utils.load_image("icons/circle-check.svg"))
-#
-#    def modify_bg(self, state, color):
-#        self.foreach(lambda x: x is not self.counter and x.modify_bg(state, color))
-#
-#    def reset (self, auto_start=True):
-#        self.set_sensitive(True)
-#        self.finished = False
-#        self.stop()
-#        self.start_time = 0
-#        if auto_start:
-#            self.start()
-#
-#    def start (self):
-#        if self.finished:
-#            return
-#        self.icon.set_from_pixbuf(self.icons[0])
-#        if self.start_time is None:
-#            self.start_time = time()
-#        else:
-#            self.start_time = time() - self.start_time
-#        self.do_tick()
-#        if self.timer_id is None:
-#            self.timer_id = gobject.timeout_add(1000, self.do_tick)
-#        self.emit('timer_toggle', True)
-#
-#    def stop (self, finished=False):
-#        self.icon.set_from_pixbuf(self.icons[1])
-#        if self.timer_id is not None:
-#            gobject.source_remove(self.timer_id)
-#            self.timer_id = None
-#            self.start_time = time() - self.start_time
-#        if not finished:
-#            self.time_label.set_text("--:--")
-#        else:
-#            self.finished = True
-#        self.emit('timer_toggle', False)
-#        
-#    def process_click (self, btn, event):
-#        if self.timer_id is None:
-#            self.start()
-#        else:
-#            self.stop()
-#
-#    def is_running (self):
-#        return self.timer_id is not None
-#
-#    def ellapsed (self):
-#        if self.is_running():
-#            return time() - self.start_time
-#        else:
-#            return self.start_time
-#
-#    def is_reset (self):
-#        return not self.is_running() and self.start_time == 0
-#
-#    def do_tick (self):
-#        t = time() - self.start_time
-#        if t > 5999:
-#            # wrap timer
-#            t = 0
-#            self.start_time = time()
-#        self.time_label.set_text("%0.2i:%0.2i" % (t/60, t%60))
-#        return True
-#
-#    def _freeze (self):
-#        return (self.start_time, time(), self.finished, self.timer_id is None)
-#
-#    def _thaw (self, obj):
-#        print obj
-#        self.start_time, t, finished, stopped = obj
-#        if self.start_time is not None:
-#            if not stopped:
-#                self.start_time = t - self.start_time
-#                self.start()
-#                return
-#            #self.start_time = time() - self.start_time
-#            #self.do_tick()
-#        self.stop(finished)
-#                
-#class CategoryDirectory (object):
-#    def __init__ (self, path, width=-1, height=-1):
-#        self.path = path
-#        if os.path.isdir(path):
-#            self.gather_images()
-#        else:
-#            self.images = [path]
-#        self.set_thumb_size(THUMB_SIZE, THUMB_SIZE)
-#        self.set_image_size(width, height)
-#        self.filename = None
-#        self.name = os.path.basename(path)
-#
-#    def gather_images (self):
-#        """ Lists all images in the selected path as per the wildcard expansion of 'image_*'.
-#        Adds all linked images from files (*.lnk) """
-#        self.images = []
-#        links = glob(os.path.join(self.path, "*.lnk"))
-#        for link in links:
-#            fpath = file(link).readlines()[0].strip()
-#            if os.path.isfile(fpath) and not (fpath in self.images):
-#                self.images.append(fpath)
-#            else:
-#                os.remove(link)
-#        self.images.extend(glob(os.path.join(self.path, "image_*")))
-#        self.images.sort()
-#
-#    def set_image_size (self, w, h):
-#        self.width = w
-#        self.height = h
-#
-#    def set_thumb_size (self, w, h):
-#        self.twidth = w
-#        self.theight = h
-#        self.thumb = self._get_category_thumb()
-#
-#    def get_image (self, name):
-#        if not len(self.images) or name is None or name not in self.images:
-#            return None
-#        self.filename = name
-#        return utils.load_image(self.filename, self.width, self.height)
-#
-#    def get_next_image (self):
-#        if not len(self.images):
-#            return None
-#        if self.filename is None or self.filename not in self.images:
-#            pos = -1
-#        else:
-#            pos = self.images.index(self.filename)
-#        pos += 1
-#        if pos >= len(self.images):
-#            pos = 0
-#        return self.get_image(self.images[pos])
-#
-#    def get_previous_image (self):
-#        if not len(self.images):
-#            return None
-#        if self.filename is None or self.filename not in self.images:
-#            pos = len(self.images)
-#        else:
-#            pos = self.images.index(self.filename)
-#        pos -= 1
-#        if pos < 0:
-#            pos = len(self.images) - 1
-#        return self.get_image(self.images[pos])
-#
-#    def has_images (self):
-#        return len(self.images) > 0
-#
-#    def count_images (self):
-#        return len(self.images)
-#
-#    def has_image (self):
-#        return self.filename is not None
-#
-#    def _get_category_thumb (self):
-#        if os.path.isdir(self.path):
-#            thumbs = glob(os.path.join(self.path, "thumb.*"))
-#            thumbs.extend(glob("images/default_thumb.*"))
-#            thumbs = filter(lambda x: os.path.exists(x), thumbs)
-#            thumbs.append(None)
-#        else:
-#            thumbs = [self.path]
-#        return utils.load_image(thumbs[0], self.twidth, self.theight)
-#    
-#
-#class ImageSelectorWidget (gtk.Table):
-#    __gsignals__ = {'category_press' : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, ()),
-#                    'image_press' : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, ()),}
-#
-#    def __init__ (self, width=-1, height=-1, frame_color=None):
-#        gtk.Table.__init__(self, 2,5,False)
-#        self._signals = []
-#        self.width = width
-#        self.height = height
-#        self.image = gtk.Image()
-#        self.myownpath = None
-#        img_box = BorderFrame(border_color=frame_color)
-#        img_box.add(self.image)
-#        img_box.set_border_width(5)
-#        self._signals.append((img_box, img_box.connect('button_press_event', self.emit_image_pressed)))
-#        self.attach(img_box, 0,5,0,1,0,0)
-#        self.attach(gtk.Label(), 0,1,1,2)
-#        self.bl = gtk.Button()
-#
-#        il = gtk.Image()
-#        il.set_from_pixbuf(utils.load_image('icons/arrow_left.png'))
-#        self.bl.set_image(il)
-#
-#        self.bl.connect('clicked', self.previous)
-#        self.attach(prepare_btn(self.bl), 1,2,1,2,0,0)
-#
-#        cteb = gtk.EventBox()
-#        self.cat_thumb = gtk.Image()
-#        self.cat_thumb.set_size_request(THUMB_SIZE, THUMB_SIZE)
-#        cteb.add(self.cat_thumb)
-#        self._signals.append((cteb, cteb.connect('button_press_event', self.emit_cat_pressed)))
-#        self.attach(cteb, 2,3,1,2,0,0,xpadding=10)
-#        
-#        self.br = gtk.Button()
-#        ir = gtk.Image()
-#        ir.set_from_pixbuf(utils.load_image('icons/arrow_right.png'))
-#        self.br.set_image(ir)
-#        self.br.connect('clicked', self.next)
-#        self.attach(prepare_btn(self.br), 3,4,1,2,0,0)
-#        self.attach(gtk.Label(),4,5,1,2)
-#        self.filename = None
-#        self.show_all()
-#        self.image.set_size_request(width, height)
-#
-#    def set_readonly (self, ro=True):
-#        if ro:
-#            self.bl.hide()
-#            self.br.hide()
-#            for w, s in self._signals:
-#                w.handler_block(s)
-#
-#    def set_myownpath (self, path):
-#        """ Sets the path to My Own Pictures storage, so we know where to add links to new pictures """
-#        if not os.path.exists(path):
-#            os.mkdir(path)
-#        self.myownpath = path
-#
-#    def is_myownpath (self):
-#        """ Checks current path against the set custom image path """
-#        return self.myownpath == self.category.path
-#
-#    def gather_myownpath_images(self):
-#        """ """
-#        rv = []
-#        self.images = []
-#        links = glob(os.path.join(self.myownpath, "*.lnk"))
-#        for link in links:
-#            linfo = filter(None, map(lambda x: x.strip(), file(link).readlines()))
-#            fpath = linfo[0]
-#            if os.path.isfile(fpath) and not (fpath in self.images):
-#                self.images.append(fpath)
-#                if len(linfo) > 1:
-#                    digest = linfo[1]
-#                else:
-#                    digest = md5.new(file(fpath, 'rb').read()).hexdigest()
-#                rv.append((link, fpath, digest))
-#        for fpath in glob(os.path.join(self.myownpath, "image_*")):
-#            digest = md5.new(file(fpath, 'rb').read()).hexdigest()
-#            rv.append((fpath, fpath, digest))
-#        return rv
-#
-#    def emit_cat_pressed (self, *args):
-#        self.emit('category_press')
-#        return True
-#
-#    def emit_image_pressed (self, *args):
-#        self.emit('image_press')
-#        return True
-#
-#    def has_image (self):
-#        return self.category.has_image()
-#
-#    def get_category_name (self):
-#        return self.category.name
-#
-#    def get_filename (self):
-#        return self.category.filename
-#
-#    def next (self, *args, **kwargs):
-#        self.image.set_from_pixbuf(self.category.get_next_image())
-#
-#    def previous (self, *args, **kwargs):
-#        self.image.set_from_pixbuf(self.category.get_previous_image())
-#
-#    def get_image_dir (self):
-#        return self.category.path
-#
-#    def set_image_dir (self, directory):
-#        if os.path.exists(directory) and not os.path.isdir(directory):
-#            filename = directory
-#            directory = os.path.dirname(directory)
-#            #logging.debug("dir=%s, filename=%s" % (directory, filename))
-#        else:
-#            #logging.debug("dir=%s" % (directory))
-#            filename = None
-#        self.category = CategoryDirectory(directory, self.width, self.height)
-#        self.cat_thumb.set_from_pixbuf(self.category.thumb)
-#        if filename:
-#            self.image.set_from_pixbuf(self.category.get_image(filename))
-#        else:
-#            if self.category.has_images():
-#                self.next()
-#
-#    def load_image(self, filename):
-#        """ Loads an image from the file """
-#        if self.myownpath is not None and os.path.isdir(self.myownpath):
-#            name = os.path.splitext(os.path.basename(filename))[0]
-#            while os.path.exists(os.path.join(self.myownpath, '%s.lnk' % name)):
-#                name = name + '_'
-#            f = file(os.path.join(self.myownpath, '%s.lnk' % name), 'w')
-#            f.write(filename)
-#            image_digest = md5.new(file(filename, 'rb').read()).hexdigest()
-#            f.write('\n%s' % image_digest)
-#            f.close()
-#            self.category = CategoryDirectory(self.myownpath, self.width, self.height)
-#            self.image.set_from_pixbuf(self.category.get_image(filename))
-#        else:
-#            self.category = CategoryDirectory(filename, self.width, self.height)
-#            self.next()
-#        self.cat_thumb.set_from_pixbuf(self.category.thumb)
-#        return self.image.get_pixbuf() is not None
-#
-#    def set_game_widget(self, game_widget):
-#        if self.has_image():
-#            game_widget.load_image(self.get_filename())
-#
-#    def _freeze (self):
-#        """ returns a json writable object representation capable of being used to restore our current status """
-#        return {'image_dir': self.get_image_dir(),
-#                'filename': self.get_filename()}
-#
-#    def _thaw (self, obj):
-#        """ retrieves a frozen status from a python object, as per _freeze """
-#        self.set_image_dir(obj.get('image_dir', None))
-#        self.image.set_from_pixbuf(self.category.get_image(obj.get('filename', None)))
-#
-#class CategorySelector (gtk.ScrolledWindow):
-#    __gsignals__ = {'selected' : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, (str,))}
-#    
-#    def __init__ (self, path, title=None, selected_category_path=None):
-#        gtk.ScrolledWindow.__init__ (self)
-#        self.set_policy(gtk.POLICY_AUTOMATIC, gtk.POLICY_AUTOMATIC)
-#
-#        self.path = path
-#        self.thumbs = []
-#        model, selected = self.get_model(path, selected_category_path)
-#        self.ignore_first = selected is not None
-#        
-#        self.treeview = gtk.TreeView()
-#        col = gtk.TreeViewColumn(title)
-#        r1 = gtk.CellRendererPixbuf()
-#        r2 = gtk.CellRendererText()
-#        col.pack_start(r1, False)
-#        col.pack_start(r2, True)
-#        col.set_cell_data_func(r1, self.cell_pb)
-#        col.set_attributes(r2, text=1)
-#        self.treeview.append_column(col)
-#        self.treeview.set_model(model)
-#
-#        self.add(self.treeview)
-#        self.show_all()
-#        if selected is not None:
-#            self.treeview.get_selection().select_path(selected)
-#        self.treeview.connect("cursor-changed", self.do_select)
-#
-#    def grab_focus (self):
-#        self.treeview.grab_focus()
-#
-#    def cell_pb (self, tvcolumn, cell, model, it):
-#        # Renders a pixbuf stored in the thumbs cache
-#        cell.set_property('pixbuf', self.thumbs[model.get_value(it, 2)])
-#
-#    def get_pb (self, path):
-#        thumbs = glob(os.path.join(path, "thumb.*"))
-#        thumbs.extend(glob(os.path.join(self.path, "default_thumb.*")))
-#        thumbs = filter(lambda x: os.path.exists(x), thumbs)
-#        thumbs.append(None)
-#        return utils.load_image(thumbs[0], THUMB_SIZE, THUMB_SIZE)
-#
-#    def get_model (self, path, selected_path):
-#        # Each row is (path/dirname, pretty name, 0 based index)
-#        selected = None
-#        store = gtk.ListStore(str, str, int)
-#        store.set_sort_column_id(1, gtk.SORT_ASCENDING)
-#        files = [os.path.join(path, x) for x in os.listdir(path) if not x.startswith('.')]
-#        for fullpath, prettyname in [(x, _(os.path.basename(x))) for x in files if os.path.isdir(x)]:
-#            count = CategoryDirectory(fullpath).count_images()
-#            store.append([fullpath, prettyname + (" (%i)" % count), len(self.thumbs)])
-#            self.thumbs.append(self.get_pb(fullpath))
-#        if os.path.isdir(MYOWNPIC_FOLDER):
-#            count = CategoryDirectory(MYOWNPIC_FOLDER).count_images()
-#            store.append([MYOWNPIC_FOLDER, _("My Pictures") + (" (%i)" % count), len(self.thumbs)])
-#            self.thumbs.append(self.get_pb(MYOWNPIC_FOLDER))
-#
-#        i = store.get_iter_first()
-#        while i:
-#            if selected_path == store.get_value(i, 0):
-#                selected = store.get_path(i)
-#                break
-#            i = store.iter_next(i)
-#        return store, selected
-#
-#    def do_select (self, tree, *args, **kwargs):
-#        if self.ignore_first:
-#            self.ignore_first = False
-#        else:
-#            tv, it = tree.get_selection().get_selected()
-#            self.emit("selected", tv.get_value(it,0))
-#
 
 class SliderPuzzleUI (gtk.Table):
     __gsignals__ = {'game-state-changed' : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, (int,))}
@@ -833,7 +407,8 @@ class SliderPuzzleUI (gtk.Table):
         if self.thumb.has_image():
             if not self.game.get_parent():
                 self.game_box.pop()
-            self.thumb.set_game_widget(self.game)
+            self.game.load_image(self.thumb.get_image())
+            #self.thumb.set_game_widget(self.game)
             self.game.set_nr_pieces(nr_pieces)
             self.timer.reset(False)
         if isinstance(btn, gtk.ToggleButton):
@@ -855,7 +430,8 @@ class SliderPuzzleUI (gtk.Table):
         elif self.thumb.has_image():
             if not self.game.get_parent():
                 self.game_box.pop()
-            self.thumb.set_game_widget(self.game)
+            self.game.load_image(self.thumb.get_image())
+            #self.thumb.set_game_widget(self.game)
             self.game.randomize()
             self.timer.reset(False)
 
@@ -908,46 +484,50 @@ class SliderPuzzleUI (gtk.Table):
                 self.game_box.pop()
 
     @utils.trace
-    def do_add_image (self, widget, response=None, *args):
+    def do_add_image (self, widget, *args):
         """ Use to trigger and process the My Own Image selector.
         Also used for showing the buddies panel on contest mode"""
-        if response is None:
-            if self._contest_mode and self.get_game_state() >= GAME_STARTED:
-                # Buddy Panel
-                if not self.buddy_panel.get_parent():
-                    self.timer.stop()
-                    self.game_box.push(self.buddy_panel)
-                else:
-                    self.game_box.pop()
-            elif self._contest_mode and not self.is_initiator():
-                # do nothing
-                pass
+        if self._contest_mode and self.get_game_state() >= GAME_STARTED:
+            # Buddy Panel
+            if not self.buddy_panel.get_parent():
+                self.timer.stop()
+                self.game_box.push(self.buddy_panel)
             else:
-                # My Own Image selector
-                imgfilter = gtk.FileFilter()
-                imgfilter.set_name(_("Image Files"))
-                imgfilter.add_mime_type('image/*')
-                fd = gtk.FileChooserDialog(title=_("Select Image File"), parent=self._parent,
-                                           action=gtk.FILE_CHOOSER_ACTION_OPEN,
-                                           buttons=(gtk.STOCK_CANCEL, gtk.RESPONSE_REJECT,gtk.STOCK_OK, gtk.RESPONSE_ACCEPT))
-
-                fd.set_current_folder(os.path.expanduser("~/"))
-                fd.set_modal(True)
-                fd.add_filter(imgfilter)
-                fd.connect("response", self.do_add_image)
-                fd.resize(800,600)
-                fd.show()
+                self.game_box.pop()
+        elif self._contest_mode and not self.is_initiator():
+            # do nothing
+            pass
         else:
-            if response == gtk.RESPONSE_ACCEPT:
-                if self.thumb.load_image(widget.get_filename()):
-                    self.do_shuffle()
-                else:
-                    err = gtk.MessageDialog(self._parent, gtk.DIALOG_MODAL, gtk.MESSAGE_ERROR, gtk.BUTTONS_OK,
-                                            _("Not a valid image file"))
-                    err.run()
-                    err.destroy()
-                    return
-            widget.destroy()
+            self.thumb.add_image()
+            self.do_shuffle()
+            
+        #if response is None:
+        #    else:
+        #        # My Own Image selector
+        #        imgfilter = gtk.FileFilter()
+        #        imgfilter.set_name(_("Image Files"))
+        #        imgfilter.add_mime_type('image/*')
+        #        fd = gtk.FileChooserDialog(title=_("Select Image File"), parent=self._parent,
+        #                                   action=gtk.FILE_CHOOSER_ACTION_OPEN,
+        #                                   buttons=(gtk.STOCK_CANCEL, gtk.RESPONSE_REJECT,gtk.STOCK_OK, gtk.RESPONSE_ACCEPT))
+        #
+        #        fd.set_current_folder(os.path.expanduser("~/"))
+        #        fd.set_modal(True)
+        #        fd.add_filter(imgfilter)
+        #        fd.connect("response", self.do_add_image)
+        #        fd.resize(800,600)
+        #        fd.show()
+        #else:
+        #    if response == gtk.RESPONSE_ACCEPT:
+        #        if self.thumb.load_image(widget.get_filename()):
+        #            self.do_shuffle()
+        #        else:
+        #            err = gtk.MessageDialog(self._parent, gtk.DIALOG_MODAL, gtk.MESSAGE_ERROR, gtk.BUTTONS_OK,
+        #                                    _("Not a valid image file"))
+        #            err.run()
+        #            err.destroy()
+        #            return
+        #    widget.destroy()
 
     def do_lesson_plan (self, btn):
         if self._contest_mode and self.get_game_state() < GAME_STARTED:
@@ -1015,7 +595,7 @@ class SliderPuzzleUI (gtk.Table):
         """ retrieves a frozen status from a python object, as per _freeze """
         print ("SliderPuzzleUI._thaw", obj)
         self.thumb._thaw(obj[0])
-        self.thumb.set_game_widget(self.game)
+        #self.thumb.set_game_widget(self.game)
         self.set_nr_pieces(None, obj[2])
         self.game._thaw(obj[1])
         self.timer._thaw(obj[3])

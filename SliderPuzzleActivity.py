@@ -178,10 +178,11 @@ class FrozenState (object):
 		logger.debug("sync'ing game state")
 		self.nr_pieces = self.slider_ui.game.get_nr_pieces()
 		self.category_path = self.slider_ui.thumb.get_image_dir()
-		self.image_path = self.slider_ui.game.filename
-		if self.slider_ui.thumb.is_myownpath():
-			self.image_path = os.path.basename(self.image_path)
-		self.image_digest = self.slider_ui.game.image_digest
+		#self.image_path = self.slider_ui.game.filename
+		#if self.slider_ui.thumb.is_myownpath():
+		#	self.image_path = os.path.basename(self.image_path)
+		self.thumb_state = self.slider_ui.thumb._freeze()
+		#self.image_digest = self.slider_ui.game.image_digest
 		self.game_state = self.slider_ui.game._freeze()
 		#logger.debug("sync game_state: %s" % str(self.game_state))
 		#logger.debug("sync category: %s image: %s (md5: %s)" % (self.category_path, self.image_path, self.image_digest))
@@ -190,8 +191,9 @@ class FrozenState (object):
 		"""return a json version of the kept data"""
 		return json.write({
 			'nr_pieces': self.nr_pieces,
-			'image_path': self.image_path,
-			'image_digest': self.image_digest,
+			#'image_path': self.image_path,
+      'thumb_state': self.thumb_state,
+			#'image_digest': self.image_digest,
 			'game_state': self.game_state,
 			})
 
@@ -206,49 +208,54 @@ class FrozenState (object):
 				if hasattr(self, k):
 					#logger.debug("%s=%s" % (k,str(v)))
 					setattr(self, k, v)
-			if self.image_path:
-				if self.image_path == os.path.basename(self.image_path):
-					# MyOwnPath based image...
-					if forced_image is not None:
-						name = 'image_' + self.image_path
-						while os.path.exists(os.path.join(self.slider_ui.thumb.myownpath, name)):
-							name = '_' + name
-						f = file(os.path.join(self.slider_ui.thumb.myownpath, name), 'wb')
-						f.write(forced_image)
-						f.close()
-						self.slider_ui.thumb.set_image_dir(os.path.join(self.slider_ui.thumb.myownpath, name))
-						self.slider_ui.set_nr_pieces(None, self.nr_pieces)
-						self.slider_ui.game._thaw(self.game_state)
-						#logger.debug("thaw game_state: %s" % str(self.game_state))
-						found = True
-					else:
-						for link, name, digest in self.slider_ui.thumb.gather_myownpath_images():
-							if digest == self.image_digest:
-								logger.debug("Found the image in myownpath!")
-								self.slider_ui.thumb.set_image_dir(os.path.join(self.slider_ui.thumb.myownpath, link))
-								self.slider_ui.set_nr_pieces(None, self.nr_pieces)
-								self.slider_ui.game._thaw(self.game_state)
-								logger.debug("thaw game_state: %s" % str(self.game_state))
-								found = True
-								break
-						if not found:
-							logger.debug("Don't know the image, so request it")
-							if tube is not None:
-								tube.NeedImage()
-				elif os.path.exists(self.image_path) and md5.new(file(self.image_path, 'rb').read()).hexdigest() == self.image_digest:
-					logger.debug("We have the image!")
-					self.slider_ui.thumb.set_image_dir(self.image_path)
-					#self.slider_ui.game.load_image(self.image_path)
-					self.slider_ui.set_nr_pieces(None, self.nr_pieces)
-					self.slider_ui.game._thaw(self.game_state)
-					logger.debug("thaw game_state: %s" % str(self.game_state))
-				else:
-					logger.debug("Don't know the image, so request it")
-					if tube is not None:
-						tube.NeedImage()
-			else:
-				logger.debug("No image...")
-			return found
+			self.slider_ui.thumb._thaw(self.thumb_state)
+			self.slider_ui.set_nr_pieces(None, self.nr_pieces)
+			self.slider_ui.game._thaw(self.game_state)
+			logger.debug("thaw game_state: %s" % str(self.game_state))
+
+			#if self.image_path:
+			#	if self.image_path == os.path.basename(self.image_path):
+			#		# MyOwnPath based image...
+			#		#if forced_image is not None:
+			#		#	name = 'image_' + self.image_path
+			#		#	while os.path.exists(os.path.join(self.slider_ui.thumb.myownpath, name)):
+			#		#		name = '_' + name
+			#		#	f = file(os.path.join(self.slider_ui.thumb.myownpath, name), 'wb')
+			#		#	f.write(forced_image)
+			#		#	f.close()
+			#		#	self.slider_ui.thumb.set_image_dir(os.path.join(self.slider_ui.thumb.myownpath, name))
+			#		#	self.slider_ui.set_nr_pieces(None, self.nr_pieces)
+			#		#	self.slider_ui.game._thaw(self.game_state)
+			#		#	#logger.debug("thaw game_state: %s" % str(self.game_state))
+			#		#	found = True
+			#		#else:
+			#		#	for link, name, digest in self.slider_ui.thumb.gather_myownpath_images():
+			#		#		if digest == self.image_digest:
+			#		#			logger.debug("Found the image in myownpath!")
+			#		#			self.slider_ui.thumb.set_image_dir(os.path.join(self.slider_ui.thumb.myownpath, link))
+			#		#			self.slider_ui.set_nr_pieces(None, self.nr_pieces)
+			#		#			self.slider_ui.game._thaw(self.game_state)
+			#		#			logger.debug("thaw game_state: %s" % str(self.game_state))
+			#		#			found = True
+			#		#			break
+			#		#	if not found:
+			#		logger.debug("Don't know the image, so request it")
+			#		if tube is not None:
+			#			tube.NeedImage()
+			#	elif os.path.exists(self.image_path) and md5.new(file(self.image_path, 'rb').read()).hexdigest() == self.image_digest:
+			#		logger.debug("We have the image!")
+			#		self.slider_ui.thumb.set_image_dir(self.image_path)
+			#		#self.slider_ui.game.load_image(self.image_path)
+			#		self.slider_ui.set_nr_pieces(None, self.nr_pieces)
+			#		self.slider_ui.game._thaw(self.game_state)
+			#		logger.debug("thaw game_state: %s" % str(self.game_state))
+			#	else:
+			#		logger.debug("Don't know the image, so request it")
+			#		if tube is not None:
+			#			tube.NeedImage()
+			#else:
+			#	logger.debug("No image...")
+			return True
 		finally:
 			self._lock = False
 

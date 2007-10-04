@@ -62,19 +62,32 @@ def calculate_matrix (pieces):
 
 
 class SliderCreator (gtk.gdk.Pixbuf):
-    def __init__ (self, width, height, fname): #tlist):
+    def __init__ (self, width, height, fname=None, tlist=None): #tlist):
+        if width == -1:
+            width = 564
+        if height == -1:
+            height = 564
         super(SliderCreator, self).__init__(gtk.gdk.COLORSPACE_RGB, False, 8, width, height)
-        items = []
-        cmds = file(fname).readlines()
-        if len(cmds) > 1:
-            _x_ = eval(cmds[0])
-            for i in range(16):
-                items.append(_x_)
-                _x_ = eval(cmds[1])
+        if tlist is None:
+          items = []
+          cmds = file(fname).readlines()
+          if len(cmds) > 1:
+              _x_ = eval(cmds[0])
+              for i in range(16):
+                  items.append(_x_)
+                  _x_ = eval(cmds[1])
+        else:
+            items = tlist
         self.width = width
         self.height = height
         self.tlist = items
         self.prepare_stringed(2,2)
+
+    #def scale_simple (self, w,h,m):
+    #    return SliderCreator(w,h,tlist=self.tlist)
+
+    #def subpixbuf (self, x,y,w,h):
+    #    return SliderCreator(w,h,tlist=self.tlist)
 
     @classmethod
     def can_handle(klass, fname):
@@ -506,7 +519,7 @@ class SliderPuzzleWidget (gtk.Table):
         self.emit("shuffled")
 
     @utils.trace
-    def load_image (self, filename, width=0, height=0):
+    def load_image (self, image, width=0, height=0):
         """ Loads an image from the file.
         width and height are processed as follows:
           -1 : follow the loaded image size
@@ -516,9 +529,12 @@ class SliderPuzzleWidget (gtk.Table):
             width = self.width
         if height == 0:
             height = self.height
-        self.image = utils.load_image(filename, width, height)
-        self.filename = filename
-        self.image_digest = md5.new(file(filename, 'rb').read()).hexdigest()
+        if not isinstance(image, SliderCreator):
+            self.image = utils.resize_image(image, width, height)
+        else:
+            self.image = image
+        self.filename = ""
+        self.image_digest = md5.new(image.get_pixels()).hexdigest()
         self.full_refresh()
 
     def set_image (self, image):
