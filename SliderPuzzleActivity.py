@@ -62,9 +62,9 @@ class GameTube (ExportedGObject):
     @signal(dbus_interface=IFACE, signature='s')
     def ReSync (self, state):
         """ signal a reshufle, possibly with a new image """
-        logger.debug("Resync %s" % state)
+        #logger.debug("Resync %s" % state)
 
-    @signal(dbus_interface=IFACE, signature='sbn')
+    @signal(dbus_interface=IFACE, signature='sbu')
     def StatusUpdate (self, status, clock_running, ellapsed_time):
         """ signal a reshufle, possibly with a new image """
         logger.debug("Status Update to %s, %s, %i" % (status, str(clock_running), ellapsed_time))
@@ -91,7 +91,6 @@ class GameTube (ExportedGObject):
         if state == GAME_STARTED[0]:
             self.ReSync(self.activity.frozen.freeze())
 
-    @utils.trace
     def hello_cb(self, obj=None, sender=None):
         """Tell the newcomer what's going on."""
         logger.debug('Newcomer %s has joined', sender)
@@ -105,9 +104,11 @@ class GameTube (ExportedGObject):
 
     def need_image_cb (self, sender=None):
         """Send current image to peer as binary data."""
+        if self.activity.ui.get_game_state()[1] <= GAME_IDLE[1]:
+            return
         logger.debug('Sending image to %s', sender)
-        imgfile = self.activity.ui.game.filename
-        img = file(imgfile, 'rb').read()
+        img = self.activity.ui.game.get_image_as_png()
+        #img = file(imgfile, 'rb').read()
         #img = self.activity.ui.game.image.get_pixbuf()
         t = time.time()
         compressed = zlib.compress(img, 9)
@@ -145,10 +146,11 @@ class GameTube (ExportedGObject):
     @method(dbus_interface=IFACE, in_signature='s', out_signature='')
     def Welcome(self, state):
         """ """
+        logger.debug("Welcome...");
         logger.debug("state: '%s' (%s)" % (state, type(state)))
         self.activity.frozen.thaw(str(state), tube=self)
 
-    @method(dbus_interface=IFACE, in_signature='ayb', out_signature='', byte_arrays=True)
+    @method(dbus_interface=IFACE, in_signature='ayn', out_signature='', byte_arrays=True)
     def ImageSync (self, image_part, part_nr):
         """ """
         logger.debug("Received image part #%d, length %d" % (part_nr, len(image_part)))
@@ -161,6 +163,7 @@ class GameTube (ExportedGObject):
     @method(dbus_interface=IFACE, in_signature='s', out_signature='', byte_arrays=True)
     def ImageDetailsSync (self, state):
         """ Signals end of image and shares the rest of the needed data to create the image remotely."""
+        logger.debug("Receive end of image sync")
         self.syncd_once = self.activity.frozen.thaw(str(state), forced_image=zlib.decompress(self.image.getvalue()), tube=self)
 
 class FrozenState (object):
@@ -176,43 +179,62 @@ class FrozenState (object):
 		if self._lock:
 			return
 		logger.debug("sync'ing game state")
-		self.nr_pieces = self.slider_ui.game.get_nr_pieces()
-		self.category_path = self.slider_ui.thumb.get_image_dir()
-		#self.image_path = self.slider_ui.game.filename
-		#if self.slider_ui.thumb.is_myownpath():
-		#	self.image_path = os.path.basename(self.image_path)
-		self.thumb_state = self.slider_ui.thumb._freeze()
-		#self.image_digest = self.slider_ui.game.image_digest
-		self.game_state = self.slider_ui.game._freeze()
-		#logger.debug("sync game_state: %s" % str(self.game_state))
-		#logger.debug("sync category: %s image: %s (md5: %s)" % (self.category_path, self.image_path, self.image_digest))
+		self.frozen = json.write(self.slider_ui._freeze(journal=False))
+		#self.nr_pieces = self.slider_ui.game.get_nr_pieces()
+		#self.category_path = self.slider_ui.thumb.get_image_dir()
+		##self.image_path = self.slider_ui.game.filename
+		##if self.slider_ui.thumb.is_myownpath():
+		##	self.image_path = os.path.basename(self.image_path)
+		#self.thumb_state = self.slider_ui.thumb._freeze()
+		##self.image_digest = self.slider_ui.game.image_digest
+		#self.game_state = self.slider_ui.game._freeze(journal=False)
+		##logger.debug("sync game_state: %s" % str(self.game_state))
+		##logger.debug("sync category: %s image: %s (md5: %s)" % (self.category_path, self.image_path, self.image_digest))
+
+	def apply (self):
+		""" Apply the saved state to the running game """
+		self.slider_ui._thaw(json.read(self.frozen))
+		#self.slider_ui.thumb._thaw(self.thumb_state)
+		#self.slider_ui.set_nr_pieces(None, self.nr_pieces)
+		#self.slider_ui.game._thaw(self.game_state)
 
 	def freeze (self):
 		"""return a json version of the kept data"""
-		return json.write({
-			'nr_pieces': self.nr_pieces,
-			#'image_path': self.image_path,
-      'thumb_state': self.thumb_state,
-			#'image_digest': self.image_digest,
-			'game_state': self.game_state,
-			})
+		return self.frozen
+		#return json.write({
+		#	'nr_pieces': self.nr_pieces,
+		#	#'image_path': self.image_path,
+    #  'thumb_state': self.thumb_state,
+		#	#'image_digest': self.image_digest,
+		#	'game_state': self.game_state,
+		#	})
 
 	def thaw (self, state=None, tube=None, forced_image=None):
-		""" apply the previously saved state to the running game """
+		""" store the previously saved state """
 		try:
 			self._lock = True
-			found = False
-			if state is None:
-				state = self.freeze()
-			for k,v in json.read(state).items():
-				if hasattr(self, k):
-					#logger.debug("%s=%s" % (k,str(v)))
-					setattr(self, k, v)
-			self.slider_ui.thumb._thaw(self.thumb_state)
-			self.slider_ui.set_nr_pieces(None, self.nr_pieces)
-			self.slider_ui.game._thaw(self.game_state)
-			logger.debug("thaw game_state: %s" % str(self.game_state))
+			#found = False
+			if state is not None:
+				self.frozen = state
+				#state = self.freeze()
+			#for k,v in json.read(state).items():
+			#	if hasattr(self, k):
+			#		#logger.debug("%s=%s" % (k,str(v)))
+			#		setattr(self, k, v)
+#			self.slider_ui.thumb._thaw(self.thumb_state)
+#			self.slider_ui.set_nr_pieces(None, self.nr_pieces)
+#			self.slider_ui.game._thaw(self.game_state)
+			#logger.debug("thaw game_state: %s" % str(self.game_state))
 
+			if forced_image is not None:
+					self.slider_ui.game.set_image_from_str(forced_image)
+					self.slider_ui.thumb.load_pb(self.slider_ui.game.image)
+					self.apply()
+			elif tube is not None:
+					tube.NeedImage()
+			else:
+					self.apply()
+      
 			#if self.image_path:
 			#	if self.image_path == os.path.basename(self.image_path):
 			#		# MyOwnPath based image...
@@ -310,11 +332,12 @@ class SliderPuzzleActivity(Activity, TubeHelper):
         f = open(file_path, 'r')
         try:
             session_data = f.read()
-            print ("READ FILE", session_data)
         finally:
             f.close()
-        logging.debug('Trying to set session: %s.' % session_data)
+        #logging.debug('Trying to set session: %s.' % session_data)
+        print "Setting session"
         self.ui._thaw(json.read(session_data))
+        print "Done setting session"
 		
     def write_file(self, file_path):
         session_data = json.write(self.ui._freeze())
@@ -323,6 +346,5 @@ class SliderPuzzleActivity(Activity, TubeHelper):
             f.write(session_data)
         finally:
             f.close()
-        print ("WRITE FILE", session_data)
 
 

@@ -39,6 +39,8 @@ from types import TupleType, ListType
 from random import random
 from time import time
 from math import sqrt
+from cStringIO import StringIO
+import os
 
 ###
 # General Information
@@ -121,10 +123,7 @@ class SliderCreator (gtk.gdk.Pixbuf):
                 #    pm.draw_line(gc, 0, py, self.width-1, py)
                 pangolayout.set_text(str(item.next()))
                 pe = pangolayout.get_pixel_extents()
-                print pe
                 pe = pe[1][2]/2, pe[1][3]/2
-                print pe
-                print "**%s**" % pangolayout.get_text(), px + (sw / 2) - pe[0],  py + (sh / 2) - pe[1]
                 pm.draw_layout(gc, px + (sw / 2) - pe[0],  py + (sh / 2) - pe[1], pangolayout)
         self.get_from_drawable(pm, cm, 0, 0, 0, 0, -1, -1)
 
@@ -183,7 +182,8 @@ class MatrixPosition (object):
         return (self.rowsize, self.colsize, self.x, self.y)
 
     def _thaw (self, obj):
-        self.rowsize, self.colsize, self.x, self.y = obj
+        if obj is not None:
+            self.rowsize, self.colsize, self.x, self.y = obj
         
 
 class SliderPuzzleMap (object):
@@ -399,11 +399,14 @@ class SliderPuzzleMap (object):
         self.debug_map()
 
     def _freeze (self):
-        return (self.pieces_map, self.hole_pos._freeze())
+        return {'pieces': self.pieces, 'rowsize': self.rowsize, 'colsize': self.colsize,
+                'pieces_map': self.pieces_map, 'hole_pos_freeze': self.hole_pos._freeze()}
 
     def _thaw (self, obj):
-        self.pieces_map = obj[0]
-        self.hole_pos._thaw(obj[1])
+        for k in obj.keys():
+            if hasattr(self, k):
+                setattr(self, k, obj[k])
+        self.hole_pos._thaw(obj.get('hole_pos_freeze', None))
 
 
 ###
@@ -424,7 +427,6 @@ class SliderPuzzleWidget (gtk.Table):
         self.height = height
         self.set_size_request(width, height)
         self.filename = None
-        self.image_digest = None
 
     def prepare_pieces (self):
         """ set up a list of UI objects that will serve as pieces, ordered correctly """
@@ -506,6 +508,7 @@ class SliderPuzzleWidget (gtk.Table):
     def get_nr_pieces (self):
         return self.jumbler.pieces
 
+    @utils.trace
     def set_nr_pieces (self, nr_pieces):
         self.jumbler.reset(nr_pieces)
         self.resize(self.jumbler.rowsize, self.jumbler.colsize)
@@ -533,14 +536,24 @@ class SliderPuzzleWidget (gtk.Table):
             self.image = utils.resize_image(image, width, height)
         else:
             self.image = image
-        self.filename = ""
-        self.image_digest = md5.new(image.get_pixels()).hexdigest()
+        self.filename = True
         self.full_refresh()
 
     def set_image (self, image):
         # image is a pixbuf!
         self.image = image
-        self.filename = False # but not None...
+        self.filename = True
+
+    def set_image_from_str (self, image):
+        fn = os.tempnam() 
+        f = file(fn, 'w+b')
+        f.write(image)
+        f.close()
+        i = gtk.Image()
+        i.set_from_file(fn)
+        os.remove(fn)
+        self.image = i.get_pixbuf()
+        self.filename = True
 
     def show_image (self):
         """ Shows the full image, used as visual clue for solved puzzle """
@@ -555,14 +568,35 @@ class SliderPuzzleWidget (gtk.Table):
         self.attach(img, 0,1,0,1)
         img.show()
 
-    def _freeze (self):
-        """ returns a json writable object representation capable of being used to restore our current status """
-        return self.jumbler._freeze()
+    def get_image_as_png (self, cb=None):
+        if self.image is None:
+            return None
+        rv = None
+        if cb is None:
+            rv = StringIO()
+            cb = rv.write
+        self.image.save_to_callback(cb, "png")
+        if rv is not None:
+            return rv.getvalue()
+        else:
+            return True
 
-    @utils.trace
+    def _freeze (self, journal=True):
+        """ returns a json writable object representation capable of being used to restore our current status """
+        if journal:
+            return {'jumbler': self.jumbler._freeze(),
+                    'image': self.get_image_as_png(),
+                    }
+        else:
+            return {'jumbler': self.jumbler._freeze()}
+
     def _thaw (self, obj):
         """ retrieves a frozen status from a python object, as per _freeze """
-        self.jumbler._thaw(obj)
+        print obj['jumbler']
+        self.jumbler._thaw(obj['jumbler'])
+        if obj.has_key('image') and obj['image'] is not None:
+            self.set_image_from_str(obj['image'])
+            del obj['image']
         self.full_refresh()
 
 def _test():

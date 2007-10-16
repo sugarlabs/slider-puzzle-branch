@@ -67,7 +67,7 @@ SLICE_BTN_WIDTH = 50
 THUMB_SIZE = 48
 IMAGE_SIZE = 200
 #GAME_SIZE = 294
-GAME_SIZE = 564
+GAME_SIZE = 574
 
 #MYOWNPIC_FOLDER = os.path.expanduser("~/.sugar/default/org.worldwideworkshop.olpc.SliderPuzzle.MyOwnPictures")
 # Colors from Rich's UI design
@@ -364,7 +364,7 @@ class SliderPuzzleUI (gtk.Table):
                 self.btn_shuffle.get_child().set_label(_("Start Game"))
         
     def is_contest_mode (self):
-        return self._contest_mode and self.game.filename
+        return self._contest_mode# and self.game.filename
 
     def do_select_language (self, combo, *args):
         self.selected_lang_details = combo.translations[combo.get_active()]
@@ -385,6 +385,7 @@ class SliderPuzzleUI (gtk.Table):
                 m = self.do_select_category
             m(self)
 
+    @utils.trace
     def set_nr_pieces (self, btn, nr_pieces=None):
         #if isinstance(btn, gtk.ToggleButton) and not btn.get_active():
         #    return
@@ -393,14 +394,17 @@ class SliderPuzzleUI (gtk.Table):
         if isinstance(btn, gtk.ToggleButton):
             if not btn.get_active():
                 if nr_pieces == self.game.get_nr_pieces():
+                    print "A"
                     btn.set_active(True)
                 return
         if nr_pieces is None:
             nr_pieces = self.game.get_nr_pieces()
         if btn is None: #not isinstance(btn, gtk.ToggleButton):
-            self.set_game_state(GAME_STARTED)
+            if self._contest_mode:
+                self.set_game_state(GAME_STARTED)
             for n, b in ((9, self.btn_9),(12, self.btn_12),(16, self.btn_16)):
                 if n == nr_pieces and not b.get_active():
+                    print "B"
                     b.set_sensitive(True)
                     b.set_active(True)
                     return
@@ -409,11 +413,12 @@ class SliderPuzzleUI (gtk.Table):
                 self.game_box.pop()
             self.game.load_image(self.thumb.get_image())
             #self.thumb.set_game_widget(self.game)
-            self.game.set_nr_pieces(nr_pieces)
-            self.timer.reset(False)
+        self.game.set_nr_pieces(nr_pieces)
+        self.timer.reset(False)
         if isinstance(btn, gtk.ToggleButton):
             for n, b in ((9, self.btn_9),(12, self.btn_12),(16, self.btn_16)):
                 if b is not btn:
+                    print "C"
                     b.set_active(False)
                     b.set_sensitive(not self._contest_mode)
 
@@ -586,20 +591,25 @@ class SliderPuzzleUI (gtk.Table):
         return False
 
     @utils.trace
-    def _freeze (self):
+    def _freeze (self, journal=True):
         """ returns a json writable object representation capable of being used to restore our current status """
-        return (self.thumb._freeze(), self.game._freeze(), self.game.get_nr_pieces(), self.timer._freeze())
+        return (self.thumb._freeze(), self.game._freeze(journal=journal), self.game.get_nr_pieces(), self.timer._freeze())
 
-    @utils.trace
     def _thaw (self, obj):
         """ retrieves a frozen status from a python object, as per _freeze """
-        print ("SliderPuzzleUI._thaw", obj)
-        self.thumb._thaw(obj[0])
-        #self.thumb.set_game_widget(self.game)
+        #self.thumb._thaw(obj[0])
+        if not obj[1].has_key('image'):
+            self.game.load_image(self.thumb.get_image())
         self.set_nr_pieces(None, obj[2])
+        print obj[1].keys()
+        wimg = obj[1].has_key('image')
         self.game._thaw(obj[1])
+        if wimg:
+            print "Forcing thumb image from the one in game"
+            self.thumb.load_pb(self.game.image)
         self.timer._thaw(obj[3])
-
+        self.game_box.pop()
+        
     @utils.trace
     def _send_status_update (self):
         """ Send a status update signal """
