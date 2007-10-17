@@ -112,84 +112,103 @@ class SliderPuzzleUI (gtk.Table):
     
     def __init__(self, parent):
         super(SliderPuzzleUI, self).__init__(3,3,False)
-        self.set_name('ui')
-        self._state = GAME_IDLE
-        # Add our own icons here, needed for the translation flags
-        theme = gtk.icon_theme_get_default()
-        theme.append_search_path(os.path.join(os.getcwd(), 'icons'))
-        #logging.debug("GTK Theme path: %s" % (str(gtk.icon_theme_get_default().get_search_path())))
+        self._parent = parent
 
         # We want the translatables to be detected but not yet translated
         global _
         _ = lambda x: x
         self.labels_to_translate = []
 
-        # Basic window settings
-        self._parent = parent
-        bgcolor = gtk.gdk.color_parse("#DDDD40")
+        self._state = GAME_IDLE
 
-        # The containers we will use
-        outer_box = BorderFrame(border_color=COLOR_FRAME_OUTER)
         inner_table = gtk.Table(2,2,False)
-        controls_vbox = gtk.VBox(False)
-        self.game_box = BorderFrame(border_color=COLOR_FRAME_GAME)
-        
-        outer_box.add(inner_table)
-        inner_table.attach(controls_vbox, 0,1,0,1)
-        inner_table.attach(self.game_box, 1,2,0,1,1,1)
+        self.add(inner_table)
 
+        self.game = SliderPuzzleWidget(9, GAME_SIZE, GAME_SIZE)
+        self.game.connect("solved", self.do_solve)
+        self.game.connect("moved", self.slider_move_cb)
+        self._parent.connect("key_press_event",self.game.process_key)
+        self._parent.connect("key_press_event",self.process_key)
+        self.game.show()
+        desktop = BorderFrame(border_color=COLOR_FRAME_CONTROLS)
+        desktop.show()
+        desktop.add(self.game)
+        self.game_wrapper = gtk.VBox()
+        self.game_wrapper.show()
+        inner = gtk.HBox()
+        inner.show()
+        #BorderFrame(border=BORDER_ALL_BUT_BOTTOM,
+        #                                border_color=COLOR_FRAME_CONTROLS,
+        #                                bg_color=COLOR_BG_CONTROLS)
+        inner.pack_start(desktop, expand=True, fill=False)
+        self.game_wrapper.pack_start(inner, expand=True, fill=False)
+
+        # panel is a holder for everything on the left side down to (not inclusive) the language dropdown
+        panel = gtk.VBox()
+        
         # Logo image
         img_logo = gtk.Image()
         img_logo.set_from_file("icons/logo.png")
         img_logo.show()
-        controls_vbox.pack_start(img_logo, False)
+        panel.pack_start(img_logo, expand=False, fill=False)
 
-        # Left side containers
-        controls_area_1 = BorderFrame(border=BORDER_ALL_BUT_BOTTOM,
-                                      bg_color=COLOR_BG_CONTROLS,
-                                      border_color=COLOR_FRAME_CONTROLS)
-
-        controls_area_box = gtk.VBox(False)
-        #controls_area_1_box = gtk.VBox(False)
-        controls_area = gtk.VBox()
-        controls_vbox.pack_start(controls_area_1)
-        controls_area_1.add(controls_area)
-        controls_area.pack_start(controls_area_box, padding=5)
-        
-        # Slice buttons
-        spacer = gtk.Label()
-        spacer.set_size_request(-1, 15)
-        controls_area_box.pack_start(spacer, expand=False, fill=False)
-        cutter = gtk.HBox(False, 8)
-        cutter.pack_start(gtk.Label(), True)
-        self.btn_9 = prepare_btn(gtk.ToggleButton("9"),SLICE_BTN_WIDTH)
-        self.btn_9.set_active(True)
-        self.btn_9.connect("clicked", self.set_nr_pieces, 9)
-        cutter.pack_start(self.btn_9, False, False)
-        self.btn_12 = prepare_btn(gtk.ToggleButton("12"), SLICE_BTN_WIDTH)
-        self.btn_12.connect("clicked", self.set_nr_pieces, 12)
-        cutter.pack_start(self.btn_12, False, False)
-        self.btn_16 = prepare_btn(gtk.ToggleButton("16"), SLICE_BTN_WIDTH)
-        self.btn_16.connect("clicked", self.set_nr_pieces, 16)
-        cutter.pack_start(self.btn_16, False, False)
-        cutter.pack_start(gtk.Label(), True)
-        controls_area_box.pack_start(cutter, True)
-        spacer = gtk.Label()
-        spacer.set_size_request(-1, 10)
-        controls_area_box.pack_start(spacer, expand=False, fill=False)
-
-        # The image selector with thumbnail
-        self.thumb = ImageSelectorWidget(frame_color=COLOR_FRAME_THUMB, prepare_btn_cb=prepare_btn)
-        #self.thumb = ImageSelectorWidget(IMAGE_SIZE, IMAGE_SIZE, frame_color=COLOR_FRAME_THUMB)
-        #self.thumb.set_image_dir("images")
-        #self.thumb.set_myownpath(MYOWNPIC_FOLDER)
-        self.thumb.connect("category_press", self.do_select_category)
-        self.thumb.connect("image_press", self.set_nr_pieces)
-        controls_area_box.pack_start(self.thumb, False)
+        # Control panel has the image controls
+        control_panel = BorderFrame(border=BORDER_ALL_BUT_BOTTOM,
+                                    border_color=COLOR_FRAME_CONTROLS,
+                                    bg_color=COLOR_BG_CONTROLS)
+        control_panel_box = gtk.VBox()
+        control_panel.add(control_panel_box)
 
         spacer = gtk.Label()
         spacer.set_size_request(-1, 5)
-        controls_area_box.pack_start(spacer, expand=False, fill=False)
+        control_panel_box.pack_start(spacer, expand=False, fill=False)
+
+        # ...
+
+        # Slice buttons
+        btn_box = gtk.Table(1,5,False)
+        btn_box.set_col_spacings(5)
+        btn_box.set_row_spacings(5)
+        btn_box.attach(gtk.Label(), 0,1,0,2)
+
+        #spacer = gtk.Label()
+        #spacer.set_size_request(-1, 15)
+        #control_panel_box.pack_start(spacer, expand=False, fill=False)
+        #cutter = gtk.HBox(False, 8)
+        #cutter.pack_start(gtk.Label(), True)
+        self.btn_9 = prepare_btn(gtk.ToggleButton("9"),SLICE_BTN_WIDTH)
+        self.btn_9.set_active(True)
+        self.btn_9.connect("clicked", self.set_nr_pieces, 9)
+        btn_box.attach(self.btn_9, 1,2,0,1,0,0)
+        #cutter.pack_start(self.btn_9, False, False)
+        self.btn_12 = prepare_btn(gtk.ToggleButton("12"), SLICE_BTN_WIDTH)
+        self.btn_12.connect("clicked", self.set_nr_pieces, 12)
+        btn_box.attach(self.btn_12, 2,3,0,1,0,0)
+        #cutter.pack_start(self.btn_12, False, False)
+        self.btn_16 = prepare_btn(gtk.ToggleButton("16"), SLICE_BTN_WIDTH)
+        self.btn_16.connect("clicked", self.set_nr_pieces, 16)
+        btn_box.attach(self.btn_16, 3,4,0,1,0,0)
+        #cutter.pack_start(self.btn_16, False, False)
+        #cutter.pack_start(gtk.Label(), True)
+        #control_panel_box.pack_start(cutter, True)
+        #spacer = gtk.Label()
+        #spacer.set_size_request(-1, 10)
+        #control_panel_box.pack_start(spacer, False)
+        btn_box.attach(gtk.Label(), 4,5,0,1)
+        control_panel_box.pack_start(btn_box, expand=False)
+
+
+
+
+
+        self.thumb = ImageSelectorWidget(frame_color=COLOR_FRAME_THUMB, prepare_btn_cb=prepare_btn)
+        self.thumb.connect("category_press", self.do_select_category)
+        self.thumb.connect("image_press", self.set_nr_pieces)
+        control_panel_box.pack_start(self.thumb, False)
+
+        spacer = gtk.Label()
+        spacer.set_size_request(-1, 5)
+        control_panel_box.pack_start(spacer, expand=False, fill=False)
 
         # The game control buttons
         btn_box = gtk.Table(3,3,False)
@@ -208,82 +227,180 @@ class SliderPuzzleUI (gtk.Table):
         self.labels_to_translate.append([self.btn_add, _("My Picture")])
         self.btn_add.connect("clicked", self.do_add_image)
         btn_box.attach(self.btn_add, 1,2,2,3,0,0)
-        controls_area_box.pack_start(btn_box, False)
+        control_panel_box.pack_start(btn_box, False)
 
-        spacer = gtk.Label()
-        spacer.set_size_request(-1, 1)
-        controls_area_box.pack_start(spacer, expand=True, fill=True)
+        # Control panel end
+        panel.pack_start(control_panel, expand=True, fill=True)
 
-        # Language Selection dropdown
-        controls_area_2 = BorderFrame(bg_color=COLOR_BG_CONTROLS, border_color=COLOR_FRAME_CONTROLS)
-        vbox = gtk.VBox(False)
-        btn_box = gtk.HBox(False)
-        btn_box.pack_start(gtk.Label(), True)
+        inner_table.attach(panel, 0,1,0,1,0)
+
+        self.game_box = BorderFrame(border_color=COLOR_FRAME_GAME)
+        self.game_box.add(self.game_wrapper)
+        inner_table.attach(self.game_box, 1,2,0,1, gtk.FILL, gtk.FILL)
+
         lang_combo = prepare_btn(LanguageComboBox('org.worldwideworkshop.olpc.SliderPuzzle'))
-
-        btn_box.pack_start(lang_combo, False)
-        btn_box.pack_start(gtk.Label(), True)
-        vbox.pack_start(btn_box, padding=8)
-        controls_area_2.add(vbox)
-        inner_table.attach(controls_area_2, 0,1,1,2)
-
-        # The actual game widget
-        self.game = SliderPuzzleWidget(9, GAME_SIZE, GAME_SIZE)
-        self.game.show()
-        self.game.connect("solved", self.do_solve)
-        self.game.connect("moved", self.slider_move_cb)
-        self._parent.connect("key_press_event",self.game.process_key)
-        self._parent.connect("key_press_event",self.process_key)
-        self.game_box.add(self.game)
-
-        # The timer widget and lesson plans
-        controls_area_3 = BorderFrame(border=BORDER_ALL_BUT_LEFT,
-                                      bg_color=COLOR_BG_CONTROLS,
-                                      border_color=COLOR_FRAME_CONTROLS)
+        lang_combo.connect('changed', self.do_select_language)
+        # Push the gettext translator into the global namespace
+        del _
+        lang_combo.install()
+        lang_box = BorderFrame(bg_color=COLOR_BG_CONTROLS,
+                               border_color=COLOR_FRAME_CONTROLS)
+        hbox = gtk.HBox(False)
         vbox = gtk.VBox(False)
-        btn_box = gtk.HBox(False)
+        vbox.pack_start(lang_combo, padding=8)
+        hbox.pack_start(vbox, padding=8)
+        lang_box.add(hbox)
+        inner_table.attach(lang_box, 0,1,1,2,gtk.FILL, gtk.FILL)
+
+        timer_box = BorderFrame(border=BORDER_ALL_BUT_LEFT,
+                                bg_color=COLOR_BG_CONTROLS,
+                                border_color=COLOR_FRAME_CONTROLS)
+        timer_hbox = gtk.HBox(False)
         self.timer = TimerWidget(bg_color=COLOR_BG_BUTTONS[0][1],
                                  fg_color=COLOR_FG_BUTTONS[0][1],
                                  lbl_color=COLOR_BG_BUTTONS[1][1])
         self.timer.set_sensitive(False)
-        #self.timer.modify_bg(gtk.STATE_NORMAL, bgcolor)
         self.timer.set_border_width(3)
         self.labels_to_translate.append((self.timer, _("Time: ")))
-        btn_box.pack_start(self.timer, False, padding=8)
+        timer_hbox.pack_start(self.timer, False, padding=8)
+        self.timer.connect('timer_toggle', self.timer_toggle_cb)
+
+        self.msg_label = gtk.Label()
+        self.msg_label.show()
+        timer_hbox.pack_start(self.msg_label, True)
         
-        btn_box.pack_start(gtk.Label(), True)
         self.btn_lesson = prepare_btn(gtk.Button(" "))
         self.labels_to_translate.append([self.btn_lesson, _("Lesson Plans")])
         self.btn_lesson.connect("clicked", self.do_lesson_plan)
-        btn_box.pack_start(self.btn_lesson, False, padding=8)
-        vbox.pack_start(btn_box, padding=8)
-        controls_area_3.add(vbox)
-        inner_table.attach(controls_area_3, 1,2,1,2)
+        timer_hbox.pack_start(self.btn_lesson, False, padding=8)
+        vbox = gtk.VBox(False)
+        vbox.pack_start(timer_hbox, padding=8)
+        timer_box.add(vbox)
+        inner_table.attach(timer_box, 1,2,1,2,gtk.FILL|gtk.EXPAND, gtk.FILL)
+        #panel.pack_start(lang_box, expand=False, fill=False)
+
+        self.do_select_language(lang_combo)
         
-        #buddybox = BuddyPanel(parent)
-        #buddybox.show()
-        # This has the sole purpose of centering the widget on screen
-        #self.attach(buddybox, 0,3,0,1)
-        #self.attach(gtk.Label(), 0,3,0,1)
-        self.attach(outer_box, 1,2,1,2,0,0)
-        self.msg_label = gtk.Label()
-        self.msg_label.show()
-        self.attach(self.msg_label, 0,3,2,3)
+        self.buddy_panel = BuddyPanel()
+        self.buddy_panel.show()
+
+
+
+
+#        self.game_box.add(self.game)
+#
+#
+#        # The containers we will use
+#        outer_box = BorderFrame(border_color=COLOR_FRAME_OUTER)
+#        controls_vbox = gtk.VBox(False)
+#        self.game_box = BorderFrame(border_color=COLOR_FRAME_GAME)
+#        
+#        outer_box.add(inner_table)
+#        inner_table.attach(controls_vbox, 0,1,0,1)
+#        inner_table.attach(self.game_box, 1,2,0,1,1,1)
+#
+#
+#        # Left side containers
+#        controls_area_1 = BorderFrame(border=BORDER_ALL_BUT_BOTTOM,
+#                                      bg_color=COLOR_BG_CONTROLS,
+#                                      border_color=COLOR_FRAME_CONTROLS)
+#
+#        controls_area_box = gtk.VBox(False)
+#        #controls_area_1_box = gtk.VBox(False)
+#        controls_area = gtk.VBox()
+#        controls_vbox.pack_start(controls_area_1)
+#        controls_area_1.add(controls_area)
+#        controls_area.pack_start(controls_area_box, padding=5)
+#        
+#        # Slice buttons
+#        spacer = gtk.Label()
+#        spacer.set_size_request(-1, 15)
+#        controls_area_box.pack_start(spacer, expand=False, fill=False)
+#        cutter = gtk.HBox(False, 8)
+#        cutter.pack_start(gtk.Label(), True)
+#        self.btn_9 = prepare_btn(gtk.ToggleButton("9"),SLICE_BTN_WIDTH)
+#        self.btn_9.set_active(True)
+#        self.btn_9.connect("clicked", self.set_nr_pieces, 9)
+#        cutter.pack_start(self.btn_9, False, False)
+#        self.btn_12 = prepare_btn(gtk.ToggleButton("12"), SLICE_BTN_WIDTH)
+#        self.btn_12.connect("clicked", self.set_nr_pieces, 12)
+#        cutter.pack_start(self.btn_12, False, False)
+#        self.btn_16 = prepare_btn(gtk.ToggleButton("16"), SLICE_BTN_WIDTH)
+#        self.btn_16.connect("clicked", self.set_nr_pieces, 16)
+#        cutter.pack_start(self.btn_16, False, False)
+#        cutter.pack_start(gtk.Label(), True)
+#        controls_area_box.pack_start(cutter, True)
+#        spacer = gtk.Label()
+#        spacer.set_size_request(-1, 10)
+#        controls_area_box.pack_start(spacer, expand=False, fill=False)
+#
+#
+#
+#        spacer = gtk.Label()
+#        spacer.set_size_request(-1, 1)
+#        controls_area_box.pack_start(spacer, expand=True, fill=True)
+#
+#        # Language Selection dropdown
+#        controls_area_2 = BorderFrame(bg_color=COLOR_BG_CONTROLS, border_color=COLOR_FRAME_CONTROLS)
+#        vbox = gtk.VBox(False)
+#        btn_box = gtk.HBox(False)
+#        btn_box.pack_start(gtk.Label(), True)
+#        lang_combo = prepare_btn(LanguageComboBox('org.worldwideworkshop.olpc.SliderPuzzle'))
+#
+#        btn_box.pack_start(lang_combo, False)
+#        btn_box.pack_start(gtk.Label(), True)
+#        vbox.pack_start(btn_box, padding=8)
+#        controls_area_2.add(vbox)
+#        inner_table.attach(controls_area_2, 0,1,1,2)
+#
+#        # The timer widget and lesson plans
+#        controls_area_3 = BorderFrame(border=BORDER_ALL_BUT_LEFT,
+#                                      bg_color=COLOR_BG_CONTROLS,
+#                                      border_color=COLOR_FRAME_CONTROLS)
+#        vbox = gtk.VBox(False)
+#        btn_box = gtk.HBox(False)
+#        self.timer = TimerWidget(bg_color=COLOR_BG_BUTTONS[0][1],
+#                                 fg_color=COLOR_FG_BUTTONS[0][1],
+#                                 lbl_color=COLOR_BG_BUTTONS[1][1])
+#        self.timer.set_sensitive(False)
+#
+#        self.timer.set_border_width(3)
+#        self.labels_to_translate.append((self.timer, _("Time: ")))
+#        btn_box.pack_start(self.timer, False, padding=8)
+#        
+#        btn_box.pack_start(gtk.Label(), True)
+#        self.btn_lesson = prepare_btn(gtk.Button(" "))
+#        self.labels_to_translate.append([self.btn_lesson, _("Lesson Plans")])
+#        self.btn_lesson.connect("clicked", self.do_lesson_plan)
+#        btn_box.pack_start(self.btn_lesson, False, padding=8)
+#        vbox.pack_start(btn_box, padding=8)
+#        controls_area_3.add(vbox)
+#        inner_table.attach(controls_area_3, 1,2,1,2)
+#        
+#        #buddybox = BuddyPanel(parent)
+#        #buddybox.show()
+#        # This has the sole purpose of centering the widget on screen
+#        #self.attach(buddybox, 0,3,0,1)
+#        #self.attach(gtk.Label(), 0,3,0,1)
+#        self.attach(outer_box, 1,2,1,2,0,0)
+#        self.msg_label = gtk.Label()
+#        self.msg_label.show()
+#        self.attach(self.msg_label, 0,3,2,3)
 
         if not parent._shared_activity:
             self.do_select_category(self)
         else:
             self.set_message(_("Waiting for remote game..."))
 
-        # Push the gettext translator into the global namespace
-        del _
-        lang_combo.connect('changed', self.do_select_language)
-        lang_combo.install()
-        self.do_select_language(lang_combo)
-
-        self.buddy_panel = BuddyPanel()
-        self.buddy_panel.show()
-        self.timer.connect('timer_toggle', self.timer_toggle_cb)
+#        # Push the gettext translator into the global namespace
+#        del _
+#        lang_combo.connect('changed', self.do_select_language)
+#        lang_combo.install()
+#        self.do_select_language(lang_combo)
+#
+#        self.buddy_panel = BuddyPanel()
+#        self.buddy_panel.show()
+#        self.timer.connect('timer_toggle', self.timer_toggle_cb)
 
         
         #self.controls_area.pack_start(self.contest_controls_area_box, padding=5)
@@ -310,7 +427,7 @@ class SliderPuzzleUI (gtk.Table):
         self._send_status_update()
         #if self._contest_mode:
         #    if running:
-        #        if self.game.filename and not self.game.get_parent():
+        #        if self.game.filename and not self.game_wrapper.get_parent():
         #            self.game_box.pop()
         #    else:
         #        if not self.buddy_panel.get_parent():
@@ -325,11 +442,11 @@ class SliderPuzzleUI (gtk.Table):
             else:
                 if self.is_initiator():
                     if self.timer.is_reset():
-                        self.set_message(_("Select image to share..."))
+                        self.set_message(_("Select image and press Start Game..."))
                     else:
                         self.set_game_state(GAME_STARTED)
                 else:
-                    self.set_message(_("Waiting for game image..."))
+                    self.set_message(_("Waiting for Puzzle image to be chosen..."))
                     self.set_button_translation(self.btn_add, "Buddies")
                     self.btn_add.get_child().set_label(_("Buddies"))
 
@@ -339,7 +456,6 @@ class SliderPuzzleUI (gtk.Table):
             self.emit('game-state-changed', state[0])
             self._set_control_area()
             if state == GAME_STARTED:
-                self.set_message(_("Game Started!"))
                 self.set_button_translation(self.btn_add, "Buddies")
                 self.btn_add.get_child().set_label(_("Buddies"))
             self._send_status_update()
@@ -377,7 +493,7 @@ class SliderPuzzleUI (gtk.Table):
                 lbl[0].get_child().set_label(_(lbl[1]))
             else:
                 lbl[0].set_label(_(lbl[1]))
-        if not self.game.get_parent() and not first_time:
+        if not self.game_wrapper.get_parent() and not first_time:
             self.game_box.pop()
             if isinstance(self.game_box.get_child(), NotebookReaderWidget):
                 m = self.do_lesson_plan
@@ -409,7 +525,7 @@ class SliderPuzzleUI (gtk.Table):
                     b.set_active(True)
                     return
         if self.thumb.has_image():
-            if not self.game.get_parent():
+            if not self.game_wrapper.get_parent():
                 self.game_box.pop()
             self.game.load_image(self.thumb.get_image())
             #self.thumb.set_game_widget(self.game)
@@ -433,7 +549,7 @@ class SliderPuzzleUI (gtk.Table):
                 # Start
                 self.timer.start()
         elif self.thumb.has_image():
-            if not self.game.get_parent():
+            if not self.game_wrapper.get_parent():
                 self.game_box.pop()
             self.game.load_image(self.thumb.get_image())
             #self.thumb.set_game_widget(self.game)
@@ -446,12 +562,17 @@ class SliderPuzzleUI (gtk.Table):
         
     def do_solve (self, btn):
         if self.game.filename is not None:
-            if not self.game.get_parent():
+            if not self.game_wrapper.get_parent():
                 self.game_box.pop()
             self.game.show_image()
             self.timer.stop(True)
             if self._contest_mode and self.get_game_state() == GAME_STARTED:
-                self.set_game_state(btn != self.btn_solve and GAME_FINISHED or GAME_QUIT)
+                if btn != self.btn_solve:
+                    self.set_game_state(GAME_FINISHED)
+                    self.set_message(_("Puzzle Solved!"))
+                else:
+                    self.set_game_state(GAME_QUIT)
+                    self.set_message(_("Gave Up"))
         self._set_control_area()
 
 #    @utils.trace
@@ -462,7 +583,7 @@ class SliderPuzzleUI (gtk.Table):
 #            if not self.thumb.category.has_images():
 #                self.do_add_image(None)
 #        else:
-#            if self.game.get_parent():
+#            if self.game_wrapper.get_parent():
 #                s = CategorySelector("images", _("Choose a Subject"), self.thumb.get_image_dir())
 #                s.connect("selected", self.do_select_category)
 #                s.show()
@@ -477,7 +598,7 @@ class SliderPuzzleUI (gtk.Table):
             #if not self.thumb.category.has_images():
             #    self.do_add_image(None)
         else:
-            if self.game.get_parent():
+            if self.game_wrapper.get_parent():
                 s = CategorySelector(_("Choose a Subject"),
                                      self.thumb.get_image_dir(),
                                      extra=('images/Sequencing Puzzles',))
@@ -614,6 +735,9 @@ class SliderPuzzleUI (gtk.Table):
     def _send_status_update (self):
         """ Send a status update signal """
         if self._parent._shared_activity:
+            if self.get_game_state() == GAME_STARTED:
+                if self.thumb.has_image():
+                    self.set_message(_("Game Started!"))
             self._parent.game_tube.StatusUpdate(self._state[1], self.timer.is_running(), self.timer.ellapsed())
 
 def main():

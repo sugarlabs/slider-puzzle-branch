@@ -116,6 +116,7 @@ class GameTube (ExportedGObject):
         logger.debug("was %d, is %d. compressed to %d%% in %0.4f seconds" % (len(img), len(compressed), len(compressed)*100/len(img), time.time() - t))
         part_size = 24*1024
         parts = len(compressed) / part_size
+        self.tube.get_object(sender, PATH).ImageSync([], 0, dbus_interface=IFACE)
         for i in range(parts+1):
             self.tube.get_object(sender, PATH).ImageSync(compressed[i*part_size:(i+1)*part_size], i+1,
                                                          dbus_interface=IFACE)
@@ -154,10 +155,11 @@ class GameTube (ExportedGObject):
     def ImageSync (self, image_part, part_nr):
         """ """
         logger.debug("Received image part #%d, length %d" % (part_nr, len(image_part)))
+        self.activity.ui.set_message(_("Waiting for Puzzle image to be transfered..."))
         if part_nr == 1:
             self.image = StringIO()
             self.image.write(image_part)
-        else:
+        elif part_nr > 1:
             self.image.write(image_part)
 
     @method(dbus_interface=IFACE, in_signature='s', out_signature='', byte_arrays=True)
