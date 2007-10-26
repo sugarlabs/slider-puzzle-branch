@@ -201,7 +201,7 @@ class SliderPuzzleUI (gtk.Table):
 
 
 
-        self.thumb = ImageSelectorWidget(frame_color=COLOR_FRAME_THUMB, prepare_btn_cb=prepare_btn)
+        self.thumb = ImageSelectorWidget(frame_color=COLOR_FRAME_THUMB, prepare_btn_cb=prepare_btn, image_dir='images')
         self.thumb.connect("category_press", self.do_select_category)
         self.thumb.connect("image_press", self.set_nr_pieces)
         control_panel_box.pack_start(self.thumb, False)
@@ -407,7 +407,9 @@ class SliderPuzzleUI (gtk.Table):
         # Contest mode flags
         self.set_contest_mode(False)
 
-    def set_message (self, msg):
+    def set_message (self, msg, frommesh=False):
+        if frommesh and self.get_game_state() < GAME_STARTED:
+            return
         self.msg_label.set_label(msg)
 
     def is_initiator (self):
@@ -599,9 +601,11 @@ class SliderPuzzleUI (gtk.Table):
             #    self.do_add_image(None)
         else:
             if self.game_wrapper.get_parent():
+                print ("Current cat dir=", self.thumb.get_image_dir())
                 s = CategorySelector(_("Choose a Subject"),
                                      self.thumb.get_image_dir(),
-                                     extra=('images/Sequencing Puzzles',))
+                                     path="images")
+                                     #extra=('images/Sequencing Puzzles',))
                 s.connect("selected", self.do_select_category)
                 s.show()
                 self.game_box.push(s)
