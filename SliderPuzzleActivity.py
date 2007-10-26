@@ -46,7 +46,7 @@ class GameTube (ExportedGObject):
 
     def participant_change_cb(self, added, removed):
         logger.debug('Adding participants: %r' % added)
-        logger.debug('Removing participants: %r' % type(removed))
+        logger.debug('Removing participants: %r' % removed)
 
     @signal(dbus_interface=IFACE, signature='')
     def Hello(self):
@@ -142,7 +142,9 @@ class GameTube (ExportedGObject):
             buddy = self.get_buddy(self.tube.bus_name_to_handle[sender])
             # except DBusException:
             #     buddy = self.activity.ui.buddy_panel.get_buddy_from_path(to.object_path)
-        self.activity.ui.buddy_panel.update_player(buddy, status, bool(clock_running), int(ellapsed_time))
+        nick, stat = self.activity.ui.buddy_panel.update_player(buddy, status, bool(clock_running), int(ellapsed_time))
+        if buddy != self.activity.owner:
+            self.activity.ui.set_message(_("Buddy '%s' changed status: %s") % (nick, stat), frommesh=True)
 
     @method(dbus_interface=IFACE, in_signature='s', out_signature='')
     def Welcome(self, state):
@@ -155,7 +157,7 @@ class GameTube (ExportedGObject):
     def ImageSync (self, image_part, part_nr):
         """ """
         logger.debug("Received image part #%d, length %d" % (part_nr, len(image_part)))
-        self.activity.ui.set_message(_("Waiting for Puzzle image to be transfered..."))
+        self.activity.ui.set_message(_("Waiting for Puzzle image to be transferred..."))
         if part_nr == 1:
             self.image = StringIO()
             self.image.write(image_part)
@@ -323,10 +325,12 @@ class SliderPuzzleActivity(Activity, TubeHelper):
         self.ui.set_contest_mode(True)
 
     def buddy_joined_cb (self, buddy):
-        self.ui.buddy_panel.add_player(buddy)
+        nick = self.ui.buddy_panel.add_player(buddy)
+        self.ui.set_message(_("Buddy '%s' joined the game!") % (nick), frommesh=True)
 
     def buddy_left_cb (self, buddy):
-        self.ui.buddy_panel.remove_player(buddy)
+        nick = self.ui.buddy_panel.remove_player(buddy)
+        self.ui.set_message(_("Buddy '%s' left the game!") % (nick), frommesh=True)
 
     # Journal integration
 		
