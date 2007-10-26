@@ -5,9 +5,31 @@ setup.py
 mamamedia_modules.py
 i18n_misc_strings.py
 icons/logo.png
+images/default_thumb.svg
+images/Animals/image_chmk_h250_w250_lg.gif
+images/Animals/image_djstf_h250_w411_lg.gif
+images/Animals/image_drti_h250_w322_lg.gif
+images/Animals/image_howl_h250_w250_lg.gif
+images/Animals/image_hsnr_h250_w421_lg.gif
+images/Animals/image_justi_h250_w333_lg.gif
+images/Animals/image_kili_h250_w387_lg.gif
+images/Animals/image_mdic_h250_w250_lg.gif
+images/Animals/image_mrfg_h250_w333_lg.gif
+images/Animals/image_nimo_h250_w299_lg.gif
+images/Animals/image_skat_h250_w363_lg.gif
+images/Animals/thumb.gif
+images/Music/image_devin_music_w333_lg.gif
+images/Music/image_tbtn_h250_w365_lg.gif
+images/Music/image_weird_h250_w384_lg.gif
+images/Music/image_wpwa_h250_w250_lg.gif
+images/Music/thumb.gif
 images/Sequencing Puzzles/image_Letters.sequence
 images/Sequencing Puzzles/image_Numbers.sequence
 images/Sequencing Puzzles/thumb.svg
+images/Space/image_aisc_h250_w313_lg.gif
+images/Space/image_esim_h250_w250_lg.gif
+images/Space/image_tral_h250_w404_lg.gif
+images/Space/thumb.gif
 po/SliderPuzzle.pot
 po/pt.po
 po/es.po

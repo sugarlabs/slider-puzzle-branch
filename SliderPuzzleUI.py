@@ -89,7 +89,7 @@ COLOR_BG_BUTTONS = (
     (gtk.STATE_ACTIVE,"#014D01"),
     (gtk.STATE_PRELIGHT,"#016D01"),
     (gtk.STATE_SELECTED,"#027F01"),
-    (gtk.STATE_INSENSITIVE,"#027F01"),
+    (gtk.STATE_INSENSITIVE,"#CCCCCC"),
     )
 
 def prepare_btn(btn, w=-1, h=-1):
