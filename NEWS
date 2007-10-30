@@ -1,6 +1,13 @@
+3
+
+* Better UI (fullscreen).
+* Runtime dependency on MaMaMediaMenu (Creative Center) removed.
+* New icon.
+* Many bugfixes.
+
 2
 
 * Mesh contest support
 * Journal integration
 * Sequencing puzzles
-* My own image (from filesystem)
+* My own image (from journal)
