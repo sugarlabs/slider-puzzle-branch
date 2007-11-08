@@ -45,8 +45,8 @@ class GameTube (ExportedGObject):
         self.tube.watch_participants(self.participant_change_cb)
 
     def participant_change_cb(self, added, removed):
-        logger.debug('Adding participants: %r' % added)
-        logger.debug('Removing participants: %r' % removed)
+        logger.debug('Adding participants: %r', added)
+        logger.debug('Removing participants: %r', removed)
 
     @signal(dbus_interface=IFACE, signature='')
     def Hello(self):
@@ -62,14 +62,11 @@ class GameTube (ExportedGObject):
     @signal(dbus_interface=IFACE, signature='s')
     def ReSync (self, state):
         """ signal a reshufle, possibly with a new image """
-        #logger.debug("Resync %s" % state)
 
     @signal(dbus_interface=IFACE, signature='sbu')
     def StatusUpdate (self, status, clock_running, ellapsed_time):
         """ signal a reshufle, possibly with a new image """
         logger.debug("Status Update to %s, %s, %i" % (status, str(clock_running), ellapsed_time))
-        # For some reason we don't get our own signals, so short circuit here
-        self.status_update_cb(status, clock_running, ellapsed_time)
 
     def add_hello_handler(self):
         self.tube.add_signal_receiver(self.hello_cb, 'Hello', IFACE,
@@ -96,7 +93,7 @@ class GameTube (ExportedGObject):
         logger.debug('Newcomer %s has joined', sender)
         game = self.activity.ui.game
         f = self.activity.frozen
-        if sender:
+        if sender != self.activity.get_bus_name():
             self.tube.get_object(sender, PATH).Welcome(f.freeze(), dbus_interface=IFACE)
         else:
             self.ReSync(f.freeze())
@@ -131,17 +128,10 @@ class GameTube (ExportedGObject):
 
     def status_update_cb (self, status, clock_running, ellapsed_time, sender=None):
         to = self.tube.get_object(sender, PATH)
-        #logger.debug(dir(to))
-        #logger.debug(to.__dbus_object_path__)
         
         logger.debug("Status Update from %s:  %s, %s, %i" % (sender, status, str(clock_running), ellapsed_time))
-        # try:
-        if sender is None:
-            buddy = self.activity.owner
-        else:
-            buddy = self.get_buddy(self.tube.bus_name_to_handle[sender])
-            # except DBusException:
-            #     buddy = self.activity.ui.buddy_panel.get_buddy_from_path(to.object_path)
+
+        buddy = self.get_buddy(self.tube.bus_name_to_handle[sender])
         nick, stat = self.activity.ui.buddy_panel.update_player(buddy, status, bool(clock_running), int(ellapsed_time))
         if buddy != self.activity.owner:
             self.activity.ui.set_message(_("Buddy '%s' changed status: %s") % (nick, stat), frommesh=True)
