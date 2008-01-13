@@ -1,5 +1,5 @@
-#!/usr/bin/env python
-
+# Copyright 2007 World Wide Workshop Foundation
+#
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation; either version 2 of the License, or
@@ -14,14 +14,9 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #
-
-
-### SliderPuzzeUI
-### TODO: Describe
-### $Id: $
-###
-### author: Carlos Neves (cn (at) sueste.net)
-### (c) 2007 World Wide Workshop Foundation
+# If you find this activity useful or end up using parts of it in one of your
+# own creations we would love to hear from you at info@WorldWideWorkshop.org !
+#
 
 import pygtk
 pygtk.require('2.0')
@@ -284,128 +279,15 @@ class SliderPuzzleUI (gtk.Table):
         self.buddy_panel = BuddyPanel()
         self.buddy_panel.show()
 
-
-
-
-#        self.game_box.add(self.game)
-#
-#
-#        # The containers we will use
-#        outer_box = BorderFrame(border_color=COLOR_FRAME_OUTER)
-#        controls_vbox = gtk.VBox(False)
-#        self.game_box = BorderFrame(border_color=COLOR_FRAME_GAME)
-#        
-#        outer_box.add(inner_table)
-#        inner_table.attach(controls_vbox, 0,1,0,1)
-#        inner_table.attach(self.game_box, 1,2,0,1,1,1)
-#
-#
-#        # Left side containers
-#        controls_area_1 = BorderFrame(border=BORDER_ALL_BUT_BOTTOM,
-#                                      bg_color=COLOR_BG_CONTROLS,
-#                                      border_color=COLOR_FRAME_CONTROLS)
-#
-#        controls_area_box = gtk.VBox(False)
-#        #controls_area_1_box = gtk.VBox(False)
-#        controls_area = gtk.VBox()
-#        controls_vbox.pack_start(controls_area_1)
-#        controls_area_1.add(controls_area)
-#        controls_area.pack_start(controls_area_box, padding=5)
-#        
-#        # Slice buttons
-#        spacer = gtk.Label()
-#        spacer.set_size_request(-1, 15)
-#        controls_area_box.pack_start(spacer, expand=False, fill=False)
-#        cutter = gtk.HBox(False, 8)
-#        cutter.pack_start(gtk.Label(), True)
-#        self.btn_9 = prepare_btn(gtk.ToggleButton("9"),SLICE_BTN_WIDTH)
-#        self.btn_9.set_active(True)
-#        self.btn_9.connect("clicked", self.set_nr_pieces, 9)
-#        cutter.pack_start(self.btn_9, False, False)
-#        self.btn_12 = prepare_btn(gtk.ToggleButton("12"), SLICE_BTN_WIDTH)
-#        self.btn_12.connect("clicked", self.set_nr_pieces, 12)
-#        cutter.pack_start(self.btn_12, False, False)
-#        self.btn_16 = prepare_btn(gtk.ToggleButton("16"), SLICE_BTN_WIDTH)
-#        self.btn_16.connect("clicked", self.set_nr_pieces, 16)
-#        cutter.pack_start(self.btn_16, False, False)
-#        cutter.pack_start(gtk.Label(), True)
-#        controls_area_box.pack_start(cutter, True)
-#        spacer = gtk.Label()
-#        spacer.set_size_request(-1, 10)
-#        controls_area_box.pack_start(spacer, expand=False, fill=False)
-#
-#
-#
-#        spacer = gtk.Label()
-#        spacer.set_size_request(-1, 1)
-#        controls_area_box.pack_start(spacer, expand=True, fill=True)
-#
-#        # Language Selection dropdown
-#        controls_area_2 = BorderFrame(bg_color=COLOR_BG_CONTROLS, border_color=COLOR_FRAME_CONTROLS)
-#        vbox = gtk.VBox(False)
-#        btn_box = gtk.HBox(False)
-#        btn_box.pack_start(gtk.Label(), True)
-#        lang_combo = prepare_btn(LanguageComboBox('org.worldwideworkshop.olpc.SliderPuzzle'))
-#
-#        btn_box.pack_start(lang_combo, False)
-#        btn_box.pack_start(gtk.Label(), True)
-#        vbox.pack_start(btn_box, padding=8)
-#        controls_area_2.add(vbox)
-#        inner_table.attach(controls_area_2, 0,1,1,2)
-#
-#        # The timer widget and lesson plans
-#        controls_area_3 = BorderFrame(border=BORDER_ALL_BUT_LEFT,
-#                                      bg_color=COLOR_BG_CONTROLS,
-#                                      border_color=COLOR_FRAME_CONTROLS)
-#        vbox = gtk.VBox(False)
-#        btn_box = gtk.HBox(False)
-#        self.timer = TimerWidget(bg_color=COLOR_BG_BUTTONS[0][1],
-#                                 fg_color=COLOR_FG_BUTTONS[0][1],
-#                                 lbl_color=COLOR_BG_BUTTONS[1][1])
-#        self.timer.set_sensitive(False)
-#
-#        self.timer.set_border_width(3)
-#        self.labels_to_translate.append((self.timer, _("Time: ")))
-#        btn_box.pack_start(self.timer, False, padding=8)
-#        
-#        btn_box.pack_start(gtk.Label(), True)
-#        self.btn_lesson = prepare_btn(gtk.Button(" "))
-#        self.labels_to_translate.append([self.btn_lesson, _("Lesson Plans")])
-#        self.btn_lesson.connect("clicked", self.do_lesson_plan)
-#        btn_box.pack_start(self.btn_lesson, False, padding=8)
-#        vbox.pack_start(btn_box, padding=8)
-#        controls_area_3.add(vbox)
-#        inner_table.attach(controls_area_3, 1,2,1,2)
-#        
-#        #buddybox = BuddyPanel(parent)
-#        #buddybox.show()
-#        # This has the sole purpose of centering the widget on screen
-#        #self.attach(buddybox, 0,3,0,1)
-#        #self.attach(gtk.Label(), 0,3,0,1)
-#        self.attach(outer_box, 1,2,1,2,0,0)
-#        self.msg_label = gtk.Label()
-#        self.msg_label.show()
-#        self.attach(self.msg_label, 0,3,2,3)
-
         if not parent._shared_activity:
             self.do_select_category(self)
         else:
             self.set_message(_("Waiting for remote game..."))
 
-#        # Push the gettext translator into the global namespace
-#        del _
-#        lang_combo.connect('changed', self.do_select_language)
-#        lang_combo.install()
-#        self.do_select_language(lang_combo)
-#
-#        self.buddy_panel = BuddyPanel()
-#        self.buddy_panel.show()
-#        self.timer.connect('timer_toggle', self.timer_toggle_cb)
-
-        
-        #self.controls_area.pack_start(self.contest_controls_area_box, padding=5)
         # Contest mode flags
         self.set_contest_mode(False)
+
+        self._on_lesson_plan = False
 
     def set_message (self, msg, frommesh=False):
         if frommesh and self.get_game_state() < GAME_STARTED:
@@ -660,16 +542,23 @@ class SliderPuzzleUI (gtk.Table):
         #    widget.destroy()
 
     def do_lesson_plan (self, btn):
-        if self._contest_mode and self.get_game_state() < GAME_STARTED:
+        if self._on_lesson_plan:
             return
-        if isinstance(self.game_box.get_child(), NotebookReaderWidget):
-            self.game_box.pop()
-        else:
-            s = NotebookReaderWidget('lessons', self.selected_lang_details)
-            s.connect('parent-set', self.do_lesson_plan_reparent)
-            s.show_all()
-            self.game_box.push(s)
-            self.timer.stop()
+        try:
+            self._on_lesson_plan = True
+            if self._contest_mode and self.get_game_state() < GAME_STARTED:
+                return
+            if isinstance(self.game_box.get_child(), NotebookReaderWidget):
+                if self.game_box.get_child().loaded:
+                    self.game_box.pop()
+            else:
+                s = NotebookReaderWidget('lessons', self.selected_lang_details)
+                s.connect('parent-set', self.do_lesson_plan_reparent)
+                s.show_all()
+                self.game_box.push(s)
+                self.timer.stop()
+        finally:
+            self._on_lesson_plan = False
 
     def do_lesson_plan_reparent (self, widget, oldparent):
         if widget.parent is None:

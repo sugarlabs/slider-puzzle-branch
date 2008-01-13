@@ -1,9 +1,9 @@
-#!/usr/bin/env python
-
+# Copyright 2007 World Wide Workshop Foundation
+#
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation; either version 2 of the License, or
-# at your option) any later version.
+# (at your option) any later version.
 #
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -14,16 +14,9 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #
-
-
-### SliderPuzzleWidget
-### All the SliderPuzzle game logic in a GTK widget ready for usage
-### $Id: $
-###
-### author: Carlos Neves (cn (at) sueste.net)
-### (c) 2007 World Wide Workshop Foundation
-
-
+# If you find this activity useful or end up using parts of it in one of your
+# own creations we would love to hear from you at info@WorldWideWorkshop.org !
+#
 
 import pygtk
 pygtk.require('2.0')
