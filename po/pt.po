@@ -2,46 +2,46 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-09-10 10:34+0100\n"
+"POT-Creation-Date: 2008-01-14 16:38+0000\n"
 "PO-Revision-Date: 2007-05-23 10:48+0100\n"
 "Last-Translator: Carlos Neves <cn@sueste>\n"
 "Language-Team: Portuguese <info@worldwideworkshop.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Translate Toolkit 1.0.1\n"
 
 #: activity/activity.info:2
 #, fuzzy
 msgid "Slider Puzzle"
 msgstr "Actividade Slider Puzzle"
 
-#: SliderPuzzleUI.py:700
+#: SliderPuzzleUI.py:214
 msgid "Solve"
 msgstr "Resolver"
 
-#: SliderPuzzleUI.py:704
+#: SliderPuzzleUI.py:218
 msgid "Shuffle"
 msgstr "Baralhar"
 
-#: SliderPuzzleUI.py:708
+#: SliderPuzzleUI.py:222
 msgid "My Picture"
 msgstr "Minha Imagem"
 
-#: SliderPuzzleUI.py:751
+#: SliderPuzzleUI.py:259
 msgid "Time: "
 msgstr "Tempo: "
 
-#: SliderPuzzleUI.py:756 SliderPuzzleUI.py:1043
+#: SliderPuzzleUI.py:268 SliderPuzzleUI.py:566
 msgid "Lesson Plans"
 msgstr "Planos de Ensino"
 
-#: SliderPuzzleUI.py:776
+#: SliderPuzzleUI.py:285
 msgid "Waiting for remote game..."
 msgstr "Esperando por jogo remoto..."
 
@@ -53,28 +53,28 @@ msgstr "Seleccione imagem para partilhar..."
 msgid "Waiting for game image..."
 msgstr "Esperando pela imagem para jogar..."
 
-#: SliderPuzzleUI.py:836 SliderPuzzleUI.py:846
+#: SliderPuzzleUI.py:335 SliderPuzzleUI.py:344
 msgid "Buddies"
 msgstr ""
 
-#: SliderPuzzleUI.py:844
+#: SliderPuzzleUI.py:633
 msgid "Game Started!"
 msgstr "O Jogo Comecou!"
 
-#: SliderPuzzleUI.py:864
+#: SliderPuzzleUI.py:362
 msgid "Give Up"
 msgstr "Desistir"
 
-#: SliderPuzzleUI.py:866
+#: SliderPuzzleUI.py:364
 msgid "Start Game"
 msgstr "Iniciar Jogo"
 
-#: SliderPuzzleUI.py:876
+#: SliderPuzzleUI.py:374
 #, fuzzy
 msgid "Slider Puzzle Activity"
 msgstr "Actividade Slider Puzzle"
 
-#: SliderPuzzleUI.py:976
+#: SliderPuzzleUI.py:487
 msgid "Choose a Subject"
 msgstr "Escolha um Assunto"
 
@@ -86,11 +86,11 @@ msgstr "Imagens"
 msgid "Select Image File"
 msgstr "Seleccione uma Imagen"
 
-#: SliderPuzzleUI.py:1022
+#: mmm_modules/image_category.py:226
 msgid "Not a valid image file"
 msgstr "Imagem inválida"
 
-#: SliderPuzzleUI.py:1046
+#: SliderPuzzleUI.py:569
 msgid "Close Lesson"
 msgstr "Fechar Plano"
 
@@ -263,3 +263,184 @@ msgstr "Lição 2"
 
 #~ msgid "%i minutes"
 #~ msgstr "%i minutos"
+
+#: SliderPuzzleActivity.py:157
+#, python-format
+msgid "Buddy '%s' changed status: %s"
+msgstr ""
+
+#: SliderPuzzleActivity.py:170
+msgid "Waiting for Puzzle image to be transferred..."
+msgstr ""
+
+#: SliderPuzzleActivity.py:339
+#, python-format
+msgid "Buddy '%s' joined the game!"
+msgstr ""
+
+#: SliderPuzzleActivity.py:343
+#, python-format
+msgid "Buddy '%s' left the game!"
+msgstr ""
+
+#: SliderPuzzleUI.py:329
+msgid "Select image and press Start Game..."
+msgstr ""
+
+#: SliderPuzzleUI.py:333
+msgid "Waiting for Puzzle image to be chosen..."
+msgstr ""
+
+#: SliderPuzzleUI.py:456
+msgid "Puzzle Solved!"
+msgstr ""
+
+#: SliderPuzzleUI.py:459
+#, fuzzy
+msgid "Gave Up"
+msgstr "Desistir"
+
+#: mmm_modules/buddy_panel.py:49
+msgid "Buddy"
+msgstr ""
+
+#: mmm_modules/buddy_panel.py:55
+msgid "Status"
+msgstr "Estado"
+
+#: mmm_modules/buddy_panel.py:62
+msgid "Play Time"
+msgstr "Tempo de Jogo"
+
+#: mmm_modules/buddy_panel.py:69
+msgid "Joined at"
+msgstr ""
+
+#: mmm_modules/buddy_panel.py:101
+msgid "synchronizing"
+msgstr "sincronizando"
+
+#: mmm_modules/buddy_panel.py:115
+msgid "Playing"
+msgstr "Jogando"
+
+#: mmm_modules/buddy_panel.py:115
+msgid "Paused"
+msgstr "Em Pausa"
+
+#: mmm_modules/buddy_panel.py:117
+msgid "Finished"
+msgstr "Terminado"
+
+#: mmm_modules/buddy_panel.py:119
+msgid "Gave up"
+msgstr "Desistiu"
+
+#: mmm_modules/buddy_panel.py:121
+msgid "Unknown"
+msgstr "Desconhecido"
+
+#: mmm_modules/buddy_panel.py:123
+#, python-format
+msgid "%i minutes"
+msgstr "%i minutos"
+
+#: mmm_modules/i18n.py:36
+msgid "Chinese (simplified)"
+msgstr "Chinês (simplificado)"
+
+#: mmm_modules/i18n.py:37
+msgid "Chinese (traditional)"
+msgstr "Chinês (tradicional)"
+
+#: mmm_modules/i18n.py:38
+msgid "Czech"
+msgstr "Checo"
+
+#: mmm_modules/i18n.py:39
+msgid "Danish"
+msgstr "Dinamarquês"
+
+#: mmm_modules/i18n.py:40
+msgid "Dutch"
+msgstr "Holandês"
+
+#: mmm_modules/i18n.py:41
+msgid "English"
+msgstr "Inglês"
+
+#: mmm_modules/i18n.py:42
+msgid "English - Great Britain"
+msgstr "Inglês - Reino Unido"
+
+#: mmm_modules/i18n.py:43
+msgid "English - U.S."
+msgstr "Inglês - E.U.A."
+
+#: mmm_modules/i18n.py:44
+msgid "Finnish"
+msgstr "Filandês"
+
+#: mmm_modules/i18n.py:45
+msgid "French"
+msgstr "Francês"
+
+#: mmm_modules/i18n.py:46
+msgid "German"
+msgstr "Alemão"
+
+#: mmm_modules/i18n.py:47
+msgid "Hungarian"
+msgstr "Hungaro"
+
+#: mmm_modules/i18n.py:48
+msgid "Italian"
+msgstr "Italiano"
+
+#: mmm_modules/i18n.py:49
+msgid "Japanese"
+msgstr "Japonês"
+
+#: mmm_modules/i18n.py:50
+msgid "Korean"
+msgstr "Coreano"
+
+#: mmm_modules/i18n.py:51
+msgid "Norwegian"
+msgstr "Norueguês"
+
+#: mmm_modules/i18n.py:52
+msgid "Polish"
+msgstr "Polaco"
+
+#: mmm_modules/i18n.py:53
+msgid "Portuguese"
+msgstr "Português"
+
+#: mmm_modules/i18n.py:54
+msgid "Portuguese - Brazilian"
+msgstr "Portugês - Brasil"
+
+#: mmm_modules/i18n.py:55
+msgid "Russian"
+msgstr "Russo"
+
+#: mmm_modules/i18n.py:56
+msgid "Slovak"
+msgstr "Eslovaco"
+
+#: mmm_modules/i18n.py:57
+msgid "Spanish"
+msgstr "Espanhol"
+
+#: mmm_modules/i18n.py:58
+msgid "Swedish"
+msgstr "Sueco"
+
+#: mmm_modules/i18n.py:59
+msgid "Turkish"
+msgstr "Turco"
+
+#: mmm_modules/image_category.py:215
+msgid "Choose image"
+msgstr ""
