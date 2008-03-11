@@ -1,0 +1,324 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-01-14 16:38+0000\n"
+"PO-Revision-Date: 2008-02-26 06:18-0500\n"
+"Last-Translator: Γιάννης Κασκαμανίδης <ttnfy17@yahoo.gr>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Pootle 1.0.2\n"
+
+#: activity/activity.info:2
+msgid "Slider Puzzle"
+msgstr "Παζλ Ολίσθησης"
+
+#: SliderPuzzleActivity.py:157
+#, python-format
+msgid "Buddy '%s' changed status: %s"
+msgstr "Ο φιλαράκος'%s' άλλαξε κατάσταση: %s"
+
+#: SliderPuzzleActivity.py:170
+msgid "Waiting for Puzzle image to be transferred..."
+msgstr "Περιμένετε μέχρι να μετακινηθεί η εικόνα του παζλ..."
+
+#: SliderPuzzleActivity.py:339
+#, python-format
+msgid "Buddy '%s' joined the game!"
+msgstr "Ο φιλαράκος'%s' συμμετέχει στο παιχνίδι!"
+
+#: SliderPuzzleActivity.py:343
+#, python-format
+msgid "Buddy '%s' left the game!"
+msgstr "Ο φιλαράκος'%s' αποχώρησε από το παιχνίδι!"
+
+#: SliderPuzzleUI.py:214
+msgid "Solve"
+msgstr "Επίλυση"
+
+#: SliderPuzzleUI.py:218
+msgid "Shuffle"
+msgstr "Ανακάτεμα"
+
+#: SliderPuzzleUI.py:222
+msgid "My Picture"
+msgstr "Η εικόνα μου"
+
+#: SliderPuzzleUI.py:259
+msgid "Time: "
+msgstr "Χρόνος:_"
+
+#: SliderPuzzleUI.py:268 SliderPuzzleUI.py:566
+msgid "Lesson Plans"
+msgstr "Σχέδια μαθημάτων"
+
+#: SliderPuzzleUI.py:285
+msgid "Waiting for remote game..."
+msgstr "Αναμονή απομακρυσμένου παιχνιδιού..."
+
+#: SliderPuzzleUI.py:329
+msgid "Select image and press Start Game..."
+msgstr "Επιλέξτε εικόνα και πατήστε Έναρξη Παιχνιδιού..."
+
+#: SliderPuzzleUI.py:333
+msgid "Waiting for Puzzle image to be chosen..."
+msgstr "Αναμονή για επιλογή εικόνας του Puzzle..."
+
+#: SliderPuzzleUI.py:335 SliderPuzzleUI.py:344
+msgid "Buddies"
+msgstr "Φιλαράκια"
+
+#: SliderPuzzleUI.py:362
+msgid "Give Up"
+msgstr "Παρατάω"
+
+#: SliderPuzzleUI.py:364
+msgid "Start Game"
+msgstr "Έναρξη Παιχνιδιού"
+
+#: SliderPuzzleUI.py:374
+msgid "Slider Puzzle Activity"
+msgstr "Δραστηριότητα Παζλ Ολίσθησης"
+
+#: SliderPuzzleUI.py:456
+msgid "Puzzle Solved!"
+msgstr "Το Puzzle λύθηκε!"
+
+#: SliderPuzzleUI.py:459
+msgid "Gave Up"
+msgstr "Εγκατέλειψε"
+
+#: SliderPuzzleUI.py:487
+msgid "Choose a Subject"
+msgstr "Επιλογή Θέματος"
+
+#: SliderPuzzleUI.py:569
+msgid "Close Lesson"
+msgstr "Κλείσιμο μαθήματος"
+
+#: SliderPuzzleUI.py:633
+msgid "Game Started!"
+msgstr "Το παιχνίδι άρχισε!"
+
+#: i18n_misc_strings.py:1
+msgid "Sea Life"
+msgstr "Θαλάσσια ζωή"
+
+#: i18n_misc_strings.py:2
+msgid "Animals"
+msgstr "Ζώα"
+
+#: i18n_misc_strings.py:3
+msgid "Birds"
+msgstr "Πουλιά"
+
+#: i18n_misc_strings.py:4
+msgid "XO"
+msgstr "ΧΟ"
+
+#: i18n_misc_strings.py:5
+msgid "Sequencing Puzzles"
+msgstr "Διαδοχικά παζλς"
+
+#: i18n_misc_strings.py:6
+msgid "Sports"
+msgstr "Αθλήματα"
+
+#: i18n_misc_strings.py:7
+msgid "Insects"
+msgstr "Έντομα"
+
+#: i18n_misc_strings.py:8
+msgid "Music"
+msgstr "Μουσική"
+
+#: i18n_misc_strings.py:9
+msgid "Space"
+msgstr "Διάστημα"
+
+#: i18n_misc_strings.py:10
+msgid "Lesson 5"
+msgstr "Μάθημα 5"
+
+#: i18n_misc_strings.py:11
+msgid "Lesson 4"
+msgstr "Μάθημα 4"
+
+#: i18n_misc_strings.py:12
+msgid "Overview"
+msgstr "Επισκόπηση"
+
+#: i18n_misc_strings.py:13
+msgid "Lesson 3"
+msgstr "Μάθημα 3"
+
+#: i18n_misc_strings.py:14
+msgid "Lesson 7"
+msgstr "Μάθημα 7"
+
+#: i18n_misc_strings.py:15
+msgid "Lesson 6"
+msgstr "Μάθημα 6"
+
+#: i18n_misc_strings.py:16
+msgid "Lesson 1"
+msgstr "Μάθημα 1"
+
+#: i18n_misc_strings.py:17
+msgid "Lesson 2"
+msgstr "Μάθημα 2"
+
+#: mmm_modules/buddy_panel.py:49
+msgid "Buddy"
+msgstr "Φιλαράκος"
+
+#: mmm_modules/buddy_panel.py:55
+msgid "Status"
+msgstr "Κατάσταση"
+
+#: mmm_modules/buddy_panel.py:62
+msgid "Play Time"
+msgstr "Χρόνος Παιχνιδιού"
+
+#: mmm_modules/buddy_panel.py:69
+msgid "Joined at"
+msgstr "Συμμετοχή σε"
+
+#: mmm_modules/buddy_panel.py:101
+msgid "synchronizing"
+msgstr "συγχρονισμός"
+
+#: mmm_modules/buddy_panel.py:115
+msgid "Playing"
+msgstr "Παίξιμο"
+
+#: mmm_modules/buddy_panel.py:115
+msgid "Paused"
+msgstr "Σε παύση"
+
+#: mmm_modules/buddy_panel.py:117
+msgid "Finished"
+msgstr "Ολοκληρωμένο"
+
+#: mmm_modules/buddy_panel.py:119
+msgid "Gave up"
+msgstr "Εγκατέλειψε"
+
+#: mmm_modules/buddy_panel.py:121
+msgid "Unknown"
+msgstr "Άγνωστο"
+
+#: mmm_modules/buddy_panel.py:123
+#, python-format
+msgid "%i minutes"
+msgstr "%i λεπτά"
+
+#: mmm_modules/i18n.py:36
+msgid "Chinese (simplified)"
+msgstr "Κινεζικά (απλοποιημένα)"
+
+#: mmm_modules/i18n.py:37
+msgid "Chinese (traditional)"
+msgstr "Κινεζικά (παραδοσιακά)"
+
+#: mmm_modules/i18n.py:38
+msgid "Czech"
+msgstr "Τσέχικα"
+
+#: mmm_modules/i18n.py:39
+msgid "Danish"
+msgstr "Δανέζικα"
+
+#: mmm_modules/i18n.py:40
+msgid "Dutch"
+msgstr "Ολλανδικά"
+
+#: mmm_modules/i18n.py:41
+msgid "English"
+msgstr "Αγγλικά"
+
+#: mmm_modules/i18n.py:42
+msgid "English - Great Britain"
+msgstr "Αγγλικά - Μεγάλης Βρετανίας"
+
+#: mmm_modules/i18n.py:43
+msgid "English - U.S."
+msgstr "Αγγλικά - Η.Π.Α."
+
+#: mmm_modules/i18n.py:44
+msgid "Finnish"
+msgstr "Φινλανδικά"
+
+#: mmm_modules/i18n.py:45
+msgid "French"
+msgstr "Γαλλικά"
+
+#: mmm_modules/i18n.py:46
+msgid "German"
+msgstr "Γερμανικά"
+
+#: mmm_modules/i18n.py:47
+msgid "Hungarian"
+msgstr "Ουγγρικά"
+
+#: mmm_modules/i18n.py:48
+msgid "Italian"
+msgstr "Ιταλικά"
+
+#: mmm_modules/i18n.py:49
+msgid "Japanese"
+msgstr "Ιαπωνικά"
+
+#: mmm_modules/i18n.py:50
+msgid "Korean"
+msgstr "Κορεατικά"
+
+#: mmm_modules/i18n.py:51
+msgid "Norwegian"
+msgstr "Νορβηγικά"
+
+#: mmm_modules/i18n.py:52
+msgid "Polish"
+msgstr "Πολωνικά"
+
+#: mmm_modules/i18n.py:53
+msgid "Portuguese"
+msgstr "Πορτογαλικά"
+
+#: mmm_modules/i18n.py:54
+msgid "Portuguese - Brazilian"
+msgstr "Πορτογαλικά - Βραζιλίας"
+
+#: mmm_modules/i18n.py:55
+msgid "Russian"
+msgstr "Ρωσικά"
+
+#: mmm_modules/i18n.py:56
+msgid "Slovak"
+msgstr "Σλοβακικά"
+
+#: mmm_modules/i18n.py:57
+msgid "Spanish"
+msgstr "Ισπανικά"
+
+#: mmm_modules/i18n.py:58
+msgid "Swedish"
+msgstr "Σουηδικά"
+
+#: mmm_modules/i18n.py:59
+msgid "Turkish"
+msgstr "Τουρκικά"
+
+#: mmm_modules/image_category.py:215
+msgid "Choose image"
+msgstr "Επιλογή εικόνας"
+
+#: mmm_modules/image_category.py:226
+msgid "Not a valid image file"
+msgstr "Μη έγκυρο αρχείο εικόνας"
