@@ -1,0 +1,335 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-01-14 16:38+0000\n"
+"PO-Revision-Date: 2008-01-22 09:07+0000\n"
+"Last-Translator: Alexander Todorov <atodorov@redhat.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Pootle 1.0.2\n"
+
+#: activity/activity.info:2
+msgid "Slider Puzzle"
+msgstr "Пъзел с плъзгане"
+
+#: SliderPuzzleActivity.py:157
+#, python-format
+msgid "Buddy '%s' changed status: %s"
+msgstr "Играч '%s' промени статуса си: %s"
+
+#: SliderPuzzleActivity.py:170
+msgid "Waiting for Puzzle image to be transferred..."
+msgstr "Изчакване докато се прехвърли изображението на пъзела..."
+
+#: SliderPuzzleActivity.py:339
+#, python-format
+msgid "Buddy '%s' joined the game!"
+msgstr "Играч '%s' се присъедини към играта!"
+
+#: SliderPuzzleActivity.py:343
+#, python-format
+msgid "Buddy '%s' left the game!"
+msgstr "Играч '%s' напусна играта!"
+
+#: SliderPuzzleUI.py:214
+msgid "Solve"
+msgstr "Решаване"
+
+#: SliderPuzzleUI.py:218
+msgid "Shuffle"
+msgstr "Разбъркване"
+
+#: SliderPuzzleUI.py:222
+msgid "My Picture"
+msgstr "Мое изображение"
+
+#: SliderPuzzleUI.py:259
+msgid "Time: "
+msgstr "Време: "
+
+#: SliderPuzzleUI.py:268 SliderPuzzleUI.py:566
+msgid "Lesson Plans"
+msgstr "Учебни планове"
+
+#: SliderPuzzleUI.py:285
+#, fuzzy
+msgid "Waiting for remote game..."
+msgstr "Изчакване на отдалечена игра..."
+
+#: SliderPuzzleUI.py:329
+msgid "Select image and press Start Game..."
+msgstr "Изберете изображение и натиснете \"Начало\"..."
+
+#: SliderPuzzleUI.py:333
+msgid "Waiting for Puzzle image to be chosen..."
+msgstr "Изчакване за избор на изображение..."
+
+#: SliderPuzzleUI.py:335 SliderPuzzleUI.py:344
+msgid "Buddies"
+msgstr "Приятели"
+
+#: SliderPuzzleUI.py:362
+msgid "Give Up"
+msgstr "Отказване"
+
+#: SliderPuzzleUI.py:364
+msgid "Start Game"
+msgstr "Начало"
+
+#: SliderPuzzleUI.py:374
+msgid "Slider Puzzle Activity"
+msgstr "Пъзел с плъзгане"
+
+#: SliderPuzzleUI.py:456
+msgid "Puzzle Solved!"
+msgstr "Пъзелът е разрешен!"
+
+#: SliderPuzzleUI.py:459
+msgid "Gave Up"
+msgstr "се отказа"
+
+#: SliderPuzzleUI.py:487
+#, fuzzy
+msgid "Choose a Subject"
+msgstr "избор на предмет"
+
+#: SliderPuzzleUI.py:569
+msgid "Close Lesson"
+msgstr "Затваряне на урока"
+
+#: SliderPuzzleUI.py:633
+msgid "Game Started!"
+msgstr "Играта е стартирана!"
+
+#: i18n_misc_strings.py:1
+msgid "Sea Life"
+msgstr "Морски живот"
+
+#: i18n_misc_strings.py:2
+msgid "Animals"
+msgstr "Животни"
+
+#: i18n_misc_strings.py:3
+msgid "Birds"
+msgstr "Птици"
+
+#: i18n_misc_strings.py:4
+msgid "XO"
+msgstr "XO"
+
+#: i18n_misc_strings.py:5
+msgid "Sequencing Puzzles"
+msgstr "Поредици"
+
+#: i18n_misc_strings.py:6
+msgid "Sports"
+msgstr "Спорт"
+
+#: i18n_misc_strings.py:7
+msgid "Insects"
+msgstr "Насекоми"
+
+#: i18n_misc_strings.py:8
+msgid "Music"
+msgstr "Музика"
+
+#: i18n_misc_strings.py:9
+msgid "Space"
+msgstr "Космос"
+
+#: i18n_misc_strings.py:10
+msgid "Lesson 5"
+msgstr "Урок 5"
+
+#: i18n_misc_strings.py:11
+msgid "Lesson 4"
+msgstr "Урок 4"
+
+# lesson plan overview =? резюме на учебния план
+#: i18n_misc_strings.py:12
+msgid "Overview"
+msgstr "Резюме"
+
+#: i18n_misc_strings.py:13
+msgid "Lesson 3"
+msgstr "Урок 3"
+
+#: i18n_misc_strings.py:14
+msgid "Lesson 7"
+msgstr "Урок 7"
+
+#: i18n_misc_strings.py:15
+msgid "Lesson 6"
+msgstr "Урок 6"
+
+#: i18n_misc_strings.py:16
+msgid "Lesson 1"
+msgstr "Урок 1"
+
+#: i18n_misc_strings.py:17
+msgid "Lesson 2"
+msgstr "Урок 2"
+
+#: mmm_modules/buddy_panel.py:49
+msgid "Buddy"
+msgstr "Играч"
+
+#: mmm_modules/buddy_panel.py:55
+msgid "Status"
+msgstr "Статус"
+
+#: mmm_modules/buddy_panel.py:62
+#, fuzzy
+msgid "Play Time"
+msgstr "Време за игра"
+
+#: mmm_modules/buddy_panel.py:69
+msgid "Joined at"
+msgstr "Присъединил се в"
+
+#: mmm_modules/buddy_panel.py:101
+msgid "synchronizing"
+msgstr "синхронизиране"
+
+# кой играе? играча или играта се играе?
+#: mmm_modules/buddy_panel.py:115
+#, fuzzy
+msgid "Playing"
+msgstr "Играе в момента"
+
+#: mmm_modules/buddy_panel.py:115
+#, fuzzy
+msgid "Paused"
+msgstr "Спрял"
+
+#: mmm_modules/buddy_panel.py:117
+#, fuzzy
+msgid "Finished"
+msgstr "Завършил"
+
+#: mmm_modules/buddy_panel.py:119
+#, fuzzy
+msgid "Gave up"
+msgstr "Отказал се"
+
+#: mmm_modules/buddy_panel.py:121
+#, fuzzy
+msgid "Unknown"
+msgstr "Неизвестно"
+
+#: mmm_modules/buddy_panel.py:123
+#, python-format
+msgid "%i minutes"
+msgstr "%i минути"
+
+#: mmm_modules/i18n.py:36
+msgid "Chinese (simplified)"
+msgstr "Китайски (опростен)"
+
+#: mmm_modules/i18n.py:37
+msgid "Chinese (traditional)"
+msgstr "Китайски (традиционен)"
+
+#: mmm_modules/i18n.py:38
+msgid "Czech"
+msgstr "Чешки"
+
+#: mmm_modules/i18n.py:39
+msgid "Danish"
+msgstr "Датски"
+
+#: mmm_modules/i18n.py:40
+msgid "Dutch"
+msgstr "Холандски"
+
+#: mmm_modules/i18n.py:41
+msgid "English"
+msgstr "Английски"
+
+#: mmm_modules/i18n.py:42
+msgid "English - Great Britain"
+msgstr "Английски - Великобритания"
+
+#: mmm_modules/i18n.py:43
+msgid "English - U.S."
+msgstr "Английски - САЩ"
+
+#: mmm_modules/i18n.py:44
+msgid "Finnish"
+msgstr "Финландски"
+
+#: mmm_modules/i18n.py:45
+msgid "French"
+msgstr "Френски"
+
+# или германски ?
+#: mmm_modules/i18n.py:46
+msgid "German"
+msgstr "Немски"
+
+#: mmm_modules/i18n.py:47
+msgid "Hungarian"
+msgstr "Унгарски"
+
+#: mmm_modules/i18n.py:48
+msgid "Italian"
+msgstr "Италиански"
+
+#: mmm_modules/i18n.py:49
+msgid "Japanese"
+msgstr "Японски"
+
+#: mmm_modules/i18n.py:50
+msgid "Korean"
+msgstr "Корейски"
+
+#: mmm_modules/i18n.py:51
+msgid "Norwegian"
+msgstr "Норвежки"
+
+#: mmm_modules/i18n.py:52
+msgid "Polish"
+msgstr "Полски"
+
+#: mmm_modules/i18n.py:53
+msgid "Portuguese"
+msgstr "Португалски"
+
+#: mmm_modules/i18n.py:54
+msgid "Portuguese - Brazilian"
+msgstr "Португалски - Бразилия"
+
+#: mmm_modules/i18n.py:55
+msgid "Russian"
+msgstr "Руски"
+
+#: mmm_modules/i18n.py:56
+msgid "Slovak"
+msgstr "Словашки"
+
+#: mmm_modules/i18n.py:57
+msgid "Spanish"
+msgstr "Испански"
+
+#: mmm_modules/i18n.py:58
+msgid "Swedish"
+msgstr "Шведски"
+
+#: mmm_modules/i18n.py:59
+msgid "Turkish"
+msgstr "Турски"
+
+#: mmm_modules/image_category.py:215
+msgid "Choose image"
+msgstr "Избор на изображение"
+
+#: mmm_modules/image_category.py:226
+msgid "Not a valid image file"
+msgstr "Невалиден файл с изображение"
