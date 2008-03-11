@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-01-14 16:38+0000\n"
-"PO-Revision-Date: 2008-01-20 01:36+0000\n"
-"Last-Translator: Rafael Ortiz <rafael@laptop.org>\n"
+"PO-Revision-Date: 2008-02-10 13:28-0500\n"
+"Last-Translator: Chema Q <jameson.quinn@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -17,7 +17,26 @@ msgstr ""
 
 #: activity/activity.info:2
 msgid "Slider Puzzle"
-msgstr ""
+msgstr "Rompecabezas deslizable"
+
+#: SliderPuzzleActivity.py:157
+#, python-format
+msgid "Buddy '%s' changed status: %s"
+msgstr "El compañero '%s' cambió de estado:%s"
+
+#: SliderPuzzleActivity.py:170
+msgid "Waiting for Puzzle image to be transferred..."
+msgstr "Esperando para que la imagen del Romecabezas sea transferida..."
+
+#: SliderPuzzleActivity.py:339
+#, python-format
+msgid "Buddy '%s' joined the game!"
+msgstr "El amigo '%s' se ha unido al juego!"
+
+#: SliderPuzzleActivity.py:343
+#, python-format
+msgid "Buddy '%s' left the game!"
+msgstr "El amigo '%s' ha dejado el juego!"
 
 #: SliderPuzzleUI.py:214
 msgid "Solve"
@@ -43,21 +62,17 @@ msgstr "Planes de la lección"
 msgid "Waiting for remote game..."
 msgstr "Esperando por juego remoto..."
 
-#: SliderPuzzleUI.py:830
-msgid "Select image to share..."
-msgstr "Seleccione imagen para compartir..."
+#: SliderPuzzleUI.py:329
+msgid "Select image and press Start Game..."
+msgstr "Selleciona imagen y presiona Comenzar juego..."
 
-#: SliderPuzzleUI.py:834
-msgid "Waiting for game image..."
-msgstr "Esperando por imagen del juego..."
+#: SliderPuzzleUI.py:333
+msgid "Waiting for Puzzle image to be chosen..."
+msgstr "Esperando a que la imagen del Rompecabezas sea elejida..."
 
 #: SliderPuzzleUI.py:335 SliderPuzzleUI.py:344
 msgid "Buddies"
 msgstr "Compañeros"
-
-#: SliderPuzzleUI.py:633
-msgid "Game Started!"
-msgstr "Juego Empezado!"
 
 #: SliderPuzzleUI.py:362
 msgid "Give Up"
@@ -71,25 +86,25 @@ msgstr "Comenzar juego"
 msgid "Slider Puzzle Activity"
 msgstr "Actividad del Rompecabezas Deslizador"
 
+#: SliderPuzzleUI.py:456
+msgid "Puzzle Solved!"
+msgstr "Rompecabezas Resuelto!"
+
+#: SliderPuzzleUI.py:459
+msgid "Gave Up"
+msgstr "Rindete"
+
 #: SliderPuzzleUI.py:487
 msgid "Choose a Subject"
 msgstr "Elija un Tema"
 
-#: SliderPuzzleUI.py:1004
-msgid "Image Files"
-msgstr "Archivos de imagen"
-
-#: SliderPuzzleUI.py:1006
-msgid "Select Image File"
-msgstr "Seleccione  Archivo de Imagen"
-
-#: mmm_modules/image_category.py:226
-msgid "Not a valid image file"
-msgstr "Archivo de Imagen no valido"
-
 #: SliderPuzzleUI.py:569
 msgid "Close Lesson"
 msgstr "Cerrar lección"
+
+#: SliderPuzzleUI.py:633
+msgid "Game Started!"
+msgstr "Juego Empezado!"
 
 #: i18n_misc_strings.py:1
 msgid "Sea Life"
@@ -158,46 +173,6 @@ msgstr "Lección 1"
 #: i18n_misc_strings.py:17
 msgid "Lesson 2"
 msgstr "Lección 2"
-
-#~ msgid "My Pictures"
-#~ msgstr "Mi cuadros"
-
-#: SliderPuzzleActivity.py:157
-#, python-format
-#, fuzzy
-msgid "Buddy '%s' changed status: %s"
-msgstr "El amigo '%s' cambio estado:%s"
-
-#: SliderPuzzleActivity.py:170
-msgid "Waiting for Puzzle image to be transferred..."
-msgstr "Esperando para que la imagen del Romecabezas sea transferida..."
-
-#: SliderPuzzleActivity.py:339
-#, python-format
-msgid "Buddy '%s' joined the game!"
-msgstr "El amigo '%s' se ha unido al juego!"
-
-#: SliderPuzzleActivity.py:343
-#, python-format
-msgid "Buddy '%s' left the game!"
-msgstr "El amigo '%s' ha dejado el juego!"
-
-#: SliderPuzzleUI.py:329
-#, fuzzy
-msgid "Select image and press Start Game..."
-msgstr "Selleciona imagen y presiona Start Game..."
-
-#: SliderPuzzleUI.py:333
-msgid "Waiting for Puzzle image to be chosen..."
-msgstr "Esperando a que la imagen del Rompecabezas sea elejida..."
-
-#: SliderPuzzleUI.py:456
-msgid "Puzzle Solved!"
-msgstr "Rompecabezas Resuelto!"
-
-#: SliderPuzzleUI.py:459
-msgid "Gave Up"
-msgstr "Rindete"
 
 #: mmm_modules/buddy_panel.py:49
 msgid "Buddy"
@@ -343,3 +318,22 @@ msgstr "Turco"
 #: mmm_modules/image_category.py:215
 msgid "Choose image"
 msgstr "Escoger imagen"
+
+#: mmm_modules/image_category.py:226
+msgid "Not a valid image file"
+msgstr "Archivo de Imagen no valido"
+
+#~ msgid "Select image to share..."
+#~ msgstr "Seleccione imagen para compartir..."
+
+#~ msgid "Waiting for game image..."
+#~ msgstr "Esperando por imagen del juego..."
+
+#~ msgid "Image Files"
+#~ msgstr "Archivos de imagen"
+
+#~ msgid "Select Image File"
+#~ msgstr "Seleccione  Archivo de Imagen"
+
+#~ msgid "My Pictures"
+#~ msgstr "Mi cuadros"
