@@ -1,0 +1,327 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-01-14 16:38+0000\n"
+"PO-Revision-Date: 2008-02-11 08:06+0100\n"
+"Last-Translator: Satyanarayana Murthy Saladi <saladism@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Pootle 1.0.2\n"
+
+#: activity/activity.info:2
+msgid "Slider Puzzle"
+msgstr "జారుడు చిక్కు"
+
+#: SliderPuzzleActivity.py:157
+#, python-format
+msgid "Buddy '%s' changed status: %s"
+msgstr "నేస్తం '%s' ఉనికి మారింది: %s"
+
+#: SliderPuzzleActivity.py:170
+msgid "Waiting for Puzzle image to be transferred..."
+msgstr "చిక్కు బొమ్మను పంపడానికై ఎదురు చూస్తున్నా..."
+
+#: SliderPuzzleActivity.py:339
+#, python-format
+msgid "Buddy '%s' joined the game!"
+msgstr "నేస్తం '%s' ఆటలో కలిసారు!"
+
+#: SliderPuzzleActivity.py:343
+#, python-format
+msgid "Buddy '%s' left the game!"
+msgstr "నేస్తం '%s' ఆటను వదిలేసారు!"
+
+#: SliderPuzzleUI.py:214
+msgid "Solve"
+msgstr "చిక్కుముడి విప్పు"
+
+#: SliderPuzzleUI.py:218
+msgid "Shuffle"
+msgstr "బాగాకలుపు"
+
+#: SliderPuzzleUI.py:222
+msgid "My Picture"
+msgstr "నా బొమ్మ"
+
+#: SliderPuzzleUI.py:259
+msgid "Time: "
+msgstr "కాలము: "
+
+#: SliderPuzzleUI.py:268
+#: SliderPuzzleUI.py:566
+msgid "Lesson Plans"
+msgstr "పాఠ్య ప్రణాళికలు"
+
+#: SliderPuzzleUI.py:285
+msgid "Waiting for remote game..."
+msgstr "దూరపు ఆటకై ఎదురుచూస్తున్నా..."
+
+#: SliderPuzzleUI.py:329
+msgid "Select image and press Start Game..."
+msgstr "బొమ్మను కోరుకొని, ఆటమొదలుపెట్టు అన్నదానినినొక్కు..."
+
+#: SliderPuzzleUI.py:333
+msgid "Waiting for Puzzle image to be chosen..."
+msgstr "చిక్కు బొమ్మను కోరుకోవడానికై ఎదురుచూస్తున్నా..."
+
+#: SliderPuzzleUI.py:335
+#: SliderPuzzleUI.py:344
+msgid "Buddies"
+msgstr "నేస్తాలు"
+
+#: SliderPuzzleUI.py:362
+msgid "Give Up"
+msgstr "ఓటమి ఒప్పుకో"
+
+#: SliderPuzzleUI.py:364
+msgid "Start Game"
+msgstr "ఆట మొదలు పెట్టు"
+
+#: SliderPuzzleUI.py:374
+msgid "Slider Puzzle Activity"
+msgstr "జారుడు చిక్కు వ్యాపకం"
+
+#: SliderPuzzleUI.py:456
+msgid "Puzzle Solved!"
+msgstr "శభాష్! చిక్కు ముడి విప్పారు"
+
+#: SliderPuzzleUI.py:459
+msgid "Gave Up"
+msgstr "ఓటమి అంగీకరించారు"
+
+#: SliderPuzzleUI.py:487
+msgid "Choose a Subject"
+msgstr "ఒక విషయము ఎంచుకో"
+
+#: SliderPuzzleUI.py:569
+msgid "Close Lesson"
+msgstr "పాఠం ముగించు"
+
+#: SliderPuzzleUI.py:633
+msgid "Game Started!"
+msgstr "ఆట మొదలైంది!"
+
+#: i18n_misc_strings.py:1
+msgid "Sea Life"
+msgstr "సముద్ర ప్రాణులు"
+
+#: i18n_misc_strings.py:2
+msgid "Animals"
+msgstr "జంతువులు"
+
+#: i18n_misc_strings.py:3
+msgid "Birds"
+msgstr "పక్షులు"
+
+#: i18n_misc_strings.py:4
+msgid "XO"
+msgstr "ఎక్స్ ఒ"
+
+#: i18n_misc_strings.py:5
+msgid "Sequencing Puzzles"
+msgstr "వరుస చిక్కుముడులు"
+
+#: i18n_misc_strings.py:6
+msgid "Sports"
+msgstr "క్రీడలు"
+
+#: i18n_misc_strings.py:7
+msgid "Insects"
+msgstr "కీటకములు"
+
+#: i18n_misc_strings.py:8
+msgid "Music"
+msgstr "సంగీతం"
+
+#: i18n_misc_strings.py:9
+msgid "Space"
+msgstr "ఆకాశము"
+
+#: i18n_misc_strings.py:10
+msgid "Lesson 5"
+msgstr "పాఠం 5"
+
+#: i18n_misc_strings.py:11
+msgid "Lesson 4"
+msgstr "పాఠం 4"
+
+#: i18n_misc_strings.py:12
+msgid "Overview"
+msgstr "ఇదీ సంగతి"
+
+#: i18n_misc_strings.py:13
+msgid "Lesson 3"
+msgstr "పాఠం 3"
+
+#: i18n_misc_strings.py:14
+msgid "Lesson 7"
+msgstr "పాఠం 7"
+
+#: i18n_misc_strings.py:15
+msgid "Lesson 6"
+msgstr "పాఠం 6"
+
+#: i18n_misc_strings.py:16
+msgid "Lesson 1"
+msgstr "పాఠం 1"
+
+#: i18n_misc_strings.py:17
+msgid "Lesson 2"
+msgstr "పాఠం 2"
+
+#: mmm_modules/buddy_panel.py:49
+msgid "Buddy"
+msgstr "నేస్తం"
+
+#: mmm_modules/buddy_panel.py:55
+msgid "Status"
+msgstr "ప్రస్తుత పరిస్తితి"
+
+#: mmm_modules/buddy_panel.py:62
+msgid "Play Time"
+msgstr "ఆట సమయం"
+
+#: mmm_modules/buddy_panel.py:69
+msgid "Joined at"
+msgstr "వద్ద కలసుకొన్నారు"
+
+#: mmm_modules/buddy_panel.py:101
+msgid "synchronizing"
+msgstr "సమన్వయ పరచడం"
+
+#: mmm_modules/buddy_panel.py:115
+msgid "Playing"
+msgstr "ఆడుతూ ఉండటం"
+
+#: mmm_modules/buddy_panel.py:115
+msgid "Paused"
+msgstr "నిలుపబడ్డది"
+
+#: mmm_modules/buddy_panel.py:117
+msgid "Finished"
+msgstr "పూర్తయింది"
+
+#: mmm_modules/buddy_panel.py:119
+msgid "Gave up"
+msgstr "ఓటమి అంగీకరించారు"
+
+#: mmm_modules/buddy_panel.py:121
+msgid "Unknown"
+msgstr "తెలియనిది"
+
+#: mmm_modules/buddy_panel.py:123
+#, python-format
+msgid "%i minutes"
+msgstr "%i నిముషాలు"
+
+#: mmm_modules/i18n.py:36
+msgid "Chinese (simplified)"
+msgstr "చైనా భాష (సరలీకృతం చేయబడిన)"
+
+#: mmm_modules/i18n.py:37
+msgid "Chinese (traditional)"
+msgstr "చైనా భాష (సాంప్రదాయమైన)"
+
+#: mmm_modules/i18n.py:38
+msgid "Czech"
+msgstr "చెక్"
+
+#: mmm_modules/i18n.py:39
+msgid "Danish"
+msgstr "డేనిష్"
+
+#: mmm_modules/i18n.py:40
+msgid "Dutch"
+msgstr "డచ్"
+
+#: mmm_modules/i18n.py:41
+msgid "English"
+msgstr "ఇంగ్లీష్"
+
+#: mmm_modules/i18n.py:42
+msgid "English - Great Britain"
+msgstr "ఇంగ్లీష్ - గ్రేట్ బ్రిటన్"
+
+#: mmm_modules/i18n.py:43
+msgid "English - U.S."
+msgstr "ఇంగ్లీష్ - యు ఎస్"
+
+#: mmm_modules/i18n.py:44
+msgid "Finnish"
+msgstr "ఫిన్నిష్"
+
+#: mmm_modules/i18n.py:45
+msgid "French"
+msgstr "ఫ్రెంచ్"
+
+#: mmm_modules/i18n.py:46
+msgid "German"
+msgstr "జర్మన్"
+
+#: mmm_modules/i18n.py:47
+msgid "Hungarian"
+msgstr "హంగేరియన్"
+
+#: mmm_modules/i18n.py:48
+msgid "Italian"
+msgstr "ఇటాలియన్"
+
+#: mmm_modules/i18n.py:49
+msgid "Japanese"
+msgstr "జపానీస్"
+
+#: mmm_modules/i18n.py:50
+msgid "Korean"
+msgstr "కొరియన్"
+
+#: mmm_modules/i18n.py:51
+msgid "Norwegian"
+msgstr "నార్వీజియన్"
+
+#: mmm_modules/i18n.py:52
+msgid "Polish"
+msgstr "పోలిష్"
+
+#: mmm_modules/i18n.py:53
+msgid "Portuguese"
+msgstr "పోర్చుగీస్"
+
+#: mmm_modules/i18n.py:54
+msgid "Portuguese - Brazilian"
+msgstr "పోర్చుగీస్-బ్రెజీలియన్"
+
+#: mmm_modules/i18n.py:55
+msgid "Russian"
+msgstr "రష్యన్"
+
+#: mmm_modules/i18n.py:56
+msgid "Slovak"
+msgstr "స్లోవక్"
+
+#: mmm_modules/i18n.py:57
+msgid "Spanish"
+msgstr "స్పానిష్"
+
+#: mmm_modules/i18n.py:58
+msgid "Swedish"
+msgstr "స్వీడిష్"
+
+#: mmm_modules/i18n.py:59
+msgid "Turkish"
+msgstr "టర్కిష్"
+
+#: mmm_modules/image_category.py:215
+msgid "Choose image"
+msgstr "బొమ్మను ఎంచుకో"
+
+#: mmm_modules/image_category.py:226
+msgid "Not a valid image file"
+msgstr "సరైన బొమ్మ కాదు"
+
