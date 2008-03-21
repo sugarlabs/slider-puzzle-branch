@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# FIRST AUTHOR <memshankar@gmail.com>, 2008.
 #, fuzzy
 msgid ""
 msgstr ""
@@ -9,8 +9,8 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-01-14 16:38+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Last-Translator: Shankar Pokharel <memshankar@gmail.com>\n"
+"Language-Team: Nepali <nepal@lists.laptop.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -18,308 +18,308 @@ msgstr ""
 
 #: activity/activity.info:2
 msgid "Slider Puzzle"
-msgstr ""
+msgstr "सार्ने खेल"
 
 #: SliderPuzzleActivity.py:157
 #, python-format
 msgid "Buddy '%s' changed status: %s"
-msgstr ""
+msgstr "साथी '%s' ले %s स्थिति परिवर्तन  गर्‍यो"
 
 #: SliderPuzzleActivity.py:170
 msgid "Waiting for Puzzle image to be transferred..."
-msgstr ""
+msgstr "पजल छवि स्थानान्तरण हुदै ..."
 
 #: SliderPuzzleActivity.py:339
 #, python-format
 msgid "Buddy '%s' joined the game!"
-msgstr ""
+msgstr "साथी '%s' ले खेलमा प्रवेश गर्‍यो !"
 
 #: SliderPuzzleActivity.py:343
 #, python-format
 msgid "Buddy '%s' left the game!"
-msgstr ""
+msgstr "साथी '%s' ले खेल छोड्यो !"
 
 #: SliderPuzzleUI.py:214
 msgid "Solve"
-msgstr ""
+msgstr "हल गर"
 
 #: SliderPuzzleUI.py:218
 msgid "Shuffle"
-msgstr ""
+msgstr "मिसमास गर"
 
 #: SliderPuzzleUI.py:222
 msgid "My Picture"
-msgstr ""
+msgstr "मेरो तश्विर"
 
 #: SliderPuzzleUI.py:259
 msgid "Time: "
-msgstr ""
+msgstr "समय: "
 
 #: SliderPuzzleUI.py:268 SliderPuzzleUI.py:566
 msgid "Lesson Plans"
-msgstr ""
+msgstr "पाठ योजनाहरु"
 
 #: SliderPuzzleUI.py:285
 msgid "Waiting for remote game..."
-msgstr ""
+msgstr "अर्को खेल पर्खिदै ..."
 
 #: SliderPuzzleUI.py:329
 msgid "Select image and press Start Game..."
-msgstr ""
+msgstr "छवि छानेर खेल शुरु गर मा क्लिक गर ..."
 
 #: SliderPuzzleUI.py:333
 msgid "Waiting for Puzzle image to be chosen..."
-msgstr ""
+msgstr "पजल छवि छान्न पर्खिदै ... "
 
 #: SliderPuzzleUI.py:335 SliderPuzzleUI.py:344
 msgid "Buddies"
-msgstr ""
+msgstr "साथीहरु"
 
 #: SliderPuzzleUI.py:362
 msgid "Give Up"
-msgstr ""
+msgstr "छोड्देऊ"
 
 #: SliderPuzzleUI.py:364
 msgid "Start Game"
-msgstr ""
+msgstr "खेल शुरु गर"
 
 #: SliderPuzzleUI.py:374
 msgid "Slider Puzzle Activity"
-msgstr ""
+msgstr "सार्ने खेल क्रियाकलाप"
 
 #: SliderPuzzleUI.py:456
 msgid "Puzzle Solved!"
-msgstr ""
+msgstr "पजल समाधान भयो !"
 
 #: SliderPuzzleUI.py:459
 msgid "Gave Up"
-msgstr ""
+msgstr "त्यागिदेऊ"
 
 #: SliderPuzzleUI.py:487
 msgid "Choose a Subject"
-msgstr ""
+msgstr "विषय छान"
 
 #: SliderPuzzleUI.py:569
 msgid "Close Lesson"
-msgstr ""
+msgstr "पाठ बन्द गर"
 
 #: SliderPuzzleUI.py:633
 msgid "Game Started!"
-msgstr ""
+msgstr "खेल शुरु भयो !"
 
 #: i18n_misc_strings.py:1
 msgid "Sea Life"
-msgstr ""
+msgstr "जलचर"
 
 #: i18n_misc_strings.py:2
 msgid "Animals"
-msgstr ""
+msgstr "जनावरहरु"
 
 #: i18n_misc_strings.py:3
 msgid "Birds"
-msgstr ""
+msgstr "चराहरु"
 
 #: i18n_misc_strings.py:4
 msgid "XO"
-msgstr ""
+msgstr "सानु साथी"
 
 #: i18n_misc_strings.py:5
 msgid "Sequencing Puzzles"
-msgstr ""
+msgstr "क्रमबद्द गर्ने पजल"
 
 #: i18n_misc_strings.py:6
 msgid "Sports"
-msgstr ""
+msgstr "खेलहरु"
 
 #: i18n_misc_strings.py:7
 msgid "Insects"
-msgstr ""
+msgstr "किराहरु"
 
 #: i18n_misc_strings.py:8
 msgid "Music"
-msgstr ""
+msgstr "संगीत"
 
 #: i18n_misc_strings.py:9
 msgid "Space"
-msgstr ""
+msgstr "अन्तरीक्ष"
 
 #: i18n_misc_strings.py:10
 msgid "Lesson 5"
-msgstr ""
+msgstr "पाठ ५"
 
 #: i18n_misc_strings.py:11
 msgid "Lesson 4"
-msgstr ""
+msgstr "पाठ ४"
 
 #: i18n_misc_strings.py:12
 msgid "Overview"
-msgstr ""
+msgstr "समष्टी"
 
 #: i18n_misc_strings.py:13
 msgid "Lesson 3"
-msgstr ""
+msgstr "पाठ ३"
 
 #: i18n_misc_strings.py:14
 msgid "Lesson 7"
-msgstr ""
+msgstr "पाठ ७"
 
 #: i18n_misc_strings.py:15
 msgid "Lesson 6"
-msgstr ""
+msgstr "पाठ ६"
 
 #: i18n_misc_strings.py:16
 msgid "Lesson 1"
-msgstr ""
+msgstr "पाठ १"
 
 #: i18n_misc_strings.py:17
 msgid "Lesson 2"
-msgstr ""
+msgstr "पाठ २"
 
 #: mmm_modules/buddy_panel.py:49
 msgid "Buddy"
-msgstr ""
+msgstr "साथी"
 
 #: mmm_modules/buddy_panel.py:55
 msgid "Status"
-msgstr ""
+msgstr "स्थिती"
 
 #: mmm_modules/buddy_panel.py:62
 msgid "Play Time"
-msgstr ""
+msgstr "खेलेको समय"
 
 #: mmm_modules/buddy_panel.py:69
 msgid "Joined at"
-msgstr ""
+msgstr "जडान भएको"
 
 #: mmm_modules/buddy_panel.py:101
 msgid "synchronizing"
-msgstr ""
+msgstr "एकसमान गरिंदै"
 
 #: mmm_modules/buddy_panel.py:115
 msgid "Playing"
-msgstr ""
+msgstr "खेलिरहेको छ"
 
 #: mmm_modules/buddy_panel.py:115
 msgid "Paused"
-msgstr ""
+msgstr "रोकिएको छ"
 
 #: mmm_modules/buddy_panel.py:117
 msgid "Finished"
-msgstr ""
+msgstr "सकियो"
 
 #: mmm_modules/buddy_panel.py:119
 msgid "Gave up"
-msgstr ""
+msgstr "छोड्यो"
 
 #: mmm_modules/buddy_panel.py:121
 msgid "Unknown"
-msgstr ""
+msgstr "थाहा नभएको"
 
 #: mmm_modules/buddy_panel.py:123
 #, python-format
 msgid "%i minutes"
-msgstr ""
+msgstr "%i मिनेट"
 
 #: mmm_modules/i18n.py:36
 msgid "Chinese (simplified)"
-msgstr ""
+msgstr "चिनिया (साधारण)"
 
 #: mmm_modules/i18n.py:37
 msgid "Chinese (traditional)"
-msgstr ""
+msgstr "चिनिया (पारम्परिक)"
 
 #: mmm_modules/i18n.py:38
 msgid "Czech"
-msgstr ""
+msgstr "चेज"
 
 #: mmm_modules/i18n.py:39
 msgid "Danish"
-msgstr ""
+msgstr "डेनिस"
 
 #: mmm_modules/i18n.py:40
 msgid "Dutch"
-msgstr ""
+msgstr "डच"
 
 #: mmm_modules/i18n.py:41
 msgid "English"
-msgstr ""
+msgstr "अंग्रेजी"
 
 #: mmm_modules/i18n.py:42
 msgid "English - Great Britain"
-msgstr ""
+msgstr "अंग्रेजी - वेलायत"
 
 #: mmm_modules/i18n.py:43
 msgid "English - U.S."
-msgstr ""
+msgstr "अंग्रेजी - अमेरिका"
 
 #: mmm_modules/i18n.py:44
 msgid "Finnish"
-msgstr ""
+msgstr "फिनिस"
 
 #: mmm_modules/i18n.py:45
 msgid "French"
-msgstr ""
+msgstr "फ्रेन्च"
 
 #: mmm_modules/i18n.py:46
 msgid "German"
-msgstr ""
+msgstr "जर्मन"
 
 #: mmm_modules/i18n.py:47
 msgid "Hungarian"
-msgstr ""
+msgstr "हंगेरियन"
 
 #: mmm_modules/i18n.py:48
 msgid "Italian"
-msgstr ""
+msgstr "ईटालियन"
 
 #: mmm_modules/i18n.py:49
 msgid "Japanese"
-msgstr ""
+msgstr "जापानिज"
 
 #: mmm_modules/i18n.py:50
 msgid "Korean"
-msgstr ""
+msgstr "कोरियन"
 
 #: mmm_modules/i18n.py:51
 msgid "Norwegian"
-msgstr ""
+msgstr "नर्वेजियन"
 
 #: mmm_modules/i18n.py:52
 msgid "Polish"
-msgstr ""
+msgstr "पोलिस"
 
 #: mmm_modules/i18n.py:53
 msgid "Portuguese"
-msgstr ""
+msgstr "पोर्चुगिज"
 
 #: mmm_modules/i18n.py:54
 msgid "Portuguese - Brazilian"
-msgstr ""
+msgstr "पोर्चुगिज - ब्राजिलियन"
 
 #: mmm_modules/i18n.py:55
 msgid "Russian"
-msgstr ""
+msgstr "रसियन"
 
 #: mmm_modules/i18n.py:56
 msgid "Slovak"
-msgstr ""
+msgstr "स्लोभाक"
 
 #: mmm_modules/i18n.py:57
 msgid "Spanish"
-msgstr ""
+msgstr "स्पेनिस"
 
 #: mmm_modules/i18n.py:58
 msgid "Swedish"
-msgstr ""
+msgstr "स्विडिस"
 
 #: mmm_modules/i18n.py:59
 msgid "Turkish"
-msgstr ""
+msgstr "टर्किस"
 
 #: mmm_modules/image_category.py:215
 msgid "Choose image"
-msgstr ""
+msgstr "छवि छान"
 
 #: mmm_modules/image_category.py:226
 msgid "Not a valid image file"
-msgstr ""
+msgstr "छानेको छविको प्रकार मिलेन"
