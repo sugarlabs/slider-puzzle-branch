@@ -7,44 +7,44 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-01-14 16:38+0000\n"
-"PO-Revision-Date: 2008-03-02 04:00-0500\n"
-"Last-Translator: salman minhas <sulmanminhas@gmail.com>\n"
+"PO-Revision-Date: 2008-04-22 01:58-0400\n"
+"Last-Translator: Huda Sarfraz <huda.sarfraz@nu.edu.pk>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Pootle 1.0.2\n"
+"X-Generator: Pootle 1.1.0rc2\n"
 
 #: activity/activity.info:2
 msgid "Slider Puzzle"
-msgstr "سلایڈر پذل"
+msgstr "سلائڈر پزل"
 
 #: SliderPuzzleActivity.py:157
 #, python-format
 msgid "Buddy '%s' changed status: %s"
-msgstr "بچہ '٪s' تبديل کيا: ٪s "
+msgstr "ساتھی '%s' کی حالت بدل گئی: %s"
 
 #: SliderPuzzleActivity.py:170
 msgid "Waiting for Puzzle image to be transferred..."
-msgstr "پزل کی تصویر کو ایک جگۂ سے دوسری جگۂ جانے کا انتظار کریں..."
+msgstr "پزل کے نقش کے منتقل ہونے کے لیے انتظار کر رہا ہے..."
 
 #: SliderPuzzleActivity.py:339
 #, python-format
 msgid "Buddy '%s' joined the game!"
-msgstr "بچۂ s% کھیل میں شامل ہوا "
+msgstr "ساتھی '%s' کھیل میں شامل ہوا!"
 
 #: SliderPuzzleActivity.py:343
 #, python-format
 msgid "Buddy '%s' left the game!"
-msgstr "بچۂ'%s' کھیل چھوڑ گیا!"
+msgstr "ساتھی '%s' کھیل چھوڑ گیا!"
 
 #: SliderPuzzleUI.py:214
 msgid "Solve"
-msgstr "حل"
+msgstr "حل کریں"
 
 #: SliderPuzzleUI.py:218
 msgid "Shuffle"
-msgstr "ردوبدل"
+msgstr "شفل کریں"
 
 #: SliderPuzzleUI.py:222
 msgid "My Picture"
@@ -52,31 +52,31 @@ msgstr "میری تصویر"
 
 #: SliderPuzzleUI.py:259
 msgid "Time: "
-msgstr "وقت"
+msgstr "وقت: _"
 
 #: SliderPuzzleUI.py:268 SliderPuzzleUI.py:566
 msgid "Lesson Plans"
-msgstr "لیسن پلین"
+msgstr "سبق کے پلان"
 
 #: SliderPuzzleUI.py:285
 msgid "Waiting for remote game..."
-msgstr "ریموٹ کھیل کا انتظار کریں..."
+msgstr "بعید کھیل کا انتظار کر رہا ہے..."
 
 #: SliderPuzzleUI.py:329
 msgid "Select image and press Start Game..."
-msgstr "پصویر کا بنتخاب کریں اور کھیل شروع کریں..."
+msgstr "نقش منتخب کریں اور 'کھیل شروع کریں' کو دبائیں..."
 
 #: SliderPuzzleUI.py:333
 msgid "Waiting for Puzzle image to be chosen..."
-msgstr "پزل کی تصویر کا انتخاب کرنے کے لیے انتظار کریں..."
+msgstr "پزل کے نقش کے انتخاب کا انتظار کر رہا ہے..."
 
 #: SliderPuzzleUI.py:335 SliderPuzzleUI.py:344
 msgid "Buddies"
-msgstr "بچوں"
+msgstr "ساتھی"
 
 #: SliderPuzzleUI.py:362
 msgid "Give Up"
-msgstr "چھوڑ دو"
+msgstr "چھوڑ دیں"
 
 #: SliderPuzzleUI.py:364
 msgid "Start Game"
@@ -84,11 +84,11 @@ msgstr "کھیل شروع کریں"
 
 #: SliderPuzzleUI.py:374
 msgid "Slider Puzzle Activity"
-msgstr "سلایڈر پزل ایکٹیویٹی"
+msgstr "سلائیڈر پزل سرگرمی"
 
 #: SliderPuzzleUI.py:456
 msgid "Puzzle Solved!"
-msgstr "پزل حل ھو گیا!"
+msgstr "پزل حل ہو گیا!"
 
 #: SliderPuzzleUI.py:459
 msgid "Gave Up"
@@ -96,11 +96,11 @@ msgstr "چھوڑ دیا"
 
 #: SliderPuzzleUI.py:487
 msgid "Choose a Subject"
-msgstr "مضمون کا انبخاب کریں"
+msgstr "مضمون منتخب کریں"
 
 #: SliderPuzzleUI.py:569
 msgid "Close Lesson"
-msgstr "سبق بند دیں"
+msgstr "سبق بند کر دیں"
 
 #: SliderPuzzleUI.py:633
 msgid "Game Started!"
@@ -112,7 +112,7 @@ msgstr "سمندری زندگی"
 
 #: i18n_misc_strings.py:2
 msgid "Animals"
-msgstr "جانورون"
+msgstr "جانور"
 
 #: i18n_misc_strings.py:3
 msgid "Birds"
@@ -124,7 +124,7 @@ msgstr "XO"
 
 #: i18n_misc_strings.py:5
 msgid "Sequencing Puzzles"
-msgstr "پزل کی ترتیب"
+msgstr "ترتیب دینے والی پزل"
 
 #: i18n_misc_strings.py:6
 msgid "Sports"
@@ -144,43 +144,43 @@ msgstr "خلاء"
 
 #: i18n_misc_strings.py:10
 msgid "Lesson 5"
-msgstr "سبق پانچ"
+msgstr "سبق 5"
 
 #: i18n_misc_strings.py:11
 msgid "Lesson 4"
-msgstr "سبق چار"
+msgstr "سبق 4"
 
 #: i18n_misc_strings.py:12
 msgid "Overview"
-msgstr "خلاصۂ"
+msgstr "خلاصہ"
 
 #: i18n_misc_strings.py:13
 msgid "Lesson 3"
-msgstr "سبق تین"
+msgstr "سبق 3"
 
 #: i18n_misc_strings.py:14
 msgid "Lesson 7"
-msgstr "سبق سات"
+msgstr "سبق 7"
 
 #: i18n_misc_strings.py:15
 msgid "Lesson 6"
-msgstr "سبق چھے"
+msgstr "سبق 6"
 
 #: i18n_misc_strings.py:16
 msgid "Lesson 1"
-msgstr "سبق ایک"
+msgstr "سبق 1"
 
 #: i18n_misc_strings.py:17
 msgid "Lesson 2"
-msgstr "دوسرا سبق"
+msgstr "سبق 2"
 
 #: mmm_modules/buddy_panel.py:49
 msgid "Buddy"
-msgstr "بچۂ"
+msgstr "ساتھی"
 
 #: mmm_modules/buddy_panel.py:55
 msgid "Status"
-msgstr "درجۂ"
+msgstr "حالت"
 
 #: mmm_modules/buddy_panel.py:62
 msgid "Play Time"
@@ -188,23 +188,23 @@ msgstr "کھیلنے کا وقت"
 
 #: mmm_modules/buddy_panel.py:69
 msgid "Joined at"
-msgstr "شامل ہوا تھا"
+msgstr "شامل ہوا"
 
 #: mmm_modules/buddy_panel.py:101
 msgid "synchronizing"
-msgstr "بروقت مطابقت ہونا"
+msgstr "ہم وقت سازی کر رہا ہے"
 
 #: mmm_modules/buddy_panel.py:115
 msgid "Playing"
-msgstr "کھیانا"
+msgstr "کھیل جاری ہے"
 
 #: mmm_modules/buddy_panel.py:115
 msgid "Paused"
-msgstr "رک گیا"
+msgstr "وقف شدہ"
 
 #: mmm_modules/buddy_panel.py:117
 msgid "Finished"
-msgstr "خپم ہو گیا"
+msgstr "ختم"
 
 #: mmm_modules/buddy_panel.py:119
 msgid "Gave up"
@@ -212,32 +212,32 @@ msgstr "چھوڑ دیا"
 
 #: mmm_modules/buddy_panel.py:121
 msgid "Unknown"
-msgstr "نۂ جاننا"
+msgstr "نامعلوم"
 
 #: mmm_modules/buddy_panel.py:123
 #, python-format
 msgid "%i minutes"
-msgstr "٪ آئ منٹ"
+msgstr "%i منٹ"
 
 #: mmm_modules/i18n.py:36
 msgid "Chinese (simplified)"
-msgstr "چاینیز(سادہ)"
+msgstr "چینی (آسان کردہ)"
 
 #: mmm_modules/i18n.py:37
 msgid "Chinese (traditional)"
-msgstr "چاینیز(روایتی)"
+msgstr "چینی (روایتی)"
 
 #: mmm_modules/i18n.py:38
 msgid "Czech"
-msgstr "کزینچ"
+msgstr "چیک"
 
 #: mmm_modules/i18n.py:39
 msgid "Danish"
-msgstr "ڈینش"
+msgstr "ڈنمارکی"
 
 #: mmm_modules/i18n.py:40
 msgid "Dutch"
-msgstr "ڈچ"
+msgstr "ولندیزی"
 
 #: mmm_modules/i18n.py:41
 msgid "English"
@@ -245,19 +245,19 @@ msgstr "انگریزی"
 
 #: mmm_modules/i18n.py:42
 msgid "English - Great Britain"
-msgstr "انگریزی- برطانیۂ"
+msgstr "انگریزی - برطانیہ"
 
 #: mmm_modules/i18n.py:43
 msgid "English - U.S."
-msgstr "انگریزی- امریکۂ."
+msgstr "انگریزی - امریکہ"
 
 #: mmm_modules/i18n.py:44
 msgid "Finnish"
-msgstr "ختم"
+msgstr "فنی"
 
 #: mmm_modules/i18n.py:45
 msgid "French"
-msgstr "فرینچ"
+msgstr "فرانسیسی"
 
 #: mmm_modules/i18n.py:46
 msgid "German"
@@ -265,11 +265,11 @@ msgstr "جرمن"
 
 #: mmm_modules/i18n.py:47
 msgid "Hungarian"
-msgstr "ہنگرین"
+msgstr "ہنگریائی"
 
 #: mmm_modules/i18n.py:48
 msgid "Italian"
-msgstr "اٹیلین"
+msgstr "اطالوی"
 
 #: mmm_modules/i18n.py:49
 msgid "Japanese"
@@ -277,35 +277,35 @@ msgstr "جاپانی"
 
 #: mmm_modules/i18n.py:50
 msgid "Korean"
-msgstr "کورین"
+msgstr "کوریائی"
 
 #: mmm_modules/i18n.py:51
 msgid "Norwegian"
-msgstr "نارویگین"
+msgstr "نارویجی"
 
 #: mmm_modules/i18n.py:52
 msgid "Polish"
-msgstr "پالش"
+msgstr "پولش"
 
 #: mmm_modules/i18n.py:53
 msgid "Portuguese"
-msgstr "پرپگالی"
+msgstr "پرتگالی"
 
 #: mmm_modules/i18n.py:54
 msgid "Portuguese - Brazilian"
-msgstr "پرتگالی-برازیلی"
+msgstr "پرتگالی - برازیلی"
 
 #: mmm_modules/i18n.py:55
 msgid "Russian"
-msgstr "رشین"
+msgstr "روسی"
 
 #: mmm_modules/i18n.py:56
 msgid "Slovak"
-msgstr "سلوک"
+msgstr "سلوواکی"
 
 #: mmm_modules/i18n.py:57
 msgid "Spanish"
-msgstr "سپینش"
+msgstr "ہسپانوی"
 
 #: mmm_modules/i18n.py:58
 msgid "Swedish"
@@ -313,12 +313,12 @@ msgstr "سویڈش"
 
 #: mmm_modules/i18n.py:59
 msgid "Turkish"
-msgstr "ترکش"
+msgstr "ترکی"
 
 #: mmm_modules/image_category.py:215
 msgid "Choose image"
-msgstr "تصویر کا انتخاب کریں"
+msgstr "نقش منتخب کریں"
 
 #: mmm_modules/image_category.py:226
 msgid "Not a valid image file"
-msgstr "درست تصویر کی فایل نہیں ہے"
+msgstr "جائز نقش کی مسل نہیں"
