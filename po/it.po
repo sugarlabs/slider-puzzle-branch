@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-01-14 16:38+0000\n"
-"PO-Revision-Date: 2008-02-01 13:28-0500\n"
+"PO-Revision-Date: 2008-05-05 13:25-0400\n"
 "Last-Translator: Carlo Falciola <cfalciola@yahoo.it>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Pootle 1.0.2\n"
+"X-Generator: Pootle 1.1.0rc2\n"
 
 #: activity/activity.info:2
 #, fuzzy
@@ -27,7 +27,7 @@ msgstr "Il giocatore '%s' ha cambiato stato: %s"
 
 #: SliderPuzzleActivity.py:170
 msgid "Waiting for Puzzle image to be transferred..."
-msgstr "Immagine per in Rompicapo in trasferimento, attendere..."
+msgstr "Immagine per il Rompicapo in trasferimento, attendere..."
 
 #: SliderPuzzleActivity.py:339
 #, python-format
@@ -68,9 +68,8 @@ msgid "Select image and press Start Game..."
 msgstr "Scegli una immagine e premi Inizia Partita..."
 
 #: SliderPuzzleUI.py:333
-#, fuzzy
 msgid "Waiting for Puzzle image to be chosen..."
-msgstr "In attesa della selezione di una immagine di Rompicapo... "
+msgstr "In attesa della selezione di una immagine per il Puzzle..."
 
 #: SliderPuzzleUI.py:335 SliderPuzzleUI.py:344
 msgid "Buddies"
@@ -98,7 +97,6 @@ msgid "Gave Up"
 msgstr "Rinunciato"
 
 #: SliderPuzzleUI.py:487
-#, fuzzy
 msgid "Choose a Subject"
 msgstr "Scegli un Soggetto"
 
@@ -156,7 +154,6 @@ msgid "Lesson 4"
 msgstr "Lezione 4"
 
 #: i18n_misc_strings.py:12
-#, fuzzy
 msgid "Overview"
 msgstr "Riassunto"
 
@@ -238,7 +235,6 @@ msgid "Chinese (traditional)"
 msgstr "Cinese (tradizionale)"
 
 #: mmm_modules/i18n.py:38
-#, fuzzy
 msgid "Czech"
 msgstr "Ceco"
 
