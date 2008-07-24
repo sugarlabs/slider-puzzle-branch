@@ -54,8 +54,7 @@ msgstr "నా బొమ్మ"
 msgid "Time: "
 msgstr "కాలము: "
 
-#: SliderPuzzleUI.py:268
-#: SliderPuzzleUI.py:566
+#: SliderPuzzleUI.py:268 SliderPuzzleUI.py:566
 msgid "Lesson Plans"
 msgstr "పాఠ్య ప్రణాళికలు"
 
@@ -71,8 +70,7 @@ msgstr "బొమ్మను కోరుకొని, ఆటమొదలుప
 msgid "Waiting for Puzzle image to be chosen..."
 msgstr "చిక్కు బొమ్మను కోరుకోవడానికై ఎదురుచూస్తున్నా..."
 
-#: SliderPuzzleUI.py:335
-#: SliderPuzzleUI.py:344
+#: SliderPuzzleUI.py:335 SliderPuzzleUI.py:344
 msgid "Buddies"
 msgstr "నేస్తాలు"
 
@@ -324,4 +322,3 @@ msgstr "బొమ్మను ఎంచుకో"
 #: mmm_modules/image_category.py:226
 msgid "Not a valid image file"
 msgstr "సరైన బొమ్మ కాదు"
-
