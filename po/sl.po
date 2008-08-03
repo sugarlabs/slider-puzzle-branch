@@ -1,0 +1,324 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-01-14 16:38+0000\n"
+"PO-Revision-Date: 2008-07-11 01:48-0400\n"
+"Last-Translator: Denis Oštir <denis.ostir@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Pootle 1.1.0rc2\n"
+
+#: activity/activity.info:2
+msgid "Slider Puzzle"
+msgstr "Drseča sestavljanka"
+
+#: SliderPuzzleActivity.py:157
+#, python-format
+msgid "Buddy '%s' changed status: %s"
+msgstr "Prijatelj '%s' je spremenil status: %s"
+
+#: SliderPuzzleActivity.py:170
+msgid "Waiting for Puzzle image to be transferred..."
+msgstr "Čakam na prenos slike sestavljanke ..."
+
+#: SliderPuzzleActivity.py:339
+#, python-format
+msgid "Buddy '%s' joined the game!"
+msgstr "Prijatelj '%s' se je pridružil igri!"
+
+#: SliderPuzzleActivity.py:343
+#, python-format
+msgid "Buddy '%s' left the game!"
+msgstr "Prijatelj '%s' je zapustil igro!"
+
+#: SliderPuzzleUI.py:214
+msgid "Solve"
+msgstr "Reši"
+
+#: SliderPuzzleUI.py:218
+msgid "Shuffle"
+msgstr "Pomešaj"
+
+#: SliderPuzzleUI.py:222
+msgid "My Picture"
+msgstr "Moja slika"
+
+#: SliderPuzzleUI.py:259
+msgid "Time: "
+msgstr "Čas: "
+
+#: SliderPuzzleUI.py:268 SliderPuzzleUI.py:566
+msgid "Lesson Plans"
+msgstr "Načrti vaje"
+
+#: SliderPuzzleUI.py:285
+msgid "Waiting for remote game..."
+msgstr "Čakam na oddaljeno igro ..."
+
+#: SliderPuzzleUI.py:329
+msgid "Select image and press Start Game..."
+msgstr "Izberi sliko in pritisni Začni igro ..."
+
+#: SliderPuzzleUI.py:333
+msgid "Waiting for Puzzle image to be chosen..."
+msgstr "Čakam na izbiro slike sestavljanke ..."
+
+#: SliderPuzzleUI.py:335 SliderPuzzleUI.py:344
+msgid "Buddies"
+msgstr "Prijatelji"
+
+#: SliderPuzzleUI.py:362
+msgid "Give Up"
+msgstr "Predaj se"
+
+#: SliderPuzzleUI.py:364
+msgid "Start Game"
+msgstr "Začni igro"
+
+#: SliderPuzzleUI.py:374
+msgid "Slider Puzzle Activity"
+msgstr "Aktivnost Drseča sestavljanka"
+
+#: SliderPuzzleUI.py:456
+msgid "Puzzle Solved!"
+msgstr "Sestavljanka rešena!"
+
+#: SliderPuzzleUI.py:459
+msgid "Gave Up"
+msgstr "Predaj se"
+
+#: SliderPuzzleUI.py:487
+msgid "Choose a Subject"
+msgstr "Izberi naslov"
+
+#: SliderPuzzleUI.py:569
+msgid "Close Lesson"
+msgstr "Izberi vajo"
+
+#: SliderPuzzleUI.py:633
+msgid "Game Started!"
+msgstr "Igra zagnana!"
+
+#: i18n_misc_strings.py:1
+msgid "Sea Life"
+msgstr "Morsko življenje"
+
+#: i18n_misc_strings.py:2
+msgid "Animals"
+msgstr "Živali"
+
+#: i18n_misc_strings.py:3
+msgid "Birds"
+msgstr "Ptice"
+
+#: i18n_misc_strings.py:4
+msgid "XO"
+msgstr "XO"
+
+#: i18n_misc_strings.py:5
+msgid "Sequencing Puzzles"
+msgstr "Zaporedne igre"
+
+#: i18n_misc_strings.py:6
+msgid "Sports"
+msgstr "Šport"
+
+#: i18n_misc_strings.py:7
+msgid "Insects"
+msgstr "Insekti"
+
+#: i18n_misc_strings.py:8
+msgid "Music"
+msgstr "Glasba"
+
+#: i18n_misc_strings.py:9
+msgid "Space"
+msgstr "Vesolje"
+
+#: i18n_misc_strings.py:10
+msgid "Lesson 5"
+msgstr "Vaja 5"
+
+#: i18n_misc_strings.py:11
+msgid "Lesson 4"
+msgstr "Vaja 4"
+
+#: i18n_misc_strings.py:12
+msgid "Overview"
+msgstr "Pregled"
+
+#: i18n_misc_strings.py:13
+msgid "Lesson 3"
+msgstr "Vaja 3"
+
+#: i18n_misc_strings.py:14
+msgid "Lesson 7"
+msgstr "Vaja 7"
+
+#: i18n_misc_strings.py:15
+msgid "Lesson 6"
+msgstr "Vaja 6"
+
+#: i18n_misc_strings.py:16
+msgid "Lesson 1"
+msgstr "Vaja 1"
+
+#: i18n_misc_strings.py:17
+msgid "Lesson 2"
+msgstr "Vaja 2"
+
+#: mmm_modules/buddy_panel.py:49
+msgid "Buddy"
+msgstr "Prijatelj"
+
+#: mmm_modules/buddy_panel.py:55
+msgid "Status"
+msgstr "Status"
+
+#: mmm_modules/buddy_panel.py:62
+msgid "Play Time"
+msgstr "Igralni čas"
+
+#: mmm_modules/buddy_panel.py:69
+msgid "Joined at"
+msgstr "Prijavljen od"
+
+#: mmm_modules/buddy_panel.py:101
+msgid "synchronizing"
+msgstr "sinhroniziranje"
+
+#: mmm_modules/buddy_panel.py:115
+msgid "Playing"
+msgstr "Igranje"
+
+#: mmm_modules/buddy_panel.py:115
+msgid "Paused"
+msgstr "Premor"
+
+#: mmm_modules/buddy_panel.py:117
+msgid "Finished"
+msgstr "Končano"
+
+#: mmm_modules/buddy_panel.py:119
+msgid "Gave up"
+msgstr "Predaja"
+
+#: mmm_modules/buddy_panel.py:121
+msgid "Unknown"
+msgstr "Neznano"
+
+#: mmm_modules/buddy_panel.py:123
+#, python-format
+msgid "%i minutes"
+msgstr "%i minut"
+
+#: mmm_modules/i18n.py:36
+msgid "Chinese (simplified)"
+msgstr "Kitajsko (poenostavljeno)"
+
+#: mmm_modules/i18n.py:37
+msgid "Chinese (traditional)"
+msgstr "Kitajsko (tradicionalno)"
+
+#: mmm_modules/i18n.py:38
+msgid "Czech"
+msgstr "Češko"
+
+#: mmm_modules/i18n.py:39
+msgid "Danish"
+msgstr "Dansko"
+
+#: mmm_modules/i18n.py:40
+msgid "Dutch"
+msgstr "Nizozemsko"
+
+#: mmm_modules/i18n.py:41
+msgid "English"
+msgstr "Angleško"
+
+#: mmm_modules/i18n.py:42
+msgid "English - Great Britain"
+msgstr "Angleško - Velika Britanija"
+
+#: mmm_modules/i18n.py:43
+msgid "English - U.S."
+msgstr "Angleško - ZDA"
+
+#: mmm_modules/i18n.py:44
+msgid "Finnish"
+msgstr "Finsko"
+
+#: mmm_modules/i18n.py:45
+msgid "French"
+msgstr "Francosko"
+
+#: mmm_modules/i18n.py:46
+msgid "German"
+msgstr "Nemško"
+
+#: mmm_modules/i18n.py:47
+msgid "Hungarian"
+msgstr "Madžarsko"
+
+#: mmm_modules/i18n.py:48
+msgid "Italian"
+msgstr "Italijansko"
+
+#: mmm_modules/i18n.py:49
+msgid "Japanese"
+msgstr "Japonsko"
+
+#: mmm_modules/i18n.py:50
+msgid "Korean"
+msgstr "Korejsko"
+
+#: mmm_modules/i18n.py:51
+msgid "Norwegian"
+msgstr "Norveško"
+
+#: mmm_modules/i18n.py:52
+msgid "Polish"
+msgstr "Poljsko"
+
+#: mmm_modules/i18n.py:53
+msgid "Portuguese"
+msgstr "Portugalsko"
+
+#: mmm_modules/i18n.py:54
+msgid "Portuguese - Brazilian"
+msgstr "Portugalsko - Brazilsko"
+
+#: mmm_modules/i18n.py:55
+msgid "Russian"
+msgstr "Rusko"
+
+#: mmm_modules/i18n.py:56
+msgid "Slovak"
+msgstr "Slovaško"
+
+#: mmm_modules/i18n.py:57
+msgid "Spanish"
+msgstr "Špansko"
+
+#: mmm_modules/i18n.py:58
+msgid "Swedish"
+msgstr "Švedsko"
+
+#: mmm_modules/i18n.py:59
+msgid "Turkish"
+msgstr "Turško"
+
+#: mmm_modules/image_category.py:215
+msgid "Choose image"
+msgstr "Izberi sliko"
+
+#: mmm_modules/image_category.py:226
+msgid "Not a valid image file"
+msgstr "Neveljavna grafična datoteka"
