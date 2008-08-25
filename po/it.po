@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-01-14 16:38+0000\n"
-"PO-Revision-Date: 2008-05-05 13:25-0400\n"
+"PO-Revision-Date: 2008-08-25 09:01-0400\n"
 "Last-Translator: Carlo Falciola <cfalciola@yahoo.it>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -16,7 +16,6 @@ msgstr ""
 "X-Generator: Pootle 1.1.0rc2\n"
 
 #: activity/activity.info:2
-#, fuzzy
 msgid "Slider Puzzle"
 msgstr "Rompicapo a scorrimento"
 
@@ -84,9 +83,8 @@ msgid "Start Game"
 msgstr "Inizia Partita"
 
 #: SliderPuzzleUI.py:374
-#, fuzzy
 msgid "Slider Puzzle Activity"
-msgstr "Attività Puzzle Scorrevole"
+msgstr "Attività Rompicapo a Scorrimento"
 
 #: SliderPuzzleUI.py:456
 msgid "Puzzle Solved!"
@@ -125,9 +123,8 @@ msgid "XO"
 msgstr "XO"
 
 #: i18n_misc_strings.py:5
-#, fuzzy
 msgid "Sequencing Puzzles"
-msgstr "Rompicapo Sequenziali"
+msgstr "Rompicapo in Sequenza"
 
 #: i18n_misc_strings.py:6
 msgid "Sports"
@@ -190,17 +187,14 @@ msgid "Play Time"
 msgstr "Tempo di gioco"
 
 #: mmm_modules/buddy_panel.py:69
-#, fuzzy
 msgid "Joined at"
-msgstr "Associato a"
+msgstr "Collegato con"
 
 #: mmm_modules/buddy_panel.py:101
-#, fuzzy
 msgid "synchronizing"
 msgstr "sincronizzazione"
 
 #: mmm_modules/buddy_panel.py:115
-#, fuzzy
 msgid "Playing"
 msgstr "Gioco"
 
@@ -213,9 +207,8 @@ msgid "Finished"
 msgstr "Terminato"
 
 #: mmm_modules/buddy_panel.py:119
-#, fuzzy
 msgid "Gave up"
-msgstr "Abbandonato"
+msgstr "Abbandona"
 
 #: mmm_modules/buddy_panel.py:121
 msgid "Unknown"
