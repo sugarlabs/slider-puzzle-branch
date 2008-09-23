@@ -2,24 +2,41 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-01-14 16:38+0000\n"
-"PO-Revision-Date: 2007-05-23 10:48+0100\n"
-"Last-Translator: Carlos Neves <cn@sueste>\n"
+"PO-Revision-Date: 2008-09-23 10:40-0400\n"
+"Last-Translator: Eduardo H. Silva <HoboPrimate@gmail.com>\n"
 "Language-Team: Portuguese <info@worldwideworkshop.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Translate Toolkit 1.0.1\n"
+"X-Generator: Pootle 1.1.0rc2\n"
 
 #: activity/activity.info:2
-#, fuzzy
 msgid "Slider Puzzle"
-msgstr "Actividade Slider Puzzle"
+msgstr "Puzzle Deslizante"
+
+#: SliderPuzzleActivity.py:157
+#, python-format
+msgid "Buddy '%s' changed status: %s"
+msgstr "'%s' mudou de estado: %s"
+
+#: SliderPuzzleActivity.py:170
+msgid "Waiting for Puzzle image to be transferred..."
+msgstr "À espera enquanto a imagem de Puzzle é transferida..."
+
+#: SliderPuzzleActivity.py:339
+#, python-format
+msgid "Buddy '%s' joined the game!"
+msgstr "'%s' juntou-se no jogo!"
+
+#: SliderPuzzleActivity.py:343
+#, python-format
+msgid "Buddy '%s' left the game!"
+msgstr "'%s' saiu do jogo!"
 
 #: SliderPuzzleUI.py:214
 msgid "Solve"
@@ -43,23 +60,19 @@ msgstr "Planos de Ensino"
 
 #: SliderPuzzleUI.py:285
 msgid "Waiting for remote game..."
-msgstr "Esperando por jogo remoto..."
+msgstr "À espera pelo jogo remoto..."
 
-#: SliderPuzzleUI.py:830
-msgid "Select image to share..."
-msgstr "Seleccione imagem para partilhar..."
+#: SliderPuzzleUI.py:329
+msgid "Select image and press Start Game..."
+msgstr "Escolhe a imagem e clica Iniciar Jogo..."
 
-#: SliderPuzzleUI.py:834
-msgid "Waiting for game image..."
-msgstr "Esperando pela imagem para jogar..."
+#: SliderPuzzleUI.py:333
+msgid "Waiting for Puzzle image to be chosen..."
+msgstr "À espera que a imagem de Puzzle seja escolhida..."
 
 #: SliderPuzzleUI.py:335 SliderPuzzleUI.py:344
 msgid "Buddies"
-msgstr ""
-
-#: SliderPuzzleUI.py:633
-msgid "Game Started!"
-msgstr "O Jogo Comecou!"
+msgstr "Participantes"
 
 #: SliderPuzzleUI.py:362
 msgid "Give Up"
@@ -70,29 +83,28 @@ msgid "Start Game"
 msgstr "Iniciar Jogo"
 
 #: SliderPuzzleUI.py:374
-#, fuzzy
 msgid "Slider Puzzle Activity"
-msgstr "Actividade Slider Puzzle"
+msgstr "Actividade Puzzle Deslizante"
+
+#: SliderPuzzleUI.py:456
+msgid "Puzzle Solved!"
+msgstr "Puzzle Resolvido!"
+
+#: SliderPuzzleUI.py:459
+msgid "Gave Up"
+msgstr "Desistiu"
 
 #: SliderPuzzleUI.py:487
 msgid "Choose a Subject"
-msgstr "Escolha um Assunto"
-
-#: SliderPuzzleUI.py:1004
-msgid "Image Files"
-msgstr "Imagens"
-
-#: SliderPuzzleUI.py:1006
-msgid "Select Image File"
-msgstr "Seleccione uma Imagen"
-
-#: mmm_modules/image_category.py:226
-msgid "Not a valid image file"
-msgstr "Imagem inválida"
+msgstr "Escolhe um Tema"
 
 #: SliderPuzzleUI.py:569
 msgid "Close Lesson"
-msgstr "Fechar Plano"
+msgstr "Fechar Lição"
+
+#: SliderPuzzleUI.py:633
+msgid "Game Started!"
+msgstr "O Jogo começou!"
 
 #: i18n_misc_strings.py:1
 msgid "Sea Life"
@@ -108,11 +120,11 @@ msgstr "Pássaros"
 
 #: i18n_misc_strings.py:4
 msgid "XO"
-msgstr ""
+msgstr "XO"
 
 #: i18n_misc_strings.py:5
 msgid "Sequencing Puzzles"
-msgstr "Sequências"
+msgstr "Puzzles de Sequências"
 
 #: i18n_misc_strings.py:6
 msgid "Sports"
@@ -120,7 +132,7 @@ msgstr "Desporto"
 
 #: i18n_misc_strings.py:7
 msgid "Insects"
-msgstr "Insetos"
+msgstr "Insectos"
 
 #: i18n_misc_strings.py:8
 msgid "Music"
@@ -162,147 +174,9 @@ msgstr "Lição 1"
 msgid "Lesson 2"
 msgstr "Lição 2"
 
-#~ msgid "My Pictures"
-#~ msgstr "Minhas Imagens"
-
-#~ msgid "Status"
-#~ msgstr "Estado"
-
-#~ msgid "Play Time"
-#~ msgstr "Tempo de Jogo"
-
-#~ msgid "Chinese (simplified)"
-#~ msgstr "Chinês (simplificado)"
-
-#~ msgid "Chinese (traditional)"
-#~ msgstr "Chinês (tradicional)"
-
-#~ msgid "Czech"
-#~ msgstr "Checo"
-
-#~ msgid "Danish"
-#~ msgstr "Dinamarquês"
-
-#~ msgid "Dutch"
-#~ msgstr "Holandês"
-
-#~ msgid "English"
-#~ msgstr "Inglês"
-
-#~ msgid "English - Great Britain"
-#~ msgstr "Inglês - Reino Unido"
-
-#~ msgid "English - U.S."
-#~ msgstr "Inglês - E.U.A."
-
-#~ msgid "Finnish"
-#~ msgstr "Filandês"
-
-#~ msgid "French"
-#~ msgstr "Francês"
-
-#~ msgid "German"
-#~ msgstr "Alemão"
-
-#~ msgid "Hungarian"
-#~ msgstr "Hungaro"
-
-#~ msgid "Italian"
-#~ msgstr "Italiano"
-
-#~ msgid "Japanese"
-#~ msgstr "Japonês"
-
-#~ msgid "Korean"
-#~ msgstr "Coreano"
-
-#~ msgid "Norwegian"
-#~ msgstr "Norueguês"
-
-#~ msgid "Polish"
-#~ msgstr "Polaco"
-
-#~ msgid "Portuguese"
-#~ msgstr "Português"
-
-#~ msgid "Portuguese - Brazilian"
-#~ msgstr "Portugês - Brasil"
-
-#~ msgid "Russian"
-#~ msgstr "Russo"
-
-#~ msgid "Slovak"
-#~ msgstr "Eslovaco"
-
-#~ msgid "Spanish"
-#~ msgstr "Espanhol"
-
-#~ msgid "Swedish"
-#~ msgstr "Sueco"
-
-#~ msgid "Turkish"
-#~ msgstr "Turco"
-
-#~ msgid "synchronizing"
-#~ msgstr "sincronizando"
-
-#~ msgid "Playing"
-#~ msgstr "Jogando"
-
-#~ msgid "Paused"
-#~ msgstr "Em Pausa"
-
-#~ msgid "Finished"
-#~ msgstr "Terminado"
-
-#~ msgid "Gave up"
-#~ msgstr "Desistiu"
-
-#~ msgid "Unknown"
-#~ msgstr "Desconhecido"
-
-#~ msgid "%i minutes"
-#~ msgstr "%i minutos"
-
-#: SliderPuzzleActivity.py:157
-#, python-format
-msgid "Buddy '%s' changed status: %s"
-msgstr ""
-
-#: SliderPuzzleActivity.py:170
-msgid "Waiting for Puzzle image to be transferred..."
-msgstr ""
-
-#: SliderPuzzleActivity.py:339
-#, python-format
-msgid "Buddy '%s' joined the game!"
-msgstr ""
-
-#: SliderPuzzleActivity.py:343
-#, python-format
-msgid "Buddy '%s' left the game!"
-msgstr ""
-
-#: SliderPuzzleUI.py:329
-msgid "Select image and press Start Game..."
-msgstr ""
-
-#: SliderPuzzleUI.py:333
-msgid "Waiting for Puzzle image to be chosen..."
-msgstr ""
-
-#: SliderPuzzleUI.py:456
-msgid "Puzzle Solved!"
-msgstr ""
-
-#: SliderPuzzleUI.py:459
-#, fuzzy
-msgid "Gave Up"
-msgstr "Desistir"
-
 #: mmm_modules/buddy_panel.py:49
 msgid "Buddy"
-msgstr ""
+msgstr "Participante"
 
 #: mmm_modules/buddy_panel.py:55
 msgid "Status"
@@ -314,15 +188,15 @@ msgstr "Tempo de Jogo"
 
 #: mmm_modules/buddy_panel.py:69
 msgid "Joined at"
-msgstr ""
+msgstr "Juntou-se hà"
 
 #: mmm_modules/buddy_panel.py:101
 msgid "synchronizing"
-msgstr "sincronizando"
+msgstr "a sincronizar"
 
 #: mmm_modules/buddy_panel.py:115
 msgid "Playing"
-msgstr "Jogando"
+msgstr "A Jogar"
 
 #: mmm_modules/buddy_panel.py:115
 msgid "Paused"
@@ -330,7 +204,7 @@ msgstr "Em Pausa"
 
 #: mmm_modules/buddy_panel.py:117
 msgid "Finished"
-msgstr "Terminado"
+msgstr "Terminou"
 
 #: mmm_modules/buddy_panel.py:119
 msgid "Gave up"
@@ -391,7 +265,7 @@ msgstr "Alemão"
 
 #: mmm_modules/i18n.py:47
 msgid "Hungarian"
-msgstr "Hungaro"
+msgstr "Húngaro"
 
 #: mmm_modules/i18n.py:48
 msgid "Italian"
@@ -443,4 +317,23 @@ msgstr "Turco"
 
 #: mmm_modules/image_category.py:215
 msgid "Choose image"
-msgstr ""
+msgstr "Escolhe a imagem"
+
+#: mmm_modules/image_category.py:226
+msgid "Not a valid image file"
+msgstr "O ficheiro de Imagem não é válido"
+
+#~ msgid "Select image to share..."
+#~ msgstr "Seleccione imagem para partilhar..."
+
+#~ msgid "Waiting for game image..."
+#~ msgstr "Esperando pela imagem para jogar..."
+
+#~ msgid "Image Files"
+#~ msgstr "Imagens"
+
+#~ msgid "Select Image File"
+#~ msgstr "Seleccione uma Imagen"
+
+#~ msgid "My Pictures"
+#~ msgstr "Minhas Imagens"
