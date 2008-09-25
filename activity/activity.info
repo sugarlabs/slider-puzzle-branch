@@ -5,3 +5,4 @@ class = SliderPuzzleActivity.SliderPuzzleActivity
 icon = activity-sliderpuzzle
 activity_version = 5
 show_launcher = yes
+license = GPLv2+
