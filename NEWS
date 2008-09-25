@@ -1,5 +1,10 @@
 6
 
+* Fix MANIFEST
+* Fix po/ko.po
+* Git cleanups
+* Add license to activity.info (#8411, #8029)
+
 5
 
 * Updated copyright information
