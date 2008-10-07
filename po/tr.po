@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-01-14 16:38+0000\n"
-"PO-Revision-Date: 2008-09-07 08:54-0400\n"
+"PO-Revision-Date: 2008-10-06 08:32-0400\n"
 "Last-Translator: abdullah kocabas <abdullah.kocabas@abcdizustu.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -26,7 +26,7 @@ msgstr "'%s' arkadaşınızın değişen durumu: %s"
 
 #: SliderPuzzleActivity.py:170
 msgid "Waiting for Puzzle image to be transferred..."
-msgstr "yapboz resminin yüklenmesi için bekleniyor..."
+msgstr "Yapboz resminin yüklenmesi için bekleniyor..."
 
 #: SliderPuzzleActivity.py:339
 #, python-format
@@ -36,87 +36,87 @@ msgstr "'%s' arkadaşınız oyunu kazandı!"
 #: SliderPuzzleActivity.py:343
 #, python-format
 msgid "Buddy '%s' left the game!"
-msgstr "'%s' arkadaşınız oyunu bıraktı."
+msgstr "'%s' arkadaşınız oyunu bıraktı!"
 
 #: SliderPuzzleUI.py:214
 msgid "Solve"
-msgstr "çözünüz."
+msgstr "Çöz"
 
 #: SliderPuzzleUI.py:218
 msgid "Shuffle"
-msgstr "karıştırınız."
+msgstr "Karıştır"
 
 #: SliderPuzzleUI.py:222
 msgid "My Picture"
-msgstr "resmim"
+msgstr "Resmim"
 
 #: SliderPuzzleUI.py:259
 msgid "Time: "
-msgstr "zaman"
+msgstr "Zaman:"
 
 #: SliderPuzzleUI.py:268 SliderPuzzleUI.py:566
 msgid "Lesson Plans"
-msgstr "ders planı"
+msgstr "Ders Planı"
 
 #: SliderPuzzleUI.py:285
 msgid "Waiting for remote game..."
-msgstr "oyundan çıkmak için bekliyor..."
+msgstr "Oyundan çıkmak için bekliyor..."
 
 #: SliderPuzzleUI.py:329
 msgid "Select image and press Start Game..."
-msgstr "objeyi seçiniz ve oyuna başla'ya basınız."
+msgstr "Görüntüyü seç ve Oyuna Başla'ya bas"
 
 #: SliderPuzzleUI.py:333
 msgid "Waiting for Puzzle image to be chosen..."
-msgstr "yapboz resminin seçilmesi bekleniyor.."
+msgstr "Yapboz resminin seçilmesi bekleniyor.."
 
 #: SliderPuzzleUI.py:335 SliderPuzzleUI.py:344
 msgid "Buddies"
-msgstr "arkadaşlar"
+msgstr "Arkadaşlar"
 
 #: SliderPuzzleUI.py:362
 msgid "Give Up"
-msgstr "vazgeçiniz."
+msgstr "Vazgeç"
 
 #: SliderPuzzleUI.py:364
 msgid "Start Game"
-msgstr "oyuna başlayınız."
+msgstr "Oyuna Başla"
 
 #: SliderPuzzleUI.py:374
 msgid "Slider Puzzle Activity"
-msgstr "Slider yapboz aktivitesi"
+msgstr "Slider Yapboz Aktivitesi"
 
 #: SliderPuzzleUI.py:456
 msgid "Puzzle Solved!"
-msgstr "puzzle çözüldü!"
+msgstr "Puzzle Çözüldü!"
 
 #: SliderPuzzleUI.py:459
 msgid "Gave Up"
-msgstr "vazgeçildi."
+msgstr "Vazgeçildi"
 
 #: SliderPuzzleUI.py:487
 msgid "Choose a Subject"
-msgstr "bir konu seçiniz."
+msgstr "Bir konu seç"
 
 #: SliderPuzzleUI.py:569
 msgid "Close Lesson"
-msgstr "dersi kapatınız."
+msgstr "Dersi kapat"
 
 #: SliderPuzzleUI.py:633
 msgid "Game Started!"
-msgstr "oyun başladı!"
+msgstr "Oyun Başladı!"
 
 #: i18n_misc_strings.py:1
 msgid "Sea Life"
-msgstr "denizde yaşam"
+msgstr "Denizde Yaşam"
 
 #: i18n_misc_strings.py:2
 msgid "Animals"
-msgstr "hayvanlar"
+msgstr "Hayvanlar"
 
 #: i18n_misc_strings.py:3
 msgid "Birds"
-msgstr "kuşlar"
+msgstr "Kuşlar"
 
 #: i18n_misc_strings.py:4
 msgid "XO"
@@ -124,71 +124,71 @@ msgstr "XO"
 
 #: i18n_misc_strings.py:5
 msgid "Sequencing Puzzles"
-msgstr "yapbozları sıralayınız."
+msgstr "Yapbozları Sırala"
 
 #: i18n_misc_strings.py:6
 msgid "Sports"
-msgstr "sporlar"
+msgstr "Sporlar"
 
 #: i18n_misc_strings.py:7
 msgid "Insects"
-msgstr "böcek"
+msgstr "Böcek"
 
 #: i18n_misc_strings.py:8
 msgid "Music"
-msgstr "müzik"
+msgstr "Müzik"
 
 #: i18n_misc_strings.py:9
 msgid "Space"
-msgstr "uzay"
+msgstr "Uzay"
 
 #: i18n_misc_strings.py:10
 msgid "Lesson 5"
-msgstr "ders 5"
+msgstr "Ders 5"
 
 #: i18n_misc_strings.py:11
 msgid "Lesson 4"
-msgstr "ders 4"
+msgstr "Ders 4"
 
 #: i18n_misc_strings.py:12
 msgid "Overview"
-msgstr "göz gezdirme"
+msgstr "Göz gezdirme"
 
 #: i18n_misc_strings.py:13
 msgid "Lesson 3"
-msgstr "ders 3"
+msgstr "Ders 3"
 
 #: i18n_misc_strings.py:14
 msgid "Lesson 7"
-msgstr "ders 7"
+msgstr "Ders 7"
 
 #: i18n_misc_strings.py:15
 msgid "Lesson 6"
-msgstr "ders 6"
+msgstr "Ders 6"
 
 #: i18n_misc_strings.py:16
 msgid "Lesson 1"
-msgstr "ders 1"
+msgstr "Ders 1"
 
 #: i18n_misc_strings.py:17
 msgid "Lesson 2"
-msgstr "ders 2"
+msgstr "Ders 2"
 
 #: mmm_modules/buddy_panel.py:49
 msgid "Buddy"
-msgstr "arkadaş"
+msgstr "Arkadaş"
 
 #: mmm_modules/buddy_panel.py:55
 msgid "Status"
-msgstr "statü"
+msgstr "Durum"
 
 #: mmm_modules/buddy_panel.py:62
 msgid "Play Time"
-msgstr "oyun zamanı"
+msgstr "Oyun Zamanı"
 
 #: mmm_modules/buddy_panel.py:69
 msgid "Joined at"
-msgstr "katılmıştır."
+msgstr "katıldı"
 
 #: mmm_modules/buddy_panel.py:101
 msgid "synchronizing"
@@ -196,23 +196,23 @@ msgstr "birlikte hareket etmek"
 
 #: mmm_modules/buddy_panel.py:115
 msgid "Playing"
-msgstr "oynama"
+msgstr "Oynama"
 
 #: mmm_modules/buddy_panel.py:115
 msgid "Paused"
-msgstr "ara"
+msgstr "Ara"
 
 #: mmm_modules/buddy_panel.py:117
 msgid "Finished"
-msgstr "bitti"
+msgstr "Tamamlandı"
 
 #: mmm_modules/buddy_panel.py:119
 msgid "Gave up"
-msgstr "vazgeçtiniz."
+msgstr "Vazgeçildi"
 
 #: mmm_modules/buddy_panel.py:121
 msgid "Unknown"
-msgstr "bilinmeyen"
+msgstr "Bilinmeyen"
 
 #: mmm_modules/buddy_panel.py:123
 #, python-format
@@ -317,8 +317,8 @@ msgstr "Türkçe"
 
 #: mmm_modules/image_category.py:215
 msgid "Choose image"
-msgstr "Resim seçiniz."
+msgstr "Resim seç"
 
 #: mmm_modules/image_category.py:226
 msgid "Not a valid image file"
-msgstr "Geçerli resim dosyası değildir."
+msgstr "Geçerli bir resim dosyası değil"
