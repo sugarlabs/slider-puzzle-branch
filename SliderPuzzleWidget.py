@@ -23,6 +23,7 @@ pygtk.require('2.0')
 import gtk, gobject
 import pango
 import md5
+import logging
 
 from mamamedia_modules import utils
 
@@ -383,10 +384,9 @@ class SliderPuzzleMap (object):
         for y in range(self.rowsize):
             for x in range(self.colsize):
                 if self.hole_pos == (x,y):
-                    print "*",
+                    logging.debug("*")
                 else:
-                    print self.pieces_map[y][x],
-            print
+                    logging.debug(self.pieces_map[y][x])
 
     def __call__ (self):
         self.debug_map()
@@ -585,7 +585,7 @@ class SliderPuzzleWidget (gtk.Table):
 
     def _thaw (self, obj):
         """ retrieves a frozen status from a python object, as per _freeze """
-        print obj['jumbler']
+        logging.debug(obj['jumbler'])
         self.jumbler._thaw(obj['jumbler'])
         if obj.has_key('image') and obj['image'] is not None:
             self.set_image_from_str(obj['image'])

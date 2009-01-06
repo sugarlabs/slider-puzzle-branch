@@ -351,9 +351,9 @@ class SliderPuzzleActivity(Activity, TubeHelper):
         finally:
             f.close()
         #logging.debug('Trying to set session: %s.' % session_data)
-        print "Setting session"
+        logging.debug("Setting session")
         self.ui._thaw(json.read(session_data))
-        print "Done setting session"
+        logging.debug("Done setting session")
 		
     def write_file(self, file_path):
         session_data = json.write(self.ui._freeze())

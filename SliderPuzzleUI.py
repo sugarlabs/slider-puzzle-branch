@@ -394,7 +394,7 @@ class SliderPuzzleUI (gtk.Table):
         if isinstance(btn, gtk.ToggleButton):
             if not btn.get_active():
                 if nr_pieces == self.game.get_nr_pieces():
-                    print "A"
+                    logging.debug("A")
                     btn.set_active(True)
                 return
         if nr_pieces is None:
@@ -404,7 +404,7 @@ class SliderPuzzleUI (gtk.Table):
                 self.set_game_state(GAME_STARTED)
             for n, b in ((9, self.btn_9),(12, self.btn_12),(16, self.btn_16)):
                 if n == nr_pieces and not b.get_active():
-                    print "B"
+                    logging.debug("B")
                     b.set_sensitive(True)
                     b.set_active(True)
                     return
@@ -418,7 +418,7 @@ class SliderPuzzleUI (gtk.Table):
         if isinstance(btn, gtk.ToggleButton):
             for n, b in ((9, self.btn_9),(12, self.btn_12),(16, self.btn_16)):
                 if b is not btn:
-                    print "C"
+                    logging.debug("C")
                     b.set_active(False)
                     b.set_sensitive(not self._contest_mode)
 
@@ -483,7 +483,7 @@ class SliderPuzzleUI (gtk.Table):
             #    self.do_add_image(None)
         else:
             if self.game_wrapper.get_parent():
-                print ("Current cat dir=", self.thumb.get_image_dir())
+                logging.debug("Current cat dir=%s" % self.thumb.get_image_dir())
                 s = CategorySelector(_("Choose a Subject"),
                                      self.thumb.get_image_dir(),
                                      path="images")
@@ -615,11 +615,11 @@ class SliderPuzzleUI (gtk.Table):
         if not obj[1].has_key('image'):
             self.game.load_image(self.thumb.get_image())
         self.set_nr_pieces(None, obj[2])
-        print obj[1].keys()
+        logging.debug(obj[1].keys())
         wimg = obj[1].has_key('image')
         self.game._thaw(obj[1])
         if wimg:
-            print "Forcing thumb image from the one in game"
+            logging.debug("Forcing thumb image from the one in game")
             self.thumb.load_pb(self.game.image)
         self.timer._thaw(obj[3])
         self.game_box.pop()
