@@ -231,7 +231,6 @@ class SliderPuzzleUI (gtk.Table):
 
         self.game_box = BorderFrame(border_color=COLOR_FRAME_GAME)
         self.game_box.add(self.game_wrapper)
-        inner_table.attach(self.game_box, 1,2,0,1, gtk.FILL, gtk.FILL)
 
         lang_combo = prepare_btn(LanguageComboBox('org.worldwideworkshop.olpc.SliderPuzzle'))
         lang_combo.connect('changed', self.do_select_language)
@@ -264,6 +263,13 @@ class SliderPuzzleUI (gtk.Table):
         self.msg_label.show()
         timer_hbox.pack_start(self.msg_label, True)
         
+        self.notebook = gtk.Notebook()
+        self.notebook.show()
+        self.notebook.props.show_border = False
+        self.notebook.props.show_tabs = False
+        self.notebook.append_page(self.game_box)
+        inner_table.attach(self.notebook, 1,2,0,1, gtk.FILL, gtk.FILL)
+
         self.btn_lesson = prepare_btn(gtk.Button(" "))
         self.labels_to_translate.append([self.btn_lesson, _("Lesson Plans")])
         self.btn_lesson.connect("clicked", self.do_lesson_plan)
@@ -379,7 +385,7 @@ class SliderPuzzleUI (gtk.Table):
                 lbl[0].set_label(_(lbl[1]))
         if not self.game_wrapper.get_parent() and not first_time:
             self.game_box.pop()
-            if isinstance(self.game_box.get_child(), NotebookReaderWidget):
+            if self.notebook.get_current_page() == 1:
                 m = self.do_lesson_plan
             else:
                 m = self.do_select_category
@@ -548,14 +554,16 @@ class SliderPuzzleUI (gtk.Table):
             self._on_lesson_plan = True
             if self._contest_mode and self.get_game_state() < GAME_STARTED:
                 return
-            if isinstance(self.game_box.get_child(), NotebookReaderWidget):
-                self.game_box.pop()
-            else:
-                s = NotebookReaderWidget('lessons', self.selected_lang_details)
-                s.connect('parent-set', self.do_lesson_plan_reparent)
-                s.show_all()
-                self.game_box.push(s)
+            page = self.notebook.get_current_page()
+            if page == 0:
                 self.timer.stop()
+                if self.notebook.get_n_pages() == 1:
+                    lessons = NotebookReaderWidget('lessons',
+                            self.selected_lang_details)
+                    lessons.connect('parent-set', self.do_lesson_plan_reparent)
+                    lessons.show_all()
+                    self.notebook.append_page(lessons)
+            self.notebook.set_current_page(int(not page))
         finally:
             self._on_lesson_plan = False
 
