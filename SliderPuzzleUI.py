@@ -549,8 +549,7 @@ class SliderPuzzleUI (gtk.Table):
             if self._contest_mode and self.get_game_state() < GAME_STARTED:
                 return
             if isinstance(self.game_box.get_child(), NotebookReaderWidget):
-                if self.game_box.get_child().loaded:
-                    self.game_box.pop()
+                self.game_box.pop()
             else:
                 s = NotebookReaderWidget('lessons', self.selected_lang_details)
                 s.connect('parent-set', self.do_lesson_plan_reparent)
