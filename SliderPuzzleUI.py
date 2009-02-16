@@ -624,6 +624,8 @@ class SliderPuzzleUI (gtk.Table):
         if wimg:
             logging.debug("Forcing thumb image from the one in game")
             self.thumb.load_pb(self.game.image)
+
+        self.timer.reset()
         self.timer._thaw(obj[3])
         self.game_box.pop()
         
