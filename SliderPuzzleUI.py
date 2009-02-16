@@ -557,12 +557,15 @@ class SliderPuzzleUI (gtk.Table):
             page = self.notebook.get_current_page()
             if page == 0:
                 self.timer.stop()
+                self.timer.props.sensitive = False
                 if self.notebook.get_n_pages() == 1:
                     lessons = NotebookReaderWidget('lessons',
                             self.selected_lang_details)
                     lessons.connect('parent-set', self.do_lesson_plan_reparent)
                     lessons.show_all()
                     self.notebook.append_page(lessons)
+            else:
+                self.timer.props.sensitive = True
             self.notebook.set_current_page(int(not page))
         finally:
             self._on_lesson_plan = False
