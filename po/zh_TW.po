@@ -54,8 +54,7 @@ msgstr "我的圖案"
 msgid "Time: "
 msgstr "時間: "
 
-#: SliderPuzzleUI.py:268
-#: SliderPuzzleUI.py:566
+#: SliderPuzzleUI.py:268 SliderPuzzleUI.py:566
 msgid "Lesson Plans"
 msgstr "課程計劃"
 
@@ -71,8 +70,7 @@ msgstr "選擇圖片並點選開始遊戲…"
 msgid "Waiting for Puzzle image to be chosen..."
 msgstr "等待謎題圖片選擇中…"
 
-#: SliderPuzzleUI.py:335
-#: SliderPuzzleUI.py:344
+#: SliderPuzzleUI.py:335 SliderPuzzleUI.py:344
 msgid "Buddies"
 msgstr "好友"
 
