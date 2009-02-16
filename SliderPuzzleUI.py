@@ -611,7 +611,11 @@ class SliderPuzzleUI (gtk.Table):
 
     def _thaw (self, obj):
         """ retrieves a frozen status from a python object, as per _freeze """
-        #self.thumb._thaw(obj[0])
+        logging.debug('_thaw: %s' % obj)
+
+        if not obj[1]['image']:
+            return
+
         if not obj[1].has_key('image'):
             self.game.load_image(self.thumb.get_image())
         self.set_nr_pieces(None, obj[2])
