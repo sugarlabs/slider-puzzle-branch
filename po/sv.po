@@ -2,324 +2,323 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-01-14 16:38+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2009-01-11 14:46-0500\n"
+"Last-Translator: Nicci Manns <nicci@saunalahti.fi>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Translate Toolkit 1.1.1rc4\n"
+"X-Generator: Pootle 1.1.0rc2\n"
 
 #: activity/activity.info:2
 msgid "Slider Puzzle"
-msgstr ""
+msgstr "Glidande Pussel"
 
 #: SliderPuzzleActivity.py:157
 #, python-format
 msgid "Buddy '%s' changed status: %s"
-msgstr ""
+msgstr "Kompis '%s' ändrade sin status till %s"
 
 #: SliderPuzzleActivity.py:170
 msgid "Waiting for Puzzle image to be transferred..."
-msgstr ""
+msgstr "Väntar på att bilden ska överföras..."
 
 #: SliderPuzzleActivity.py:339
 #, python-format
 msgid "Buddy '%s' joined the game!"
-msgstr ""
+msgstr "Kompis '%s' gick med i spelet"
 
 #: SliderPuzzleActivity.py:343
 #, python-format
 msgid "Buddy '%s' left the game!"
-msgstr ""
+msgstr "Kompis '%s' lämnade spelet"
 
 #: SliderPuzzleUI.py:214
 msgid "Solve"
-msgstr ""
+msgstr "Lös"
 
 #: SliderPuzzleUI.py:218
 msgid "Shuffle"
-msgstr ""
+msgstr "Blanda"
 
 #: SliderPuzzleUI.py:222
 msgid "My Picture"
-msgstr ""
+msgstr "Min bild"
 
 #: SliderPuzzleUI.py:259
 msgid "Time: "
-msgstr ""
+msgstr "Tid: "
 
 #: SliderPuzzleUI.py:268 SliderPuzzleUI.py:566
 msgid "Lesson Plans"
-msgstr ""
+msgstr "Lektionsplaner"
 
 #: SliderPuzzleUI.py:285
 msgid "Waiting for remote game..."
-msgstr ""
+msgstr "Väntar på annans spel"
 
 #: SliderPuzzleUI.py:329
 msgid "Select image and press Start Game..."
-msgstr ""
+msgstr "Välj en bild och tryck sedan på Starta spel..."
 
 #: SliderPuzzleUI.py:333
 msgid "Waiting for Puzzle image to be chosen..."
-msgstr ""
+msgstr "Väntar på att en bild ska väljas.."
 
 #: SliderPuzzleUI.py:335 SliderPuzzleUI.py:344
 msgid "Buddies"
-msgstr ""
+msgstr "Kompisar"
 
 #: SliderPuzzleUI.py:362
 msgid "Give Up"
-msgstr ""
+msgstr "Ge upp"
 
 #: SliderPuzzleUI.py:364
 msgid "Start Game"
-msgstr ""
+msgstr "Starta spel"
 
 #: SliderPuzzleUI.py:374
 msgid "Slider Puzzle Activity"
-msgstr ""
+msgstr "Glidande Pussel Aktivitet"
 
 #: SliderPuzzleUI.py:456
 msgid "Puzzle Solved!"
-msgstr ""
+msgstr "Pusslet löst!"
 
 #: SliderPuzzleUI.py:459
 msgid "Gave Up"
-msgstr ""
+msgstr "Gav upp"
 
 #: SliderPuzzleUI.py:487
 msgid "Choose a Subject"
-msgstr ""
+msgstr "Välj ett ämne"
 
 #: SliderPuzzleUI.py:569
 msgid "Close Lesson"
-msgstr ""
+msgstr "Stäng lektion"
 
 #: SliderPuzzleUI.py:633
 msgid "Game Started!"
-msgstr ""
+msgstr "Spelet startat!"
 
 #: i18n_misc_strings.py:1
 msgid "Sea Life"
-msgstr ""
+msgstr "Sjöliv"
 
 #: i18n_misc_strings.py:2
 msgid "Animals"
-msgstr ""
+msgstr "Djur"
 
 #: i18n_misc_strings.py:3
 msgid "Birds"
-msgstr ""
+msgstr "Fåglar"
 
 #: i18n_misc_strings.py:4
 msgid "XO"
-msgstr ""
+msgstr "XO"
 
 #: i18n_misc_strings.py:5
 msgid "Sequencing Puzzles"
-msgstr ""
+msgstr "Ordnar pussel"
 
 #: i18n_misc_strings.py:6
 msgid "Sports"
-msgstr ""
+msgstr "Sport"
 
 #: i18n_misc_strings.py:7
 msgid "Insects"
-msgstr ""
+msgstr "Insekter"
 
 #: i18n_misc_strings.py:8
 msgid "Music"
-msgstr ""
+msgstr "Musik"
 
 #: i18n_misc_strings.py:9
 msgid "Space"
-msgstr ""
+msgstr "Rymden"
 
 #: i18n_misc_strings.py:10
 msgid "Lesson 5"
-msgstr ""
+msgstr "Lektion 5"
 
 #: i18n_misc_strings.py:11
 msgid "Lesson 4"
-msgstr ""
+msgstr "Lektion 4 "
 
 #: i18n_misc_strings.py:12
 msgid "Overview"
-msgstr ""
+msgstr "Översikt"
 
 #: i18n_misc_strings.py:13
 msgid "Lesson 3"
-msgstr ""
+msgstr "Lektion 3 "
 
 #: i18n_misc_strings.py:14
 msgid "Lesson 7"
-msgstr ""
+msgstr "Lektion 7"
 
 #: i18n_misc_strings.py:15
 msgid "Lesson 6"
-msgstr ""
+msgstr "Lektion 6"
 
 #: i18n_misc_strings.py:16
 msgid "Lesson 1"
-msgstr ""
+msgstr "Lektion 1  "
 
 #: i18n_misc_strings.py:17
 msgid "Lesson 2"
-msgstr ""
+msgstr "Lektion 2"
 
 #: mmm_modules/buddy_panel.py:49
 msgid "Buddy"
-msgstr ""
+msgstr "Kompis"
 
 #: mmm_modules/buddy_panel.py:55
 msgid "Status"
-msgstr ""
+msgstr "Status"
 
 #: mmm_modules/buddy_panel.py:62
 msgid "Play Time"
-msgstr ""
+msgstr "Speltid"
 
 #: mmm_modules/buddy_panel.py:69
 msgid "Joined at"
-msgstr ""
+msgstr "Anslöt vid"
 
 #: mmm_modules/buddy_panel.py:101
 msgid "synchronizing"
-msgstr ""
+msgstr "synkroniserar"
 
 #: mmm_modules/buddy_panel.py:115
 msgid "Playing"
-msgstr ""
+msgstr "Spelar"
 
 #: mmm_modules/buddy_panel.py:115
 msgid "Paused"
-msgstr ""
+msgstr "Pausad"
 
 #: mmm_modules/buddy_panel.py:117
 msgid "Finished"
-msgstr ""
+msgstr "Klar"
 
 #: mmm_modules/buddy_panel.py:119
 msgid "Gave up"
-msgstr ""
+msgstr "Gav upp"
 
 #: mmm_modules/buddy_panel.py:121
 msgid "Unknown"
-msgstr ""
+msgstr "Okänd"
 
 #: mmm_modules/buddy_panel.py:123
 #, python-format
 msgid "%i minutes"
-msgstr ""
+msgstr "%i minuter"
 
 #: mmm_modules/i18n.py:36
 msgid "Chinese (simplified)"
-msgstr ""
+msgstr "kinesiska (förenklad)"
 
 #: mmm_modules/i18n.py:37
 msgid "Chinese (traditional)"
-msgstr ""
+msgstr "kinesiska (traditionell)"
 
 #: mmm_modules/i18n.py:38
 msgid "Czech"
-msgstr ""
+msgstr "tjeckiska"
 
 #: mmm_modules/i18n.py:39
 msgid "Danish"
-msgstr ""
+msgstr "danska"
 
 #: mmm_modules/i18n.py:40
 msgid "Dutch"
-msgstr ""
+msgstr "holländska"
 
 #: mmm_modules/i18n.py:41
 msgid "English"
-msgstr ""
+msgstr "engelska"
 
 #: mmm_modules/i18n.py:42
 msgid "English - Great Britain"
-msgstr ""
+msgstr "engelska (Storbritannien)"
 
 #: mmm_modules/i18n.py:43
 msgid "English - U.S."
-msgstr ""
+msgstr "engelska (USA) "
 
 #: mmm_modules/i18n.py:44
 msgid "Finnish"
-msgstr ""
+msgstr "finska"
 
 #: mmm_modules/i18n.py:45
 msgid "French"
-msgstr ""
+msgstr "franska"
 
 #: mmm_modules/i18n.py:46
 msgid "German"
-msgstr ""
+msgstr "tyska"
 
 #: mmm_modules/i18n.py:47
 msgid "Hungarian"
-msgstr ""
+msgstr "ungerska"
 
 #: mmm_modules/i18n.py:48
 msgid "Italian"
-msgstr ""
+msgstr "italienska"
 
 #: mmm_modules/i18n.py:49
 msgid "Japanese"
-msgstr ""
+msgstr "japanska"
 
 #: mmm_modules/i18n.py:50
 msgid "Korean"
-msgstr ""
+msgstr "koreanska"
 
 #: mmm_modules/i18n.py:51
 msgid "Norwegian"
-msgstr ""
+msgstr "norska"
 
 #: mmm_modules/i18n.py:52
 msgid "Polish"
-msgstr ""
+msgstr "polska"
 
 #: mmm_modules/i18n.py:53
 msgid "Portuguese"
-msgstr ""
+msgstr "portugisiska"
 
 #: mmm_modules/i18n.py:54
 msgid "Portuguese - Brazilian"
-msgstr ""
+msgstr "portugisiska (brasilianska)"
 
 #: mmm_modules/i18n.py:55
 msgid "Russian"
-msgstr ""
+msgstr "ryska"
 
 #: mmm_modules/i18n.py:56
 msgid "Slovak"
-msgstr ""
+msgstr "slovaksika"
 
 #: mmm_modules/i18n.py:57
 msgid "Spanish"
-msgstr ""
+msgstr "spanska"
 
 #: mmm_modules/i18n.py:58
 msgid "Swedish"
-msgstr ""
+msgstr "svenska"
 
 #: mmm_modules/i18n.py:59
 msgid "Turkish"
-msgstr ""
+msgstr "turkiska"
 
 #: mmm_modules/image_category.py:215
 msgid "Choose image"
-msgstr ""
+msgstr "Välj bild"
 
 #: mmm_modules/image_category.py:226
 msgid "Not a valid image file"
-msgstr ""
+msgstr "Inte en giltig bildfil"
