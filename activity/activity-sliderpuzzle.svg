@@ -8,6 +8,8 @@
 ]>
 <svg  version="1.1" id="Layer_2" xmlns="&ns_svg;" xmlns:xlink="&ns_xlink;" width="54.949" height="54.959"
 	 viewBox="0 0 54.949 54.959" overflow="visible" enable-background="new 0 0 54.949 54.959" xml:space="preserve">
+<g transform="translate(4,4)">
+<g transform="scale(0.84)">
 <rect x="1.5" y="1.5" fill="&fill_color;" stroke="&stroke_color;" stroke-width="3" width="51.949" height="51.959"/>
 <rect x="6.658" y="5.84" fill="&fill_color;" stroke="&stroke_color;" stroke-width="3" width="13.478" height="14.549"/>
 <rect x="20.942" y="5.84" fill="&fill_color;" stroke="&stroke_color;" stroke-width="3" width="13.479" height="14.549"/>
@@ -27,6 +29,8 @@
 <polyline fill="&fill_color;" stroke="&stroke_color;" stroke-width="2" points="38.626,6.959 42.237,14.848 45.958,6.868 "/>
 <line fill="&fill_color;" stroke="&stroke_color;" stroke-width="2" x1="36.108" y1="27.135" x2="48.367" y2="32.333"/>
 <polyline fill="&fill_color;" stroke="&stroke_color;" stroke-width="2" points="22.207,40.013 28.664,35.288 34.247,41.667 "/>
+</g>
+</g>
 </svg>
 
 
