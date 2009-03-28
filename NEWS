@@ -1,3 +1,13 @@
+7
+
+* Add COPYING file
+* #624 Several icons does not look nice in the ring
+* Make timer insensitive in lessons
+* Set timer's value after loading
+* Treat empty jobject properly
+* Init gthreads before using abiword
+* Update localization
+
 6
 
 * Fix MANIFEST
