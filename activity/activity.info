@@ -1,8 +1,8 @@
 [Activity]
 name = Slider Puzzle
 bundle_id = org.worldwideworkshop.olpc.SliderPuzzle
-exec = sugar-activity SliderPuzzleActivity.SliderPuzzleActivity -s
+exec = sugar-activity SliderPuzzleActivity.SliderPuzzleActivity
 icon = activity-sliderpuzzle
-activity_version = 7
+activity_version = 8
 show_launcher = yes
 license = GPLv2+
