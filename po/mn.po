@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-01-14 16:38+0000\n"
-"PO-Revision-Date: 2008-07-07 09:43-0400\n"
+"PO-Revision-Date: 2008-08-07 01:31-0400\n"
 "Last-Translator: Odontsetseg Bat-Erdene <obat-erdene@suffolk.edu>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -207,7 +207,6 @@ msgid "Finished"
 msgstr "Дууссан"
 
 #: mmm_modules/buddy_panel.py:119
-#, fuzzy
 msgid "Gave up"
 msgstr "Бууж өгсөн"
 
