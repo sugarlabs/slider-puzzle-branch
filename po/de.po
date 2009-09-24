@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-01-14 16:38+0000\n"
-"PO-Revision-Date: 2008-09-19 10:27-0400\n"
+"PO-Revision-Date: 2008-10-15 16:57-0400\n"
 "Last-Translator: Markus Schlager <m.slg@gmx.de>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -190,34 +190,43 @@ msgid "Play Time"
 msgstr "Spielzeit"
 
 # (Markus S.) war 'Teilnahme von'
+# O.T.: 'Im Spiel seit' passt.
 #: mmm_modules/buddy_panel.py:69
-#, fuzzy
 msgid "Joined at"
 msgstr "Im Spiel seit"
 
 # (Markus S.) war 'Abgleichen'; Klingt nach Statusmeldung
+# O.T.: Ja, kann aber ohne Mesh-Netz nicht getestet werden.
 #: mmm_modules/buddy_panel.py:101
 #, fuzzy
 msgid "synchronizing"
 msgstr "Gleiche ab"
 
 # (Markus S.) war 'Spielen'; klingt nach Statusmeldung
+# O.T.: war 'Spiel läuft'; Ist Attribut hinter dem Netz-Spielernamen. Vorschlag: 'Spielt' oder 'Im Spiel'
 #: mmm_modules/buddy_panel.py:115
 #, fuzzy
 msgid "Playing"
-msgstr "Spiel läuft"
+msgstr "Spielt"
 
+# O.T.: war 'Angehalten'; Ist Attribut hinter dem Netz-Spielernamen. Vorschlag: 'Pausiert'
 #: mmm_modules/buddy_panel.py:115
+#, fuzzy
 msgid "Paused"
-msgstr "Angehalten"
+msgstr "Pausiert"
 
+# O.T.: war 'Beendet'; Ist Attribut hinter dem Netz-Spielernamen. Vorschlag: 'Ist fertig'
+# (Markus S.) 'Fertig'?
 #: mmm_modules/buddy_panel.py:117
+#, fuzzy
 msgid "Finished"
-msgstr "Beendet"
+msgstr "Ist fertig"
 
+# O.T.: war 'Aufgegeben'; Ist Attribut hinter dem Netz-Spielernamen. Vorschlag: 'Hat aufgegeben'
 #: mmm_modules/buddy_panel.py:119
+#, fuzzy
 msgid "Gave up"
-msgstr "Aufgegeben"
+msgstr "Hat aufgegeben"
 
 #: mmm_modules/buddy_panel.py:121
 msgid "Unknown"
