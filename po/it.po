@@ -7,13 +7,15 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-01-14 16:38+0000\n"
-"PO-Revision-Date: 2008-08-25 09:01-0400\n"
-"Last-Translator: Carlo Falciola <cfalciola@yahoo.it>\n"
+"PO-Revision-Date: 2010-03-25 22:27+0200\n"
+"Last-Translator: Chris <cjl@laptop.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Pootle 1.1.0rc2\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Pootle 2.0.3\n"
 
 #: activity/activity.info:2
 msgid "Slider Puzzle"
@@ -36,7 +38,7 @@ msgstr "Il giocatore '%s' si è unito alla partita!"
 #: SliderPuzzleActivity.py:343
 #, python-format
 msgid "Buddy '%s' left the game!"
-msgstr "Il giocatore  '%s' ha smesso di giocare!"
+msgstr "Il giocatore '%s' ha smesso di giocare!"
 
 #: SliderPuzzleUI.py:214
 msgid "Solve"
