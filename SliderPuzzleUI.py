@@ -196,7 +196,7 @@ class SliderPuzzleUI (gtk.Table):
 
 
 
-        self.thumb = ImageSelectorWidget(frame_color=COLOR_FRAME_THUMB, prepare_btn_cb=prepare_btn, image_dir='images')
+        self.thumb = ImageSelectorWidget(self._parent,frame_color=COLOR_FRAME_THUMB, prepare_btn_cb=prepare_btn, image_dir='images')
         self.thumb.connect("category_press", self.do_select_category)
         self.thumb.connect("image_press", self.set_nr_pieces)
         control_panel_box.pack_start(self.thumb, False)

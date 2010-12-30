@@ -160,7 +160,7 @@ class ImageSelectorWidget (gtk.Table):
     __gsignals__ = {'category_press' : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, ()),
                     'image_press' : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, ()),}
 
-    def __init__ (self,
+    def __init__ (self,parentp,
                   width=IMAGE_SIZE,
                   height=IMAGE_SIZE,
                   frame_color=None,
@@ -169,6 +169,7 @@ class ImageSelectorWidget (gtk.Table):
                   image_dir=None):
         gtk.Table.__init__(self, 2,5,False)
         self._signals = []
+        self.parentp = parentp
         self.width = width
         self.height = height
         self.image = gtk.Image()
@@ -218,7 +219,7 @@ class ImageSelectorWidget (gtk.Table):
         else:
             filter = { }
 
-        chooser = ObjectChooser(_('Choose image'), None, #self._parent,
+        chooser = ObjectChooser(_('Choose image'), self.parentp, #self._parent,
                                 gtk.DIALOG_MODAL | gtk.DIALOG_DESTROY_WITH_PARENT,
                                 **filter)
         try:
