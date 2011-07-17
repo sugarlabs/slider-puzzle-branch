@@ -2,20 +2,72 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-01-14 16:38+0000\n"
-"PO-Revision-Date: 2010-02-26 05:04+0200\n"
-"Last-Translator: Chris <cjl@laptop.org>\n"
+"PO-Revision-Date: 2010-11-02 20:47+0200\n"
+"Last-Translator: FlowerPowerGirl <o.parczyk@online.de>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.0.1\n"
+"X-Generator: Pootle 2.0.3\n"
 
 #: activity/activity.info:2
 msgid "Slider Puzzle"
@@ -127,7 +179,6 @@ msgstr "XO"
 
 # (Markus S.) 'Reihe Puzzles aneinander'?
 #: i18n_misc_strings.py:5
-#, fuzzy
 msgid "Sequencing Puzzles"
 msgstr "Puzzles aneinanderreihen"
 
@@ -200,33 +251,28 @@ msgstr "Im Spiel seit"
 # (Markus S.) war 'Abgleichen'; Klingt nach Statusmeldung
 # O.T.: Ja, kann aber ohne Mesh-Netz nicht getestet werden.
 #: mmm_modules/buddy_panel.py:101
-#, fuzzy
 msgid "synchronizing"
-msgstr "Gleiche ab"
+msgstr "Abgleichen"
 
 # (Markus S.) war 'Spielen'; klingt nach Statusmeldung
 # O.T.: war 'Spiel läuft'; Ist Attribut hinter dem Netz-Spielernamen. Vorschlag: 'Spielt' oder 'Im Spiel'
 #: mmm_modules/buddy_panel.py:115
-#, fuzzy
 msgid "Playing"
 msgstr "Spielt"
 
 # O.T.: war 'Angehalten'; Ist Attribut hinter dem Netz-Spielernamen. Vorschlag: 'Pausiert'
 #: mmm_modules/buddy_panel.py:115
-#, fuzzy
 msgid "Paused"
 msgstr "Pausiert"
 
 # O.T.: war 'Beendet'; Ist Attribut hinter dem Netz-Spielernamen. Vorschlag: 'Ist fertig'
 # (Markus S.) 'Fertig'?
 #: mmm_modules/buddy_panel.py:117
-#, fuzzy
 msgid "Finished"
-msgstr "Ist fertig"
+msgstr "ist fertig"
 
 # O.T.: war 'Aufgegeben'; Ist Attribut hinter dem Netz-Spielernamen. Vorschlag: 'Hat aufgegeben'
 #: mmm_modules/buddy_panel.py:119
-#, fuzzy
 msgid "Gave up"
 msgstr "Hat aufgegeben"
 
