@@ -2,324 +2,325 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-01-14 16:38+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2011-08-04 13:40+0000\n"
+"PO-Revision-Date: 2011-08-07 19:22+0200\n"
+"Last-Translator: Aputsiaq Niels <aj@isit.gl>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Translate Toolkit 1.7.0\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Pootle 2.0.1\n"
 
-#: activity/activity.info:2
-msgid "Slider Puzzle"
-msgstr ""
-
-#: SliderPuzzleActivity.py:157
+#: SliderPuzzleActivity.py:161
 #, python-format
 msgid "Buddy '%s' changed status: %s"
-msgstr ""
+msgstr "Kammerat '%s' skiftede status: %s"
 
-#: SliderPuzzleActivity.py:170
+#: SliderPuzzleActivity.py:174
 msgid "Waiting for Puzzle image to be transferred..."
-msgstr ""
-
-#: SliderPuzzleActivity.py:339
-#, python-format
-msgid "Buddy '%s' joined the game!"
-msgstr ""
+msgstr "Venter på at billede for puslespil bliver overført..."
 
 #: SliderPuzzleActivity.py:343
 #, python-format
+msgid "Buddy '%s' joined the game!"
+msgstr "Kammerat '%s' sluttede sig til spillet!"
+
+#: SliderPuzzleActivity.py:347
+#, python-format
 msgid "Buddy '%s' left the game!"
-msgstr ""
+msgstr "Kammerat '%s' forlod spillet!"
 
 #: SliderPuzzleUI.py:214
 msgid "Solve"
-msgstr ""
+msgstr "Løs"
 
 #: SliderPuzzleUI.py:218
 msgid "Shuffle"
-msgstr ""
+msgstr "Bland"
 
 #: SliderPuzzleUI.py:222
 msgid "My Picture"
-msgstr ""
+msgstr "Mit billede"
 
-#: SliderPuzzleUI.py:259
+#: SliderPuzzleUI.py:258
 msgid "Time: "
-msgstr ""
+msgstr "Tid: "
 
-#: SliderPuzzleUI.py:268 SliderPuzzleUI.py:566
+#: SliderPuzzleUI.py:274 SliderPuzzleUI.py:576
 msgid "Lesson Plans"
-msgstr ""
+msgstr "Lektionsplaner"
 
-#: SliderPuzzleUI.py:285
+#: SliderPuzzleUI.py:291
 msgid "Waiting for remote game..."
-msgstr ""
+msgstr "Venter af fjernt placeret spil..."
 
-#: SliderPuzzleUI.py:329
+#: SliderPuzzleUI.py:335
 msgid "Select image and press Start Game..."
-msgstr ""
+msgstr "Vælg billede og tryk Start spil..."
 
-#: SliderPuzzleUI.py:333
+#: SliderPuzzleUI.py:339
 msgid "Waiting for Puzzle image to be chosen..."
-msgstr ""
+msgstr "Venter på at puslespillets billede bliver valgt..."
 
-#: SliderPuzzleUI.py:335 SliderPuzzleUI.py:344
+#: SliderPuzzleUI.py:341 SliderPuzzleUI.py:350
 msgid "Buddies"
-msgstr ""
+msgstr "Kammerater"
 
-#: SliderPuzzleUI.py:362
+#: SliderPuzzleUI.py:368
 msgid "Give Up"
-msgstr ""
+msgstr "Opgiv"
 
-#: SliderPuzzleUI.py:364
+#: SliderPuzzleUI.py:370
 msgid "Start Game"
-msgstr ""
+msgstr "Start spil"
 
-#: SliderPuzzleUI.py:374
+#: SliderPuzzleUI.py:380
 msgid "Slider Puzzle Activity"
-msgstr ""
+msgstr "Aktivteten glidende puslespil"
 
-#: SliderPuzzleUI.py:456
+#: SliderPuzzleUI.py:462
 msgid "Puzzle Solved!"
-msgstr ""
+msgstr "Puslespil løst!"
 
-#: SliderPuzzleUI.py:459
+#: SliderPuzzleUI.py:465
 msgid "Gave Up"
-msgstr ""
+msgstr "Opgav"
 
-#: SliderPuzzleUI.py:487
+#: SliderPuzzleUI.py:493
 msgid "Choose a Subject"
-msgstr ""
+msgstr "Vælg et emne"
 
-#: SliderPuzzleUI.py:569
+#: SliderPuzzleUI.py:579
 msgid "Close Lesson"
-msgstr ""
+msgstr "Luk lektion"
 
-#: SliderPuzzleUI.py:633
+#: SliderPuzzleUI.py:649
 msgid "Game Started!"
-msgstr ""
+msgstr "Spillet er startet!"
+
+#: activity/activity.info:2
+msgid "Slider Puzzle"
+msgstr "Glidende puslespil"
 
 #: i18n_misc_strings.py:1
 msgid "Sea Life"
-msgstr ""
+msgstr "Søliv"
 
 #: i18n_misc_strings.py:2
 msgid "Animals"
-msgstr ""
+msgstr "Dyr"
 
 #: i18n_misc_strings.py:3
 msgid "Birds"
-msgstr ""
+msgstr "Fugle"
 
 #: i18n_misc_strings.py:4
 msgid "XO"
-msgstr ""
+msgstr "XO"
 
 #: i18n_misc_strings.py:5
 msgid "Sequencing Puzzles"
-msgstr ""
+msgstr "Opdelte puslespil"
 
 #: i18n_misc_strings.py:6
 msgid "Sports"
-msgstr ""
+msgstr "Sport"
 
 #: i18n_misc_strings.py:7
 msgid "Insects"
-msgstr ""
+msgstr "Insekter"
 
 #: i18n_misc_strings.py:8
 msgid "Music"
-msgstr ""
+msgstr "Musik"
 
 #: i18n_misc_strings.py:9
 msgid "Space"
-msgstr ""
+msgstr "Rummet"
 
 #: i18n_misc_strings.py:10
 msgid "Lesson 5"
-msgstr ""
+msgstr "Lektion 5"
 
 #: i18n_misc_strings.py:11
 msgid "Lesson 4"
-msgstr ""
+msgstr "Lektion 4"
 
 #: i18n_misc_strings.py:12
 msgid "Overview"
-msgstr ""
+msgstr "Overblik"
 
 #: i18n_misc_strings.py:13
 msgid "Lesson 3"
-msgstr ""
+msgstr "Lektion 3"
 
 #: i18n_misc_strings.py:14
 msgid "Lesson 7"
-msgstr ""
+msgstr "Lektion 7"
 
 #: i18n_misc_strings.py:15
 msgid "Lesson 6"
-msgstr ""
+msgstr "Lektion 6"
 
 #: i18n_misc_strings.py:16
 msgid "Lesson 1"
-msgstr ""
+msgstr "Lektion 1"
 
 #: i18n_misc_strings.py:17
 msgid "Lesson 2"
-msgstr ""
+msgstr "Lektion 2"
 
 #: mmm_modules/buddy_panel.py:49
 msgid "Buddy"
-msgstr ""
+msgstr "Kammerat"
 
 #: mmm_modules/buddy_panel.py:55
 msgid "Status"
-msgstr ""
+msgstr "Status"
 
 #: mmm_modules/buddy_panel.py:62
 msgid "Play Time"
-msgstr ""
+msgstr "Spilletid"
 
 #: mmm_modules/buddy_panel.py:69
 msgid "Joined at"
-msgstr ""
+msgstr "Sluttede sig til"
 
 #: mmm_modules/buddy_panel.py:101
 msgid "synchronizing"
-msgstr ""
-
-#: mmm_modules/buddy_panel.py:115
-msgid "Playing"
-msgstr ""
+msgstr "synkroniserer"
 
 #: mmm_modules/buddy_panel.py:115
 msgid "Paused"
-msgstr ""
+msgstr "På pause"
+
+#: mmm_modules/buddy_panel.py:115
+msgid "Playing"
+msgstr "Afspiller"
 
 #: mmm_modules/buddy_panel.py:117
 msgid "Finished"
-msgstr ""
+msgstr "Afsluttet"
 
 #: mmm_modules/buddy_panel.py:119
 msgid "Gave up"
-msgstr ""
+msgstr "Opgav"
 
 #: mmm_modules/buddy_panel.py:121
 msgid "Unknown"
-msgstr ""
+msgstr "Ukendt"
 
 #: mmm_modules/buddy_panel.py:123
 #, python-format
 msgid "%i minutes"
-msgstr ""
+msgstr "%i minutter"
 
 #: mmm_modules/i18n.py:36
 msgid "Chinese (simplified)"
-msgstr ""
+msgstr "Kinesisk (simplificeret)"
 
 #: mmm_modules/i18n.py:37
 msgid "Chinese (traditional)"
-msgstr ""
+msgstr "Kinesisk (tradionelt)"
 
 #: mmm_modules/i18n.py:38
 msgid "Czech"
-msgstr ""
+msgstr "Tjekkisk"
 
 #: mmm_modules/i18n.py:39
 msgid "Danish"
-msgstr ""
+msgstr "Dansk"
 
 #: mmm_modules/i18n.py:40
 msgid "Dutch"
-msgstr ""
+msgstr "Hollandsk"
 
 #: mmm_modules/i18n.py:41
 msgid "English"
-msgstr ""
+msgstr "Engelsk"
 
 #: mmm_modules/i18n.py:42
 msgid "English - Great Britain"
-msgstr ""
+msgstr "Engelsk - Storbrittanien"
 
 #: mmm_modules/i18n.py:43
 msgid "English - U.S."
-msgstr ""
+msgstr "Engelsk - amerikansk"
 
 #: mmm_modules/i18n.py:44
 msgid "Finnish"
-msgstr ""
+msgstr "Finsk"
 
 #: mmm_modules/i18n.py:45
 msgid "French"
-msgstr ""
+msgstr "Fransk"
 
 #: mmm_modules/i18n.py:46
 msgid "German"
-msgstr ""
+msgstr "Tysk"
 
 #: mmm_modules/i18n.py:47
 msgid "Hungarian"
-msgstr ""
+msgstr "Ungarsk"
 
 #: mmm_modules/i18n.py:48
 msgid "Italian"
-msgstr ""
+msgstr "Italiensk"
 
 #: mmm_modules/i18n.py:49
 msgid "Japanese"
-msgstr ""
+msgstr "Japansk"
 
 #: mmm_modules/i18n.py:50
 msgid "Korean"
-msgstr ""
+msgstr "Koreansk"
 
 #: mmm_modules/i18n.py:51
 msgid "Norwegian"
-msgstr ""
+msgstr "Norsk"
 
 #: mmm_modules/i18n.py:52
 msgid "Polish"
-msgstr ""
+msgstr "Polsk"
 
 #: mmm_modules/i18n.py:53
 msgid "Portuguese"
-msgstr ""
+msgstr "Portugisisk"
 
 #: mmm_modules/i18n.py:54
 msgid "Portuguese - Brazilian"
-msgstr ""
+msgstr "Portugisisk - brasiliansk"
 
 #: mmm_modules/i18n.py:55
 msgid "Russian"
-msgstr ""
+msgstr "Russisk"
 
 #: mmm_modules/i18n.py:56
 msgid "Slovak"
-msgstr ""
+msgstr "Slovakisk"
 
 #: mmm_modules/i18n.py:57
 msgid "Spanish"
-msgstr ""
+msgstr "Spansk"
 
 #: mmm_modules/i18n.py:58
 msgid "Swedish"
-msgstr ""
+msgstr "Svensk"
 
 #: mmm_modules/i18n.py:59
 msgid "Turkish"
-msgstr ""
+msgstr "Tyrkisk"
 
-#: mmm_modules/image_category.py:215
+#: mmm_modules/image_category.py:222
 msgid "Choose image"
-msgstr ""
+msgstr "Vælg billede"
 
-#: mmm_modules/image_category.py:226
+#: mmm_modules/image_category.py:234
 msgid "Not a valid image file"
-msgstr ""
+msgstr "Ikke en gyldign billedfil"
