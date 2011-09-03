@@ -22,40 +22,52 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-01-14 16:38+0000\n"
+"POT-Creation-Date: 2011-08-04 13:40+0000\n"
 "PO-Revision-Date: 2008-08-21 09:18-0400\n"
 "Last-Translator: samy boutayeb <s.boutayeb@free.fr>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Pootle 1.1.0rc2\n"
 
-# C'est la traduction la plus évidente selon Wikipédia
-#: activity/activity.info:2
-msgid "Slider Puzzle"
-msgstr "Jeu du taquin"
-
 # Le terme "buddy" peut être traduit par "copain" mais me semble un peu incongru ici
-#: SliderPuzzleActivity.py:157
+#: SliderPuzzleActivity.py:161
 #, python-format
 msgid "Buddy '%s' changed status: %s"
 msgstr "'%s' a changé de statut: %s"
 
-#: SliderPuzzleActivity.py:170
+#: SliderPuzzleActivity.py:174
 msgid "Waiting for Puzzle image to be transferred..."
 msgstr "En attente du transfert de l'image..."
 
-#: SliderPuzzleActivity.py:339
+#: SliderPuzzleActivity.py:343
 #, python-format
 msgid "Buddy '%s' joined the game!"
 msgstr "'%s' a rejoint le jeu !"
 
-#: SliderPuzzleActivity.py:343
+#: SliderPuzzleActivity.py:347
 #, python-format
 msgid "Buddy '%s' left the game!"
 msgstr "'%s' a quitté le jeu !"
@@ -72,62 +84,67 @@ msgstr "Mélanger"
 msgid "My Picture"
 msgstr "Mon image"
 
-#: SliderPuzzleUI.py:259
+#: SliderPuzzleUI.py:258
 msgid "Time: "
 msgstr "Durée: "
 
-#: SliderPuzzleUI.py:268 SliderPuzzleUI.py:566
+#: SliderPuzzleUI.py:274 SliderPuzzleUI.py:576
 msgid "Lesson Plans"
 msgstr "Règles du jeu"
 
-#: SliderPuzzleUI.py:285
+#: SliderPuzzleUI.py:291
 msgid "Waiting for remote game..."
 msgstr "En attente du jeu distant..."
 
-#: SliderPuzzleUI.py:329
+#: SliderPuzzleUI.py:335
 msgid "Select image and press Start Game..."
 msgstr "Choisis une image et appuie sur Démarrer..."
 
-#: SliderPuzzleUI.py:333
+#: SliderPuzzleUI.py:339
 msgid "Waiting for Puzzle image to be chosen..."
 msgstr "En attente du choix de l'image..."
 
 # Le terme joueur me parait plus adapté ici
-#: SliderPuzzleUI.py:335 SliderPuzzleUI.py:344
+#: SliderPuzzleUI.py:341 SliderPuzzleUI.py:350
 msgid "Buddies"
 msgstr "Joueurs"
 
-#: SliderPuzzleUI.py:362
+#: SliderPuzzleUI.py:368
 msgid "Give Up"
 msgstr "Abandonner"
 
-#: SliderPuzzleUI.py:364
+#: SliderPuzzleUI.py:370
 msgid "Start Game"
 msgstr "Démarrer"
 
-#: SliderPuzzleUI.py:374
+#: SliderPuzzleUI.py:380
 msgid "Slider Puzzle Activity"
 msgstr "Activité Taquin"
 
-#: SliderPuzzleUI.py:456
+#: SliderPuzzleUI.py:462
 msgid "Puzzle Solved!"
 msgstr "Jeu résolu !"
 
-#: SliderPuzzleUI.py:459
+#: SliderPuzzleUI.py:465
 msgid "Gave Up"
 msgstr "A abandonné"
 
-#: SliderPuzzleUI.py:487
+#: SliderPuzzleUI.py:493
 msgid "Choose a Subject"
 msgstr "Choisir un thème"
 
-#: SliderPuzzleUI.py:569
+#: SliderPuzzleUI.py:579
 msgid "Close Lesson"
 msgstr "Terminer la leçon"
 
-#: SliderPuzzleUI.py:633
+#: SliderPuzzleUI.py:649
 msgid "Game Started!"
 msgstr "Jeu démarré !"
+
+# C'est la traduction la plus évidente selon Wikipédia
+#: activity/activity.info:2
+msgid "Slider Puzzle"
+msgstr "Jeu du taquin"
 
 #: i18n_misc_strings.py:1
 msgid "Sea Life"
@@ -217,15 +234,15 @@ msgstr "Rejoint à"
 msgid "synchronizing"
 msgstr "synchronisation"
 
-# Plus adapté que "jouant" ou "en cours de jeu"
-#: mmm_modules/buddy_panel.py:115
-msgid "Playing"
-msgstr "Joue"
-
 # Anglicisme mais cela me parait la meilleure traduction
 #: mmm_modules/buddy_panel.py:115
 msgid "Paused"
 msgstr "En pause"
+
+# Plus adapté que "jouant" ou "en cours de jeu"
+#: mmm_modules/buddy_panel.py:115
+msgid "Playing"
+msgstr "Joue"
 
 #: mmm_modules/buddy_panel.py:117
 msgid "Finished"
@@ -340,10 +357,10 @@ msgstr "Suédois"
 msgid "Turkish"
 msgstr "Turc"
 
-#: mmm_modules/image_category.py:215
+#: mmm_modules/image_category.py:222
 msgid "Choose image"
 msgstr "Choisis une image"
 
-#: mmm_modules/image_category.py:226
+#: mmm_modules/image_category.py:234
 msgid "Not a valid image file"
 msgstr "Fichier image non valide"
