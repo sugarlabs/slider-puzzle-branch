@@ -158,7 +158,10 @@ class GameTube (ExportedGObject):
         buddy = self.get_buddy(self.tube.bus_name_to_handle[sender])
         nick, stat = self.activity.ui.buddy_panel.update_player(buddy, status, bool(clock_running), int(ellapsed_time))
         if buddy != self.activity.owner:
-            self.activity.ui.set_message(_("Buddy '%s' changed status: %s") % (nick, stat), frommesh=True)
+            self.activity.ui.set_message(
+                    _("Buddy '%(buddy)s' changed status: %(status)s") % \
+                        {'buddy': nick, 'status': stat},
+                    frommesh=True)
 
     @method(dbus_interface=IFACE, in_signature='s', out_signature='')
     def Welcome(self, state):
