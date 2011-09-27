@@ -42,32 +42,37 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-08-04 13:40+0000\n"
-"PO-Revision-Date: 2008-08-21 09:18-0400\n"
+"POT-Creation-Date: 2011-09-25 00:31-0400\n"
+"PO-Revision-Date: 2011-09-27 11:23+0200\n"
 "Last-Translator: samy boutayeb <s.boutayeb@free.fr>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Pootle 1.1.0rc2\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Pootle 2.0.5\n"
 
-# Le terme "buddy" peut être traduit par "copain" mais me semble un peu incongru ici
-#: SliderPuzzleActivity.py:161
+# C'est la traduction la plus évidente selon Wikipédia
+#: activity/activity.info:2
+msgid "Slider Puzzle"
+msgstr "Jeu du taquin"
+
+#: SliderPuzzleActivity.py:162
 #, python-format
-msgid "Buddy '%s' changed status: %s"
-msgstr "'%s' a changé de statut: %s"
+msgid "Buddy '%(buddy)s' changed status: %(status)s"
+msgstr "Le joueur '%(buddy)s' a changé de statut : %(status)s"
 
-#: SliderPuzzleActivity.py:174
+#: SliderPuzzleActivity.py:177
 msgid "Waiting for Puzzle image to be transferred..."
 msgstr "En attente du transfert de l'image..."
 
-#: SliderPuzzleActivity.py:343
+#: SliderPuzzleActivity.py:346
 #, python-format
 msgid "Buddy '%s' joined the game!"
 msgstr "'%s' a rejoint le jeu !"
 
-#: SliderPuzzleActivity.py:347
+#: SliderPuzzleActivity.py:350
 #, python-format
 msgid "Buddy '%s' left the game!"
 msgstr "'%s' a quitté le jeu !"
@@ -140,11 +145,6 @@ msgstr "Terminer la leçon"
 #: SliderPuzzleUI.py:649
 msgid "Game Started!"
 msgstr "Jeu démarré !"
-
-# C'est la traduction la plus évidente selon Wikipédia
-#: activity/activity.info:2
-msgid "Slider Puzzle"
-msgstr "Jeu du taquin"
 
 #: i18n_misc_strings.py:1
 msgid "Sea Life"
@@ -234,15 +234,15 @@ msgstr "Rejoint à"
 msgid "synchronizing"
 msgstr "synchronisation"
 
-# Anglicisme mais cela me parait la meilleure traduction
-#: mmm_modules/buddy_panel.py:115
-msgid "Paused"
-msgstr "En pause"
-
 # Plus adapté que "jouant" ou "en cours de jeu"
 #: mmm_modules/buddy_panel.py:115
 msgid "Playing"
 msgstr "Joue"
+
+# Anglicisme mais cela me parait la meilleure traduction
+#: mmm_modules/buddy_panel.py:115
+msgid "Paused"
+msgstr "En pause"
 
 #: mmm_modules/buddy_panel.py:117
 msgid "Finished"
@@ -364,3 +364,8 @@ msgstr "Choisis une image"
 #: mmm_modules/image_category.py:234
 msgid "Not a valid image file"
 msgstr "Fichier image non valide"
+
+# Le terme "buddy" peut être traduit par "copain" mais me semble un peu incongru ici
+#, python-format
+#~ msgid "Buddy '%s' changed status: %s"
+#~ msgstr "'%s' a changé de statut: %s"
