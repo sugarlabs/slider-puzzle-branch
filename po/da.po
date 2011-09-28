@@ -6,32 +6,36 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-08-04 13:40+0000\n"
-"PO-Revision-Date: 2011-08-07 19:22+0200\n"
+"POT-Creation-Date: 2011-09-25 00:31-0400\n"
+"PO-Revision-Date: 2011-09-28 17:21+0200\n"
 "Last-Translator: Aputsiaq Niels <aj@isit.gl>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.0.1\n"
+"X-Generator: Pootle 2.0.5\n"
 
-#: SliderPuzzleActivity.py:161
+#: activity/activity.info:2
+msgid "Slider Puzzle"
+msgstr "Glidende puslespil"
+
+#: SliderPuzzleActivity.py:162
 #, python-format
-msgid "Buddy '%s' changed status: %s"
-msgstr "Kammerat '%s' skiftede status: %s"
+msgid "Buddy '%(buddy)s' changed status: %(status)s"
+msgstr "Kammerat '%(buddy)s' ændrede status: %(status)s"
 
-#: SliderPuzzleActivity.py:174
+#: SliderPuzzleActivity.py:177
 msgid "Waiting for Puzzle image to be transferred..."
 msgstr "Venter på at billede for puslespil bliver overført..."
 
-#: SliderPuzzleActivity.py:343
+#: SliderPuzzleActivity.py:346
 #, python-format
 msgid "Buddy '%s' joined the game!"
 msgstr "Kammerat '%s' sluttede sig til spillet!"
 
-#: SliderPuzzleActivity.py:347
+#: SliderPuzzleActivity.py:350
 #, python-format
 msgid "Buddy '%s' left the game!"
 msgstr "Kammerat '%s' forlod spillet!"
@@ -103,10 +107,6 @@ msgstr "Luk lektion"
 #: SliderPuzzleUI.py:649
 msgid "Game Started!"
 msgstr "Spillet er startet!"
-
-#: activity/activity.info:2
-msgid "Slider Puzzle"
-msgstr "Glidende puslespil"
 
 #: i18n_misc_strings.py:1
 msgid "Sea Life"
@@ -197,12 +197,12 @@ msgid "synchronizing"
 msgstr "synkroniserer"
 
 #: mmm_modules/buddy_panel.py:115
-msgid "Paused"
-msgstr "På pause"
-
-#: mmm_modules/buddy_panel.py:115
 msgid "Playing"
 msgstr "Afspiller"
+
+#: mmm_modules/buddy_panel.py:115
+msgid "Paused"
+msgstr "På pause"
 
 #: mmm_modules/buddy_panel.py:117
 msgid "Finished"
@@ -324,3 +324,7 @@ msgstr "Vælg billede"
 #: mmm_modules/image_category.py:234
 msgid "Not a valid image file"
 msgstr "Ikke en gyldign billedfil"
+
+#, python-format
+#~ msgid "Buddy '%s' changed status: %s"
+#~ msgstr "Kammerat '%s' skiftede status: %s"
