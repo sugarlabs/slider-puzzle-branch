@@ -22,43 +22,51 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-01-14 16:38+0000\n"
-"PO-Revision-Date: 2010-01-14 23:22-0400\n"
-"Last-Translator: Chris Leonard <cjl@laptop.org>\n"
+"POT-Creation-Date: 2011-09-25 00:31-0400\n"
+"PO-Revision-Date: 2011-07-03 14:50+0200\n"
+"Last-Translator: Chris <cjl@laptop.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: ta\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 1.2.1\n"
+"X-Generator: Pootle 2.0.1\n"
 
 #: activity/activity.info:2
 msgid "Slider Puzzle"
 msgstr "வழுக்கிப் புதிர்"
 
-#: SliderPuzzleActivity.py:157
+#: SliderPuzzleActivity.py:162
 #, python-format
-msgid "Buddy '%s' changed status: %s"
-msgstr "நண்பர் '%s' மாற்றப்பட்ட நிலைப்பாடு: %s"
+msgid "Buddy '%(buddy)s' changed status: %(status)s"
+msgstr ""
 
-#: SliderPuzzleActivity.py:170
+#: SliderPuzzleActivity.py:177
 msgid "Waiting for Puzzle image to be transferred..."
 msgstr "புதிர்ப்படம் மாற்றப்பும்வரை காத்திருக்கிறது"
 
-#: SliderPuzzleActivity.py:339
+#: SliderPuzzleActivity.py:346
 #, python-format
 msgid "Buddy '%s' joined the game!"
 msgstr "நண்பர் '%s' ஆட்டத்தில் இணைத்தல்!"
 
-#: SliderPuzzleActivity.py:343
+#: SliderPuzzleActivity.py:350
 #, python-format
 msgid "Buddy '%s' left the game!"
-msgstr " நண்பர் '%s' ஆட்டத்தை விட்டு சென்று விட்டார்!"
+msgstr "நண்பர் '%s' ஆட்டத்தை விட்டு சென்று விட்டார்!"
 
 #: SliderPuzzleUI.py:214
 msgid "Solve"
@@ -70,61 +78,61 @@ msgstr "குழப்பு"
 
 #: SliderPuzzleUI.py:222
 msgid "My Picture"
-msgstr "எனது படம் "
+msgstr "எனது படம்"
 
-#: SliderPuzzleUI.py:259
+#: SliderPuzzleUI.py:258
 msgid "Time: "
-msgstr "நேரம்"
+msgstr "நேரம் "
 
-#: SliderPuzzleUI.py:268 SliderPuzzleUI.py:566
+#: SliderPuzzleUI.py:274 SliderPuzzleUI.py:576
 msgid "Lesson Plans"
-msgstr "பாடத்திட்டம் "
+msgstr "பாடத்திட்டம்"
 
-#: SliderPuzzleUI.py:285
+#: SliderPuzzleUI.py:291
 msgid "Waiting for remote game..."
 msgstr "வலைப்பின்னல் ஆட்டத்திற்கு காத்திரு"
 
-#: SliderPuzzleUI.py:329
+#: SliderPuzzleUI.py:335
 msgid "Select image and press Start Game..."
 msgstr "ஆட்டத்தை தொடங்க படத்தை தெரிவு செய்யவும்"
 
-#: SliderPuzzleUI.py:333
+#: SliderPuzzleUI.py:339
 msgid "Waiting for Puzzle image to be chosen..."
-msgstr "புதிர்படத்தை தெரிவு செய்ய காத்திருக்கவும் "
+msgstr "புதிர்படத்தை தெரிவு செய்ய காத்திருக்கவும்"
 
-#: SliderPuzzleUI.py:335 SliderPuzzleUI.py:344
+#: SliderPuzzleUI.py:341 SliderPuzzleUI.py:350
 msgid "Buddies"
 msgstr "நண்பர்கள்"
 
-#: SliderPuzzleUI.py:362
+#: SliderPuzzleUI.py:368
 msgid "Give Up"
 msgstr "இயலாது"
 
-#: SliderPuzzleUI.py:364
+#: SliderPuzzleUI.py:370
 msgid "Start Game"
 msgstr "ஆட்டம் ஆரம்பம்"
 
-#: SliderPuzzleUI.py:374
+#: SliderPuzzleUI.py:380
 msgid "Slider Puzzle Activity"
 msgstr "வழுக்கிப் புதிர் செயற்பாடு"
 
-#: SliderPuzzleUI.py:456
+#: SliderPuzzleUI.py:462
 msgid "Puzzle Solved!"
 msgstr "புதிர் பூர்த்தி செய்யப்பட்டது!"
 
-#: SliderPuzzleUI.py:459
+#: SliderPuzzleUI.py:465
 msgid "Gave Up"
-msgstr "தோற்று விட்டார் "
+msgstr "தோற்று விட்டார்"
 
-#: SliderPuzzleUI.py:487
+#: SliderPuzzleUI.py:493
 msgid "Choose a Subject"
 msgstr "பாடத்தை தெரிவு செய்"
 
-#: SliderPuzzleUI.py:569
+#: SliderPuzzleUI.py:579
 msgid "Close Lesson"
 msgstr "பாடத்தை மூடு"
 
-#: SliderPuzzleUI.py:633
+#: SliderPuzzleUI.py:649
 msgid "Game Started!"
 msgstr "ஆட்டம் ஆரம்பிக்கப்பட்டது!"
 
@@ -146,7 +154,7 @@ msgstr "XO"
 
 #: i18n_misc_strings.py:5
 msgid "Sequencing Puzzles"
-msgstr "வரிசை முறையான புதிர் "
+msgstr "வரிசை முறையான புதிர்"
 
 #: i18n_misc_strings.py:6
 msgid "Sports"
@@ -230,7 +238,7 @@ msgstr "முடிக்கப்பட்டது"
 
 #: mmm_modules/buddy_panel.py:119
 msgid "Gave up"
-msgstr "தோற்று விட்டார் "
+msgstr "தோற்று விட்டார்"
 
 #: mmm_modules/buddy_panel.py:121
 msgid "Unknown"
@@ -299,7 +307,7 @@ msgstr "ஜப்பானிய மொழி"
 
 #: mmm_modules/i18n.py:50
 msgid "Korean"
-msgstr "கொரிய மொழி "
+msgstr "கொரிய மொழி"
 
 #: mmm_modules/i18n.py:51
 msgid "Norwegian"
@@ -337,10 +345,14 @@ msgstr "சுவீடன் மொழி"
 msgid "Turkish"
 msgstr "துருக்கிய மொழி"
 
-#: mmm_modules/image_category.py:215
+#: mmm_modules/image_category.py:222
 msgid "Choose image"
 msgstr "படத்தை தெரிவு செய்"
 
-#: mmm_modules/image_category.py:226
+#: mmm_modules/image_category.py:234
 msgid "Not a valid image file"
 msgstr "தகுதியான படக்கோப்பு அல்ல"
+
+#, python-format
+#~ msgid "Buddy '%s' changed status: %s"
+#~ msgstr "நண்பர் '%s' மாற்றப்பட்ட நிலைப்பாடு: %s"
