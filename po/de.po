@@ -58,36 +58,36 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-01-14 16:38+0000\n"
-"PO-Revision-Date: 2010-11-02 20:47+0200\n"
-"Last-Translator: FlowerPowerGirl <o.parczyk@online.de>\n"
+"POT-Creation-Date: 2011-09-25 00:31-0400\n"
+"PO-Revision-Date: 2011-09-29 23:27+0200\n"
+"Last-Translator: Markus <m.slg@gmx.de>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.0.3\n"
+"X-Generator: Pootle 2.0.5\n"
 
 #: activity/activity.info:2
 msgid "Slider Puzzle"
 msgstr "Schiebepuzzle"
 
-#: SliderPuzzleActivity.py:157
+#: SliderPuzzleActivity.py:162
 #, python-format
-msgid "Buddy '%s' changed status: %s"
-msgstr "Spielkamerad '%s' hat sich verändert: %s"
+msgid "Buddy '%(buddy)s' changed status: %(status)s"
+msgstr "Der Partner '%(buddy)s' hat den Status gewechselt: %(status)s"
 
-#: SliderPuzzleActivity.py:170
+#: SliderPuzzleActivity.py:177
 msgid "Waiting for Puzzle image to be transferred..."
 msgstr "Warte auf die Übertragung des Puzzle-Bildes..."
 
-#: SliderPuzzleActivity.py:339
+#: SliderPuzzleActivity.py:346
 #, python-format
 msgid "Buddy '%s' joined the game!"
 msgstr "Spielkamerad '%s' ist dem Spiel beigetreten!"
 
-#: SliderPuzzleActivity.py:343
+#: SliderPuzzleActivity.py:350
 #, python-format
 msgid "Buddy '%s' left the game!"
 msgstr "Spielkamerad '%s' hat das Spiel verlassen!"
@@ -105,59 +105,59 @@ msgstr "Mischen"
 msgid "My Picture"
 msgstr "Mein Bild"
 
-#: SliderPuzzleUI.py:259
+#: SliderPuzzleUI.py:258
 msgid "Time: "
 msgstr "Zeit: "
 
-#: SliderPuzzleUI.py:268 SliderPuzzleUI.py:566
+#: SliderPuzzleUI.py:274 SliderPuzzleUI.py:576
 msgid "Lesson Plans"
 msgstr "Übungspläne"
 
-#: SliderPuzzleUI.py:285
+#: SliderPuzzleUI.py:291
 msgid "Waiting for remote game..."
 msgstr "Warte auf Fernspiel..."
 
-#: SliderPuzzleUI.py:329
+#: SliderPuzzleUI.py:335
 msgid "Select image and press Start Game..."
 msgstr "Wähle ein Bild aus und drücke 'Spiel starten'..."
 
-#: SliderPuzzleUI.py:333
+#: SliderPuzzleUI.py:339
 msgid "Waiting for Puzzle image to be chosen..."
 msgstr "Warte auf Auswahl des Puzzle-Bildes..."
 
-#: SliderPuzzleUI.py:335 SliderPuzzleUI.py:344
+#: SliderPuzzleUI.py:341 SliderPuzzleUI.py:350
 msgid "Buddies"
 msgstr "Spielkameraden"
 
-#: SliderPuzzleUI.py:362
+#: SliderPuzzleUI.py:368
 msgid "Give Up"
 msgstr "Aufgeben"
 
-#: SliderPuzzleUI.py:364
+#: SliderPuzzleUI.py:370
 msgid "Start Game"
 msgstr "Spiel starten"
 
-#: SliderPuzzleUI.py:374
+#: SliderPuzzleUI.py:380
 msgid "Slider Puzzle Activity"
 msgstr "Schiebepuzzle-Aktivität"
 
-#: SliderPuzzleUI.py:456
+#: SliderPuzzleUI.py:462
 msgid "Puzzle Solved!"
 msgstr "Puzzle gelöst!"
 
-#: SliderPuzzleUI.py:459
+#: SliderPuzzleUI.py:465
 msgid "Gave Up"
 msgstr "Aufgegeben"
 
-#: SliderPuzzleUI.py:487
+#: SliderPuzzleUI.py:493
 msgid "Choose a Subject"
 msgstr "Thema auswählen"
 
-#: SliderPuzzleUI.py:569
+#: SliderPuzzleUI.py:579
 msgid "Close Lesson"
 msgstr "Übung schließen"
 
-#: SliderPuzzleUI.py:633
+#: SliderPuzzleUI.py:649
 msgid "Game Started!"
 msgstr "Spiel gestartet!"
 
@@ -381,10 +381,14 @@ msgstr "Schwedisch"
 msgid "Turkish"
 msgstr "Türkisch"
 
-#: mmm_modules/image_category.py:215
+#: mmm_modules/image_category.py:222
 msgid "Choose image"
 msgstr "Bild auswählen"
 
-#: mmm_modules/image_category.py:226
+#: mmm_modules/image_category.py:234
 msgid "Not a valid image file"
 msgstr "Keine zulässige Bilddatei"
+
+#, python-format
+#~ msgid "Buddy '%s' changed status: %s"
+#~ msgstr "Spielkamerad '%s' hat sich verändert: %s"
