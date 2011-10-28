@@ -7,10 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-01-14 16:38+0000\n"
+"POT-Creation-Date: 2011-09-25 00:31-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -20,92 +21,95 @@ msgstr ""
 msgid "Slider Puzzle"
 msgstr ""
 
-#: SliderPuzzleActivity.py:157
+#: SliderPuzzleActivity.py:162
 #, python-format
-msgid "Buddy '%s' changed status: %s"
+msgid "Buddy '%(buddy)s' changed status: %(status)s"
 msgstr ""
 
-#: SliderPuzzleActivity.py:170
+#: SliderPuzzleActivity.py:177
 msgid "Waiting for Puzzle image to be transferred..."
 msgstr ""
 
-#: SliderPuzzleActivity.py:339
+#: SliderPuzzleActivity.py:346
 #, python-format
 msgid "Buddy '%s' joined the game!"
 msgstr ""
 
-#: SliderPuzzleActivity.py:343
+#: SliderPuzzleActivity.py:350
 #, python-format
 msgid "Buddy '%s' left the game!"
 msgstr ""
 
 #: SliderPuzzleUI.py:214
 msgid "Solve"
-msgstr ""
+msgstr "ដោះ​ស្រាយ"
 
 #: SliderPuzzleUI.py:218
 msgid "Shuffle"
-msgstr ""
+msgstr "ចម្រៀក"
 
 #: SliderPuzzleUI.py:222
+#, fuzzy
 msgid "My Picture"
-msgstr ""
+msgstr "គ្មាន​រូបភាព"
 
-#: SliderPuzzleUI.py:259
+#: SliderPuzzleUI.py:258
 msgid "Time: "
-msgstr ""
+msgstr "ពេលវេលា ៖ "
 
-#: SliderPuzzleUI.py:268 SliderPuzzleUI.py:566
+#: SliderPuzzleUI.py:274 SliderPuzzleUI.py:576
 msgid "Lesson Plans"
 msgstr ""
 
-#: SliderPuzzleUI.py:285
+#: SliderPuzzleUI.py:291
 msgid "Waiting for remote game..."
 msgstr ""
 
-#: SliderPuzzleUI.py:329
+#: SliderPuzzleUI.py:335
 msgid "Select image and press Start Game..."
 msgstr ""
 
-#: SliderPuzzleUI.py:333
+#: SliderPuzzleUI.py:339
 msgid "Waiting for Puzzle image to be chosen..."
 msgstr ""
 
-#: SliderPuzzleUI.py:335 SliderPuzzleUI.py:344
+#: SliderPuzzleUI.py:341 SliderPuzzleUI.py:350
 msgid "Buddies"
-msgstr ""
+msgstr "មិត្តជិតស្និទ្ធិ"
 
-#: SliderPuzzleUI.py:362
+#: SliderPuzzleUI.py:368
 msgid "Give Up"
-msgstr ""
+msgstr "បោះបង់"
 
-#: SliderPuzzleUI.py:364
+#: SliderPuzzleUI.py:370
 msgid "Start Game"
-msgstr ""
+msgstr "ចាប់ផ្ដើម​ល្បែង"
 
-#: SliderPuzzleUI.py:374
+#: SliderPuzzleUI.py:380
 msgid "Slider Puzzle Activity"
 msgstr ""
 
-#: SliderPuzzleUI.py:456
+#: SliderPuzzleUI.py:462
 msgid "Puzzle Solved!"
 msgstr ""
 
-#: SliderPuzzleUI.py:459
+#: SliderPuzzleUI.py:465
+#, fuzzy
 msgid "Gave Up"
-msgstr ""
+msgstr "បោះបង់"
 
-#: SliderPuzzleUI.py:487
+#: SliderPuzzleUI.py:493
+#, fuzzy
 msgid "Choose a Subject"
-msgstr ""
+msgstr "ជ្រើស​វត្ថុ"
 
-#: SliderPuzzleUI.py:569
+#: SliderPuzzleUI.py:579
 msgid "Close Lesson"
 msgstr ""
 
-#: SliderPuzzleUI.py:633
+#: SliderPuzzleUI.py:649
 msgid "Game Started!"
-msgstr ""
+msgstr "ចាប់ផ្ដើម​ល្បែង"
 
 #: i18n_misc_strings.py:1
 msgid "Sea Life"
@@ -113,7 +117,7 @@ msgstr ""
 
 #: i18n_misc_strings.py:2
 msgid "Animals"
-msgstr ""
+msgstr "សត្វ"
 
 #: i18n_misc_strings.py:3
 msgid "Birds"
@@ -129,7 +133,7 @@ msgstr ""
 
 #: i18n_misc_strings.py:6
 msgid "Sports"
-msgstr ""
+msgstr "កីឡា"
 
 #: i18n_misc_strings.py:7
 msgid "Insects"
@@ -137,51 +141,59 @@ msgstr ""
 
 #: i18n_misc_strings.py:8
 msgid "Music"
-msgstr ""
+msgstr "តន្ត្រី"
 
 #: i18n_misc_strings.py:9
 msgid "Space"
-msgstr ""
+msgstr "ចន្លោះ​មិន​ឃើញ"
 
 #: i18n_misc_strings.py:10
+#, fuzzy
 msgid "Lesson 5"
-msgstr ""
+msgstr "មេរៀន"
 
 #: i18n_misc_strings.py:11
+#, fuzzy
 msgid "Lesson 4"
-msgstr ""
+msgstr "មេរៀន"
 
 #: i18n_misc_strings.py:12
 msgid "Overview"
-msgstr ""
+msgstr "ទិដ្ឋភាព​ទូទៅ"
 
 #: i18n_misc_strings.py:13
+#, fuzzy
 msgid "Lesson 3"
-msgstr ""
+msgstr "មេរៀន"
 
 #: i18n_misc_strings.py:14
+#, fuzzy
 msgid "Lesson 7"
-msgstr ""
+msgstr "មេរៀន"
 
 #: i18n_misc_strings.py:15
+#, fuzzy
 msgid "Lesson 6"
-msgstr ""
+msgstr "មេរៀន"
 
 #: i18n_misc_strings.py:16
+#, fuzzy
 msgid "Lesson 1"
-msgstr ""
+msgstr "មេរៀន"
 
 #: i18n_misc_strings.py:17
+#, fuzzy
 msgid "Lesson 2"
-msgstr ""
+msgstr "មេរៀន"
 
 #: mmm_modules/buddy_panel.py:49
 msgid "Buddy"
 msgstr ""
 
 #: mmm_modules/buddy_panel.py:55
+#, c-format
 msgid "Status"
-msgstr ""
+msgstr "ស្ថានភាព"
 
 #: mmm_modules/buddy_panel.py:62
 msgid "Play Time"
@@ -197,52 +209,53 @@ msgstr ""
 
 #: mmm_modules/buddy_panel.py:115
 msgid "Playing"
-msgstr ""
+msgstr "កំពុង​ចាក់"
 
 #: mmm_modules/buddy_panel.py:115
 msgid "Paused"
-msgstr ""
+msgstr "បាន​ផ្អាក"
 
 #: mmm_modules/buddy_panel.py:117
 msgid "Finished"
-msgstr ""
+msgstr "បាន​បញ្ចប់"
 
 #: mmm_modules/buddy_panel.py:119
+#, fuzzy
 msgid "Gave up"
-msgstr ""
+msgstr "បោះបង់"
 
 #: mmm_modules/buddy_panel.py:121
 msgid "Unknown"
-msgstr ""
+msgstr "មិន​ស្គាល់"
 
 #: mmm_modules/buddy_panel.py:123
 #, python-format
 msgid "%i minutes"
-msgstr ""
+msgstr "%i នាទី"
 
 #: mmm_modules/i18n.py:36
 msgid "Chinese (simplified)"
-msgstr ""
+msgstr "ចិន (សាមញ្ញ)"
 
 #: mmm_modules/i18n.py:37
 msgid "Chinese (traditional)"
-msgstr ""
+msgstr "ចិន (បុរាណ)"
 
 #: mmm_modules/i18n.py:38
 msgid "Czech"
-msgstr ""
+msgstr "ឆេក"
 
 #: mmm_modules/i18n.py:39
 msgid "Danish"
-msgstr ""
+msgstr "ដាណឺម៉ាក"
 
 #: mmm_modules/i18n.py:40
 msgid "Dutch"
-msgstr ""
+msgstr "ហុល្លង់"
 
 #: mmm_modules/i18n.py:41
 msgid "English"
-msgstr ""
+msgstr "អង់គ្លេស"
 
 #: mmm_modules/i18n.py:42
 msgid "English - Great Britain"
@@ -250,76 +263,76 @@ msgstr ""
 
 #: mmm_modules/i18n.py:43
 msgid "English - U.S."
-msgstr ""
+msgstr "អង់គ្លេស (សហរដ្ឋ​អាមេរិក)"
 
 #: mmm_modules/i18n.py:44
 msgid "Finnish"
-msgstr ""
+msgstr "ហ្វាំងឡង់"
 
 #: mmm_modules/i18n.py:45
 msgid "French"
-msgstr ""
+msgstr "បារាំង"
 
 #: mmm_modules/i18n.py:46
 msgid "German"
-msgstr ""
+msgstr "អាល្លឺម៉ង់"
 
 #: mmm_modules/i18n.py:47
 msgid "Hungarian"
-msgstr ""
+msgstr "ហុងគ្រី"
 
 #: mmm_modules/i18n.py:48
 msgid "Italian"
-msgstr ""
+msgstr "អ៊ីតាលី"
 
 #: mmm_modules/i18n.py:49
 msgid "Japanese"
-msgstr ""
+msgstr "ជប៉ុន"
 
 #: mmm_modules/i18n.py:50
 msgid "Korean"
-msgstr ""
+msgstr "កូរ៉េ"
 
 #: mmm_modules/i18n.py:51
 msgid "Norwegian"
-msgstr ""
+msgstr "ន័រវែស"
 
 #: mmm_modules/i18n.py:52
 msgid "Polish"
-msgstr ""
+msgstr "ប៉ូឡូញ"
 
 #: mmm_modules/i18n.py:53
 msgid "Portuguese"
-msgstr ""
+msgstr "ព័រទុយហ្គាល់"
 
 #: mmm_modules/i18n.py:54
 msgid "Portuguese - Brazilian"
-msgstr ""
+msgstr "ព័រទុយហ្គាល់ (ប្រេស៊ីល)"
 
 #: mmm_modules/i18n.py:55
 msgid "Russian"
-msgstr ""
+msgstr "រុស្សី"
 
 #: mmm_modules/i18n.py:56
 msgid "Slovak"
-msgstr ""
+msgstr "ស្លូវ៉ាគី"
 
 #: mmm_modules/i18n.py:57
 msgid "Spanish"
-msgstr ""
+msgstr "អេស្ប៉ាញ"
 
 #: mmm_modules/i18n.py:58
 msgid "Swedish"
-msgstr ""
+msgstr "ស៊ុយអែដ"
 
 #: mmm_modules/i18n.py:59
 msgid "Turkish"
-msgstr ""
+msgstr "ទួរគី"
 
-#: mmm_modules/image_category.py:215
+#: mmm_modules/image_category.py:222
 msgid "Choose image"
-msgstr ""
+msgstr "ជ្រើសរើស​រូបភាព"
 
-#: mmm_modules/image_category.py:226
+#: mmm_modules/image_category.py:234
 msgid "Not a valid image file"
 msgstr ""
