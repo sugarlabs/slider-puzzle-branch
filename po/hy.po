@@ -27,8 +27,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-09-25 00:31-0400\n"
-"PO-Revision-Date: 2011-12-21 22:01+0200\n"
-"Last-Translator: anush.mkrtchyan <anush.mkrtchyan@ca1492.com>\n"
+"PO-Revision-Date: 2011-12-24 04:50+0200\n"
+"Last-Translator: Chris <cjl@laptop.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: hy\n"
 "MIME-Version: 1.0\n"
@@ -74,7 +74,7 @@ msgstr "Իմ նկարը"
 
 #: SliderPuzzleUI.py:258
 msgid "Time: "
-msgstr "Ժամանակ՝ "
+msgstr "Ժամանակ. "
 
 #: SliderPuzzleUI.py:274 SliderPuzzleUI.py:576
 msgid "Lesson Plans"
@@ -82,11 +82,11 @@ msgstr "Դասի պլանները"
 
 #: SliderPuzzleUI.py:291
 msgid "Waiting for remote game..."
-msgstr "Սպասում է հեռավոր խաղին"
+msgstr "Սպասում է հեռակա խաղին"
 
 #: SliderPuzzleUI.py:335
 msgid "Select image and press Start Game..."
-msgstr "Ընտրել պատկերն ու սեղմել Սկսել խաղը..."
+msgstr "Ընտրել պատկերն ու սեղմել \"Սկսել խաղը\"..."
 
 #: SliderPuzzleUI.py:339
 msgid "Waiting for Puzzle image to be chosen..."
@@ -118,7 +118,7 @@ msgstr "Հանձնվեց"
 
 #: SliderPuzzleUI.py:493
 msgid "Choose a Subject"
-msgstr "Ընտրել առարկա"
+msgstr "Ընտրել թեմա"
 
 #: SliderPuzzleUI.py:579
 msgid "Close Lesson"
@@ -126,7 +126,7 @@ msgstr "Փակել դասը"
 
 #: SliderPuzzleUI.py:649
 msgid "Game Started!"
-msgstr "Խաղը սկսեց"
+msgstr "Խաղը սկսվեց"
 
 #: i18n_misc_strings.py:1
 msgid "Sea Life"
@@ -146,7 +146,7 @@ msgstr "XO"
 
 #: i18n_misc_strings.py:5
 msgid "Sequencing Puzzles"
-msgstr "Հաջորդական գլուխկոտրուկներ"
+msgstr "Հաջորդականության վրա հիմնված գլուխկոտրուկներ"
 
 #: i18n_misc_strings.py:6
 msgid "Sports"
@@ -174,7 +174,7 @@ msgstr "Դաս 4"
 
 #: i18n_misc_strings.py:12
 msgid "Overview"
-msgstr "Ընդհանուր ներկայացում"
+msgstr "Ընդհանուր դիտարկում"
 
 #: i18n_misc_strings.py:13
 msgid "Lesson 3"
@@ -210,15 +210,15 @@ msgstr "Խաղաժամանակ"
 
 #: mmm_modules/buddy_panel.py:69
 msgid "Joined at"
-msgstr "Միացել է -ին"
+msgstr "Միացել է ժամը."
 
 #: mmm_modules/buddy_panel.py:101
 msgid "synchronizing"
-msgstr "ներդաշնակել"
+msgstr "Ներդաշնակել"
 
 #: mmm_modules/buddy_panel.py:115
 msgid "Playing"
-msgstr "Միացած է"
+msgstr "Խաղում է"
 
 #: mmm_modules/buddy_panel.py:115
 msgid "Paused"
@@ -315,7 +315,7 @@ msgstr "Պորտուգալերեն"
 
 #: mmm_modules/i18n.py:54
 msgid "Portuguese - Brazilian"
-msgstr "Պորտուգալերեն - Բրազիլական"
+msgstr "Պորտուգալերեն - Բրազիլիայի"
 
 #: mmm_modules/i18n.py:55
 msgid "Russian"
@@ -343,7 +343,7 @@ msgstr "Ընտրել պատկերը"
 
 #: mmm_modules/image_category.py:234
 msgid "Not a valid image file"
-msgstr "Նկարի ֆայլը ընդունելի չէ"
+msgstr "Նկարի ֆայլն անվավեր է"
 
 #, python-format
 #~ msgid "Buddy '%s' changed status: %s"
