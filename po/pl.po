@@ -35,7 +35,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-09-25 00:31-0400\n"
-"PO-Revision-Date: 2011-12-12 02:52+0200\n"
+"PO-Revision-Date: 2011-12-18 23:15+0200\n"
 "Last-Translator: Chris <cjl@laptop.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: pl\n"
@@ -260,7 +260,7 @@ msgstr "Chiński (tradycyjny)"
 
 #: mmm_modules/i18n.py:38
 msgid "Czech"
-msgstr "czeski"
+msgstr "Czeski"
 
 #: mmm_modules/i18n.py:39
 msgid "Danish"
