@@ -26,12 +26,20 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-01-14 16:38+0000\n"
-"PO-Revision-Date: 2010-07-01 21:43+0200\n"
+"POT-Creation-Date: 2012-02-15 00:33-0500\n"
+"PO-Revision-Date: 2011-11-04 22:12+0200\n"
 "Last-Translator: whe <heppew@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nl\n"
@@ -39,27 +47,27 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.0.3\n"
+"X-Generator: Pootle 2.0.5\n"
 
 #: activity/activity.info:2
 msgid "Slider Puzzle"
 msgstr "Schuifpuzzel"
 
-#: SliderPuzzleActivity.py:157
+#: SliderPuzzleActivity.py:162
 #, python-format
-msgid "Buddy '%s' changed status: %s"
-msgstr "Maatje '%s' veranderde status: %s"
+msgid "Buddy '%(buddy)s' changed status: %(status)s"
+msgstr "Maatje '%(buddy)s' gewijzigde status: %(status)s"
 
-#: SliderPuzzleActivity.py:170
+#: SliderPuzzleActivity.py:177
 msgid "Waiting for Puzzle image to be transferred..."
 msgstr "Wachten op puzzel afbeelding om te worden overgedragen..."
 
-#: SliderPuzzleActivity.py:339
+#: SliderPuzzleActivity.py:346
 #, python-format
 msgid "Buddy '%s' joined the game!"
 msgstr "Maatje '%s' doet mee met het spel!"
 
-#: SliderPuzzleActivity.py:343
+#: SliderPuzzleActivity.py:350
 #, python-format
 msgid "Buddy '%s' left the game!"
 msgstr "Maatje '%s' verliet het spel!"
@@ -76,59 +84,59 @@ msgstr "Schudden"
 msgid "My Picture"
 msgstr "Mijn afbeelding"
 
-#: SliderPuzzleUI.py:259
+#: SliderPuzzleUI.py:258
 msgid "Time: "
 msgstr "Tijd: "
 
-#: SliderPuzzleUI.py:268 SliderPuzzleUI.py:566
+#: SliderPuzzleUI.py:274 SliderPuzzleUI.py:576
 msgid "Lesson Plans"
 msgstr "Les ideeën"
 
-#: SliderPuzzleUI.py:285
+#: SliderPuzzleUI.py:291
 msgid "Waiting for remote game..."
 msgstr "Wachten op extern spel..."
 
-#: SliderPuzzleUI.py:329
+#: SliderPuzzleUI.py:335
 msgid "Select image and press Start Game..."
 msgstr "Selecteer een afbeelding en druk op Start Spel..."
 
-#: SliderPuzzleUI.py:333
+#: SliderPuzzleUI.py:339
 msgid "Waiting for Puzzle image to be chosen..."
 msgstr "Wachten totdat puzzel afbeelding is gekozen..."
 
-#: SliderPuzzleUI.py:335 SliderPuzzleUI.py:344
+#: SliderPuzzleUI.py:341 SliderPuzzleUI.py:350
 msgid "Buddies"
 msgstr "Maatjes"
 
-#: SliderPuzzleUI.py:362
+#: SliderPuzzleUI.py:368
 msgid "Give Up"
 msgstr "Opgeven"
 
-#: SliderPuzzleUI.py:364
+#: SliderPuzzleUI.py:370
 msgid "Start Game"
 msgstr "Start spel"
 
-#: SliderPuzzleUI.py:374
+#: SliderPuzzleUI.py:380
 msgid "Slider Puzzle Activity"
 msgstr "Schuifpuzzel activiteit"
 
-#: SliderPuzzleUI.py:456
+#: SliderPuzzleUI.py:462
 msgid "Puzzle Solved!"
 msgstr "Puzzel opgelost!"
 
-#: SliderPuzzleUI.py:459
+#: SliderPuzzleUI.py:465
 msgid "Gave Up"
 msgstr "Opgegeven"
 
-#: SliderPuzzleUI.py:487
+#: SliderPuzzleUI.py:493
 msgid "Choose a Subject"
 msgstr "Kies een onderwerp"
 
-#: SliderPuzzleUI.py:569
+#: SliderPuzzleUI.py:579
 msgid "Close Lesson"
 msgstr "Les sluiten"
 
-#: SliderPuzzleUI.py:633
+#: SliderPuzzleUI.py:649
 msgid "Game Started!"
 msgstr "Spel gestart!"
 
@@ -341,10 +349,14 @@ msgstr "Zweeds"
 msgid "Turkish"
 msgstr "Turks"
 
-#: mmm_modules/image_category.py:215
+#: mmm_modules/image_category.py:222
 msgid "Choose image"
 msgstr "Kies afbeelding"
 
-#: mmm_modules/image_category.py:226
+#: mmm_modules/image_category.py:234
 msgid "Not a valid image file"
 msgstr "Niet een geldig afbeeldingsbestand"
+
+#, python-format
+#~ msgid "Buddy '%s' changed status: %s"
+#~ msgstr "Maatje '%s' veranderde status: %s"
