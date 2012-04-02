@@ -34,9 +34,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-09-25 00:31-0400\n"
-"PO-Revision-Date: 2012-01-26 01:20+0200\n"
-"Last-Translator: Chris <cjl@laptop.org>\n"
+"POT-Creation-Date: 2012-02-15 00:33-0500\n"
+"PO-Revision-Date: 2012-04-03 01:09+0200\n"
+"Last-Translator: Eduardo H. <hoboprimate@gmail.com>\n"
 "Language-Team: Portuguese <info@worldwideworkshop.org>\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
@@ -78,7 +78,7 @@ msgstr "Baralhar"
 
 #: SliderPuzzleUI.py:222
 msgid "My Picture"
-msgstr "Minha Imagem"
+msgstr "A Minha Imagem"
 
 #: SliderPuzzleUI.py:258
 msgid "Time: "
@@ -86,11 +86,11 @@ msgstr "Tempo: "
 
 #: SliderPuzzleUI.py:274 SliderPuzzleUI.py:576
 msgid "Lesson Plans"
-msgstr "Planos de Ensino"
+msgstr "Planos de Lição"
 
 #: SliderPuzzleUI.py:291
 msgid "Waiting for remote game..."
-msgstr "À espera pelo jogo remoto..."
+msgstr "À espera de jogo remoto..."
 
 #: SliderPuzzleUI.py:335
 msgid "Select image and press Start Game..."
@@ -114,7 +114,7 @@ msgstr "Iniciar Jogo"
 
 #: SliderPuzzleUI.py:380
 msgid "Slider Puzzle Activity"
-msgstr "Actividade Puzzle Deslizante"
+msgstr "Atividade Puzzle Deslizante"
 
 #: SliderPuzzleUI.py:462
 msgid "Puzzle Solved!"
@@ -134,7 +134,7 @@ msgstr "Fechar Lição"
 
 #: SliderPuzzleUI.py:649
 msgid "Game Started!"
-msgstr "O Jogo começou!"
+msgstr "O Jogo Começou!"
 
 #: i18n_misc_strings.py:1
 msgid "Sea Life"
@@ -162,7 +162,7 @@ msgstr "Desporto"
 
 #: i18n_misc_strings.py:7
 msgid "Insects"
-msgstr "Insectos"
+msgstr "Insetos"
 
 #: i18n_misc_strings.py:8
 msgid "Music"
