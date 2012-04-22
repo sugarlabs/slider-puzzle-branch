@@ -2,117 +2,147 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-01-14 16:38+0000\n"
-"PO-Revision-Date: 2008-01-30 04:23-0500\n"
-"Last-Translator: usman mansoor ansari <jalalkut@gmail.com>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"POT-Creation-Date: 2012-02-15 00:33-0500\n"
+"PO-Revision-Date: 2009-07-14 06:45-0400\n"
+"Last-Translator: Abdulhadi Hairan <abdulhadi@paiwastoon.com.af>\n"
+"Language-Team: PASHTO <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Pootle 1.0.2\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Pootle 1.2.1\n"
 
 #: activity/activity.info:2
 msgid "Slider Puzzle"
-msgstr "ښوېدونكې سرګرداني"
+msgstr "د سلاليو کيسۍ"
 
-#: SliderPuzzleActivity.py:157
+#: SliderPuzzleActivity.py:162
 #, python-format
-msgid "Buddy '%s' changed status: %s"
-msgstr "ملګري '%s' خپل حالت بدل كړ: %s"
-
-#: SliderPuzzleActivity.py:170
-msgid "Waiting for Puzzle image to be transferred..."
+msgid "Buddy '%(buddy)s' changed status: %(status)s"
 msgstr ""
 
-#: SliderPuzzleActivity.py:339
+#: SliderPuzzleActivity.py:177
+msgid "Waiting for Puzzle image to be transferred..."
+msgstr "د کيسۍ انځور د لېږدونې انتظار کوي..."
+
+#: SliderPuzzleActivity.py:346
 #, python-format
 msgid "Buddy '%s' joined the game!"
-msgstr "ملګرى '%s' لوبه كې سره يوځاى شو!"
+msgstr "ملګري '%s' په لوبه كې سره يوځاى شول!"
 
-#: SliderPuzzleActivity.py:343
+#: SliderPuzzleActivity.py:350
 #, python-format
 msgid "Buddy '%s' left the game!"
-msgstr "ملګري '%s' لوبه پرېښوده!"
+msgstr "ملګريو '%s' لوبه پرېښودله!"
 
 #: SliderPuzzleUI.py:214
 msgid "Solve"
-msgstr "حل كول"
+msgstr "حل"
 
 #: SliderPuzzleUI.py:218
 msgid "Shuffle"
-msgstr "ګډوډول"
+msgstr "بې ترتيبه"
 
 #: SliderPuzzleUI.py:222
 msgid "My Picture"
 msgstr "زما انځور"
 
-#: SliderPuzzleUI.py:259
+#: SliderPuzzleUI.py:258
 msgid "Time: "
-msgstr "مهال: "
+msgstr "وخت: "
 
-#: SliderPuzzleUI.py:268 SliderPuzzleUI.py:566
+#: SliderPuzzleUI.py:274 SliderPuzzleUI.py:576
 msgid "Lesson Plans"
-msgstr "د لوست كړنلار"
+msgstr "د لوست پلانونه"
 
-#: SliderPuzzleUI.py:285
+#: SliderPuzzleUI.py:291
 msgid "Waiting for remote game..."
-msgstr "خوځنده لوبې ته انتظار كول."
+msgstr "د ليرې لوبې انتظار کوي..."
 
-#: SliderPuzzleUI.py:329
+#: SliderPuzzleUI.py:335
 msgid "Select image and press Start Game..."
-msgstr "انځور وټاكـئ او لوبه پيلول ټك كړئ. "
+msgstr "انځور وټاکئ او لوبه پيلول کېکاږﺉ..."
 
-#: SliderPuzzleUI.py:333
+#: SliderPuzzleUI.py:339
 msgid "Waiting for Puzzle image to be chosen..."
-msgstr "د سرګرمۍ انځور خوښول لپاره انتظار كول..."
+msgstr "د کيسۍ انځور د انتخابولو انتظار کوي.."
 
-#: SliderPuzzleUI.py:335 SliderPuzzleUI.py:344
+#: SliderPuzzleUI.py:341 SliderPuzzleUI.py:350
 msgid "Buddies"
 msgstr "ملګري"
 
-#: SliderPuzzleUI.py:362
+#: SliderPuzzleUI.py:368
 msgid "Give Up"
 msgstr "پرېښودل"
 
-#: SliderPuzzleUI.py:364
+#: SliderPuzzleUI.py:370
 msgid "Start Game"
-msgstr "لوبه پېلول"
+msgstr "لوبه پيل کړئ"
 
-#: SliderPuzzleUI.py:374
+#: SliderPuzzleUI.py:380
 msgid "Slider Puzzle Activity"
-msgstr "د ښوېدونكې سرګردانۍ چارې"
+msgstr "د سلاليو د پټې د کيسيو فعاليت"
 
-#: SliderPuzzleUI.py:456
+#: SliderPuzzleUI.py:462
 msgid "Puzzle Solved!"
-msgstr "سرګرداني حل شوه"
+msgstr "کيسۍ حل شوه!"
 
-#: SliderPuzzleUI.py:459
+#: SliderPuzzleUI.py:465
 msgid "Gave Up"
-msgstr "پرېښودل شو"
+msgstr "پرېښود"
 
-#: SliderPuzzleUI.py:487
+#: SliderPuzzleUI.py:493
 msgid "Choose a Subject"
-msgstr "مضمون انتخابول"
+msgstr "يوه موضوع انتخاب کړﺉ"
 
-#: SliderPuzzleUI.py:569
+#: SliderPuzzleUI.py:579
 msgid "Close Lesson"
-msgstr "لوست بندول"
+msgstr "لوست بند کړئ"
 
-#: SliderPuzzleUI.py:633
+#: SliderPuzzleUI.py:649
 msgid "Game Started!"
 msgstr "لوبه پيل شوه!"
 
 #: i18n_misc_strings.py:1
 msgid "Sea Life"
-msgstr "بحري ژوند"
+msgstr "سمندري ژوند"
 
 #: i18n_misc_strings.py:2
 msgid "Animals"
-msgstr "ژوې"
+msgstr "ژوي"
 
 #: i18n_misc_strings.py:3
 msgid "Birds"
@@ -120,11 +150,11 @@ msgstr "مرغان"
 
 #: i18n_misc_strings.py:4
 msgid "XO"
-msgstr "اېكس او"
+msgstr "XO"
 
 #: i18n_misc_strings.py:5
 msgid "Sequencing Puzzles"
-msgstr "پرله پسې معماګانې"
+msgstr "پرله پسې کيسۍ"
 
 #: i18n_misc_strings.py:6
 msgid "Sports"
@@ -140,7 +170,7 @@ msgstr "ټنګټكور"
 
 #: i18n_misc_strings.py:9
 msgid "Space"
-msgstr "تشه"
+msgstr "فضا"
 
 #: i18n_misc_strings.py:10
 msgid "Lesson 5"
@@ -152,7 +182,7 @@ msgstr "۴ لوست"
 
 #: i18n_misc_strings.py:12
 msgid "Overview"
-msgstr "سرسري كتنه"
+msgstr "مرور"
 
 #: i18n_misc_strings.py:13
 msgid "Lesson 3"
@@ -180,19 +210,19 @@ msgstr "ملګرى"
 
 #: mmm_modules/buddy_panel.py:55
 msgid "Status"
-msgstr "دريځ"
+msgstr "حالت"
 
 #: mmm_modules/buddy_panel.py:62
 msgid "Play Time"
-msgstr "د لوبې مهال"
+msgstr "د لوبې وخت"
 
 #: mmm_modules/buddy_panel.py:69
 msgid "Joined at"
-msgstr "پيلول په"
+msgstr "يو ځای شوی په"
 
 #: mmm_modules/buddy_panel.py:101
 msgid "synchronizing"
-msgstr "برابرول"
+msgstr "هم-مهاليزونه"
 
 #: mmm_modules/buddy_panel.py:115
 msgid "Playing"
@@ -200,19 +230,19 @@ msgstr "غږول"
 
 #: mmm_modules/buddy_panel.py:115
 msgid "Paused"
-msgstr "ځنډ"
+msgstr "ځنډېدلی"
 
 #: mmm_modules/buddy_panel.py:117
 msgid "Finished"
-msgstr "پاي"
+msgstr "بشپړ"
 
 #: mmm_modules/buddy_panel.py:119
 msgid "Gave up"
-msgstr "سپارل"
+msgstr "پرېښود"
 
 #: mmm_modules/buddy_panel.py:121
 msgid "Unknown"
-msgstr "نامالوم"
+msgstr "ناپېژندلی"
 
 #: mmm_modules/buddy_panel.py:123
 #, python-format
@@ -221,15 +251,15 @@ msgstr "%i دقيقې"
 
 #: mmm_modules/i18n.py:36
 msgid "Chinese (simplified)"
-msgstr "چينايي (عادي)"
+msgstr "چينايي (ساده شوی)"
 
 #: mmm_modules/i18n.py:37
 msgid "Chinese (traditional)"
-msgstr "چينايي (روايتي)"
+msgstr "چينايي (دوديز)"
 
 #: mmm_modules/i18n.py:38
 msgid "Czech"
-msgstr "چېک"
+msgstr "چېکي"
 
 #: mmm_modules/i18n.py:39
 msgid "Danish"
@@ -237,23 +267,23 @@ msgstr "ډنمارکي"
 
 #: mmm_modules/i18n.py:40
 msgid "Dutch"
-msgstr "هالېنډي"
+msgstr "هالنډي"
 
 #: mmm_modules/i18n.py:41
 msgid "English"
-msgstr "انګلېسي"
+msgstr "انګلیسي"
 
 #: mmm_modules/i18n.py:42
 msgid "English - Great Britain"
-msgstr "انګرېزي- لویه برتانیا"
+msgstr "انګلیسي- انګلستان"
 
 #: mmm_modules/i18n.py:43
 msgid "English - U.S."
-msgstr "انګلېسي- یو.اېس."
+msgstr "انګلیسي - امریکا"
 
 #: mmm_modules/i18n.py:44
 msgid "Finnish"
-msgstr "فېنېش"
+msgstr "فنلنډي"
 
 #: mmm_modules/i18n.py:45
 msgid "French"
@@ -269,7 +299,7 @@ msgstr "هنګري"
 
 #: mmm_modules/i18n.py:48
 msgid "Italian"
-msgstr "اېټالوي"
+msgstr "ايټالوي"
 
 #: mmm_modules/i18n.py:49
 msgid "Japanese"
@@ -277,11 +307,11 @@ msgstr "جاپاني"
 
 #: mmm_modules/i18n.py:50
 msgid "Korean"
-msgstr "کوریایي"
+msgstr "کوريايي"
 
 #: mmm_modules/i18n.py:51
 msgid "Norwegian"
-msgstr "ناروېجني"
+msgstr "نارويجي"
 
 #: mmm_modules/i18n.py:52
 msgid "Polish"
@@ -289,11 +319,11 @@ msgstr "پولنډي"
 
 #: mmm_modules/i18n.py:53
 msgid "Portuguese"
-msgstr "پرتګالي"
+msgstr "پورتګالي"
 
 #: mmm_modules/i18n.py:54
 msgid "Portuguese - Brazilian"
-msgstr "پرتګالي-برازيلي"
+msgstr "پورتګالي-برازيلي"
 
 #: mmm_modules/i18n.py:55
 msgid "Russian"
@@ -315,10 +345,14 @@ msgstr "سويډني"
 msgid "Turkish"
 msgstr "تركي"
 
-#: mmm_modules/image_category.py:215
+#: mmm_modules/image_category.py:222
 msgid "Choose image"
-msgstr "انځور چڼل"
+msgstr "انځور انتخابول"
 
-#: mmm_modules/image_category.py:226
+#: mmm_modules/image_category.py:234
 msgid "Not a valid image file"
-msgstr "يو باوري انځور دوتنه نده"
+msgstr "يوه باوري انځوريزه دوتنه نه ده"
+
+#, python-format
+#~ msgid "Buddy '%s' changed status: %s"
+#~ msgstr "د ملګري '%s'  بدل حالت : %s"

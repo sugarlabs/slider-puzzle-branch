@@ -2,36 +2,40 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-08-04 13:40+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2012-02-15 00:33-0500\n"
+"PO-Revision-Date: 2012-03-26 05:41+0200\n"
+"Last-Translator: Chris <cjl@laptop.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"Language: son\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Translate Toolkit 1.7.0\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Pootle 2.0.5\n"
 
-#: SliderPuzzleActivity.py:161
-#, python-format
-msgid "Buddy '%s' changed status: %s"
+#: activity/activity.info:2
+msgid "Slider Puzzle"
 msgstr ""
 
-#: SliderPuzzleActivity.py:174
+#: SliderPuzzleActivity.py:162
+#, python-format
+msgid "Buddy '%(buddy)s' changed status: %(status)s"
+msgstr ""
+
+#: SliderPuzzleActivity.py:177
 msgid "Waiting for Puzzle image to be transferred..."
 msgstr ""
 
-#: SliderPuzzleActivity.py:343
+#: SliderPuzzleActivity.py:346
 #, python-format
 msgid "Buddy '%s' joined the game!"
 msgstr ""
 
-#: SliderPuzzleActivity.py:347
+#: SliderPuzzleActivity.py:350
 #, python-format
 msgid "Buddy '%s' left the game!"
 msgstr ""
@@ -102,10 +106,6 @@ msgstr ""
 
 #: SliderPuzzleUI.py:649
 msgid "Game Started!"
-msgstr ""
-
-#: activity/activity.info:2
-msgid "Slider Puzzle"
 msgstr ""
 
 #: i18n_misc_strings.py:1
@@ -197,11 +197,11 @@ msgid "synchronizing"
 msgstr ""
 
 #: mmm_modules/buddy_panel.py:115
-msgid "Paused"
+msgid "Playing"
 msgstr ""
 
 #: mmm_modules/buddy_panel.py:115
-msgid "Playing"
+msgid "Paused"
 msgstr ""
 
 #: mmm_modules/buddy_panel.py:117
@@ -235,7 +235,7 @@ msgstr ""
 
 #: mmm_modules/i18n.py:39
 msgid "Danish"
-msgstr ""
+msgstr "Daanuwa"
 
 #: mmm_modules/i18n.py:40
 msgid "Dutch"
@@ -275,7 +275,7 @@ msgstr ""
 
 #: mmm_modules/i18n.py:49
 msgid "Japanese"
-msgstr ""
+msgstr "Žaapoone"
 
 #: mmm_modules/i18n.py:50
 msgid "Korean"

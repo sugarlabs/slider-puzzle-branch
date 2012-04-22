@@ -2,38 +2,68 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-01-14 16:38+0000\n"
-"PO-Revision-Date: 2009-01-11 14:46-0500\n"
-"Last-Translator: Nicci Manns <nicci@saunalahti.fi>\n"
+"POT-Creation-Date: 2012-02-15 00:33-0500\n"
+"PO-Revision-Date: 2010-02-12 06:24+0200\n"
+"Last-Translator: Chris <cjl@laptop.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Pootle 1.1.0rc2\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Pootle 2.0.1\n"
 
 #: activity/activity.info:2
 msgid "Slider Puzzle"
 msgstr "Glidande Pussel"
 
-#: SliderPuzzleActivity.py:157
+#: SliderPuzzleActivity.py:162
 #, python-format
-msgid "Buddy '%s' changed status: %s"
-msgstr "Kompis '%s' ändrade sin status till %s"
+msgid "Buddy '%(buddy)s' changed status: %(status)s"
+msgstr ""
 
-#: SliderPuzzleActivity.py:170
+#: SliderPuzzleActivity.py:177
 msgid "Waiting for Puzzle image to be transferred..."
 msgstr "Väntar på att bilden ska överföras..."
 
-#: SliderPuzzleActivity.py:339
+#: SliderPuzzleActivity.py:346
 #, python-format
 msgid "Buddy '%s' joined the game!"
 msgstr "Kompis '%s' gick med i spelet"
 
-#: SliderPuzzleActivity.py:343
+#: SliderPuzzleActivity.py:350
 #, python-format
 msgid "Buddy '%s' left the game!"
 msgstr "Kompis '%s' lämnade spelet"
@@ -50,59 +80,59 @@ msgstr "Blanda"
 msgid "My Picture"
 msgstr "Min bild"
 
-#: SliderPuzzleUI.py:259
+#: SliderPuzzleUI.py:258
 msgid "Time: "
 msgstr "Tid: "
 
-#: SliderPuzzleUI.py:268 SliderPuzzleUI.py:566
+#: SliderPuzzleUI.py:274 SliderPuzzleUI.py:576
 msgid "Lesson Plans"
 msgstr "Lektionsplaner"
 
-#: SliderPuzzleUI.py:285
+#: SliderPuzzleUI.py:291
 msgid "Waiting for remote game..."
-msgstr "Väntar på annans spel"
+msgstr "Väntar på annans spel..."
 
-#: SliderPuzzleUI.py:329
+#: SliderPuzzleUI.py:335
 msgid "Select image and press Start Game..."
 msgstr "Välj en bild och tryck sedan på Starta spel..."
 
-#: SliderPuzzleUI.py:333
+#: SliderPuzzleUI.py:339
 msgid "Waiting for Puzzle image to be chosen..."
-msgstr "Väntar på att en bild ska väljas.."
+msgstr "Väntar på att en bild ska väljas..."
 
-#: SliderPuzzleUI.py:335 SliderPuzzleUI.py:344
+#: SliderPuzzleUI.py:341 SliderPuzzleUI.py:350
 msgid "Buddies"
 msgstr "Kompisar"
 
-#: SliderPuzzleUI.py:362
+#: SliderPuzzleUI.py:368
 msgid "Give Up"
 msgstr "Ge upp"
 
-#: SliderPuzzleUI.py:364
+#: SliderPuzzleUI.py:370
 msgid "Start Game"
 msgstr "Starta spel"
 
-#: SliderPuzzleUI.py:374
+#: SliderPuzzleUI.py:380
 msgid "Slider Puzzle Activity"
 msgstr "Glidande Pussel Aktivitet"
 
-#: SliderPuzzleUI.py:456
+#: SliderPuzzleUI.py:462
 msgid "Puzzle Solved!"
 msgstr "Pusslet löst!"
 
-#: SliderPuzzleUI.py:459
+#: SliderPuzzleUI.py:465
 msgid "Gave Up"
 msgstr "Gav upp"
 
-#: SliderPuzzleUI.py:487
+#: SliderPuzzleUI.py:493
 msgid "Choose a Subject"
 msgstr "Välj ett ämne"
 
-#: SliderPuzzleUI.py:569
+#: SliderPuzzleUI.py:579
 msgid "Close Lesson"
 msgstr "Stäng lektion"
 
-#: SliderPuzzleUI.py:633
+#: SliderPuzzleUI.py:649
 msgid "Game Started!"
 msgstr "Spelet startat!"
 
@@ -148,7 +178,7 @@ msgstr "Lektion 5"
 
 #: i18n_misc_strings.py:11
 msgid "Lesson 4"
-msgstr "Lektion 4 "
+msgstr "Lektion 4"
 
 #: i18n_misc_strings.py:12
 msgid "Overview"
@@ -156,7 +186,7 @@ msgstr "Översikt"
 
 #: i18n_misc_strings.py:13
 msgid "Lesson 3"
-msgstr "Lektion 3 "
+msgstr "Lektion 3"
 
 #: i18n_misc_strings.py:14
 msgid "Lesson 7"
@@ -168,7 +198,7 @@ msgstr "Lektion 6"
 
 #: i18n_misc_strings.py:16
 msgid "Lesson 1"
-msgstr "Lektion 1  "
+msgstr "Lektion 1"
 
 #: i18n_misc_strings.py:17
 msgid "Lesson 2"
@@ -221,104 +251,108 @@ msgstr "%i minuter"
 
 #: mmm_modules/i18n.py:36
 msgid "Chinese (simplified)"
-msgstr "kinesiska (förenklad)"
+msgstr "Kinesiska (förenklad)"
 
 #: mmm_modules/i18n.py:37
 msgid "Chinese (traditional)"
-msgstr "kinesiska (traditionell)"
+msgstr "Kinesiska (traditionell)"
 
 #: mmm_modules/i18n.py:38
 msgid "Czech"
-msgstr "tjeckiska"
+msgstr "Tjeckiska"
 
 #: mmm_modules/i18n.py:39
 msgid "Danish"
-msgstr "danska"
+msgstr "Danska"
 
 #: mmm_modules/i18n.py:40
 msgid "Dutch"
-msgstr "holländska"
+msgstr "Holländska"
 
 #: mmm_modules/i18n.py:41
 msgid "English"
-msgstr "engelska"
+msgstr "Engelska"
 
 #: mmm_modules/i18n.py:42
 msgid "English - Great Britain"
-msgstr "engelska (Storbritannien)"
+msgstr "Engelska (Storbritannien)"
 
 #: mmm_modules/i18n.py:43
 msgid "English - U.S."
-msgstr "engelska (USA) "
+msgstr "Engelska (USA)"
 
 #: mmm_modules/i18n.py:44
 msgid "Finnish"
-msgstr "finska"
+msgstr "Finska"
 
 #: mmm_modules/i18n.py:45
 msgid "French"
-msgstr "franska"
+msgstr "Franska"
 
 #: mmm_modules/i18n.py:46
 msgid "German"
-msgstr "tyska"
+msgstr "Tyska"
 
 #: mmm_modules/i18n.py:47
 msgid "Hungarian"
-msgstr "ungerska"
+msgstr "Ungerska"
 
 #: mmm_modules/i18n.py:48
 msgid "Italian"
-msgstr "italienska"
+msgstr "Italienska"
 
 #: mmm_modules/i18n.py:49
 msgid "Japanese"
-msgstr "japanska"
+msgstr "Japanska"
 
 #: mmm_modules/i18n.py:50
 msgid "Korean"
-msgstr "koreanska"
+msgstr "Koreanska"
 
 #: mmm_modules/i18n.py:51
 msgid "Norwegian"
-msgstr "norska"
+msgstr "Norska"
 
 #: mmm_modules/i18n.py:52
 msgid "Polish"
-msgstr "polska"
+msgstr "Polska"
 
 #: mmm_modules/i18n.py:53
 msgid "Portuguese"
-msgstr "portugisiska"
+msgstr "Portugisiska"
 
 #: mmm_modules/i18n.py:54
 msgid "Portuguese - Brazilian"
-msgstr "portugisiska (brasilianska)"
+msgstr "Portugisiska (Brasilianska)"
 
 #: mmm_modules/i18n.py:55
 msgid "Russian"
-msgstr "ryska"
+msgstr "Ryska"
 
 #: mmm_modules/i18n.py:56
 msgid "Slovak"
-msgstr "slovaksika"
+msgstr "Slovaksika"
 
 #: mmm_modules/i18n.py:57
 msgid "Spanish"
-msgstr "spanska"
+msgstr "Spanska"
 
 #: mmm_modules/i18n.py:58
 msgid "Swedish"
-msgstr "svenska"
+msgstr "Svenska"
 
 #: mmm_modules/i18n.py:59
 msgid "Turkish"
-msgstr "turkiska"
+msgstr "Turkiska"
 
-#: mmm_modules/image_category.py:215
+#: mmm_modules/image_category.py:222
 msgid "Choose image"
 msgstr "Välj bild"
 
-#: mmm_modules/image_category.py:226
+#: mmm_modules/image_category.py:234
 msgid "Not a valid image file"
 msgstr "Inte en giltig bildfil"
+
+#, python-format
+#~ msgid "Buddy '%s' changed status: %s"
+#~ msgstr "Kompis '%s' ändrade sin status till %s"

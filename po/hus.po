@@ -6,32 +6,36 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-08-04 13:40+0000\n"
-"PO-Revision-Date: 2011-08-19 17:12+0200\n"
-"Last-Translator:  <ieliiptenek@gmail.com>\n"
+"POT-Creation-Date: 2012-02-15 00:33-0500\n"
+"PO-Revision-Date: 2011-08-29 04:09+0200\n"
+"Last-Translator: Chris <cjl@laptop.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: hus\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.1\n"
 
-#: SliderPuzzleActivity.py:161
+#: activity/activity.info:2
+msgid "Slider Puzzle"
+msgstr "Pok'el ok' xi tadhidhil"
+
+#: SliderPuzzleActivity.py:162
 #, python-format
-msgid "Buddy '%s' changed status: %s"
-msgstr "In  at júntal %s' jalkúy in alwa´%s"
+msgid "Buddy '%(buddy)s' changed status: %(status)s"
+msgstr ""
 
-#: SliderPuzzleActivity.py:174
+#: SliderPuzzleActivity.py:177
 msgid "Waiting for Puzzle image to be transferred..."
-msgstr "Áychix abal an típláb ba an pokól ok' ki  wenk'a."
+msgstr "Áychix abal an típláb ba an pokól ok' ki wenk'a..."
 
-#: SliderPuzzleActivity.py:343
+#: SliderPuzzleActivity.py:346
 #, python-format
 msgid "Buddy '%s' joined the game!"
-msgstr "¡ An jawbláb '%s' junkunenek ba' an ubat'intaláb!"
+msgstr "¡An jawbláb '%s' junkunenek ba' an ubat'intaláb!"
 
-#: SliderPuzzleActivity.py:347
+#: SliderPuzzleActivity.py:350
 #, python-format
 msgid "Buddy '%s' left the game!"
 msgstr "¡An jawbláb '%s' in jilamal an ubat'intaláb"
@@ -50,7 +54,7 @@ msgstr "U t'ipláb"
 
 #: SliderPuzzleUI.py:258
 msgid "Time: "
-msgstr "K'ij "
+msgstr "K'ij: "
 
 #: SliderPuzzleUI.py:274 SliderPuzzleUI.py:576
 msgid "Lesson Plans"
@@ -58,11 +62,11 @@ msgstr "Tsalpantal an ajumtaláb"
 
 #: SliderPuzzleUI.py:291
 msgid "Waiting for remote game..."
-msgstr "Aychix ba' an ubat'intaláb"
+msgstr "Aychix ba' an ubat'intaláb..."
 
 #: SliderPuzzleUI.py:335
 msgid "Select image and press Start Game..."
-msgstr "Takuy an típláb ani ka' ni'inchi abal ka tujey an ubat'intaláb."
+msgstr "Takuy an típláb ani ka' ni'inchi abal ka tujey an ubat'intaláb..."
 
 #: SliderPuzzleUI.py:339
 msgid "Waiting for Puzzle image to be chosen..."
@@ -74,7 +78,7 @@ msgstr "Atjuntal"
 
 #: SliderPuzzleUI.py:368
 msgid "Give Up"
-msgstr "walbaits"
+msgstr "Walbaits"
 
 #: SliderPuzzleUI.py:370
 msgid "Start Game"
@@ -104,17 +108,13 @@ msgstr "Mápuy an dhuche'"
 msgid "Game Started!"
 msgstr "¡Tujtal ubat'intaláb!"
 
-#: activity/activity.info:2
-msgid "Slider Puzzle"
-msgstr "Pok'el ok' xi tadhidhil"
-
 #: i18n_misc_strings.py:1
 msgid "Sea Life"
 msgstr "Púlik éjatal an léjem"
 
 #: i18n_misc_strings.py:2
 msgid "Animals"
-msgstr "ko'onélchik"
+msgstr "Ko'onélchik"
 
 #: i18n_misc_strings.py:3
 msgid "Birds"
@@ -194,15 +194,15 @@ msgstr "Junkun k'al"
 
 #: mmm_modules/buddy_panel.py:101
 msgid "synchronizing"
-msgstr "Júnat-taláb"
-
-#: mmm_modules/buddy_panel.py:115
-msgid "Paused"
-msgstr "T'ok'baywe'"
+msgstr "júnat-taláb"
 
 #: mmm_modules/buddy_panel.py:115
 msgid "Playing"
 msgstr "Ubat'kij"
+
+#: mmm_modules/buddy_panel.py:115
+msgid "Paused"
+msgstr "T'ok'baywe'"
 
 #: mmm_modules/buddy_panel.py:117
 msgid "Finished"
@@ -217,7 +217,8 @@ msgid "Unknown"
 msgstr "Yab éxladh"
 
 #: mmm_modules/buddy_panel.py:123
-#, python-format, 
+#, python-format
+#, python-format,
 msgid "%i minutes"
 msgstr "%i tsakam k'ij"
 
@@ -324,3 +325,7 @@ msgstr "Takuy axe' xi t'ipláb"
 #: mmm_modules/image_category.py:234
 msgid "Not a valid image file"
 msgstr "T'ipládh dhuchlab yab kwéntalidh"
+
+#, python-format
+#~ msgid "Buddy '%s' changed status: %s"
+#~ msgstr "In at júntal %s' jalkúy in alwa %s"
