@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-02-15 00:33-0500\n"
-"PO-Revision-Date: 2011-11-26 09:04+0200\n"
+"PO-Revision-Date: 2012-04-25 06:24+0200\n"
 "Last-Translator: Chris <cjl@laptop.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: quz\n"
@@ -180,7 +180,7 @@ msgstr ""
 
 #: mmm_modules/buddy_panel.py:49
 msgid "Buddy"
-msgstr ""
+msgstr "Masi"
 
 #  "Estado"
 #: mmm_modules/buddy_panel.py:55
