@@ -2,19 +2,20 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-02-15 00:33-0500\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2011-11-26 05:19+0200\n"
+"Last-Translator: Chris <cjl@laptop.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: aym\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Translate Toolkit 1.7.0\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Pootle 2.0.5\n"
 
 #: activity/activity.info:2
 msgid "Slider Puzzle"
@@ -51,9 +52,10 @@ msgstr ""
 msgid "My Picture"
 msgstr ""
 
+#  "Tiempo: "
 #: SliderPuzzleUI.py:258
 msgid "Time: "
-msgstr ""
+msgstr "Pacha: "
 
 #: SliderPuzzleUI.py:274 SliderPuzzleUI.py:576
 msgid "Lesson Plans"
@@ -119,9 +121,10 @@ msgstr ""
 msgid "Birds"
 msgstr ""
 
+#  "XO"
 #: i18n_misc_strings.py:4
 msgid "XO"
-msgstr ""
+msgstr "XO"
 
 #: i18n_misc_strings.py:5
 msgid "Sequencing Puzzles"
@@ -199,21 +202,24 @@ msgstr ""
 msgid "Playing"
 msgstr ""
 
+#  "Pausado"
 #: mmm_modules/buddy_panel.py:115
 msgid "Paused"
-msgstr ""
+msgstr "Suyt'ayaña"
 
+#  "Terminado"
 #: mmm_modules/buddy_panel.py:117
 msgid "Finished"
-msgstr ""
+msgstr "Tukuta"
 
 #: mmm_modules/buddy_panel.py:119
 msgid "Gave up"
 msgstr ""
 
+#  "Desconocido"
 #: mmm_modules/buddy_panel.py:121
 msgid "Unknown"
-msgstr ""
+msgstr "Jani uñt'ata"
 
 #: mmm_modules/buddy_panel.py:123
 #, python-format
@@ -316,9 +322,10 @@ msgstr ""
 msgid "Turkish"
 msgstr ""
 
+#  "Escoger imagen"
 #: mmm_modules/image_category.py:222
 msgid "Choose image"
-msgstr ""
+msgstr "Uñjasiwi ajlliña"
 
 #: mmm_modules/image_category.py:234
 msgid "Not a valid image file"
