@@ -30,20 +30,20 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-02-15 00:33-0500\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2012-05-22 03:33+0200\n"
+"Last-Translator: Chris <cjl@laptop.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Translate Toolkit 1.5.2\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Pootle 2.0.5\n"
 
 #: activity/activity.info:2
 msgid "Slider Puzzle"
@@ -69,8 +69,9 @@ msgid "Buddy '%s' left the game!"
 msgstr ""
 
 #: SliderPuzzleUI.py:214
+#, fuzzy
 msgid "Solve"
-msgstr ""
+msgstr "Memecahkan"
 
 #: SliderPuzzleUI.py:218
 msgid "Shuffle"
@@ -149,24 +150,27 @@ msgid "Birds"
 msgstr ""
 
 #: i18n_misc_strings.py:4
+#, fuzzy
 msgid "XO"
-msgstr ""
+msgstr "XO"
 
 #: i18n_misc_strings.py:5
 msgid "Sequencing Puzzles"
 msgstr ""
 
 #: i18n_misc_strings.py:6
+#, fuzzy
 msgid "Sports"
-msgstr ""
+msgstr "Olahraga"
 
 #: i18n_misc_strings.py:7
 msgid "Insects"
 msgstr ""
 
 #: i18n_misc_strings.py:8
+#, fuzzy
 msgid "Music"
-msgstr ""
+msgstr "Musik"
 
 #: i18n_misc_strings.py:9
 msgid "Space"
@@ -209,8 +213,9 @@ msgid "Buddy"
 msgstr ""
 
 #: mmm_modules/buddy_panel.py:55
+#, fuzzy
 msgid "Status"
-msgstr ""
+msgstr "Status"
 
 #: mmm_modules/buddy_panel.py:62
 msgid "Play Time"
@@ -225,29 +230,34 @@ msgid "synchronizing"
 msgstr ""
 
 #: mmm_modules/buddy_panel.py:115
+#, fuzzy
 msgid "Playing"
-msgstr ""
+msgstr "Memutar"
 
 #: mmm_modules/buddy_panel.py:115
+#, fuzzy
 msgid "Paused"
-msgstr ""
+msgstr "Ditahan"
 
 #: mmm_modules/buddy_panel.py:117
+#, fuzzy
 msgid "Finished"
-msgstr ""
+msgstr "Selesai"
 
 #: mmm_modules/buddy_panel.py:119
 msgid "Gave up"
 msgstr ""
 
 #: mmm_modules/buddy_panel.py:121
+#, fuzzy
 msgid "Unknown"
-msgstr ""
+msgstr "Tidak diketahui"
 
 #: mmm_modules/buddy_panel.py:123
 #, python-format
+#, python-format, fuzzy
 msgid "%i minutes"
-msgstr ""
+msgstr "%i menit"
 
 #: mmm_modules/i18n.py:36
 msgid "Chinese (simplified)"
@@ -270,8 +280,9 @@ msgid "Dutch"
 msgstr ""
 
 #: mmm_modules/i18n.py:41
+#, fuzzy
 msgid "English"
-msgstr ""
+msgstr "Inggris"
 
 #: mmm_modules/i18n.py:42
 msgid "English - Great Britain"
@@ -334,8 +345,9 @@ msgid "Slovak"
 msgstr ""
 
 #: mmm_modules/i18n.py:57
+#, fuzzy
 msgid "Spanish"
-msgstr ""
+msgstr "Spanyol"
 
 #: mmm_modules/i18n.py:58
 msgid "Swedish"
