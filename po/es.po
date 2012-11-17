@@ -159,8 +159,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-02-15 00:33-0500\n"
-"PO-Revision-Date: 2012-08-06 22:19+0200\n"
-"Last-Translator: AlanJAS <alanjas@hotmail.com>\n"
+"PO-Revision-Date: 2012-10-20 00:12+0200\n"
+"Last-Translator: Chris <cjl@laptop.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
@@ -387,39 +387,39 @@ msgstr "Checo"
 
 #: mmm_modules/i18n.py:39
 msgid "Danish"
-msgstr "Danes"
+msgstr "Danés"
 
 #: mmm_modules/i18n.py:40
 msgid "Dutch"
-msgstr "Holandes"
+msgstr "Holandés"
 
 #: mmm_modules/i18n.py:41
 msgid "English"
-msgstr "Ingles"
+msgstr "Inglés"
 
 #: mmm_modules/i18n.py:42
 msgid "English - Great Britain"
-msgstr "Ingles - Gran Bretaña"
+msgstr "Inglés - Gran Bretaña"
 
 #: mmm_modules/i18n.py:43
 msgid "English - U.S."
-msgstr "Ingles - EU"
+msgstr "Inglés - EU"
 
 #: mmm_modules/i18n.py:44
 msgid "Finnish"
-msgstr "Finlandes"
+msgstr "Finlandés"
 
 #: mmm_modules/i18n.py:45
 msgid "French"
-msgstr "Frances"
+msgstr "Francés"
 
 #: mmm_modules/i18n.py:46
 msgid "German"
-msgstr "Aleman"
+msgstr "Alemán"
 
 #: mmm_modules/i18n.py:47
 msgid "Hungarian"
-msgstr "Hungaro"
+msgstr "Húngaro"
 
 #: mmm_modules/i18n.py:48
 msgid "Italian"
@@ -427,11 +427,11 @@ msgstr "Italiano"
 
 #: mmm_modules/i18n.py:49
 msgid "Japanese"
-msgstr "Japones"
+msgstr "Japonés"
 
 #: mmm_modules/i18n.py:50
 msgid "Korean"
-msgstr "Koreano"
+msgstr "Coreano"
 
 #: mmm_modules/i18n.py:51
 msgid "Norwegian"
@@ -447,7 +447,7 @@ msgstr "Portugues"
 
 #: mmm_modules/i18n.py:54
 msgid "Portuguese - Brazilian"
-msgstr "Portugues - Brasileño"
+msgstr "Portugués - Brasileño"
 
 #: mmm_modules/i18n.py:55
 msgid "Russian"
