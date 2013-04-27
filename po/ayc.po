@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-02-15 00:33-0500\n"
-"PO-Revision-Date: 2013-03-12 22:55+0200\n"
-"Last-Translator: Chris <cjl@laptop.org>\n"
+"PO-Revision-Date: 2013-04-16 13:48+0200\n"
+"Last-Translator: EdgarQuispeChambi <quispedgar@yahoo.es>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ayc\n"
 "MIME-Version: 1.0\n"
@@ -31,9 +31,10 @@ msgid "Waiting for Puzzle image to be transferred..."
 msgstr "P'iqi junt'utatayasiri rixipawa apayasiski"
 
 #: SliderPuzzleActivity.py:346
-#, python-format, fuzzy
+#, python-format
+#, python-format, 
 msgid "Buddy '%s' joined the game!"
-msgstr "Masi '%(buddy)s'  kankañapa jaqtawi: %(status)s"
+msgstr "¡Masisaxa '%s'  anatañaru mantiwa!"
 
 #: SliderPuzzleActivity.py:350
 #, python-format
