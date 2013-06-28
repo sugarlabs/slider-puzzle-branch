@@ -32,7 +32,7 @@ msgstr "P'iqi junt'utatayasiri rixipawa apayasiski"
 
 #: SliderPuzzleActivity.py:346
 #, python-format
-#, python-format, 
+#, python-format,
 msgid "Buddy '%s' joined the game!"
 msgstr "¡Masisaxa '%s'  anatañaru mantiwa!"
 
