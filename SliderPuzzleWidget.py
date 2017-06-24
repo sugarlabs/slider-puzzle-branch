@@ -18,10 +18,13 @@
 # own creations we would love to hear from you at info@WorldWideWorkshop.org !
 #
 
-import pygtk
-pygtk.require('2.0')
-import gtk, gobject
-import pango
+import gi
+gi.require_version('Gtk', '3.0')
+import Gtk
+import GObject
+import Cairo
+import PangoCairo
+import Pango
 import md5
 import logging
 
@@ -57,13 +60,13 @@ def calculate_matrix (pieces):
     return rows*cols, rows, cols
 
 
-class SliderCreator (gtk.gdk.Pixbuf):
+class SliderCreator (GdkPixbuf.Pixbuf):
     def __init__ (self, width, height, fname=None, tlist=None): #tlist):
         if width == -1:
             width = 564
         if height == -1:
             height = 564
-        super(SliderCreator, self).__init__(gtk.gdk.COLORSPACE_RGB, False, 8, width, height)
+        super(SliderCreator, self).__init__(GdkPixbuf.Colorspace.RGB, False, 8, width, height)
         if tlist is None:
           items = []
           cmds = file(fname).readlines()
@@ -91,15 +94,15 @@ class SliderCreator (gtk.gdk.Pixbuf):
 
     def prepare_stringed (self, rows, cols):
         # We use a Pixmap as offscreen drawing canvas
-        cm = gtk.gdk.colormap_get_system()
-        pm = gtk.gdk.Pixmap(None, self.width, self.height, cm.get_visual().depth)
+        cm = Gdk.colormap_get_system()
+        pm = Gdk.Pixmap(None, self.width, self.height, cm.get_visual().depth)
         #pangolayout = pm.create_pango_layout("")
         font_size = int(self.width / cols / 4)
-        l = gtk.Label()
-        pangolayout = pango.Layout(l.create_pango_context())
-        pangolayout.set_font_description(pango.FontDescription("sans bold %i" % font_size))
+        l = Gtk.Label()
+        pangolayout = Pango.Layout(l.create_pango_context())
+        pangolayout.set_font_description(Pango.FontDescription("sans bold %i" % font_size))
         gc = pm.new_gc()
-        gc.set_colormap(gtk.gdk.colormap_get_system())
+        gc.set_colormap(Gdk.colormap_get_system())
         color = cm.alloc_color('white')
         gc.set_foreground(color)
         pm.draw_rectangle(gc, True, 0, 0, self.width, self.height)
@@ -406,16 +409,16 @@ class SliderPuzzleMap (object):
 # Widget Definition
 ###
 
-class SliderPuzzleWidget (gtk.Table):
-    __gsignals__ = {'solved' : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, ()),
-                    'shuffled' : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, ()),
-                    'moved' : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, ()),}
+class SliderPuzzleWidget (Gtk.Table):
+    __gsignals__ = {'solved' : (GObject.SignalFlags.RUN_LAST, None, ()),
+                    'shuffled' : (GObject.SignalFlags.RUN_LAST, None, ()),
+                    'moved' : (GObject.SignalFlags.RUN_LAST, None, ()),}
     
     def __init__ (self, pieces=9, width=480, height=480):
         self.jumbler = SliderPuzzleMap(pieces, self.jumblermap_piece_move_cb)
         # We take this from the jumbler object because it may have altered our requested value
-        gtk.Table.__init__(self, self.jumbler.rowsize, self.jumbler.colsize)
-        self.image = None #gtk.Image()
+        GObject.GObject.__init__(self, self.jumbler.rowsize, self.jumbler.colsize)
+        self.image = None #Gtk.Image()
         self.width = width
         self.height = height
         self.set_size_request(width, height)
@@ -428,7 +431,7 @@ class SliderPuzzleWidget (gtk.Table):
         #    pb = self.image.get_pixbuf()
         #if self.image is None or pb is None:
             for i in range(self.jumbler.pieces):
-                self.pieces.append(gtk.Button(str(i+1)))
+                self.pieces.append(Gtk.Button(str(i+1)))
                 self.pieces[-1].connect("button-release-event", self.process_mouse_click, i+1)
                 self.pieces[-1].show()
         else:
@@ -440,10 +443,10 @@ class SliderPuzzleWidget (gtk.Table):
             h = self.image.get_height() / self.jumbler.rowsize
             for y in range(self.jumbler.rowsize):
                 for x in range(self.jumbler.colsize):
-                    img = gtk.Image()
+                    img = Gtk.Image()
                     img.set_from_pixbuf(self.image.subpixbuf(x*w, y*h, w-1, h-1))
                     img.show()
-                    self.pieces.append(gtk.EventBox())
+                    self.pieces.append(Gtk.EventBox())
                     self.pieces[-1].add(img)
                     self.pieces[-1].connect("button-press-event", self.process_mouse_click, (y*self.jumbler.colsize)+x+1)
                     self.pieces[-1].show()
@@ -469,7 +472,7 @@ class SliderPuzzleWidget (gtk.Table):
     def process_key (self, w, e):
         if self.get_parent() == None:
             return False
-        k = gtk.gdk.keyval_name(e.keyval)
+        k = Gdk.keyval_name(e.keyval)
         if k in up_key:
             self.jumbler.do_move(SLIDE_UP)
             return True
@@ -542,7 +545,7 @@ class SliderPuzzleWidget (gtk.Table):
         f = file(fn, 'w+b')
         f.write(image)
         f.close()
-        i = gtk.Image()
+        i = Gtk.Image()
         i.set_from_file(fn)
         os.remove(fn)
         self.image = i.get_pixbuf()
@@ -556,7 +559,7 @@ class SliderPuzzleWidget (gtk.Table):
             del self.pieces
         # Resize to a single cell and use that for the image
         self.resize(1,1)
-        img = gtk.Image()
+        img = Gtk.Image()
         img.set_from_pixbuf(self.image)
         self.attach(img, 0,1,0,1)
         img.show()

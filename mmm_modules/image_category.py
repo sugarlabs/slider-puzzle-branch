@@ -18,8 +18,8 @@
 # own creations we would love to hear from you at info@WorldWideWorkshop.org !
 #
 
-import pygtk
-pygtk.require('2.0')
+import gi
+gi.require_version('Gtk', '3.0')
 import gtk, gobject
 
 import os
@@ -156,9 +156,9 @@ class CategoryDirectory (object):
         return load_image(thumbs[0], self.twidth, self.theight)
     
 
-class ImageSelectorWidget (gtk.Table):
-    __gsignals__ = {'category_press' : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, ()),
-                    'image_press' : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, ()),}
+class ImageSelectorWidget (Gtk.Table):
+    __gsignals__ = {'category_press' : (GObject.SignalFlags.RUN_LAST, None, ()),
+                    'image_press' : (GObject.SignalFlags.RUN_LAST, None, ()),}
 
     def __init__ (self,parentp,
                   width=IMAGE_SIZE,
@@ -167,12 +167,12 @@ class ImageSelectorWidget (gtk.Table):
                   prepare_btn_cb=prepare_btn,
                   method=RESIZE_CUT,
                   image_dir=None):
-        gtk.Table.__init__(self, 2,5,False)
+        GObject.GObject.__init__(self, 2,5,False)
         self._signals = []
         self.parentp = parentp
         self.width = width
         self.height = height
-        self.image = gtk.Image()
+        self.image = Gtk.Image()
         self.method = method
         #self.set_myownpath(MYOWNPIC_FOLDER)
         img_box = BorderFrame(border_color=frame_color)
@@ -180,30 +180,30 @@ class ImageSelectorWidget (gtk.Table):
         img_box.set_border_width(5)
         self._signals.append((img_box, img_box.connect('button_press_event', self.emit_image_pressed)))
         self.attach(img_box, 0,5,0,1,0,0)
-        self.attach(gtk.Label(), 0,1,1,2)
-        self.bl = gtk.Button()
+        self.attach(Gtk.Label(), 0,1,1,2)
+        self.bl = Gtk.Button()
 
-        il = gtk.Image()
+        il = Gtk.Image()
         il.set_from_pixbuf(load_image(os.path.join(iconpath, 'arrow_left.png')))
         self.bl.set_image(il)
 
         self.bl.connect('clicked', self.previous)
         self.attach(prepare_btn_cb(self.bl), 1,2,1,2,0,0)
 
-        cteb = gtk.EventBox()
-        self.cat_thumb = gtk.Image()
+        cteb = Gtk.EventBox()
+        self.cat_thumb = Gtk.Image()
         self.cat_thumb.set_size_request(THUMB_SIZE, THUMB_SIZE)
         cteb.add(self.cat_thumb)
         self._signals.append((cteb, cteb.connect('button_press_event', self.emit_cat_pressed)))
         self.attach(cteb, 2,3,1,2,0,0,xpadding=10)
         
-        self.br = gtk.Button()
-        ir = gtk.Image()
+        self.br = Gtk.Button()
+        ir = Gtk.Image()
         ir.set_from_pixbuf(load_image(os.path.join(iconpath,'arrow_right.png')))
         self.br.set_image(ir)
         self.br.connect('clicked', self.next)
         self.attach(prepare_btn_cb(self.br), 3,4,1,2,0,0)
-        self.attach(gtk.Label(),4,5,1,2)
+        self.attach(Gtk.Label(),4,5,1,2)
         self.filename = None
         self.show_all()
         self.image.set_size_request(width, height)
@@ -220,17 +220,17 @@ class ImageSelectorWidget (gtk.Table):
             filter = { }
 
         chooser = ObjectChooser(_('Choose image'), self.parentp, #self._parent,
-                                gtk.DIALOG_MODAL | gtk.DIALOG_DESTROY_WITH_PARENT,
+                                Gtk.DialogFlags.MODAL | Gtk.DialogFlags.DESTROY_WITH_PARENT,
                                 **filter)
         try:
             result = chooser.run()
-            if result == gtk.RESPONSE_ACCEPT:
+            if result == Gtk.ResponseType.ACCEPT:
                 jobject = chooser.get_selected_object()
                 if jobject and jobject.file_path:
                     if self.load_image(str(jobject.file_path), True):
                         pass
                     else:
-                        err = gtk.MessageDialog(self._parent, gtk.DIALOG_MODAL, gtk.MESSAGE_ERROR, gtk.BUTTONS_OK,
+                        err = Gtk.MessageDialog(self._parent, Gtk.DialogFlags.MODAL, Gtk.MessageType.ERROR, Gtk.ButtonsType.OK,
                                                 _("Not a valid image file"))
                         err.run()
                         err.destroy()
@@ -243,12 +243,12 @@ class ImageSelectorWidget (gtk.Table):
         #print (widget,response,args)
         #if response is None:
         #    # My Own Image selector
-        #    imgfilter = gtk.FileFilter()
+        #    imgfilter = Gtk.FileFilter()
         #    imgfilter.set_name(_("Image Files"))
         #    imgfilter.add_mime_type('image/*')
-        #    fd = gtk.FileChooserDialog(title=_("Select Image File"), parent=None,
-        #                               action=gtk.FILE_CHOOSER_ACTION_OPEN,
-        #                               buttons=(gtk.STOCK_CANCEL, gtk.RESPONSE_REJECT,gtk.STOCK_OK, gtk.RESPONSE_ACCEPT))
+        #    fd = Gtk.FileChooserDialog(title=_("Select Image File"), parent=None,
+        #                               action=Gtk.FileChooserAction.OPEN,
+        #                               buttons=(Gtk.STOCK_CANCEL, Gtk.ResponseType.REJECT,Gtk.STOCK_OK, Gtk.ResponseType.ACCEPT))
         #
         #    fd.set_current_folder(os.path.expanduser("~/"))
         #    fd.set_modal(True)
@@ -257,12 +257,12 @@ class ImageSelectorWidget (gtk.Table):
         #    fd.resize(800,600)
         #    fd.show()
         #else:
-        #    if response == gtk.RESPONSE_ACCEPT:
+        #    if response == Gtk.ResponseType.ACCEPT:
         #        if self.load_image(widget.get_filename()):
         #            pass
         #            #self.do_shuffle()
         #        else:
-        #            err = gtk.MessageDialog(self._parent, gtk.DIALOG_MODAL, gtk.MESSAGE_ERROR, gtk.BUTTONS_OK,
+        #            err = Gtk.MessageDialog(self._parent, Gtk.DialogFlags.MODAL, Gtk.MessageType.ERROR, Gtk.ButtonsType.OK,
         #                                    _("Not a valid image file"))
         #            err.run()
         #            err.destroy()
@@ -395,12 +395,12 @@ class ImageSelectorWidget (gtk.Table):
         self.set_image_dir(obj.get('image_dir', None))
         self.image.set_from_pixbuf(self.category.get_image(obj.get('filename', None)))
 
-class CategorySelector (gtk.ScrolledWindow):
-    __gsignals__ = {'selected' : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, (str,))}
+class CategorySelector (Gtk.ScrolledWindow):
+    __gsignals__ = {'selected' : (GObject.SignalFlags.RUN_LAST, None, (str,))}
     
     def __init__ (self, title=None, selected_category_path=None, path=None, extra=()):
-        gtk.ScrolledWindow.__init__ (self)
-        self.set_policy(gtk.POLICY_AUTOMATIC, gtk.POLICY_AUTOMATIC)
+        GObject.GObject.__init__ (self)
+        self.set_policy(Gtk.PolicyType.AUTOMATIC, Gtk.PolicyType.AUTOMATIC)
         if path is None:
             path = os.path.join(mmmpath, 'mmm_images')
         self.path = path
@@ -408,10 +408,10 @@ class CategorySelector (gtk.ScrolledWindow):
         model, selected = self.get_model(path, selected_category_path, extra)
         self.ignore_first = selected is not None
         
-        self.treeview = gtk.TreeView()
-        col = gtk.TreeViewColumn(title)
-        r1 = gtk.CellRendererPixbuf()
-        r2 = gtk.CellRendererText()
+        self.treeview = Gtk.TreeView()
+        col = Gtk.TreeViewColumn(title)
+        r1 = Gtk.CellRendererPixbuf()
+        r2 = Gtk.CellRendererText()
         col.pack_start(r1, False)
         col.pack_start(r2, True)
         col.set_cell_data_func(r1, self.cell_pb)
@@ -442,8 +442,8 @@ class CategorySelector (gtk.ScrolledWindow):
     def get_model (self, path, selected_path, extra):
         # Each row is (path/dirname, pretty name, 0 based index)
         selected = None
-        store = gtk.ListStore(str, str, int)
-        store.set_sort_column_id(1, gtk.SORT_ASCENDING)
+        store = Gtk.ListStore(str, str, int)
+        store.set_sort_column_id(1, Gtk.SortType.ASCENDING)
         files = [os.path.join(path, x) for x in os.listdir(path) if not x.startswith('.')]
         files.extend(extra)
         for fullpath, prettyname in [(x, _(os.path.basename(x))) for x in files if os.path.isdir(x)]:

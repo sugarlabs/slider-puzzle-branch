@@ -19,8 +19,8 @@
 #
 
 # init gthreads before using abiword
-import gobject
-gobject.threads_init()
+from gi.repository import GObject
+GObject.threads_init()
 
 from sugar.activity.activity import Activity, ActivityToolbox, get_bundle_path
 from gettext import gettext as _
