@@ -18,13 +18,10 @@
 # own creations we would love to hear from you at info@WorldWideWorkshop.org !
 #
 
-import pygtk
-pygtk.require('2.0')
-import gtk, gobject
-import pango
+from gi.repository import Gtk, GObject, Pango, GdkPixbuf, Gdk
 import md5
 import logging
-
+import tempfile
 from mamamedia_modules import utils
 
 #from utils import load_image, calculate_matrix, debug, SliderCreator, trace
@@ -40,9 +37,9 @@ import os
 # General Information
 ###
 
-up_key =    ['Up', 'KP_Up', 'KP_8']
-down_key =  ['Down', 'KP_Down', 'KP_2']
-left_key =  ['Left', 'KP_Left', 'KP_4']
+up_key = ['Up', 'KP_Up', 'KP_8']
+down_key = ['Down', 'KP_Down', 'KP_2']
+left_key = ['Left', 'KP_Left', 'KP_4']
 right_key = ['Right', 'KP_Right', 'KP_6']
 
 SLIDE_UP = 1
@@ -50,56 +47,57 @@ SLIDE_DOWN = 2
 SLIDE_LEFT = 3
 SLIDE_RIGHT = 4
 
-def calculate_matrix (pieces):
+
+def calculate_matrix(pieces):
     """ Given a number of pieces, calculate the best fit 2 dimensional matrix """
     rows = int(sqrt(pieces))
     cols = int(float(pieces) / rows)
-    return rows*cols, rows, cols
+    return rows * cols, rows, cols
 
 
-class SliderCreator (gtk.gdk.Pixbuf):
-    def __init__ (self, width, height, fname=None, tlist=None): #tlist):
+class SliderCreator (GdkPixbuf.Pixbuf):
+    def __init__(self, width, height, fname=None, tlist=None):  # tlist):
         if width == -1:
             width = 564
         if height == -1:
             height = 564
-        super(SliderCreator, self).__init__(gtk.gdk.COLORSPACE_RGB, False, 8, width, height)
+        super(SliderCreator, self).__init__()
+        self.set_property('colorspace', GdkPixbuf.Colorspace.RGB)
+        self.set_property('has-alpha',  False)
+        self.set_property('bits-per-sample', 8)
+        self.set_property('width', width)
+        self.set_property('height', height)
         if tlist is None:
-          items = []
-          cmds = file(fname).readlines()
-          if len(cmds) > 1:
-              _x_ = eval(cmds[0])
-              for i in range(16):
-                  items.append(_x_)
-                  _x_ = eval(cmds[1])
+            items = []
+            cmds = file(fname).readlines()
+            if len(cmds) > 1:
+                _x_ = eval(cmds[0])
+                for i in range(16):
+                    items.append(_x_)
+                    _x_ = eval(cmds[1])
         else:
             items = tlist
         self.width = width
         self.height = height
         self.tlist = items
-        self.prepare_stringed(2,2)
-
-    #def scale_simple (self, w,h,m):
-    #    return SliderCreator(w,h,tlist=self.tlist)
-
-    #def subpixbuf (self, x,y,w,h):
-    #    return SliderCreator(w,h,tlist=self.tlist)
+        self.prepare_stringed(2, 2)
 
     @classmethod
     def can_handle(klass, fname):
         return fname.lower().endswith('.sequence')
 
-    def prepare_stringed (self, rows, cols):
+    def prepare_stringed(self, rows, cols):
         # We use a Pixmap as offscreen drawing canvas
-        cm = gtk.gdk.colormap_get_system()
-        pm = gtk.gdk.Pixmap(None, self.width, self.height, cm.get_visual().depth)
+        cm = Gdk.colormap_get_system()
+        pm = Gdk.Pixmap(None, self.width, self.height, cm.get_visual().depth)
         #pangolayout = pm.create_pango_layout("")
         font_size = int(self.width / cols / 4)
-        l = gtk.Label()
-        pangolayout = pango.Layout(l.create_pango_context())
-        pangolayout.set_font_description(pango.FontDescription("sans bold %i" % font_size))
+        l = Gtk.Label()
+        pangolayout = Pango.Layout(l.create_pango_context())
+        pangolayout.set_font_description(
+            Pango.FontDescription("sans bold %i" % font_size))
         gc = pm.new_gc()
-        gc.set_colormap(gtk.gdk.colormap_get_system())
+        gc.set_colormap(Gdk.colormap_get_system())
         color = cm.alloc_color('white')
         gc.set_foreground(color)
         pm.draw_rectangle(gc, True, 0, 0, self.width, self.height)
@@ -112,14 +110,16 @@ class SliderCreator (gtk.gdk.Pixbuf):
             for c in range(cols):
                 px = sw * c
                 py = sh * r
-                #if c > 0 and r > 0:
+                # if c > 0 and r > 0:
                 #    pm.draw_line(gc, px, 0, px, self.height-1)
                 #    pm.draw_line(gc, 0, py, self.width-1, py)
                 pangolayout.set_text(str(item.next()))
                 pe = pangolayout.get_pixel_extents()
-                pe = pe[1][2]/2, pe[1][3]/2
-                pm.draw_layout(gc, px + (sw / 2) - pe[0],  py + (sh / 2) - pe[1], pangolayout)
+                pe = pe[1][2] / 2, pe[1][3] / 2
+                pm.draw_layout(gc, px + (sw / 2) -
+                               pe[0],  py + (sh / 2) - pe[1], pangolayout)
         self.get_from_drawable(pm, cm, 0, 0, 0, 0, -1, -1)
+
 
 utils.register_image_type(SliderCreator)
 
@@ -127,41 +127,43 @@ utils.register_image_type(SliderCreator)
 # Game Logic
 ###
 
+
 class MatrixPosition (object):
     """ Helper class to hold a x/y coordinate, and move it by passing a direction,
     taking care of enforcing boundaries as needed.
     The x and y coords are 0 based. """
-    def __init__ (self, rowsize, colsize, x=0, y=0):
+
+    def __init__(self, rowsize, colsize, x=0, y=0):
         self.rowsize = rowsize
         self.colsize = colsize
-        self.x = min(x, colsize-1)
-        self.y = min(y, rowsize-1)
+        self.x = min(x, colsize - 1)
+        self.y = min(y, rowsize - 1)
 
-    def __eq__ (self, other):
+    def __eq__(self, other):
         if isinstance(other, (TupleType, ListType)) and len(other) == 2:
             return self.x == other[0] and self.y == other[1]
         return False
 
-    def __ne__ (self, other):
-        return not self.__eq__ (other)
+    def __ne__(self, other):
+        return not self.__eq__(other)
 
-    def bottom_right (self):
+    def bottom_right(self):
         """ Move to the lower right position of the matrix, having 0,0 as the top left corner """
         self.x = self.colsize - 1
-        self.y = self.rowsize-1
+        self.y = self.rowsize - 1
 
-    def move (self, direction, count=1):
+    def move(self, direction, count=1):
         """ Moving direction is actually the opposite of what is passed.
         We are moving the hole position, so if you slice a piece down into the hole,
         that hole is actually moving up.
         Returns bool, false if we can't move in the requested direction."""
-        if direction == SLIDE_UP and self.y < self.rowsize-1:
+        if direction == SLIDE_UP and self.y < self.rowsize - 1:
             self.y += 1
             return True
         if direction == SLIDE_DOWN and self.y > 0:
             self.y -= 1
             return True
-        if direction == SLIDE_LEFT and self.x < self.colsize-1:
+        if direction == SLIDE_LEFT and self.x < self.colsize - 1:
             self.x += 1
             return True
         if direction == SLIDE_RIGHT and self.x > 0:
@@ -169,67 +171,69 @@ class MatrixPosition (object):
             return True
         return False
 
-    def clone (self):
+    def clone(self):
         return MatrixPosition(self.rowsize, self.colsize, self.x, self.y)
 
-    def _freeze (self):
+    def _freeze(self):
         return (self.rowsize, self.colsize, self.x, self.y)
 
-    def _thaw (self, obj):
+    def _thaw(self, obj):
         if obj is not None:
             self.rowsize, self.colsize, self.x, self.y = obj
-        
+
 
 class SliderPuzzleMap (object):
     """ This class holds the game logic.
     The current pieces position is held in self.pieces_map[YROW][XROW].
     """
-    def __init__ (self, pieces=9, move_cb=None):
+
+    def __init__(self, pieces=9, move_cb=None):
         self.reset(pieces)
         self.move_cb = move_cb
         self.solved = True
 
-    def reset (self, pieces=9):
+    def reset(self, pieces=9):
         self.pieces, self.rowsize, self.colsize = calculate_matrix(pieces)
-        pieces_map = range(1,self.pieces+1)
+        pieces_map = range(1, self.pieces + 1)
         self.pieces_map = []
         for i in range(self.rowsize):
-            self.pieces_map.append(pieces_map[i*self.colsize:(i+1)*self.colsize])
+            self.pieces_map.append(
+                pieces_map[i * self.colsize:(i + 1) * self.colsize])
         self.hole_pos = MatrixPosition(self.rowsize, self.colsize)
         self.hole_pos.bottom_right()
         self.solved_map = [list(x) for x in self.pieces_map]
         self.solved_map[-1][-1] = None
 
-    def randomize (self):
+    def randomize(self):
         """ To make sure the randomization is solvable, we don't simply shuffle the numbers.
         We move the hole in random directions through a finite number of iteractions. """
         # Remove the move callback temporarily
         cb = self.move_cb
         self.move_cb = None
 
-        iteractions = self.rowsize * self.colsize * (int(100*random())+1)
+        iteractions = self.rowsize * self.colsize * (int(100 * random()) + 1)
 
         t = time()
         for i in range(iteractions):
-            while not (self.do_move(int(4*random())+1)):
+            while not (self.do_move(int(4 * random()) + 1)):
                 pass
 
         t = time() - t
 
         # Now move the hole to the bottom right
-        for x in range(self.colsize-self.hole_pos.x-1):
+        for x in range(self.colsize - self.hole_pos.x - 1):
             self.do_move(SLIDE_LEFT)
-        for y in range(self.rowsize-self.hole_pos.y-1):
+        for y in range(self.rowsize - self.hole_pos.y - 1):
             self.do_move(SLIDE_UP)
 
         # Put the callback where it was
         self.move_cb = cb
         self.solved = False
 
-    def do_move (self, slide_direction):
+    def do_move(self, slide_direction):
         """
         The moves are relative to the moving piece:
-        
+
         >>> jm = SliderPuzzleMap()
         >>> jm.debug_map()
         1 2 3
@@ -302,11 +306,12 @@ class SliderPuzzleMap (object):
             self.pieces_map[old_hole_pos.y][old_hole_pos.x] = self.pieces_map[self.hole_pos.y][self.hole_pos.x]
             self.is_solved()
             if self.move_cb is not None:
-                self.move_cb(self.hole_pos.x, self.hole_pos.y, old_hole_pos.x, old_hole_pos.y)
+                self.move_cb(self.hole_pos.x, self.hole_pos.y,
+                             old_hole_pos.x, old_hole_pos.y)
             return True
         return False
 
-    def do_move_piece (self, piece):
+    def do_move_piece(self, piece):
         """ Move the piece (1 based index) into the hole, if possible
         >>> jm = SliderPuzzleMap()
         >>> jm.debug_map()
@@ -332,16 +337,16 @@ class SliderPuzzleMap (object):
             for x in range(self.colsize):
                 if self.pieces_map[y][x] == piece:
                     if self.hole_pos.x == x:
-                        if abs(self.hole_pos.y-y) == 1:
+                        if abs(self.hole_pos.y - y) == 1:
                             return self.do_move(self.hole_pos.y > y and SLIDE_DOWN or SLIDE_UP)
                     elif self.hole_pos.y == y:
-                        if abs(self.hole_pos.x-x) == 1:
+                        if abs(self.hole_pos.x - x) == 1:
                             return self.do_move(self.hole_pos.x > x and SLIDE_RIGHT or SLIDE_LEFT)
                     else:
                         return False
         return False
 
-    def is_hole_at (self, x, y):
+    def is_hole_at(self, x, y):
         """
         >>> jm = SliderPuzzleMap()
         >>> jm.debug_map()
@@ -353,9 +358,9 @@ class SliderPuzzleMap (object):
         >>> jm.is_hole_at(0,0)
         False
         """
-        return self.hole_pos == (x,y)
+        return self.hole_pos == (x, y)
 
-    def is_solved (self):
+    def is_solved(self):
         """
         >>> jm = SliderPuzzleMap()
         >>> jm.do_move_piece(6)
@@ -367,35 +372,33 @@ class SliderPuzzleMap (object):
         >>> jm.is_solved()
         True
         """
-        if self.hole_pos != (self.colsize-1, self.rowsize-1):
+        if self.hole_pos != (self.colsize - 1, self.rowsize - 1):
             return False
         self.pieces_map[self.hole_pos.y][self.hole_pos.x] = None
         self.solved = self.pieces_map == self.solved_map
         return self.solved
-        
-        
 
-    def get_cell_at (self, x, y):
-        if x < 0 or x >= self.colsize or y < 0 or y >= self.rowsize or self.is_hole_at(x,y):
+    def get_cell_at(self, x, y):
+        if x < 0 or x >= self.colsize or y < 0 or y >= self.rowsize or self.is_hole_at(x, y):
             return None
         return self.pieces_map[y][x]
 
-    def debug_map (self):
+    def debug_map(self):
         for y in range(self.rowsize):
             for x in range(self.colsize):
-                if self.hole_pos == (x,y):
+                if self.hole_pos == (x, y):
                     logging.debug("*")
                 else:
                     logging.debug(self.pieces_map[y][x])
 
-    def __call__ (self):
+    def __call__(self):
         self.debug_map()
 
-    def _freeze (self):
+    def _freeze(self):
         return {'pieces': self.pieces, 'rowsize': self.rowsize, 'colsize': self.colsize,
                 'pieces_map': self.pieces_map, 'hole_pos_freeze': self.hole_pos._freeze()}
 
-    def _thaw (self, obj):
+    def _thaw(self, obj):
         for k in obj.keys():
             if hasattr(self, k):
                 setattr(self, k, obj[k])
@@ -406,70 +409,80 @@ class SliderPuzzleMap (object):
 # Widget Definition
 ###
 
-class SliderPuzzleWidget (gtk.Table):
-    __gsignals__ = {'solved' : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, ()),
-                    'shuffled' : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, ()),
-                    'moved' : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, ()),}
-    
-    def __init__ (self, pieces=9, width=480, height=480):
+class SliderPuzzleWidget (Gtk.Table):
+    __gsignals__ = {'solved': (GObject.SIGNAL_RUN_LAST, GObject.TYPE_NONE, ()),
+                    'shuffled': (GObject.SIGNAL_RUN_LAST, GObject.TYPE_NONE, ()),
+                    'moved': (GObject.SIGNAL_RUN_LAST, GObject.TYPE_NONE, ()), }
+
+    def __init__(self, pieces=9, width=480, height=480):
         self.jumbler = SliderPuzzleMap(pieces, self.jumblermap_piece_move_cb)
         # We take this from the jumbler object because it may have altered our requested value
-        gtk.Table.__init__(self, self.jumbler.rowsize, self.jumbler.colsize)
-        self.image = None #gtk.Image()
+        Gtk.Table.__init__(self, self.jumbler.rowsize, self.jumbler.colsize)
+        self.image = None  # Gtk.Image()
         self.width = width
         self.height = height
-        self.set_size_request(width, height)
+        self.set_size_request(0, 0)  # min size
         self.filename = None
 
-    def prepare_pieces (self):
+    def prepare_pieces(self):
         """ set up a list of UI objects that will serve as pieces, ordered correctly """
         self.pieces = []
         if self.image is None:
-        #    pb = self.image.get_pixbuf()
-        #if self.image is None or pb is None:
+            #    pb = self.image.get_pixbuf()
+            # if self.image is None or pb is None:
             for i in range(self.jumbler.pieces):
-                self.pieces.append(gtk.Button(str(i+1)))
-                self.pieces[-1].connect("button-release-event", self.process_mouse_click, i+1)
+                self.pieces.append(Gtk.Button(str(i + 1)))
+                self.pieces[-1].connect("button-release-event",
+                                        self.process_mouse_click, i + 1)
                 self.pieces[-1].show()
         else:
             if isinstance(self.image, SliderCreator):
                 # ask for image creation
-                self.image.prepare_stringed(self.jumbler.rowsize, self.jumbler.colsize)
-        
-            w = self.image.get_width() / self.jumbler.colsize
-            h = self.image.get_height() / self.jumbler.rowsize
+                self.image.prepare_stringed(
+                    self.jumbler.rowsize, self.jumbler.colsize)
+            w = self.image.get_width() / self.jumbler.colsize - \
+                self.jumbler.colsize * 11
+            h = self.image.get_height() / self.jumbler.rowsize - \
+                self.jumbler.rowsize * 11
             for y in range(self.jumbler.rowsize):
                 for x in range(self.jumbler.colsize):
-                    img = gtk.Image()
-                    img.set_from_pixbuf(self.image.subpixbuf(x*w, y*h, w-1, h-1))
+                    img = Gtk.Image()
+                    img.set_from_pixbuf(self.image.new_subpixbuf(
+                        x * w, y * h, w - 1, h - 1))
                     img.show()
-                    self.pieces.append(gtk.EventBox())
+                    self.pieces.append(Gtk.EventBox())
                     self.pieces[-1].add(img)
-                    self.pieces[-1].connect("button-press-event", self.process_mouse_click, (y*self.jumbler.colsize)+x+1)
+                    self.pieces[-1].connect("button-press-event",
+                                            self.process_mouse_click, (y * self.jumbler.colsize) + x + 1)
                     self.pieces[-1].show()
             self.set_row_spacings(1)
             self.set_col_spacings(1)
 
+    # An intermediate remove method, to absorb the second parameter from
+    # the foreach call.
+    def remove_itm(self, cell, rubbish):
+        self.remove(cell)
+
     @utils.trace
-    def full_refresh (self):
+    def full_refresh(self):
         # Delete everything
-        self.foreach(self.remove)
+        self.foreach(self.remove_itm, None)
         self.prepare_pieces()
         # Add the pieces in their respective places
         for y in range(self.jumbler.rowsize):
             for x in range(self.jumbler.colsize):
                 pos = self.jumbler.get_cell_at(x, y)
                 if pos is not None:
-                    self.attach(self.pieces[pos-1], x, x+1, y, y+1)
+                    self.attach(self.pieces[pos - 1], x, x + 1, y, y + 1)
 
-    def process_mouse_click (self, b, e, i):
+    def process_mouse_click(self, b, e, i):
         # i is the 1 based index of the piece
         self.jumbler.do_move_piece(i)
 
-    def process_key (self, w, e):
+    def process_key(self, w, e):
         if self.get_parent() == None:
             return False
-        k = gtk.gdk.keyval_name(e.keyval)
+        k = Gdk.keyval_name(e.keyval)
         if k in up_key:
             self.jumbler.do_move(SLIDE_UP)
             return True
@@ -486,36 +499,36 @@ class SliderPuzzleWidget (gtk.Table):
 
     ### SliderPuzzleMap specific callbacks ###
 
-    def jumblermap_piece_move_cb (self, hx, hy, px, py):
+    def jumblermap_piece_move_cb(self, hx, hy, px, py):
         if not hasattr(self, 'pieces'):
             return
-        piece = self.pieces[self.jumbler.get_cell_at(px, py)-1]
+        piece = self.pieces[self.jumbler.get_cell_at(px, py) - 1]
         self.remove(piece)
-        self.attach(piece, px, px+1, py, py+1)
+        self.attach(piece, px, px + 1, py, py + 1)
         self.emit("moved")
         if self.jumbler.solved:
             self.emit("solved")
 
     ### Parent callable interface ###
 
-    def get_nr_pieces (self):
+    def get_nr_pieces(self):
         return self.jumbler.pieces
 
     @utils.trace
-    def set_nr_pieces (self, nr_pieces):
+    def set_nr_pieces(self, nr_pieces):
         self.jumbler.reset(nr_pieces)
         self.resize(self.jumbler.rowsize, self.jumbler.colsize)
         self.randomize()
 
     @utils.trace
-    def randomize (self):
+    def randomize(self):
         """ Jumble the SliderPuzzle """
         self.jumbler.randomize()
         self.full_refresh()
         self.emit("shuffled")
 
     @utils.trace
-    def load_image (self, image, width=0, height=0):
+    def load_image(self, image, width=0, height=0):
         """ Loads an image from the file.
         width and height are processed as follows:
           -1 : follow the loaded image size
@@ -532,49 +545,54 @@ class SliderPuzzleWidget (gtk.Table):
         self.filename = True
         self.full_refresh()
 
-    def set_image (self, image):
+    def set_image(self, image):
         # image is a pixbuf!
         self.image = image
         self.filename = True
 
-    def set_image_from_str (self, image):
-        fn = os.tempnam() 
+    def set_image_from_str(self, image):
+        fn = os.tempnam()
         f = file(fn, 'w+b')
         f.write(image)
         f.close()
-        i = gtk.Image()
+        i = Gtk.Image()
         i.set_from_file(fn)
         os.remove(fn)
         self.image = i.get_pixbuf()
         self.filename = True
 
-    def show_image (self):
+    def show_image(self):
         """ Shows the full image, used as visual clue for solved puzzle """
         # Delete everything
-        self.foreach(self.remove)
+        self.foreach(self.remove_itm, None)
         if hasattr(self, 'pieces'):
             del self.pieces
         # Resize to a single cell and use that for the image
-        self.resize(1,1)
-        img = gtk.Image()
+        self.resize(1, 1)
+        img = Gtk.Image()
         img.set_from_pixbuf(self.image)
-        self.attach(img, 0,1,0,1)
+        self.attach(img, 0, 1, 0, 1)
         img.show()
 
-    def get_image_as_png (self, cb=None):
+    # Intermediate function to absorb extra parameters sent in by
+    # save_to_callbackv
+
+    def get_image_as_png(self, cb=None):
         if self.image is None:
             return None
-        rv = None
-        if cb is None:
-            rv = StringIO()
-            cb = rv.write
-        self.image.save_to_callback(cb, "png")
-        if rv is not None:
-            return rv.getvalue()
-        else:
-            return True
+        # save_to_streamv is missing entirely,
+        # save_to_bufferv appears to be unusable,
+        # and it looks like save_to_callback's data is being truncated on NULL.
+        # Check http://ubuntuforums.org/showthread.php?t=1877793
+        # XXX: Hack
+        tmp_file = tempfile.NamedTemporaryFile()
+        tmp_file_name = tmp_file.name
+        self.image.savev(tmp_file_name, "png", [], [])
+        pb_s = GdkPixbuf.Pixbuf.new_from_file(tmp_file_name).to_string()
+        tmp_file.close()
+        return pb_s
 
-    def _freeze (self, journal=True):
+    def _freeze(self, journal=True):
         """ returns a json writable object representation capable of being used to restore our current status """
         if journal:
             return {'jumbler': self.jumbler._freeze(),
@@ -583,7 +601,7 @@ class SliderPuzzleWidget (gtk.Table):
         else:
             return {'jumbler': self.jumbler._freeze()}
 
-    def _thaw (self, obj):
+    def _thaw(self, obj):
         """ retrieves a frozen status from a python object, as per _freeze """
         logging.debug(obj['jumbler'])
         self.jumbler._thaw(obj['jumbler'])
@@ -592,9 +610,11 @@ class SliderPuzzleWidget (gtk.Table):
             del obj['image']
         self.full_refresh()
 
+
 def _test():
     import doctest
     doctest.testmod()
+
 
 if __name__ == '__main__':
     _test()
