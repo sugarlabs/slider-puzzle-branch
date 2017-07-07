@@ -20,11 +20,11 @@
 
 import gi
 gi.require_version('Gtk', '3.0')
-import Gtk
-import GObject
-import Cairo
-import PangoCairo
-import Pango
+from gi.repository import Gtk
+from gi.repository import Gdk
+from gi.repository import GdkPixbuf
+from gi.repository import GObject
+from gi.repository import Pango
 import md5
 import logging
 
@@ -80,7 +80,7 @@ class SliderCreator (GdkPixbuf.Pixbuf):
         self.width = width
         self.height = height
         self.tlist = items
-        self.prepare_stringed(2,2)
+        #self.prepare_stringed(2,2)
 
     #def scale_simple (self, w,h,m):
     #    return SliderCreator(w,h,tlist=self.tlist)
@@ -92,37 +92,37 @@ class SliderCreator (GdkPixbuf.Pixbuf):
     def can_handle(klass, fname):
         return fname.lower().endswith('.sequence')
 
-    def prepare_stringed (self, rows, cols):
+    #def prepare_stringed (self, rows, cols):
         # We use a Pixmap as offscreen drawing canvas
-        cm = Gdk.colormap_get_system()
-        pm = Gdk.Pixmap(None, self.width, self.height, cm.get_visual().depth)
-        #pangolayout = pm.create_pango_layout("")
-        font_size = int(self.width / cols / 4)
-        l = Gtk.Label()
-        pangolayout = Pango.Layout(l.create_pango_context())
-        pangolayout.set_font_description(Pango.FontDescription("sans bold %i" % font_size))
-        gc = pm.new_gc()
-        gc.set_colormap(Gdk.colormap_get_system())
-        color = cm.alloc_color('white')
-        gc.set_foreground(color)
-        pm.draw_rectangle(gc, True, 0, 0, self.width, self.height)
-        color = cm.alloc_color('black')
-        gc.set_foreground(color)
+    #    cm = Gdk.colormap_get_system()
+    #    pm = Gdk.Pixmap(None, self.width, self.height, cm.get_visual().depth)
+    #    #pangolayout = pm.create_pango_layout("")
+    #    font_size = int(self.width / cols / 4)
+    #    l = Gtk.Label()
+    #    pangolayout = Pango.Layout(l.create_pango_context())
+    #    pangolayout.set_font_description(Pango.FontDescription("sans bold %i" % font_size))
+    #    gc = pm.new_gc()
+    #    gc.set_colormap(Gdk.colormap_get_system())
+    #    color = cm.alloc_color('white')
+    #    gc.set_foreground(color)
+    #    pm.draw_rectangle(gc, True, 0, 0, self.width, self.height)
+    #    color = cm.alloc_color('black')
+    #    gc.set_foreground(color)
 
-        sw, sh = (self.width / cols), (self.height / rows)
-        item = iter(self.tlist)
-        for r in range(rows):
-            for c in range(cols):
-                px = sw * c
-                py = sh * r
+    #    sw, sh = (self.width / cols), (self.height / rows)
+    #    item = iter(self.tlist)
+    #    for r in range(rows):
+    #        for c in range(cols):
+    #            px = sw * c
+    #            py = sh * r
                 #if c > 0 and r > 0:
                 #    pm.draw_line(gc, px, 0, px, self.height-1)
                 #    pm.draw_line(gc, 0, py, self.width-1, py)
-                pangolayout.set_text(str(item.next()))
-                pe = pangolayout.get_pixel_extents()
-                pe = pe[1][2]/2, pe[1][3]/2
-                pm.draw_layout(gc, px + (sw / 2) - pe[0],  py + (sh / 2) - pe[1], pangolayout)
-        self.get_from_drawable(pm, cm, 0, 0, 0, 0, -1, -1)
+    #            pangolayout.set_text(str(item.next()))
+    #            pe = pangolayout.get_pixel_extents()
+    #            pe = pe[1][2]/2, pe[1][3]/2
+                #pm.draw_layout(gc, px + (sw / 2) - pe[0],  py + (sh / 2) - pe[1], pangolayout)
+        #self.get_from_drawable(pm, cm, 0, 0, 0, 0, -1, -1)
 
 utils.register_image_type(SliderCreator)
 
@@ -417,7 +417,7 @@ class SliderPuzzleWidget (Gtk.Table):
     def __init__ (self, pieces=9, width=480, height=480):
         self.jumbler = SliderPuzzleMap(pieces, self.jumblermap_piece_move_cb)
         # We take this from the jumbler object because it may have altered our requested value
-        GObject.GObject.__init__(self, self.jumbler.rowsize, self.jumbler.colsize)
+        Gtk.Table.__init__(self, self.jumbler.rowsize, self.jumbler.colsize)
         self.image = None #Gtk.Image()
         self.width = width
         self.height = height
@@ -437,14 +437,14 @@ class SliderPuzzleWidget (Gtk.Table):
         else:
             if isinstance(self.image, SliderCreator):
                 # ask for image creation
-                self.image.prepare_stringed(self.jumbler.rowsize, self.jumbler.colsize)
-        
+                #self.image.prepare_stringed(self.jumbler.rowsize, self.jumbler.colsize)
+                pass
             w = self.image.get_width() / self.jumbler.colsize
             h = self.image.get_height() / self.jumbler.rowsize
             for y in range(self.jumbler.rowsize):
                 for x in range(self.jumbler.colsize):
                     img = Gtk.Image()
-                    img.set_from_pixbuf(self.image.subpixbuf(x*w, y*h, w-1, h-1))
+                    img.set_from_pixbuf(self.image.new_subpixbuf(x*w, y*h, w-1, h-1))
                     img.show()
                     self.pieces.append(Gtk.EventBox())
                     self.pieces[-1].add(img)
@@ -456,7 +456,7 @@ class SliderPuzzleWidget (Gtk.Table):
     @utils.trace
     def full_refresh (self):
         # Delete everything
-        self.foreach(self.remove)
+        self.foreach(self.remove, None)
         self.prepare_pieces()
         # Add the pieces in their respective places
         for y in range(self.jumbler.rowsize):
@@ -567,15 +567,15 @@ class SliderPuzzleWidget (Gtk.Table):
     def get_image_as_png (self, cb=None):
         if self.image is None:
             return None
-        rv = None
-        if cb is None:
-            rv = StringIO()
-            cb = rv.write
-        self.image.save_to_callback(cb, "png")
-        if rv is not None:
-            return rv.getvalue()
-        else:
-            return True
+        #rv = None
+        #if cb is None:
+        #    rv = StringIO()
+        #    cb = rv.write
+        #self.image.save_to_callbackv(cb, None, "png", [], [])
+        #if rv is not None:
+        #    return rv.getvalue()
+        #else:
+        return True
 
     def _freeze (self, journal=True):
         """ returns a json writable object representation capable of being used to restore our current status """

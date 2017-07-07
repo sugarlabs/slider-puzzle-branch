@@ -20,8 +20,8 @@
 
 import telepathy
 #import telepathy.client
-from sugar.presence.tubeconn import TubeConnection
-from sugar.presence import presenceservice
+from sugar3.presence.tubeconn import TubeConnection
+from sugar3.presence import presenceservice
 #import dbus
 import logging
 logger = logging.getLogger('tube_helper')

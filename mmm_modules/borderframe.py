@@ -20,8 +20,10 @@
 
 import gi
 gi.require_version('Gtk', '3.0')
-import gtk, gobject, pango
-
+from gi.repository import Gtk
+from gi.repository import Gdk
+from gi.repository import GObject 
+from gi.repository import Pango 
 BORDER_LEFT = 1
 BORDER_RIGHT = 2
 BORDER_TOP = 4
@@ -34,13 +36,13 @@ BORDER_ALL_BUT_TOP = BORDER_HORIZONTAL | BORDER_BOTTOM
 BORDER_ALL_BUT_LEFT = BORDER_VERTICAL | BORDER_RIGHT
 
 class BorderFrame (Gtk.EventBox):
-    def __init__ (self, border=BORDER_ALL, size=5, bg_color=None, border_color=None):
+    def __init__ (self, border=BORDER_ALL, size=5, border_color = None):
         GObject.GObject.__init__(self)
-        if border_color is not None:
-            self.set_border_color(Gdk.color_parse(border_color))
+        #if border_color is not None:
+        self.set_border_color(Gdk.color_parse("#B7B7B7"))
         self.inner = Gtk.EventBox()
-        if bg_color is not None:
-            self.modify_bg(Gtk.StateType.NORMAL, Gdk.color_parse(bg_color))
+        #if bg_color is not None:
+        #    self.modify_bg(Gtk.StateType.NORMAL, Gdk.color_parse(bg_color))
         align = Gtk.Alignment.new(1.0,1.0,1.0,1.0)
         self.padding = [0,0,0,0]
         if (border & BORDER_TOP) != 0:
@@ -61,8 +63,8 @@ class BorderFrame (Gtk.EventBox):
     def set_border_color (self, color):
         Gtk.EventBox.modify_bg(self, Gtk.StateType.NORMAL, color)
 
-    def modify_bg (self, state, color):
-        self.inner.modify_bg(state, color)
+    #def modify_bg (self, state, color):
+    #    self.inner.modify_bg(state, color)
 
     def add (self, widget):
         self.stack.append(widget)

@@ -20,19 +20,22 @@
 
 import gi
 gi.require_version('Gtk', '3.0')
-import gtk, gobject
-
+from gi.repository import Gtk
+from gi.repository import GObject
+from gi.repository import Gdk
+from gi.repository import GdkPixbuf
 import os
 from glob import glob
 import logging
 import md5
-
-from sugar import mime
-from sugar.graphics.objectchooser import ObjectChooser
+from sugar3.activity.activity import Activity, get_bundle_path
+from sugar3 import mime
+from sugar3.graphics.objectchooser import ObjectChooser
 
 from borderframe import BorderFrame
 from utils import load_image, resize_image, RESIZE_CUT
-
+import logging
+logger = logging.getLogger('sliderpuzzle-activity')
 cwd = os.path.normpath(os.path.join(os.path.split(__file__)[0], '..'))
 
 if os.path.exists(os.path.join(cwd, 'mamamedia_icons')):
@@ -66,6 +69,7 @@ class CategoryDirectory (object):
         self.path = path
         self.method = method
         self.pb = None
+        
         if os.path.isdir(path):
             self.gather_images()
         else:
@@ -118,6 +122,7 @@ class CategoryDirectory (object):
         pos += 1
         if pos >= len(self.images):
             pos = 0
+
         return self.get_image(self.images[pos])
 
     def get_previous_image (self):
@@ -167,7 +172,7 @@ class ImageSelectorWidget (Gtk.Table):
                   prepare_btn_cb=prepare_btn,
                   method=RESIZE_CUT,
                   image_dir=None):
-        GObject.GObject.__init__(self, 2,5,False)
+        Gtk.Table.__init__(self, 2,5,False)
         self._signals = []
         self.parentp = parentp
         self.width = width
@@ -175,7 +180,7 @@ class ImageSelectorWidget (Gtk.Table):
         self.image = Gtk.Image()
         self.method = method
         #self.set_myownpath(MYOWNPIC_FOLDER)
-        img_box = BorderFrame(border_color=frame_color)
+        img_box = BorderFrame()
         img_box.add(self.image)
         img_box.set_border_width(5)
         self._signals.append((img_box, img_box.connect('button_press_event', self.emit_image_pressed)))
@@ -206,11 +211,13 @@ class ImageSelectorWidget (Gtk.Table):
         self.attach(Gtk.Label(),4,5,1,2)
         self.filename = None
         self.show_all()
+        logger.debug('here is')
         self.image.set_size_request(width, height)
         if image_dir is None:
             image_dir = os.path.join(mmmpath, "mmm_images")
+            
         self.set_image_dir(image_dir)
-
+        
     def add_image (self, *args):#widget=None, response=None, *args):
         """ Use to trigger and process the My Own Image selector. """
 
@@ -328,7 +335,8 @@ class ImageSelectorWidget (Gtk.Table):
 
     def get_image (self):
         return self.category.pb
-
+        
+        
     def next (self, *args, **kwargs):
         pb = self.category.get_next_image()
         if pb is not None:
@@ -352,10 +360,13 @@ class ImageSelectorWidget (Gtk.Table):
             filename = None
         self.category = CategoryDirectory(directory, self.width, self.height, self.method)
         self.cat_thumb.set_from_pixbuf(self.category.thumb)
+        logger.debug('checkit')
         if filename:
             self.image.set_from_pixbuf(self.category.get_image(filename))
+            logger.debug('mid')
         else:
             if self.category.has_images():
+                logger.debug('final')
                 self.next()
 
     def load_image(self, filename, fromJournal=False):
@@ -372,6 +383,7 @@ class ImageSelectorWidget (Gtk.Table):
         #    self.category = CategoryDirectory(self.myownpath, self.width, self.height, method=self.method)
         #    self.image.set_from_pixbuf(self.category.get_image(filename))
         #else:
+        logger.debug('heyao')
         self.category = CategoryDirectory(filename, self.width, self.height, method=self.method)
         self.next()
         self.cat_thumb.set_from_pixbuf(self.category.thumb)
@@ -412,8 +424,8 @@ class CategorySelector (Gtk.ScrolledWindow):
         col = Gtk.TreeViewColumn(title)
         r1 = Gtk.CellRendererPixbuf()
         r2 = Gtk.CellRendererText()
-        col.pack_start(r1, False)
-        col.pack_start(r2, True)
+        col.pack_start(r1, False, True, 0)
+        col.pack_start(r2, True, True, 0)
         col.set_cell_data_func(r1, self.cell_pb)
         col.set_attributes(r2, text=1)
         self.treeview.append_column(col)

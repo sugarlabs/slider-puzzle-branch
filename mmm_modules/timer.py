@@ -20,8 +20,11 @@
 
 import gi
 gi.require_version('Gtk', '3.0')
-import gtk, gobject, pango
-
+from gi.repository import Gtk
+from gi.repository import Gdk
+from gi.repository import GObject
+from gi.repository import Pango
+from gi.repository import GdkPixbuf
 import os
 from time import time
 
@@ -53,7 +56,7 @@ class TimerWidget (Gtk.HBox):
         self.counter.add(hb)
         self.lbl_time = Gtk.Label()
         self.lbl_time.modify_fg(Gtk.StateType.NORMAL, Gdk.color_parse(lbl_color))
-        self.pack_start(self.lbl_time, False)
+        self.pack_start(self.lbl_time, False, True, 0)
         self.time_label = Gtk.Label(label="--:--")
         self.time_label.modify_fg(Gtk.StateType.NORMAL, Gdk.color_parse(fg_color))
         hb.pack_start(self.time_label, False, False, 5)
@@ -61,7 +64,7 @@ class TimerWidget (Gtk.HBox):
         self.icon = Gtk.Image()
         self.icon.set_from_pixbuf(self.icons[1])
         hb.pack_end(self.icon, False, False, 5)
-        self.pack_start(self.counter, False)
+        self.pack_start(self.counter, False, True, 0)
         self.connect("button-press-event", self.process_click)
         self.start_time = 0
         self.timer_id = None

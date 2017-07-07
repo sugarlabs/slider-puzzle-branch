@@ -25,8 +25,8 @@ import os
 import gettext
 import locale
 
-import gtk, gobject
-
+from gi.repository import Gtk
+from gi.repository import GObject
 _ = lambda x: x
 
 # Images were taken from http://www.sodipodi.com/ 
@@ -114,7 +114,7 @@ def list_available_translations (domain):
 class LanguageComboBox (Gtk.ComboBox):
     def __init__ (self, domain):
         liststore = Gtk.ListStore(GObject.TYPE_STRING)
-        GObject.GObject.__init__(self, liststore)
+        Gtk.ComboBox.new_with_model.__init__(self, liststore)
 
         self.cell = Gtk.CellRendererText()
         self.pack_start(self.cell, True)

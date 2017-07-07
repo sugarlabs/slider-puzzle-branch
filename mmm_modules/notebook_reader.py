@@ -20,10 +20,12 @@
 
 import gi
 gi.require_version('Gtk', '3.0')
-import gtk, gobject, pango
-
+from gi.repository import Gtk
+from gi.repository import Gdk
+from gi.repository import GObject
+from gi.repository import Pango
 import os
-from abiword import Canvas
+#from abiword import Canvas
 
 from gettext import gettext as _
 import locale
@@ -70,10 +72,11 @@ class BasicReaderWidget (Gtk.HBox):
     def __init__ (self, path, lang_details=None):
         super(BasicReaderWidget, self).__init__()
         self.provider = ReaderProvider(path, lang_details)
-        self._canvas = Canvas()
-        self._canvas.show()
-        self.pack_start(self._canvas, True, True, 0)
-        self._canvas.connect_after('map-event', self._map_event_cb)
+        return
+        #self._canvas = Canvas()
+        #self._canvas.show()
+        #self.pack_start(self._canvas, True, True, 0)
+        #self._canvas.connect_after('map-event', self._map_event_cb)
         
     def get_lessons(self):
         return self.provider.get_lessons()
@@ -100,6 +103,7 @@ class NotebookReaderWidget (Gtk.Notebook):
         super(NotebookReaderWidget, self).__init__()
         self.provider = ReaderProvider(path, lang_details)
         self.set_scrollable(True)
+        return
         for name, path in self.provider.get_lessons():
             canvas = Canvas()
             canvas.connect_after('map-event', self._map_event_cb, path)
