@@ -428,7 +428,7 @@ class SliderPuzzleUI (Gtk.Table):
         logger.debug('nr ends3')
 
         if not path : 
-            self.yy = pre_path
+            self.yy = self.pre_path
             logger.debug('nr ends0')
         else :
             self.yy = path
@@ -452,6 +452,7 @@ class SliderPuzzleUI (Gtk.Table):
 
     def _set_nr_pieces_pre(self, img_path):
         logger.debug('pre path')
+        self.pre_path = img_path
         self.from_journal = False
         self.set_nr_pieces(nr_pieces = 9, path = img_path)
 
