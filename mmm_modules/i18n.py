@@ -25,8 +25,8 @@ import os
 import gettext
 import locale
 
-from gi.repository import Gtk, GObject
-
+from gi.repository import Gtk
+from gi.repository import GObject
 _ = lambda x: x
 
 # Images were taken from http://www.sodipodi.com/ 

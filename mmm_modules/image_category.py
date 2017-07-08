@@ -17,19 +17,25 @@
 # If you find this activity useful or end up using parts of it in one of your
 # own creations we would love to hear from you at info@WorldWideWorkshop.org !
 #
-from gi.repository import Gtk, GObject
 
+import gi
+gi.require_version('Gtk', '3.0')
+from gi.repository import Gtk
+from gi.repository import GObject
+from gi.repository import Gdk
+from gi.repository import GdkPixbuf
 import os
 from glob import glob
 import logging
 import md5
-
+from sugar3.activity.activity import Activity, get_bundle_path
 from sugar3 import mime
 from sugar3.graphics.objectchooser import ObjectChooser
 
 from borderframe import BorderFrame
 from utils import load_image, resize_image, RESIZE_CUT
-
+import logging
+logger = logging.getLogger('sliderpuzzle-activity')
 cwd = os.path.normpath(os.path.join(os.path.split(__file__)[0], '..'))
 
 if os.path.exists(os.path.join(cwd, 'mamamedia_icons')):
@@ -63,6 +69,7 @@ class CategoryDirectory (object):
         self.path = path
         self.method = method
         self.pb = None
+        
         if os.path.isdir(path):
             self.gather_images()
         else:
@@ -115,6 +122,7 @@ class CategoryDirectory (object):
         pos += 1
         if pos >= len(self.images):
             pos = 0
+
         return self.get_image(self.images[pos])
 
     def get_previous_image (self):
@@ -154,8 +162,8 @@ class CategoryDirectory (object):
     
 
 class ImageSelectorWidget (Gtk.Table):
-    __gsignals__ = {'category_press' : (GObject.SIGNAL_RUN_LAST, GObject.TYPE_NONE, ()),
-                    'image_press' : (GObject.SIGNAL_RUN_LAST, GObject.TYPE_NONE, ()),}
+    __gsignals__ = {'category_press' : (GObject.SignalFlags.RUN_LAST, None, ()),
+                    'image_press' : (GObject.SignalFlags.RUN_LAST, None, ()),}
 
     def __init__ (self,parentp,
                   width=IMAGE_SIZE,
@@ -172,7 +180,7 @@ class ImageSelectorWidget (Gtk.Table):
         self.image = Gtk.Image()
         self.method = method
         #self.set_myownpath(MYOWNPIC_FOLDER)
-        img_box = BorderFrame(border_color=frame_color)
+        img_box = BorderFrame()
         img_box.add(self.image)
         img_box.set_border_width(5)
         self._signals.append((img_box, img_box.connect('button_press_event', self.emit_image_pressed)))
@@ -203,11 +211,13 @@ class ImageSelectorWidget (Gtk.Table):
         self.attach(Gtk.Label(),4,5,1,2)
         self.filename = None
         self.show_all()
+        logger.debug('here is')
         self.image.set_size_request(width, height)
         if image_dir is None:
             image_dir = os.path.join(mmmpath, "mmm_images")
+            
         self.set_image_dir(image_dir)
-
+        
     def add_image (self, *args):#widget=None, response=None, *args):
         """ Use to trigger and process the My Own Image selector. """
 
@@ -216,7 +226,9 @@ class ImageSelectorWidget (Gtk.Table):
         else:
             filter = { }
 
-        chooser = ObjectChooser(self.parentp, **filter)
+        chooser = ObjectChooser(_('Choose image'), self.parentp, #self._parent,
+                                Gtk.DialogFlags.MODAL | Gtk.DialogFlags.DESTROY_WITH_PARENT,
+                                **filter)
         try:
             result = chooser.run()
             if result == Gtk.ResponseType.ACCEPT:
@@ -225,7 +237,7 @@ class ImageSelectorWidget (Gtk.Table):
                     if self.load_image(str(jobject.file_path), True):
                         pass
                     else:
-                        err = Gtk.MessageDialog(self._parent, Gtk.DialogFlags.MODAL, Gtk.MESSAGE_ERROR, Gtk.BUTTONS_OK,
+                        err = Gtk.MessageDialog(self._parent, Gtk.DialogFlags.MODAL, Gtk.MessageType.ERROR, Gtk.ButtonsType.OK,
                                                 _("Not a valid image file"))
                         err.run()
                         err.destroy()
@@ -238,12 +250,12 @@ class ImageSelectorWidget (Gtk.Table):
         #print (widget,response,args)
         #if response is None:
         #    # My Own Image selector
-        #    imgfilter = gtk.FileFilter()
+        #    imgfilter = Gtk.FileFilter()
         #    imgfilter.set_name(_("Image Files"))
         #    imgfilter.add_mime_type('image/*')
-        #    fd = gtk.FileChooserDialog(title=_("Select Image File"), parent=None,
-        #                               action=gtk.FILE_CHOOSER_ACTION_OPEN,
-        #                               buttons=(gtk.STOCK_CANCEL, gtk.RESPONSE_REJECT,gtk.STOCK_OK, gtk.RESPONSE_ACCEPT))
+        #    fd = Gtk.FileChooserDialog(title=_("Select Image File"), parent=None,
+        #                               action=Gtk.FileChooserAction.OPEN,
+        #                               buttons=(Gtk.STOCK_CANCEL, Gtk.ResponseType.REJECT,Gtk.STOCK_OK, Gtk.ResponseType.ACCEPT))
         #
         #    fd.set_current_folder(os.path.expanduser("~/"))
         #    fd.set_modal(True)
@@ -252,12 +264,12 @@ class ImageSelectorWidget (Gtk.Table):
         #    fd.resize(800,600)
         #    fd.show()
         #else:
-        #    if response == gtk.RESPONSE_ACCEPT:
+        #    if response == Gtk.ResponseType.ACCEPT:
         #        if self.load_image(widget.get_filename()):
         #            pass
         #            #self.do_shuffle()
         #        else:
-        #            err = gtk.MessageDialog(self._parent, gtk.DIALOG_MODAL, gtk.MESSAGE_ERROR, gtk.BUTTONS_OK,
+        #            err = Gtk.MessageDialog(self._parent, Gtk.DialogFlags.MODAL, Gtk.MessageType.ERROR, Gtk.ButtonsType.OK,
         #                                    _("Not a valid image file"))
         #            err.run()
         #            err.destroy()
@@ -323,7 +335,8 @@ class ImageSelectorWidget (Gtk.Table):
 
     def get_image (self):
         return self.category.pb
-
+        
+        
     def next (self, *args, **kwargs):
         pb = self.category.get_next_image()
         if pb is not None:
@@ -347,10 +360,13 @@ class ImageSelectorWidget (Gtk.Table):
             filename = None
         self.category = CategoryDirectory(directory, self.width, self.height, self.method)
         self.cat_thumb.set_from_pixbuf(self.category.thumb)
+        logger.debug('checkit')
         if filename:
             self.image.set_from_pixbuf(self.category.get_image(filename))
+            logger.debug('mid')
         else:
             if self.category.has_images():
+                logger.debug('final')
                 self.next()
 
     def load_image(self, filename, fromJournal=False):
@@ -367,6 +383,7 @@ class ImageSelectorWidget (Gtk.Table):
         #    self.category = CategoryDirectory(self.myownpath, self.width, self.height, method=self.method)
         #    self.image.set_from_pixbuf(self.category.get_image(filename))
         #else:
+        logger.debug('heyao')
         self.category = CategoryDirectory(filename, self.width, self.height, method=self.method)
         self.next()
         self.cat_thumb.set_from_pixbuf(self.category.thumb)
@@ -391,10 +408,10 @@ class ImageSelectorWidget (Gtk.Table):
         self.image.set_from_pixbuf(self.category.get_image(obj.get('filename', None)))
 
 class CategorySelector (Gtk.ScrolledWindow):
-    __gsignals__ = {'selected' : (GObject.SIGNAL_RUN_LAST, GObject.TYPE_NONE, (str,))}
+    __gsignals__ = {'selected' : (GObject.SignalFlags.RUN_LAST, None, (str,))}
     
     def __init__ (self, title=None, selected_category_path=None, path=None, extra=()):
-        Gtk.ScrolledWindow.__init__ (self)
+        GObject.GObject.__init__ (self)
         self.set_policy(Gtk.PolicyType.AUTOMATIC, Gtk.PolicyType.AUTOMATIC)
         if path is None:
             path = os.path.join(mmmpath, 'mmm_images')
@@ -444,8 +461,8 @@ class CategorySelector (Gtk.ScrolledWindow):
         for fullpath, prettyname in [(x, _(os.path.basename(x))) for x in files if os.path.isdir(x)]:
             count = CategoryDirectory(fullpath).count_images()
             logging.debug("%s %s %s" % (fullpath, prettyname, count))
-            tree_iter = store.append([fullpath, prettyname + (" (%i)" % count), len(self.thumbs)])
-            self.thumbs[tree_iter.stamp] = self.get_pb(fullpath)
+            store.append([fullpath, prettyname + (" (%i)" % count), len(self.thumbs)])
+            self.thumbs.append(self.get_pb(fullpath))
         #if os.path.isdir(MYOWNPIC_FOLDER):
         #    count = CategoryDirectory(MYOWNPIC_FOLDER).count_images()
         #    store.append([MYOWNPIC_FOLDER, _("My Pictures") + (" (%i)" % count), len(self.thumbs)])

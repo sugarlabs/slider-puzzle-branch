@@ -406,9 +406,7 @@ class SliderPuzzleUI (Gtk.Table):
         #            logging.debug("A")
         #            btn.set_active(True)
         #        return
-        if path :
-            pre_path = path
-            logger.debug('pre_path')
+        
         if nr_pieces is None:
             nr_pieces = self.game.get_nr_pieces()
         if btn is None: #not isinstance(btn, gtk.ToggleButton):
@@ -434,6 +432,8 @@ class SliderPuzzleUI (Gtk.Table):
             self.yy = path
         if self.from_journal :
             self.yy = path_from_journal
+        if self.from_journal and not path_from_journal :
+        	self.yy = self.pth_frm_jrnl
 
         self.px = utils.load_image(self.yy)
         logger.debug('nr ends5') 
@@ -452,8 +452,8 @@ class SliderPuzzleUI (Gtk.Table):
 
     def _set_nr_pieces_pre(self, img_path):
         logger.debug('pre path')
-        self.pre_path = img_path
         self.from_journal = False
+        self.pre_path = img_path
         self.set_nr_pieces(nr_pieces = 9, path = img_path)
 
 
@@ -534,6 +534,7 @@ class SliderPuzzleUI (Gtk.Table):
     def do_add_image (self, widget, *args):
         """ Use to trigger and process the My Own Image selector.
         Also used for showing the buddies panel on contest mode"""
+        self.from_journal = True
         if self._contest_mode and self.get_game_state() >= GAME_STARTED:
             # Buddy Panel
             if not self.buddy_panel.get_parent():
@@ -591,6 +592,7 @@ class SliderPuzzleUI (Gtk.Table):
                 jobject = chooser.get_selected_object()
                 if jobject and jobject.file_path:
                     #if self.load_image(str(jobject.file_path), True):
+                    self.pth_frm_jrnl = str(jobject.file_path)
                     self.set_nr_pieces(nr_pieces = 9, path_from_journal = str(jobject.file_path))
                     pass    
                    # else:

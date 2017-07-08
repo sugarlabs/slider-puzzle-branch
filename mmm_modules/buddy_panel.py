@@ -18,13 +18,15 @@
 # own creations we would love to hear from you at info@WorldWideWorkshop.org !
 #
 
+import gi
+gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk
 
 import logging
 
 from tube_helper import GAME_IDLE, GAME_STARTED, GAME_FINISHED, GAME_QUIT
 
-#from sugar3.graphics.icon import CanvasIcon
+#from sugar.graphics.icon import CanvasIcon
 
 BUDDYMODE_CONTEST = 0
 BUDDYMODE_COLLABORATION = 1
@@ -38,33 +40,33 @@ class BuddyPanel (Gtk.ScrolledWindow):
         self.model.set_sort_column_id(0, Gtk.SortType.ASCENDING)
         self.treeview = Gtk.TreeView()
 
-        #col = gtk.TreeViewColumn(_("Icon"))
-        #r = gtk.CellRendererText()
+        #col = Gtk.TreeViewColumn(_("Icon"))
+        #r = Gtk.CellRendererText()
         #col.pack_start(r, True)
         #col.set_attributes(r, stock_id=0)
         #self.treeview.append_column(col)
 
-        col = Gtk.TreeViewColumn(_("Buddy"))
+        col = Gtk.TreeViewColumn("Buddy")
         r = Gtk.CellRendererText()
         col.pack_start(r, True)
         col.set_attributes(r, text=0)
         self.treeview.append_column(col)
 
-        col = Gtk.TreeViewColumn(_("Status"))
+        col = Gtk.TreeViewColumn("Status")
         r = Gtk.CellRendererText()
         col.pack_start(r, True)
         col.set_attributes(r, text=1)
         self.treeview.append_column(col)
         col.set_visible(mode == BUDDYMODE_CONTEST)
 
-        col = Gtk.TreeViewColumn(_("Play Time"))
+        col = Gtk.TreeViewColumn("Play Time")
         r = Gtk.CellRendererText()
         col.pack_start(r, True)
         col.set_attributes(r, text=2)
         self.treeview.append_column(col)
         col.set_visible(mode == BUDDYMODE_CONTEST)
 
-        col = Gtk.TreeViewColumn(_("Joined at"))
+        col = Gtk.TreeViewColumn("Joined at")
         r = Gtk.CellRendererText()
         col.pack_start(r, True)
         col.set_attributes(r, text=3)

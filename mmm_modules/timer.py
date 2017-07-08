@@ -18,8 +18,13 @@
 # own creations we would love to hear from you at info@WorldWideWorkshop.org !
 #
 
-from gi.repository import Gtk, GObject, Pango, Gdk
-
+import gi
+gi.require_version('Gtk', '3.0')
+from gi.repository import Gtk
+from gi.repository import Gdk
+from gi.repository import GObject
+from gi.repository import Pango
+from gi.repository import GdkPixbuf
 import os
 from time import time
 
@@ -41,9 +46,9 @@ else:
 from utils import load_image
 
 class TimerWidget (Gtk.HBox):
-    __gsignals__ = {'timer_toggle' : (GObject.SIGNAL_RUN_LAST, GObject.TYPE_NONE, (bool,)),}
+    __gsignals__ = {'timer_toggle' : (GObject.SignalFlags.RUN_LAST, None, (bool,)),}
     def __init__ (self, bg_color="#DD4040", fg_color="#4444FF", lbl_color="#DD4040", can_stop=True):
-        Gtk.HBox.__init__(self)
+        GObject.GObject.__init__(self)
         self.counter = Gtk.EventBox()
         self.counter.modify_bg(Gtk.StateType.NORMAL, Gdk.color_parse(bg_color))
         self.counter.set_size_request(120, -1)
@@ -52,7 +57,7 @@ class TimerWidget (Gtk.HBox):
         self.lbl_time = Gtk.Label()
         self.lbl_time.modify_fg(Gtk.StateType.NORMAL, Gdk.color_parse(lbl_color))
         self.pack_start(self.lbl_time, False, True, 0)
-        self.time_label = Gtk.Label("--:--")
+        self.time_label = Gtk.Label(label="--:--")
         self.time_label.modify_fg(Gtk.StateType.NORMAL, Gdk.color_parse(fg_color))
         hb.pack_start(self.time_label, False, False, 5)
         self.prepare_icons()
