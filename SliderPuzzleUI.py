@@ -199,7 +199,7 @@ class SliderPuzzleUI (Gtk.Table):
         self.thumb = ImageSelectorWidget(self._parent,frame_color=COLOR_FRAME_THUMB, prepare_btn_cb=prepare_btn, image_dir='images')
         #self.thumb.connect("category_press", self.do_select_category)
         #self.thumb.connect("image_press", self.set_nr_pieces)
-        #control_panel_box.pack_start(self.thumb, False, True, 0)
+        control_panel_box.pack_start(self.thumb, False, True, 0)
 
         spacer = Gtk.Label()
         spacer.set_size_request(-1, 5)
@@ -233,7 +233,7 @@ class SliderPuzzleUI (Gtk.Table):
         self.game_box.add(self.game_wrapper)
 
         lang_combo = prepare_btn(LanguageComboBox('org.worldwideworkshop.olpc.SliderPuzzle'))
-        lang_combo.connect('changed', self.do_select_language)
+        #lang_combo.connect('changed', self.do_select_language)
         # Push the gettext translator into the global namespace
         del _
         lang_combo.install()
@@ -244,7 +244,7 @@ class SliderPuzzleUI (Gtk.Table):
         vbox.pack_start(lang_combo, True, True, 8)
         hbox.pack_start(vbox, True, True, 8)
         lang_box.add(hbox)
-        inner_table.attach(lang_box, 0,1,1,2,Gtk.AttachOptions.FILL, Gtk.AttachOptions.FILL)
+        #inner_table.attach(lang_box, 0,1,1,2,Gtk.AttachOptions.FILL, Gtk.AttachOptions.FILL)
 
         timer_box = BorderFrame(border=BORDER_ALL_BUT_LEFT,
                                 bg_color=COLOR_BG_CONTROLS,
@@ -271,17 +271,18 @@ class SliderPuzzleUI (Gtk.Table):
         self.notebook.append_page(self.game_box, None)
         inner_table.attach(self.notebook, 1,2,0,1, Gtk.AttachOptions.FILL, Gtk.AttachOptions.FILL)
 
-        self.btn_lesson = prepare_btn(Gtk.Button(" "))
-        self.labels_to_translate.append([self.btn_lesson, _("Lesson Plans")])
-        self.btn_lesson.connect("clicked", self.do_lesson_plan)
-        timer_hbox.pack_start(self.btn_lesson, False, True, 8)
+        #self.btn_lesson = prepare_btn(Gtk.Button(" "))
+        #self.labels_to_translate.append([self.btn_lesson, _("Lesson Plans")])
+        #self.btn_lesson.connect("clicked", self.do_lesson_plan)
+        #timer_hbox.pack_start(self.btn_lesson, False, True, 8)
         vbox = Gtk.VBox(False)
         vbox.pack_start(timer_hbox, True, True, 8)
         timer_box.add(vbox)
         inner_table.attach(timer_box, 1,2,1,2,Gtk.AttachOptions.FILL|Gtk.AttachOptions.EXPAND, Gtk.AttachOptions.FILL)
-        panel.pack_start(lang_box, False, False, 0)
+        #panel.pack_start(lang_box, False, False, 0)
 
-        self.do_select_language(lang_combo)
+        #self.do_select_language(lang_combo)
+        
         
         self.buddy_panel = BuddyPanel()
         self.buddy_panel.show()
@@ -293,8 +294,11 @@ class SliderPuzzleUI (Gtk.Table):
 
         # Contest mode flags
         self.set_contest_mode(False)
+        self.initial_path = os.path.join(get_bundle_path(), 'images', 'image_aisc_h250_w313_lg.gif')
+        self.set_nr_pieces(nr_pieces = 9, path = self.initial_path)
+        self.pre_path = self.initial_path
 
-        self._on_lesson_plan = False
+        #self._on_lesson_plan = False
 
     def set_message (self, msg, frommesh=False):
         if frommesh and self.get_game_state() < GAME_STARTED:
@@ -443,6 +447,10 @@ class SliderPuzzleUI (Gtk.Table):
         logger.debug('nr ends4')
         self.game.set_nr_pieces(nr_pieces)
         self.timer.reset(False)
+        self.pbb = utils.load_image(self.yy)
+        self.fnpbb = utils.resize_image(self.pbb, 200, 200, method = 2)
+        self.thumb.image.set_from_pixbuf(self.fnpbb)
+        #self.thumb.image.set_size_request(200, 200)
         #if isinstance(btn, gtk.ToggleButton):
         #for n, b in ((9, self.btn_9),(12, self.btn_12),(16, self.btn_16)):
         #        if b is not btn:

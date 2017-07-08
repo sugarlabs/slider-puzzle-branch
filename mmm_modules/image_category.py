@@ -186,35 +186,35 @@ class ImageSelectorWidget (Gtk.Table):
         self._signals.append((img_box, img_box.connect('button_press_event', self.emit_image_pressed)))
         self.attach(img_box, 0,5,0,1,0,0)
         self.attach(Gtk.Label(), 0,1,1,2)
-        self.bl = Gtk.Button()
+        #self.bl = Gtk.Button()
 
-        il = Gtk.Image()
-        il.set_from_pixbuf(load_image(os.path.join(iconpath, 'arrow_left.png')))
-        self.bl.set_image(il)
+        #il = Gtk.Image()
+        #il.set_from_pixbuf(load_image(os.path.join(iconpath, 'arrow_left.png')))
+        #self.bl.set_image(il)
 
-        self.bl.connect('clicked', self.previous)
-        self.attach(prepare_btn_cb(self.bl), 1,2,1,2,0,0)
+        #self.bl.connect('clicked', self.previous)
+        #self.attach(prepare_btn_cb(self.bl), 1,2,1,2,0,0)
 
-        cteb = Gtk.EventBox()
-        self.cat_thumb = Gtk.Image()
-        self.cat_thumb.set_size_request(THUMB_SIZE, THUMB_SIZE)
-        cteb.add(self.cat_thumb)
-        self._signals.append((cteb, cteb.connect('button_press_event', self.emit_cat_pressed)))
-        self.attach(cteb, 2,3,1,2,0,0,xpadding=10)
+        #cteb = Gtk.EventBox()
+        #self.cat_thumb = Gtk.Image()
+        #self.cat_thumb.set_size_request(THUMB_SIZE, THUMB_SIZE)
+        #cteb.add(self.cat_thumb)
+        #self._signals.append((cteb, cteb.connect('button_press_event', self.emit_cat_pressed)))
+        #self.attach(cteb, 2,3,1,2,0,0,xpadding=10)
         
-        self.br = Gtk.Button()
-        ir = Gtk.Image()
-        ir.set_from_pixbuf(load_image(os.path.join(iconpath,'arrow_right.png')))
-        self.br.set_image(ir)
-        self.br.connect('clicked', self.next)
-        self.attach(prepare_btn_cb(self.br), 3,4,1,2,0,0)
-        self.attach(Gtk.Label(),4,5,1,2)
+        #self.br = Gtk.Button()
+        #ir = Gtk.Image()
+        #ir.set_from_pixbuf(load_image(os.path.join(iconpath,'arrow_right.png')))
+        #self.br.set_image(ir)
+        #self.br.connect('clicked', self.next)
+        #self.attach(prepare_btn_cb(self.br), 3,4,1,2,0,0)
+        #self.attach(Gtk.Label(),4,5,1,2)
         self.filename = None
         self.show_all()
-        logger.debug('here is')
+        #logger.debug('here is')
         self.image.set_size_request(width, height)
-        if image_dir is None:
-            image_dir = os.path.join(mmmpath, "mmm_images")
+        #if image_dir is None:
+        #    image_dir = os.path.join(mmmpath, "mmm_images")
             
         self.set_image_dir(image_dir)
         
@@ -359,7 +359,7 @@ class ImageSelectorWidget (Gtk.Table):
             logging.debug("dir=%s" % (directory))
             filename = None
         self.category = CategoryDirectory(directory, self.width, self.height, self.method)
-        self.cat_thumb.set_from_pixbuf(self.category.thumb)
+        #self.cat_thumb.set_from_pixbuf(self.category.thumb)
         logger.debug('checkit')
         if filename:
             self.image.set_from_pixbuf(self.category.get_image(filename))
@@ -386,7 +386,7 @@ class ImageSelectorWidget (Gtk.Table):
         logger.debug('heyao')
         self.category = CategoryDirectory(filename, self.width, self.height, method=self.method)
         self.next()
-        self.cat_thumb.set_from_pixbuf(self.category.thumb)
+        #self.cat_thumb.set_from_pixbuf(self.category.thumb)
         return self.image.get_pixbuf() is not None
 
     def load_pb (self, pb):

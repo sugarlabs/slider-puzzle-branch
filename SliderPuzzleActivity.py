@@ -28,7 +28,7 @@ from gi.repository import Gdk
 from gi.repository import GdkPixbuf
 from sugar3.activity.activity import Activity, get_bundle_path
 from sugar3.graphics.toolbarbox import ToolbarBox
-from sugar3.activity.widgets import ActivityToolbarButton
+from sugar3.activity.widgets import ActivityToolbarButton, StopButton
 from sugar3.graphics.toolbarbox import ToolbarButton
 from sugar3.graphics.toolbutton import ToolButton
 from sugar3.graphics.toggletoolbutton import ToggleToolButton
@@ -351,7 +351,7 @@ class SliderPuzzleActivity(Activity, TubeHelper):
         self.btn_16.connect('clicked', self.ui.set_nr_pieces, 16)
         self.btn_16.show()
 
-        self.btn_solve = ToolButton('media-playback-start')
+        self.btn_solve = ToolButton('dialog-ok')
         self.btn_solve.set_tooltip(_('Solve'))
         toolbar_box.toolbar.insert(self.btn_solve, -1)
         #btn_9.set_active(True)
@@ -366,22 +366,32 @@ class SliderPuzzleActivity(Activity, TubeHelper):
         self.btn_shuffle.show()
 
 
-        self.btn_add = ToolButton('imageviewer')
+        self.btn_add = ToolButton('image-load')
         self.btn_add.set_tooltip(_('Add Picture'))
         toolbar_box.toolbar.insert(self.btn_add, -1)
         #btn_9.set_active(True)
         self.btn_add.connect('clicked', self.ui.do_add_image)
         self.btn_add.show()
 
-        self.btn_select = ToolButton('image-load')
+        self.btn_select = ToolButton('imageviewer')
         self.btn_select.set_tooltip(_('Add Picture'))
         toolbar_box.toolbar.insert(self.btn_select, -1)
         #btn_9.set_active(True)
         self.btn_select.connect('clicked', self.do_samples_cb)
         self.btn_select.show()
+
+        separator = Gtk.SeparatorToolItem()
+        separator.props.draw = False
+        separator.set_expand(True)
+        toolbar_box.toolbar.insert(separator, -1)
+        separator.show()
+
+        stop_button = StopButton(self)
+        toolbar_box.toolbar.insert(stop_button, -1)
+        stop_button.show()
         
-        #self.set_canvas(self.ui)
-        self.set_canvas(self.fixed)
+        self.set_canvas(self.ui)
+        #self.set_canvas(self.fixed)
         self.fixed.show()
         
         self.show_all()
