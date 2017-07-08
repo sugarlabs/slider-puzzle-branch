@@ -7,10 +7,10 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-02-15 00:33-0500\n"
-"PO-Revision-Date: 2013-04-16 13:48+0200\n"
-"Last-Translator: EdgarQuispeChambi <quispedgar@yahoo.es>\n"
+"PO-Revision-Date: 2011-11-26 05:19+0200\n"
+"Last-Translator: Chris <cjl@laptop.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: ayc\n"
+"Language: aym\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,39 +19,38 @@ msgstr ""
 
 #: activity/activity.info:2
 msgid "Slider Puzzle"
-msgstr "P'iqi junt'utatayasiri suchuri jarjata apthapiña"
+msgstr ""
 
 #: SliderPuzzleActivity.py:162
 #, python-format
 msgid "Buddy '%(buddy)s' changed status: %(status)s"
-msgstr "Masi '%(buddy)s' kankañapa jaqtawi: %(status)s"
+msgstr ""
 
 #: SliderPuzzleActivity.py:177
 msgid "Waiting for Puzzle image to be transferred..."
-msgstr "P'iqi junt'utatayasiri rixipawa apayasiski"
+msgstr ""
 
 #: SliderPuzzleActivity.py:346
 #, python-format
-#, python-format,
 msgid "Buddy '%s' joined the game!"
-msgstr "¡Masisaxa '%s'  anatañaru mantiwa!"
+msgstr ""
 
 #: SliderPuzzleActivity.py:350
 #, python-format
 msgid "Buddy '%s' left the game!"
-msgstr "¡Masi '%s' anatañata mistsxiwa!"
+msgstr ""
 
 #: SliderPuzzleUI.py:214
 msgid "Solve"
-msgstr "Apsuña"
+msgstr ""
 
 #: SliderPuzzleUI.py:218
 msgid "Shuffle"
-msgstr "Mult'jayaña"
+msgstr ""
 
 #: SliderPuzzleUI.py:222
 msgid "My Picture"
-msgstr "Rixitaja"
+msgstr ""
 
 #  "Tiempo: "
 #: SliderPuzzleUI.py:258
@@ -60,67 +59,67 @@ msgstr "Pacha: "
 
 #: SliderPuzzleUI.py:274 SliderPuzzleUI.py:576
 msgid "Lesson Plans"
-msgstr "Yatiña wakichatanaka"
+msgstr ""
 
 #: SliderPuzzleUI.py:291
 msgid "Waiting for remote game..."
-msgstr "Jak'ankiri anatäwi suyt'äwi"
+msgstr ""
 
 #: SliderPuzzleUI.py:335
 msgid "Select image and press Start Game..."
-msgstr "Rixita katusina anatäwi qalltañataki limt'ma"
+msgstr ""
 
 #: SliderPuzzleUI.py:339
 msgid "Waiting for Puzzle image to be chosen..."
-msgstr "P'iqi junt'utatayasiri rixipa katutañapa suyt'äwi"
+msgstr ""
 
 #: SliderPuzzleUI.py:341 SliderPuzzleUI.py:350
 msgid "Buddies"
-msgstr "Masinaka"
+msgstr ""
 
 #: SliderPuzzleUI.py:368
 msgid "Give Up"
-msgstr "Atipayasma"
+msgstr ""
 
 #: SliderPuzzleUI.py:370
 msgid "Start Game"
-msgstr "Anatäwi qalltaña"
+msgstr ""
 
 #: SliderPuzzleUI.py:380
 msgid "Slider Puzzle Activity"
-msgstr "P'iqi junt'utatayasiri suchuri jarjata apthapiña luräwi"
+msgstr ""
 
 #: SliderPuzzleUI.py:462
 msgid "Puzzle Solved!"
-msgstr "¡P'iqi junt'utatayasiri jarjata apthapita!"
+msgstr ""
 
 #: SliderPuzzleUI.py:465
 msgid "Gave Up"
-msgstr "Atipayasma"
+msgstr ""
 
 #: SliderPuzzleUI.py:493
 msgid "Choose a Subject"
-msgstr "Maya ¨wakichäwi thaqma"
+msgstr ""
 
 #: SliderPuzzleUI.py:579
 msgid "Close Lesson"
-msgstr "Yatiña tukuña"
+msgstr ""
 
 #: SliderPuzzleUI.py:649
 msgid "Game Started!"
-msgstr "¡Antäwi qalltata!"
+msgstr ""
 
 #: i18n_misc_strings.py:1
 msgid "Sea Life"
-msgstr "Lamara quta jakañapa"
+msgstr ""
 
 #: i18n_misc_strings.py:2
 msgid "Animals"
-msgstr "Uywanaka"
+msgstr ""
 
 #: i18n_misc_strings.py:3
 msgid "Birds"
-msgstr "Jamach'inaka"
+msgstr ""
 
 #  "XO"
 #: i18n_misc_strings.py:4
@@ -129,79 +128,79 @@ msgstr "XO"
 
 #: i18n_misc_strings.py:5
 msgid "Sequencing Puzzles"
-msgstr "Irani arkani p'iqi junt'utatayasiri jarjata apthapiña"
+msgstr ""
 
 #: i18n_misc_strings.py:6
 msgid "Sports"
-msgstr "Anatañanaka"
+msgstr ""
 
 #: i18n_misc_strings.py:7
 msgid "Insects"
-msgstr "Laq'unaka"
+msgstr ""
 
 #: i18n_misc_strings.py:8
 msgid "Music"
-msgstr "Warurt'a"
+msgstr ""
 
 #: i18n_misc_strings.py:9
 msgid "Space"
-msgstr "Jithiqa"
+msgstr ""
 
 #: i18n_misc_strings.py:10
 msgid "Lesson 5"
-msgstr "5 yatiña"
+msgstr ""
 
 #: i18n_misc_strings.py:11
 msgid "Lesson 4"
-msgstr "4 yatiña"
+msgstr ""
 
 #: i18n_misc_strings.py:12
 msgid "Overview"
-msgstr "Qhananchaña"
+msgstr ""
 
 #: i18n_misc_strings.py:13
 msgid "Lesson 3"
-msgstr "3 yatiña"
+msgstr ""
 
 #: i18n_misc_strings.py:14
 msgid "Lesson 7"
-msgstr "7 yatiña"
+msgstr ""
 
 #: i18n_misc_strings.py:15
 msgid "Lesson 6"
-msgstr "6 yatiña"
+msgstr ""
 
 #: i18n_misc_strings.py:16
 msgid "Lesson 1"
-msgstr "1 yatiña"
+msgstr ""
 
 #: i18n_misc_strings.py:17
 msgid "Lesson 2"
-msgstr "2 yatiña"
+msgstr ""
 
 #: mmm_modules/buddy_panel.py:49
 msgid "Buddy"
-msgstr "Masi"
+msgstr ""
 
 #: mmm_modules/buddy_panel.py:55
 msgid "Status"
-msgstr "Kankaña"
+msgstr ""
 
 #: mmm_modules/buddy_panel.py:62
 msgid "Play Time"
-msgstr "Anatäwi pacha"
+msgstr ""
 
 #: mmm_modules/buddy_panel.py:69
 msgid "Joined at"
-msgstr "Ukaru mayachata"
+msgstr ""
 
 #: mmm_modules/buddy_panel.py:101
 msgid "synchronizing"
-msgstr "Mayachasisa"
+msgstr ""
 
 #: mmm_modules/buddy_panel.py:115
 msgid "Playing"
-msgstr "Anatasisa"
+msgstr ""
 
 #  "Pausado"
 #: mmm_modules/buddy_panel.py:115
@@ -215,7 +214,7 @@ msgstr "Tukuta"
 
 #: mmm_modules/buddy_panel.py:119
 msgid "Gave up"
-msgstr "Atipayasma"
+msgstr ""
 
 #  "Desconocido"
 #: mmm_modules/buddy_panel.py:121
@@ -225,103 +224,103 @@ msgstr "Jani uñt'ata"
 #: mmm_modules/buddy_panel.py:123
 #, python-format
 msgid "%i minutes"
-msgstr "%i pacha t'ijtäwinaka"
+msgstr ""
 
 #: mmm_modules/i18n.py:36
 msgid "Chinese (simplified)"
-msgstr "Chino (simplificado)"
+msgstr ""
 
 #: mmm_modules/i18n.py:37
 msgid "Chinese (traditional)"
-msgstr "Chino (tradicional)"
+msgstr ""
 
 #: mmm_modules/i18n.py:38
 msgid "Czech"
-msgstr "Checo"
+msgstr ""
 
 #: mmm_modules/i18n.py:39
 msgid "Danish"
-msgstr "Danés"
+msgstr ""
 
 #: mmm_modules/i18n.py:40
 msgid "Dutch"
-msgstr "Holandés"
+msgstr ""
 
 #: mmm_modules/i18n.py:41
 msgid "English"
-msgstr "Inglés"
+msgstr ""
 
 #: mmm_modules/i18n.py:42
 msgid "English - Great Britain"
-msgstr "Inglés - Gran Bretaña"
+msgstr ""
 
 #: mmm_modules/i18n.py:43
 msgid "English - U.S."
-msgstr "Inglés - EU"
+msgstr ""
 
 #: mmm_modules/i18n.py:44
 msgid "Finnish"
-msgstr "Finlandés"
+msgstr ""
 
 #: mmm_modules/i18n.py:45
 msgid "French"
-msgstr "Francés"
+msgstr ""
 
 #: mmm_modules/i18n.py:46
 msgid "German"
-msgstr "Alemán"
+msgstr ""
 
 #: mmm_modules/i18n.py:47
 msgid "Hungarian"
-msgstr "Húngaro"
+msgstr ""
 
 #: mmm_modules/i18n.py:48
 msgid "Italian"
-msgstr "Italiano"
+msgstr ""
 
 #: mmm_modules/i18n.py:49
 msgid "Japanese"
-msgstr "Japonés"
+msgstr ""
 
 #: mmm_modules/i18n.py:50
 msgid "Korean"
-msgstr "Coreano"
+msgstr ""
 
 #: mmm_modules/i18n.py:51
 msgid "Norwegian"
-msgstr "Noruego"
+msgstr ""
 
 #: mmm_modules/i18n.py:52
 msgid "Polish"
-msgstr "Polaco"
+msgstr ""
 
 #: mmm_modules/i18n.py:53
 msgid "Portuguese"
-msgstr "Portugués"
+msgstr ""
 
 #: mmm_modules/i18n.py:54
 msgid "Portuguese - Brazilian"
-msgstr "Portugués - Brasileño"
+msgstr ""
 
 #: mmm_modules/i18n.py:55
 msgid "Russian"
-msgstr "Ruso"
+msgstr ""
 
 #: mmm_modules/i18n.py:56
 msgid "Slovak"
-msgstr "Eslovaco"
+msgstr ""
 
 #: mmm_modules/i18n.py:57
 msgid "Spanish"
-msgstr "Español"
+msgstr ""
 
 #: mmm_modules/i18n.py:58
 msgid "Swedish"
-msgstr "Sueco"
+msgstr ""
 
 #: mmm_modules/i18n.py:59
 msgid "Turkish"
-msgstr "Turco jaqi aru"
+msgstr ""
 
 #  "Escoger imagen"
 #: mmm_modules/image_category.py:222
@@ -330,4 +329,4 @@ msgstr "Uñjasiwi ajlliña"
 
 #: mmm_modules/image_category.py:234
 msgid "Not a valid image file"
-msgstr "Jani wakisiri rixita imata"
+msgstr ""

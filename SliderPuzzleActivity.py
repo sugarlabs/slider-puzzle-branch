@@ -21,17 +21,17 @@
 # init gthreads before using abiword
 import gi
 gi.require_version('Gtk', '3.0')
-from gi.repository import GObject
-GObject.threads_init()
 from gi.repository import Gtk
+from gi.repository import GObject
 from gi.repository import Gdk
 from gi.repository import GdkPixbuf
+GObject.threads_init()
+
 from sugar3.activity.activity import Activity, get_bundle_path
 from sugar3.graphics.toolbarbox import ToolbarBox
-from sugar3.activity.widgets import ActivityToolbarButton
+from sugar3.activity.widgets import ActivityToolbarButton, StopButton
 from sugar3.graphics.toolbarbox import ToolbarButton
 from sugar3.graphics.toolbutton import ToolButton
-from sugar3.graphics.toggletoolbutton import ToggleToolButton
 from gettext import gettext as _
 from SliderPuzzleUI import SliderPuzzleUI
 from mamamedia_modules import TubeHelper
@@ -53,9 +53,6 @@ from dbus.service import method, signal
 from dbus.gobject_service import ExportedGObject
 
 from mamamedia_modules import GAME_IDLE, GAME_STARTED, GAME_FINISHED, GAME_QUIT
-import logging
-_logger = logging.getLogger('slider-activity')
-
 
 SERVICE = "org.worldwideworkshop.olpc.SliderPuzzle.Tube"
 IFACE = SERVICE
@@ -320,6 +317,7 @@ class SliderPuzzleActivity(Activity, TubeHelper):
         logger.debug('Starting Slider Puzzle activity... %s' % str(get_bundle_path()))
         os.chdir(get_bundle_path())
         self.connect('destroy', self._destroy_cb)
+
         self._sample_window = None
         self.fixed = Gtk.Fixed()
         self.ui = SliderPuzzleUI(self)
@@ -385,11 +383,15 @@ class SliderPuzzleActivity(Activity, TubeHelper):
         self.fixed.show()
         
         self.show_all()
+        self.ui = SliderPuzzleUI(self)
+
+        self.set_canvas(self.ui)
+        self.show_all()
 
         self.frozen = FrozenState(self.ui)
         self.ui.game.connect('shuffled', self.frozen.sync)
 
-        TubeHelper.__init__(self, tube_class=GameTube, service=SERVICE)  
+        TubeHelper.__init__(self, tube_class=GameTube, service=SERVICE)
 
     def _destroy_cb(self, data=None):
         return True
@@ -435,6 +437,7 @@ class SliderPuzzleActivity(Activity, TubeHelper):
             f.write(session_data)
         finally:
             f.close()
+
     def do_samples_cb(self, button):
         self._create_store()
 
@@ -539,4 +542,4 @@ class SliderPuzzleActivity(Activity, TubeHelper):
         #_logger.debug('scan comp')
         return samples
 
-    
+

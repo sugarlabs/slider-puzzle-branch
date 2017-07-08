@@ -18,13 +18,8 @@
 # own creations we would love to hear from you at info@WorldWideWorkshop.org !
 #
 
-import gi
-gi.require_version('Gtk', '3.0')
-from gi.repository import Gtk
-from gi.repository import GdkPixbuf
-from gi.repository import Gdk
+from gi.repository import Gtk, GdkPixbuf
 import logging
-logger = logging.getLogger('sliderpuzzle-activity-1')
 
 RESIZE_STRETCH = 1
 RESIZE_CUT = 2
@@ -65,7 +60,7 @@ def calculate_relative_size (orig_width, orig_height, width, height):
     return out_w, out_h
 
 def load_image (filename, width=-1, height=-1, method=RESIZE_CUT):
-    """ load an image from filename, returning it's Gdk.PixBuf().
+    """ load an image from filename, returning it's gtk.gdk.PixBuf().
     If any or all of width and height are given, scale the loaded image to fit the given size(s).
     If both width and height and requested scaling can be achieved in two flavours, as defined by
     the method argument:
@@ -79,7 +74,6 @@ def load_image (filename, width=-1, height=-1, method=RESIZE_CUT):
       - RESIZE STRETCH : scale to 200x100, by changing the image WxH ratio from 1:1 to 2:1, thus distorting it.
       - RESIZE_PAD: scale to 100x100, add 50 pixel padding for top and bottom to fit 200x100
     """
-    
     for ht in TYPE_REG:
         if ht.can_handle(filename):
             return ht(width, height, filename)
@@ -95,13 +89,11 @@ def load_image (filename, width=-1, height=-1, method=RESIZE_CUT):
 #            slider = SliderCreator(width, height, items)
 #            slider.prepare_stringed(2,2)
 #        return slider
-    logger.debug('be that')
+#
     img = Gtk.Image()
     try:
         img.set_from_file(filename)
         pb = img.get_pixbuf()
-
-    
     except:
         return None
     return resize_image(pb, width, height, method)
@@ -159,7 +151,8 @@ def resize_image (pb, width=-1, height=-1, method=RESIZE_CUT):
         w,h = calculate_relative_size(pb.get_width(), pb.get_height(), w,h)
         scaled_pb = pb.scale_simple(w,h, GdkPixbuf.InterpType.BILINEAR)
         # now we cut whatever is left to make the requested size
-        scaled_pb = scaled_pb.new_subpixbuf(abs((width-w)/2),abs((height-h)/2), width, height)
+        scaled_pb = scaled_pb.new_subpixbuf(abs((width - w) / 2), 
+                                            abs((height - h) / 2), width, height)
     return scaled_pb
 
 ### Helper decorators
