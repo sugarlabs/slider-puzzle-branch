@@ -23,8 +23,8 @@ import sys
 
 cwd = os.path.split(__file__)[0]
 
-import gtk
-theme = gtk.icon_theme_get_default()
+from gi.repository import Gtk
+theme = Gtk.IconTheme.get_default()
 
 if os.path.exists(os.path.join(cwd, 'mmm_modules')):
     # We are self contained
@@ -33,11 +33,13 @@ if os.path.exists(os.path.join(cwd, 'mmm_modules')):
 else:
     # Working with shared code on MaMaMediaMenu
 
-    propfile = os.path.expanduser("~/.sugar/default/org.worldwideworkshop.olpc.MMMPath")
+    propfile = os.path.expanduser(
+        "~/.sugar/default/org.worldwideworkshop.olpc.MMMPath")
     if os.path.exists(propfile):
         mmmpath = file(propfile, 'rb').read()
     else:
-        mmmpath=os.path.normpath(os.path.join(cwd, '..', 'MaMaMediaMenu.activity'))
+        mmmpath = os.path.normpath(os.path.join(
+            cwd, '..', 'MaMaMediaMenu.activity'))
 
     #print ("MMMPath", mmmpath)
 
@@ -49,4 +51,3 @@ from mmm_modules import *
 
 if __name__ == '__main__':
     gather_other_translations()
-    
