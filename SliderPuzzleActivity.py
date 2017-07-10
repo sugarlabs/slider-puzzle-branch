@@ -141,8 +141,6 @@ class GameTube (ExportedGObject):
             return
         logger.debug('Sending image to %s', sender)
         img = self.activity.ui.game.get_image_as_png()
-        #img = file(imgfile, 'rb').read()
-        #img = self.activity.ui.game.image.get_pixbuf()
         t = time.time()
         compressed = zlib.compress(img, 9)
         # We will be sending the image, 24K at a time (my tests put the high water at 48K)
@@ -213,52 +211,20 @@ class FrozenState (object):
 			return
 		logger.debug("sync'ing game state")
 		self.frozen = json.write(self.slider_ui._freeze(journal=False))
-		#self.nr_pieces = self.slider_ui.game.get_nr_pieces()
-		#self.category_path = self.slider_ui.thumb.get_image_dir()
-		##self.image_path = self.slider_ui.game.filename
-		##if self.slider_ui.thumb.is_myownpath():
-		##	self.image_path = os.path.basename(self.image_path)
-		#self.thumb_state = self.slider_ui.thumb._freeze()
-		##self.image_digest = self.slider_ui.game.image_digest
-		#self.game_state = self.slider_ui.game._freeze(journal=False)
-		##logger.debug("sync game_state: %s" % str(self.game_state))
-		##logger.debug("sync category: %s image: %s (md5: %s)" % (self.category_path, self.image_path, self.image_digest))
-
+		
 	def apply (self):
 		""" Apply the saved state to the running game """
 		self.slider_ui._thaw(json.read(self.frozen))
-		#self.slider_ui.thumb._thaw(self.thumb_state)
-		#self.slider_ui.set_nr_pieces(None, self.nr_pieces)
-		#self.slider_ui.game._thaw(self.game_state)
 
 	def freeze (self):
 		"""return a json version of the kept data"""
 		return self.frozen
-		#return json.write({
-		#	'nr_pieces': self.nr_pieces,
-		#	#'image_path': self.image_path,
-    #  'thumb_state': self.thumb_state,
-		#	#'image_digest': self.image_digest,
-		#	'game_state': self.game_state,
-		#	})
-
 	def thaw (self, state=None, tube=None, forced_image=None):
 		""" store the previously saved state """
 		try:
 			self._lock = True
-			#found = False
 			if state is not None:
 				self.frozen = state
-				#state = self.freeze()
-			#for k,v in json.read(state).items():
-			#	if hasattr(self, k):
-			#		#logger.debug("%s=%s" % (k,str(v)))
-			#		setattr(self, k, v)
-#			self.slider_ui.thumb._thaw(self.thumb_state)
-#			self.slider_ui.set_nr_pieces(None, self.nr_pieces)
-#			self.slider_ui.game._thaw(self.game_state)
-			#logger.debug("thaw game_state: %s" % str(self.game_state))
-
 			if forced_image is not None:
 					self.slider_ui.game.set_image_from_str(forced_image)
 					self.slider_ui.thumb.load_pb(self.slider_ui.game.image)
@@ -267,49 +233,7 @@ class FrozenState (object):
 					tube.NeedImage()
 			else:
 					self.apply()
-      
-			#if self.image_path:
-			#	if self.image_path == os.path.basename(self.image_path):
-			#		# MyOwnPath based image...
-			#		#if forced_image is not None:
-			#		#	name = 'image_' + self.image_path
-			#		#	while os.path.exists(os.path.join(self.slider_ui.thumb.myownpath, name)):
-			#		#		name = '_' + name
-			#		#	f = file(os.path.join(self.slider_ui.thumb.myownpath, name), 'wb')
-			#		#	f.write(forced_image)
-			#		#	f.close()
-			#		#	self.slider_ui.thumb.set_image_dir(os.path.join(self.slider_ui.thumb.myownpath, name))
-			#		#	self.slider_ui.set_nr_pieces(None, self.nr_pieces)
-			#		#	self.slider_ui.game._thaw(self.game_state)
-			#		#	#logger.debug("thaw game_state: %s" % str(self.game_state))
-			#		#	found = True
-			#		#else:
-			#		#	for link, name, digest in self.slider_ui.thumb.gather_myownpath_images():
-			#		#		if digest == self.image_digest:
-			#		#			logger.debug("Found the image in myownpath!")
-			#		#			self.slider_ui.thumb.set_image_dir(os.path.join(self.slider_ui.thumb.myownpath, link))
-			#		#			self.slider_ui.set_nr_pieces(None, self.nr_pieces)
-			#		#			self.slider_ui.game._thaw(self.game_state)
-			#		#			logger.debug("thaw game_state: %s" % str(self.game_state))
-			#		#			found = True
-			#		#			break
-			#		#	if not found:
-			#		logger.debug("Don't know the image, so request it")
-			#		if tube is not None:
-			#			tube.NeedImage()
-			#	elif os.path.exists(self.image_path) and md5.new(file(self.image_path, 'rb').read()).hexdigest() == self.image_digest:
-			#		logger.debug("We have the image!")
-			#		self.slider_ui.thumb.set_image_dir(self.image_path)
-			#		#self.slider_ui.game.load_image(self.image_path)
-			#		self.slider_ui.set_nr_pieces(None, self.nr_pieces)
-			#		self.slider_ui.game._thaw(self.game_state)
-			#		logger.debug("thaw game_state: %s" % str(self.game_state))
-			#	else:
-			#		logger.debug("Don't know the image, so request it")
-			#		if tube is not None:
-			#			tube.NeedImage()
-			#else:
-			#	logger.debug("No image...")
+
 			return True
 		finally:
 			self._lock = False
@@ -333,50 +257,43 @@ class SliderPuzzleActivity(Activity, TubeHelper):
         self.btn_9 = ToolButton('play-9')
         self. btn_9.set_tooltip(_('9 blocks'))
         toolbar_box.toolbar.insert(self.btn_9, -1)
-        #btn_9.set_active(True)
         self.btn_9.connect('clicked', self.ui.set_nr_pieces, 9)
         self.btn_9.show()
 
         self.btn_12 = ToolButton('play-12')
         self.btn_12.set_tooltip(_('12 blocks'))
         toolbar_box.toolbar.insert(self.btn_12, -1)
-        #btn_9.set_active(True)
         self.btn_12.connect('clicked', self.ui.set_nr_pieces, 12)
         self.btn_12.show()
 
         self.btn_16 = ToolButton('play-16')
         self.btn_16.set_tooltip(_('16 blocks'))
         toolbar_box.toolbar.insert(self.btn_16, -1)
-        #btn_9.set_active(True)
         self.btn_16.connect('clicked', self.ui.set_nr_pieces, 16)
         self.btn_16.show()
 
         self.btn_solve = ToolButton('dialog-ok')
         self.btn_solve.set_tooltip(_('Solve'))
         toolbar_box.toolbar.insert(self.btn_solve, -1)
-        #btn_9.set_active(True)
         self.btn_solve.connect('clicked', self.ui.do_solve)
         self.btn_solve.show()
 
         self.btn_shuffle = ToolButton('edit-redo')
         self.btn_shuffle.set_tooltip(_('Shuffle'))
         toolbar_box.toolbar.insert(self.btn_shuffle, -1)
-        #btn_9.set_active(True)
         self.btn_shuffle.connect('clicked', self.ui.do_shuffle)
         self.btn_shuffle.show()
 
 
         self.btn_add = ToolButton('image-load')
-        self.btn_add.set_tooltip(_('Add Picture'))
+        self.btn_add.set_tooltip(_('Import picture from journal'))
         toolbar_box.toolbar.insert(self.btn_add, -1)
-        #btn_9.set_active(True)
         self.btn_add.connect('clicked', self.ui.do_add_image)
         self.btn_add.show()
 
         self.btn_select = ToolButton('imageviewer')
-        self.btn_select.set_tooltip(_('Add Picture'))
+        self.btn_select.set_tooltip(_('Select picture'))
         toolbar_box.toolbar.insert(self.btn_select, -1)
-        #btn_9.set_active(True)
         self.btn_select.connect('clicked', self.do_samples_cb)
         self.btn_select.show()
 
@@ -391,9 +308,7 @@ class SliderPuzzleActivity(Activity, TubeHelper):
         stop_button.show()
         
         self.set_canvas(self.ui)
-        #self.set_canvas(self.fixed)
-        self.fixed.show()
-        
+        self.fixed.show()        
         self.show_all()
 
         self.frozen = FrozenState(self.ui)
@@ -436,7 +351,7 @@ class SliderPuzzleActivity(Activity, TubeHelper):
         #logging.debug('Trying to set session: %s.' % session_data)
         logging.debug("Setting session")
         self.ui._thaw(json.read(session_data))
-        logging.debug("Done setting session")
+
 		
     def write_file(self, file_path):
         session_data = json.write(self.ui._freeze())
@@ -449,8 +364,6 @@ class SliderPuzzleActivity(Activity, TubeHelper):
         self._create_store()
 
     def _create_store(self, widget=None):
-            #if self._sample_window is None:
-            
             self.set_canvas(self.fixed)
             self.fixed.show()
             
@@ -480,16 +393,10 @@ class SliderPuzzleActivity(Activity, TubeHelper):
             height = Gdk.Screen.height() / 4
 
             self._sample_box.add(self._sample_window)
-            #_logger.debug('check fixed')
             self.fixed.put(self._sample_box, width, height)
-            #self.ui.game_wrapper.add(self._sample_box)
-            #self.fixed.show()
-            #_logger.debug('fixed comp')
-            self._sample_window.show()
-            #_logger.debug('window comp')
+            self._sample_window.show() 
             self._sample_box.show()
-            #_logger.debug('box comp')
-            #self.fixed.show_all()
+          
     def _get_selected_path(self, widget, store):
         try:
             iter_ = store.get_iter(widget.get_selected_items()[0])
@@ -523,10 +430,8 @@ class SliderPuzzleActivity(Activity, TubeHelper):
         GObject.idle_add(self._sample_loader)
 
     def _sample_loader(self):
-        # Convert from thumbnail path to sample path
-        logger.debug('sample here')
+        # displayes the slider-puzzle game widget 
         self.ui._set_nr_pieces_pre(self._selected_sample)
-        logger.debug('sample there')
         self.get_window().set_cursor(Gdk.Cursor.new(Gdk.CursorType.LEFT_PTR)) 
 
     def _fill_samples_list(self, store):
@@ -538,7 +443,7 @@ class SliderPuzzleActivity(Activity, TubeHelper):
             pixbuf = GdkPixbuf.Pixbuf.new_from_file_at_size(
                 filepath, 100, 100)
             store.append([pixbuf, filepath])
-            #_logger.debug('fill comp')
+
     def _scan_for_samples(self):
         path = os.path.join(get_bundle_path(), 'images')
         samples = []
@@ -546,7 +451,6 @@ class SliderPuzzleActivity(Activity, TubeHelper):
             if name.endswith(".gif"):
                 samples.append(os.path.join(path, name))
         samples.sort()
-        #_logger.debug('scan comp')
         return samples
 
     

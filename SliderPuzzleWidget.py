@@ -81,12 +81,6 @@ class SliderCreator (GdkPixbuf.Pixbuf):
         self.tlist = items
         self.prepare_stringed(2,2)
 
-    #def scale_simple (self, w,h,m):
-    #    return SliderCreator(w,h,tlist=self.tlist)
-
-    #def subpixbuf (self, x,y,w,h):
-    #    return SliderCreator(w,h,tlist=self.tlist)
-
     @classmethod
     def can_handle(klass, fname):
         return fname.lower().endswith('.sequence')

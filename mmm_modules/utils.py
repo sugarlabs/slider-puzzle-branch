@@ -83,18 +83,7 @@ def load_image (filename, width=-1, height=-1, method=RESIZE_CUT):
     for ht in TYPE_REG:
         if ht.can_handle(filename):
             return ht(width, height, filename)
-#    if filename.lower().endswith('.sequence'):
-#        slider = None
-#        cmds = file(filename).readlines()
-#        if len(cmds) > 1:
-#            _x_ = eval(cmds[0])
-#            items = []
-#            for i in range(16):
-#                items.append(_x_)
-#                _x_ = eval(cmds[1])
-#            slider = SliderCreator(width, height, items)
-#            slider.prepare_stringed(2,2)
-#        return slider
+            
     logger.debug('be that')
     img = Gtk.Image()
     try:

@@ -40,12 +40,6 @@ class BuddyPanel (Gtk.ScrolledWindow):
         self.model.set_sort_column_id(0, Gtk.SortType.ASCENDING)
         self.treeview = Gtk.TreeView()
 
-        #col = Gtk.TreeViewColumn(_("Icon"))
-        #r = Gtk.CellRendererText()
-        #col.pack_start(r, True)
-        #col.set_attributes(r, stock_id=0)
-        #self.treeview.append_column(col)
-
         col = Gtk.TreeViewColumn("Buddy")
         r = Gtk.CellRendererText()
         col.pack_start(r, True)
@@ -85,15 +79,6 @@ class BuddyPanel (Gtk.ScrolledWindow):
         op = buddy.object_path()
         if self.players.get(op) is not None:
             return
-
-#        buddy_color = buddy.props.color
-#        if not buddy_color:
-#            buddy_color = "#000000,#ffffff"
-#
-#        icon = CanvasIcon(
-#            icon_name='computer-xo',
-#            xo_color=XoColor(buddy_color))
-#
         nick = buddy.props.nick
         if not nick:
             nick = ""

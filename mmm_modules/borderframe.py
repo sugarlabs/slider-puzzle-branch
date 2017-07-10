@@ -88,7 +88,3 @@ class BorderFrame (Gtk.EventBox):
 
     def show (self):
         self.show_all()
-
-#    def get_allocation (self):
-#        return self.inner.get_allocation()
-

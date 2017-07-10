@@ -30,13 +30,7 @@ from mamamedia_modules import BuddyPanel
 
 from mamamedia_modules import GAME_IDLE, GAME_STARTED, GAME_FINISHED, GAME_QUIT
 
-#from utils import load_image, SliderCreator, GAME_IDLE, GAME_STARTED, GAME_FINISHED, GAME_QUIT, trace
 
-#from mamamedia_ui import NotebookReaderWidget, BorderFrame, BORDER_ALL_BUT_BOTTOM, BORDER_ALL_BUT_LEFT
-
-
-#from toolbar import SliderToolbar
-#from i18n import LanguageComboBox
 import locale
 
 import logging
@@ -132,9 +126,7 @@ class SliderPuzzleUI (Gtk.Table):
         self.game_wrapper.show()
         inner = Gtk.HBox()
         inner.show()
-        #BorderFrame(border=BORDER_ALL_BUT_BOTTOM,
-        #                                border_color=COLOR_FRAME_CONTROLS,
-        #                                bg_color=COLOR_BG_CONTROLS)
+        
         inner.pack_start(desktop, True, False, 0)
         self.game_wrapper.pack_start(inner, True, False, 0)
 
@@ -158,71 +150,18 @@ class SliderPuzzleUI (Gtk.Table):
         spacer.set_size_request(-1, 5)
         control_panel_box.pack_start(spacer, False, False, 0)
 
-        # ...
-
-        # Slice buttons
-        #btn_box = Gtk.Table(1,5,False)
-        #btn_box.set_col_spacings(5)
-        #btn_box.set_row_spacings(5)
-        #btn_box.attach(Gtk.Label(), 0,1,0,2)
-
-        #spacer = Gtk.Label()
-        #spacer.set_size_request(-1, 15)
-        #control_panel_box.pack_start(spacer, False, False, 0)
-        #cutter = Gtk.HBox(False, 8)
-        #cutter.pack_start(Gtk.Label(), True)
-        #self.btn_9 = prepare_btn(Gtk.ToggleButton("9"),SLICE_BTN_WIDTH)
-        #self.btn_9.set_active(True)
-        #self.btn_9.connect("clicked", self.set_nr_pieces, 9)
-        #btn_box.attach(self.btn_9, 1,2,0,1,0,0)
-        #cutter.pack_start(self.btn_9, False, False)
-        #self.btn_12 = prepare_btn(Gtk.ToggleButton("12"), SLICE_BTN_WIDTH)
-        #self.btn_12.connect("clicked", self.set_nr_pieces, 12)
-        #btn_box.attach(self.btn_12, 2,3,0,1,0,0)
-        #cutter.pack_start(self.btn_12, False, False)
-        #self.btn_16 = prepare_btn(Gtk.ToggleButton("16"), SLICE_BTN_WIDTH)
-        #self.btn_16.connect("clicked", self.set_nr_pieces, 16)
-        #btn_box.attach(self.btn_16, 3,4,0,1,0,0)
-        #cutter.pack_start(self.btn_16, False, False)
-        #cutter.pack_start(Gtk.Label(), True)
-        #control_panel_box.pack_start(cutter, True)
-        #spacer = Gtk.Label()
-        #spacer.set_size_request(-1, 10)
-        #control_panel_box.pack_start(spacer, False)
-        #btn_box.attach(Gtk.Label(), 4,5,0,1)
-        #control_panel_box.pack_start(btn_box, False, True, 0)
+        
 
 
 
 
 
         self.thumb = ImageSelectorWidget(self._parent,frame_color=COLOR_FRAME_THUMB, prepare_btn_cb=prepare_btn, image_dir='images')
-        #self.thumb.connect("category_press", self.do_select_category)
-        #self.thumb.connect("image_press", self.set_nr_pieces)
         control_panel_box.pack_start(self.thumb, False, True, 0)
 
         spacer = Gtk.Label()
         spacer.set_size_request(-1, 5)
         control_panel_box.pack_start(spacer, False, False, 0)
-
-        # The game control buttons
-        #btn_box = Gtk.Table(3,3,False)
-        #btn_box.set_row_spacings(2)
-        #btn_box.attach(Gtk.Label(), 0,1,0,3)
-        #btn_box.attach(Gtk.Label(), 2,3,0,3)
-        #self.btn_solve = prepare_btn(Gtk.Button(" "), 200)
-        #self.labels_to_translate.append([self.btn_solve, _("Solve")])
-        #self.btn_solve.connect("clicked", self.do_solve)
-        #btn_box.attach(self.btn_solve, 1,2,0,1,0,0)
-        #self.btn_shuffle = prepare_btn(Gtk.Button(" "), 200)
-        #self.labels_to_translate.append([self.btn_shuffle, _("Shuffle")])
-        #self.btn_shuffle.connect("clicked", self.do_shuffle)
-        #btn_box.attach(self.btn_shuffle, 1,2,1,2,0,0)
-        #self.btn_add = prepare_btn(Gtk.Button(" "), 200)
-        #self.labels_to_translate.append([self.btn_add, _("My Picture")])
-        #self.btn_add.connect("clicked", self.do_add_image)
-        #btn_box.attach(self.btn_add, 1,2,2,3,0,0)
-        #control_panel_box.pack_start(btn_box, False, True, 0)
 
         # Control panel end
         panel.pack_start(control_panel, True, True, 0)
@@ -233,8 +172,7 @@ class SliderPuzzleUI (Gtk.Table):
         self.game_box.add(self.game_wrapper)
 
         lang_combo = prepare_btn(LanguageComboBox('org.worldwideworkshop.olpc.SliderPuzzle'))
-        #lang_combo.connect('changed', self.do_select_language)
-        # Push the gettext translator into the global namespace
+        
         del _
         lang_combo.install()
         lang_box = BorderFrame(bg_color=COLOR_BG_CONTROLS,
@@ -244,7 +182,7 @@ class SliderPuzzleUI (Gtk.Table):
         vbox.pack_start(lang_combo, True, True, 8)
         hbox.pack_start(vbox, True, True, 8)
         lang_box.add(hbox)
-        #inner_table.attach(lang_box, 0,1,1,2,Gtk.AttachOptions.FILL, Gtk.AttachOptions.FILL)
+        
 
         timer_box = BorderFrame(border=BORDER_ALL_BUT_LEFT,
                                 bg_color=COLOR_BG_CONTROLS,
@@ -270,18 +208,10 @@ class SliderPuzzleUI (Gtk.Table):
         self.notebook.props.show_tabs = False
         self.notebook.append_page(self.game_box, None)
         inner_table.attach(self.notebook, 1,2,0,1, Gtk.AttachOptions.FILL, Gtk.AttachOptions.FILL)
-
-        #self.btn_lesson = prepare_btn(Gtk.Button(" "))
-        #self.labels_to_translate.append([self.btn_lesson, _("Lesson Plans")])
-        #self.btn_lesson.connect("clicked", self.do_lesson_plan)
-        #timer_hbox.pack_start(self.btn_lesson, False, True, 8)
         vbox = Gtk.VBox(False)
         vbox.pack_start(timer_hbox, True, True, 8)
         timer_box.add(vbox)
         inner_table.attach(timer_box, 1,2,1,2,Gtk.AttachOptions.FILL|Gtk.AttachOptions.EXPAND, Gtk.AttachOptions.FILL)
-        #panel.pack_start(lang_box, False, False, 0)
-
-        #self.do_select_language(lang_combo)
         
         
         self.buddy_panel = BuddyPanel()
@@ -298,7 +228,7 @@ class SliderPuzzleUI (Gtk.Table):
         self.set_nr_pieces(nr_pieces = 9, path = self.initial_path)
         self.pre_path = self.initial_path
 
-        #self._on_lesson_plan = False
+        self._on_lesson_plan = False
 
     def set_message (self, msg, frommesh=False):
         if frommesh and self.get_game_state() < GAME_STARTED:
@@ -310,9 +240,6 @@ class SliderPuzzleUI (Gtk.Table):
 
     def set_readonly (self, ro=True):
         self.thumb.set_readonly(ro)
-        #for b in (self.btn_9, self.btn_12, self.btn_16):
-        #    if not b.get_active():
-        #        b.set_sensitive(False)
 
     @utils.trace
     def timer_toggle_cb (self, evt, running):
@@ -320,13 +247,6 @@ class SliderPuzzleUI (Gtk.Table):
         if self._contest_mode and running:
             self.set_game_state(GAME_STARTED)
         self._send_status_update()
-        #if self._contest_mode:
-        #    if running:
-        #        if self.game.filename and not self.game_wrapper.get_parent():
-        #            self.game_box.pop()
-        #    else:
-        #        if not self.buddy_panel.get_parent():
-        #            self.game_box.push(self.buddy_panel)
 
     def _set_control_area (self, *args):
         """ The controls area below the logo needs different actions when in contest mode,
@@ -403,35 +323,19 @@ class SliderPuzzleUI (Gtk.Table):
         logger.debug('final path')
         if self.is_contest_mode() and nr_pieces == self.game.get_nr_pieces():
             return
-
-        #if isinstance(btn, gtk.ToggleButton):
-        #if not btn.get_active():
-        #        if nr_pieces == self.game.get_nr_pieces():
-        #            logging.debug("A")
-        #            btn.set_active(True)
-        #        return
         
         if nr_pieces is None:
             nr_pieces = self.game.get_nr_pieces()
-        if btn is None: #not isinstance(btn, gtk.ToggleButton):
+        if btn is None: 
             if self._contest_mode:
                 self.set_game_state(GAME_STARTED)
-            #for n, b in ((9, self.btn_9),(12, self.btn_12),(16, self.btn_16)):
-            #    if n == nr_pieces and not b.get_active():
-            #        logging.debug("B")
-            #        b.set_sensitive(True)
-            #        b.set_active(True)
                 return
-        #if self.thumb.has_image():
-        logger.debug('nr ends1')
+        
         if not self.game_wrapper.get_parent():
                 self.game_box.pop()
-                logger.debug('nr ends2')
-        logger.debug('nr ends3')
 
         if not path : 
             self.yy = self.pre_path
-            logger.debug('nr ends0')
         else :
             self.yy = path
         if self.from_journal :
@@ -439,31 +343,19 @@ class SliderPuzzleUI (Gtk.Table):
         if self.from_journal and not path_from_journal :
         	self.yy = self.pth_frm_jrnl
 
-        self.px = utils.load_image(self.yy)
-        logger.debug('nr ends5') 
+        self.px = utils.load_image(self.yy) 
         self.game.load_image(self.px)
-        logger.debug('nr ends6')
-        #self.thumb.set_game_widget(self.game)
-        logger.debug('nr ends4')
         self.game.set_nr_pieces(nr_pieces)
         self.timer.reset(False)
+        # set the current thumbnail
         self.pbb = utils.load_image(self.yy)
         self.fnpbb = utils.resize_image(self.pbb, 200, 200, method = 2)
         self.thumb.image.set_from_pixbuf(self.fnpbb)
-        #self.thumb.image.set_size_request(200, 200)
-        #if isinstance(btn, gtk.ToggleButton):
-        #for n, b in ((9, self.btn_9),(12, self.btn_12),(16, self.btn_16)):
-        #        if b is not btn:
-        #            logging.debug("C")
-        #            b.set_active(False)
-        #            b.set_sensitive(not self._contest_mode)
 
     def _set_nr_pieces_pre(self, img_path):
-        logger.debug('pre path')
         self.from_journal = False
         self.pre_path = img_path
         self.set_nr_pieces(nr_pieces = 9, path = img_path)
-
 
     def do_shuffle (self, *args, **kwargs):
         if self._contest_mode:
@@ -475,11 +367,9 @@ class SliderPuzzleUI (Gtk.Table):
             elif self.game.filename is not None and self.timer.is_reset():
                 # Start
                 self.timer.start()
-        #elif self.thumb.has_image():
         if not self.game_wrapper.get_parent():
                 self.game_box.pop()
         self.game.load_image(self.px)
-        #self.thumb.set_game_widget(self.game)
         self.game.randomize()
         self.timer.reset(False)
 
@@ -501,23 +391,6 @@ class SliderPuzzleUI (Gtk.Table):
                     self.set_game_state(GAME_QUIT)
                     self.set_message(_("Gave Up"))
         self._set_control_area()
-
-#    @utils.trace
-#    def do_select_category(self, owner, *args, **kwargs):
-#        if isinstance(owner, CategorySelector):
-#            self.thumb.set_image_dir(args[0])
-#            #self.game_box.pop()
-#            if not self.thumb.category.has_images():
-#                self.do_add_image(None)
-#        else:
-#            if self.game_wrapper.get_parent():
-#                s = CategorySelector("images", _("Choose a Subject"), self.thumb.get_image_dir())
-#                s.connect("selected", self.do_select_category)
-#                s.show()
-#                self.game_box.push(s)
-#                s.grab_focus()
-#            else:
-#                self.game_box.pop()
 
     def do_select_category (self, o, *args):
         if isinstance(o, CategorySelector):
@@ -555,36 +428,9 @@ class SliderPuzzleUI (Gtk.Table):
             pass
         else:
             self.add_image()
-            #self.set_nr_pieces(nr_pieces = 9)
             self.do_shuffle()
             
-        #if response is None:
-        #    else:
-        #        # My Own Image selector
-        #        imgfilter = gtk.FileFilter()
-        #        imgfilter.set_name(_("Image Files"))
-        #        imgfilter.add_mime_type('image/*')
-        #        fd = gtk.FileChooserDialog(title=_("Select Image File"), parent=self._parent,
-        #                                   action=gtk.FILE_CHOOSER_ACTION_OPEN,
-        #                                   buttons=(gtk.STOCK_CANCEL, gtk.RESPONSE_REJECT,gtk.STOCK_OK, gtk.RESPONSE_ACCEPT))
-        #
-        #        fd.set_current_folder(os.path.expanduser("~/"))
-        #        fd.set_modal(True)
-        #        fd.add_filter(imgfilter)
-        #        fd.connect("response", self.do_add_image)
-        #        fd.resize(800,600)
-        #        fd.show()
-        #else:
-        #    if response == gtk.RESPONSE_ACCEPT:
-        #        if self.thumb.load_image(widget.get_filename()):
-        #            self.do_shuffle()
-        #        else:
-        #            err = gtk.MessageDialog(self._parent, gtk.DIALOG_MODAL, gtk.MESSAGE_ERROR, gtk.BUTTONS_OK,
-        #                                    _("Not a valid image file"))
-        #            err.run()
-        #            err.destroy()
-        #            return
-        #    widget.destroy()
+        
     def add_image (self, *args):#widget=None, response=None, *args):
         """ Use to trigger and process the My Own Image selector. """
 
@@ -599,16 +445,9 @@ class SliderPuzzleUI (Gtk.Table):
             if result == Gtk.ResponseType.ACCEPT:
                 jobject = chooser.get_selected_object()
                 if jobject and jobject.file_path:
-                    #if self.load_image(str(jobject.file_path), True):
                     self.pth_frm_jrnl = str(jobject.file_path)
                     self.set_nr_pieces(nr_pieces = 9, path_from_journal = str(jobject.file_path))
                     pass    
-                   # else:
-                   #     err = Gtk.MessageDialog(self._parent, Gtk.DialogFlags.MODAL, Gtk.MESSAGE_ERROR, Gtk.BUTTONS_OK,
-                   #                             _("Not a valid image file"))
-                   #     err.run()
-                   #     err.destroy()
-                   #     return
         finally:
             chooser.destroy()
             del chooser
