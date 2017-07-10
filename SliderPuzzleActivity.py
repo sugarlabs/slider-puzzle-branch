@@ -35,7 +35,9 @@ from sugar3.graphics.toggletoolbutton import ToggleToolButton
 from gettext import gettext as _
 from SliderPuzzleUI import SliderPuzzleUI
 from mamamedia_modules import TubeHelper
-import logging, os, sys
+import logging
+import os
+import sys
 import md5
 
 logger = logging.getLogger('sliderpuzzle-activity')
@@ -61,8 +63,10 @@ SERVICE = "org.worldwideworkshop.olpc.SliderPuzzle.Tube"
 IFACE = SERVICE
 PATH = "/org/worldwideworkshop/olpc/SliderPuzzle/Tube"
 
+
 class GameTube (ExportedGObject):
     """ Manage the communication between cooperating activities """
+
     def __init__(self, tube, is_initiator, activity):
         super(GameTube, self).__init__(tube, PATH)
         self.tube = tube
@@ -96,31 +100,32 @@ class GameTube (ExportedGObject):
         """
 
     @signal(dbus_interface=IFACE, signature='s')
-    def ReSync (self, state):
+    def ReSync(self, state):
         """ signal a reshufle, possibly with a new image """
 
     @signal(dbus_interface=IFACE, signature='sbu')
-    def StatusUpdate (self, status, clock_running, ellapsed_time):
+    def StatusUpdate(self, status, clock_running, ellapsed_time):
         """ signal a reshufle, possibly with a new image """
-        logger.debug("Status Update to %s, %s, %i" % (status, str(clock_running), ellapsed_time))
+        logger.debug("Status Update to %s, %s, %i" %
+                     (status, str(clock_running), ellapsed_time))
 
     def add_hello_handler(self):
         self.tube.add_signal_receiver(self.hello_cb, 'Hello', IFACE,
-            path=PATH, sender_keyword='sender')
+                                      path=PATH, sender_keyword='sender')
 
     def add_need_image_handler(self):
         self.tube.add_signal_receiver(self.need_image_cb, 'NeedImage', IFACE,
-            path=PATH, sender_keyword='sender')
+                                      path=PATH, sender_keyword='sender')
 
-    def add_re_sync_handler (self):
+    def add_re_sync_handler(self):
         self.tube.add_signal_receiver(self.re_sync_cb, 'ReSync', IFACE,
-            path=PATH, sender_keyword='sender')
+                                      path=PATH, sender_keyword='sender')
 
     def add_status_update_handler(self):
         self.tube.add_signal_receiver(self.status_update_cb, 'StatusUpdate', IFACE,
-            path=PATH, sender_keyword='sender')
+                                      path=PATH, sender_keyword='sender')
 
-    def game_state_cb (self, obj, state):
+    def game_state_cb(self, obj, state):
         if state == GAME_STARTED[0]:
             self.ReSync(self.activity.frozen.freeze())
 
@@ -130,12 +135,13 @@ class GameTube (ExportedGObject):
         game = self.activity.ui.game
         f = self.activity.frozen
         if sender != self.activity.get_bus_name():
-            self.tube.get_object(sender, PATH).Welcome(f.freeze(), dbus_interface=IFACE)
+            self.tube.get_object(sender, PATH).Welcome(
+                f.freeze(), dbus_interface=IFACE)
         else:
             self.ReSync(f.freeze())
         self.activity.ui._set_control_area()
 
-    def need_image_cb (self, sender=None):
+    def need_image_cb(self, sender=None):
         """Send current image to peer as binary data."""
         if self.activity.ui.get_game_state()[1] <= GAME_IDLE[1]:
             return
@@ -144,47 +150,54 @@ class GameTube (ExportedGObject):
         t = time.time()
         compressed = zlib.compress(img, 9)
         # We will be sending the image, 24K at a time (my tests put the high water at 48K)
-        logger.debug("was %d, is %d. compressed to %d%% in %0.4f seconds" % (len(img), len(compressed), len(compressed)*100/len(img), time.time() - t))
-        part_size = 24*1024
+        logger.debug("was %d, is %d. compressed to %d%% in %0.4f seconds" % (
+            len(img), len(compressed), len(compressed) * 100 / len(img), time.time() - t))
+        part_size = 24 * 1024
         parts = len(compressed) / part_size
-        self.tube.get_object(sender, PATH).ImageSync([], 0, dbus_interface=IFACE)
-        for i in range(parts+1):
-            self.tube.get_object(sender, PATH).ImageSync(compressed[i*part_size:(i+1)*part_size], i+1,
+        self.tube.get_object(sender, PATH).ImageSync(
+            [], 0, dbus_interface=IFACE)
+        for i in range(parts + 1):
+            self.tube.get_object(sender, PATH).ImageSync(compressed[i * part_size:(i + 1) * part_size], i + 1,
                                                          dbus_interface=IFACE)
-        self.tube.get_object(sender, PATH).ImageDetailsSync(self.activity.frozen.freeze(), dbus_interface=IFACE)
+        self.tube.get_object(sender, PATH).ImageDetailsSync(
+            self.activity.frozen.freeze(), dbus_interface=IFACE)
 
-    def re_sync_cb (self, state, sender=None):
+    def re_sync_cb(self, state, sender=None):
         # new grid and possibly image too
         if self.syncd_once:
             return
         logger.debug("resync state: '%s' (%s)" % (state, type(state)))
         self.syncd_once = self.activity.frozen.thaw(str(state), tube=self)
 
-    def status_update_cb (self, status, clock_running, ellapsed_time, sender=None):
+    def status_update_cb(self, status, clock_running, ellapsed_time, sender=None):
         to = self.tube.get_object(sender, PATH)
-        
-        logger.debug("Status Update from %s:  %s, %s, %i" % (sender, status, str(clock_running), ellapsed_time))
+
+        logger.debug("Status Update from %s:  %s, %s, %i" %
+                     (sender, status, str(clock_running), ellapsed_time))
 
         buddy = self.get_buddy(self.tube.bus_name_to_handle[sender])
-        nick, stat = self.activity.ui.buddy_panel.update_player(buddy, status, bool(clock_running), int(ellapsed_time))
+        nick, stat = self.activity.ui.buddy_panel.update_player(
+            buddy, status, bool(clock_running), int(ellapsed_time))
         if buddy != self.activity.owner:
             self.activity.ui.set_message(
-                    _("Buddy '%(buddy)s' changed status: %(status)s") % \
-                        {'buddy': nick, 'status': stat},
-                    frommesh=True)
+                _("Buddy '%(buddy)s' changed status: %(status)s") %
+                {'buddy': nick, 'status': stat},
+                frommesh=True)
 
     @method(dbus_interface=IFACE, in_signature='s', out_signature='')
     def Welcome(self, state):
         """ """
-        logger.debug("Welcome...");
+        logger.debug("Welcome...")
         logger.debug("state: '%s' (%s)" % (state, type(state)))
         self.activity.frozen.thaw(str(state), tube=self)
 
     @method(dbus_interface=IFACE, in_signature='ayn', out_signature='', byte_arrays=True)
-    def ImageSync (self, image_part, part_nr):
+    def ImageSync(self, image_part, part_nr):
         """ """
-        logger.debug("Received image part #%d, length %d" % (part_nr, len(image_part)))
-        self.activity.ui.set_message(_("Waiting for Puzzle image to be transferred..."))
+        logger.debug("Received image part #%d, length %d" %
+                     (part_nr, len(image_part)))
+        self.activity.ui.set_message(
+            _("Waiting for Puzzle image to be transferred..."))
         if part_nr == 1:
             self.image = StringIO()
             self.image.write(image_part)
@@ -192,56 +205,62 @@ class GameTube (ExportedGObject):
             self.image.write(image_part)
 
     @method(dbus_interface=IFACE, in_signature='s', out_signature='', byte_arrays=True)
-    def ImageDetailsSync (self, state):
+    def ImageDetailsSync(self, state):
         """ Signals end of image and shares the rest of the needed data to create the image remotely."""
         logger.debug("Receive end of image sync")
-        self.syncd_once = self.activity.frozen.thaw(str(state), forced_image=zlib.decompress(self.image.getvalue()), tube=self)
+        self.syncd_once = self.activity.frozen.thaw(
+            str(state), forced_image=zlib.decompress(self.image.getvalue()), tube=self)
+
 
 class FrozenState (object):
-	""" Keep everything about a game state here so we can easily store our state in the Journal or
-	send it to mesh peers """
-	def __init__ (self, slider_ui):
-		self.slider_ui = slider_ui
-		self._lock = False
-		self.sync()
+    """ Keep everything about a game state here so we can easily store our state in the Journal or
+    send it to mesh peers """
 
-	def sync (self, *args):
-		""" reads the current state for the slider_ui and keeps it """
-		if self._lock:
-			return
-		logger.debug("sync'ing game state")
-		self.frozen = json.write(self.slider_ui._freeze(journal=False))
-		
-	def apply (self):
-		""" Apply the saved state to the running game """
-		self.slider_ui._thaw(json.read(self.frozen))
+    def __init__(self, slider_ui):
+        self.slider_ui = slider_ui
+        self._lock = False
+        self.sync()
 
-	def freeze (self):
-		"""return a json version of the kept data"""
-		return self.frozen
-	def thaw (self, state=None, tube=None, forced_image=None):
-		""" store the previously saved state """
-		try:
-			self._lock = True
-			if state is not None:
-				self.frozen = state
-			if forced_image is not None:
-					self.slider_ui.game.set_image_from_str(forced_image)
-					self.slider_ui.thumb.load_pb(self.slider_ui.game.image)
-					self.apply()
-			elif tube is not None:
-					tube.NeedImage()
-			else:
-					self.apply()
+    def sync(self, *args):
+        """ reads the current state for the slider_ui and keeps it """
+        if self._lock:
+            return
+        logger.debug("sync'ing game state")
+        self.frozen = json.write(self.slider_ui._freeze(journal=False))
 
-			return True
-		finally:
-			self._lock = False
+    def apply(self):
+        """ Apply the saved state to the running game """
+        self.slider_ui._thaw(json.read(self.frozen))
+
+    def freeze(self):
+        """return a json version of the kept data"""
+        return self.frozen
+
+    def thaw(self, state=None, tube=None, forced_image=None):
+        """ store the previously saved state """
+        try:
+            self._lock = True
+            if state is not None:
+                self.frozen = state
+            if forced_image is not None:
+                self.slider_ui.game.set_image_from_str(forced_image)
+                self.slider_ui.thumb.load_pb(self.slider_ui.game.image)
+                self.apply()
+            elif tube is not None:
+                tube.NeedImage()
+            else:
+                self.apply()
+
+            return True
+        finally:
+            self._lock = False
+
 
 class SliderPuzzleActivity(Activity, TubeHelper):
     def __init__(self, handle):
         Activity.__init__(self, handle)
-        logger.debug('Starting Slider Puzzle activity... %s' % str(get_bundle_path()))
+        logger.debug('Starting Slider Puzzle activity... %s' %
+                     str(get_bundle_path()))
         os.chdir(get_bundle_path())
         self.connect('destroy', self._destroy_cb)
         self._sample_window = None
@@ -284,7 +303,6 @@ class SliderPuzzleActivity(Activity, TubeHelper):
         self.btn_shuffle.connect('clicked', self.ui.do_shuffle)
         self.btn_shuffle.show()
 
-
         self.btn_add = ToolButton('image-load')
         self.btn_add.set_tooltip(_('Import picture from journal'))
         toolbar_box.toolbar.insert(self.btn_add, -1)
@@ -306,15 +324,15 @@ class SliderPuzzleActivity(Activity, TubeHelper):
         stop_button = StopButton(self)
         toolbar_box.toolbar.insert(stop_button, -1)
         stop_button.show()
-        
+
         self.set_canvas(self.ui)
-        self.fixed.show()        
+        self.fixed.show()
         self.show_all()
 
         self.frozen = FrozenState(self.ui)
         self.ui.game.connect('shuffled', self.frozen.sync)
 
-        TubeHelper.__init__(self, tube_class=GameTube, service=SERVICE)  
+        TubeHelper.__init__(self, tube_class=GameTube, service=SERVICE)
 
     def _destroy_cb(self, data=None):
         return True
@@ -322,26 +340,28 @@ class SliderPuzzleActivity(Activity, TubeHelper):
     # TubeHelper mixin stuff
 
     @utils.trace
-    def shared_cb (self):
+    def shared_cb(self):
         self.ui.buddy_panel.add_player(self.owner)
 
-    def joined_cb (self):
+    def joined_cb(self):
         self.ui.set_readonly()
 
     @utils.trace
-    def new_tube_cb (self):
+    def new_tube_cb(self):
         self.ui.set_contest_mode(True)
 
-    def buddy_joined_cb (self, buddy):
+    def buddy_joined_cb(self, buddy):
         nick = self.ui.buddy_panel.add_player(buddy)
-        self.ui.set_message(_("Buddy '%s' joined the game!") % (nick), frommesh=True)
+        self.ui.set_message(_("Buddy '%s' joined the game!") %
+                            (nick), frommesh=True)
 
-    def buddy_left_cb (self, buddy):
+    def buddy_left_cb(self, buddy):
         nick = self.ui.buddy_panel.remove_player(buddy)
-        self.ui.set_message(_("Buddy '%s' left the game!") % (nick), frommesh=True)
+        self.ui.set_message(_("Buddy '%s' left the game!") %
+                            (nick), frommesh=True)
 
     # Journal integration
-		
+
     def read_file(self, file_path):
         f = open(file_path, 'r')
         try:
@@ -352,7 +372,6 @@ class SliderPuzzleActivity(Activity, TubeHelper):
         logging.debug("Setting session")
         self.ui._thaw(json.read(session_data))
 
-		
     def write_file(self, file_path):
         session_data = json.write(self.ui._freeze())
         f = open(file_path, 'w')
@@ -360,43 +379,44 @@ class SliderPuzzleActivity(Activity, TubeHelper):
             f.write(session_data)
         finally:
             f.close()
+
     def do_samples_cb(self, button):
         self._create_store()
 
     def _create_store(self, widget=None):
-            self.set_canvas(self.fixed)
-            self.fixed.show()
-            
-            self._sample_box = Gtk.EventBox()
-            self._sample_window = Gtk.ScrolledWindow()
-            self._sample_window.set_policy(Gtk.PolicyType.NEVER,
-                                           Gtk.PolicyType.AUTOMATIC)
-            width = Gdk.Screen.width() / 2
-            height = Gdk.Screen.height() / 2
-            self._sample_window.set_size_request(width, height)
-            self._sample_window.show()
+        self.set_canvas(self.fixed)
+        self.fixed.show()
 
-            store = Gtk.ListStore(GdkPixbuf.Pixbuf, str)
+        self._sample_box = Gtk.EventBox()
+        self._sample_window = Gtk.ScrolledWindow()
+        self._sample_window.set_policy(Gtk.PolicyType.NEVER,
+                                       Gtk.PolicyType.AUTOMATIC)
+        width = Gdk.Screen.width() / 2
+        height = Gdk.Screen.height() / 2
+        self._sample_window.set_size_request(width, height)
+        self._sample_window.show()
 
-            icon_view = Gtk.IconView()
-            icon_view.set_model(store)
-            icon_view.set_selection_mode(Gtk.SelectionMode.SINGLE)
-            icon_view.connect('selection-changed', self._sample_selected,
-                             store)
-            icon_view.set_pixbuf_column(0)
-            icon_view.grab_focus()
-            self._sample_window.add_with_viewport(icon_view)
-            icon_view.show()
-            self._fill_samples_list(store)
+        store = Gtk.ListStore(GdkPixbuf.Pixbuf, str)
 
-            width = Gdk.Screen.width() / 4
-            height = Gdk.Screen.height() / 4
+        icon_view = Gtk.IconView()
+        icon_view.set_model(store)
+        icon_view.set_selection_mode(Gtk.SelectionMode.SINGLE)
+        icon_view.connect('selection-changed', self._sample_selected,
+                          store)
+        icon_view.set_pixbuf_column(0)
+        icon_view.grab_focus()
+        self._sample_window.add_with_viewport(icon_view)
+        icon_view.show()
+        self._fill_samples_list(store)
 
-            self._sample_box.add(self._sample_window)
-            self.fixed.put(self._sample_box, width, height)
-            self._sample_window.show() 
-            self._sample_box.show()
-          
+        width = Gdk.Screen.width() / 4
+        height = Gdk.Screen.height() / 4
+
+        self._sample_box.add(self._sample_window)
+        self.fixed.put(self._sample_box, width, height)
+        self._sample_window.show()
+        self._sample_box.show()
+
     def _get_selected_path(self, widget, store):
         try:
             iter_ = store.get_iter(widget.get_selected_items()[0])
@@ -413,12 +433,11 @@ class SliderPuzzleActivity(Activity, TubeHelper):
         logger.debug('you')
         selected = self._get_selected_path(widget, store)
 
-
         if selected is None:
             self._selected_sample = None
             self._sample_window.hide()
             return
-        
+
         image_path, _iter = selected
         iter_ = store.get_iter(widget.get_selected_items()[0])
         image_path = store.get(iter_, 1)[0]
@@ -430,9 +449,9 @@ class SliderPuzzleActivity(Activity, TubeHelper):
         GObject.idle_add(self._sample_loader)
 
     def _sample_loader(self):
-        # displayes the slider-puzzle game widget 
+        # displayes the slider-puzzle game widget
         self.ui._set_nr_pieces_pre(self._selected_sample)
-        self.get_window().set_cursor(Gdk.Cursor.new(Gdk.CursorType.LEFT_PTR)) 
+        self.get_window().set_cursor(Gdk.Cursor.new(Gdk.CursorType.LEFT_PTR))
 
     def _fill_samples_list(self, store):
         '''
@@ -452,5 +471,3 @@ class SliderPuzzleActivity(Activity, TubeHelper):
                 samples.append(os.path.join(path, name))
         samples.sort()
         return samples
-
-    
