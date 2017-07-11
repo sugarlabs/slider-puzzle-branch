@@ -1,10 +1,14 @@
+11
+
+* port to GTK+ 3.0, (Zeeshan Khan),
+
 10
 
-- Return langs back by generating locale/ directory
+* Return langs back by generating locale/ directory
 
 9
 
-- Update translations
+* Update translations
 
 8
 
