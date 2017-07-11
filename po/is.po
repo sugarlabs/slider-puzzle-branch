@@ -35,24 +35,25 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-02-15 00:33-0500\n"
-"PO-Revision-Date: 2011-03-27 14:29+0200\n"
-"Last-Translator: Chris <cjl@laptop.org>\n"
+"PO-Revision-Date: 2017-02-17 11:29+0000\n"
+"Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"Language: is\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.0.1\n"
+"X-Generator: Pootle 2.5.1.1\n"
+"X-POOTLE-MTIME: 1487330990.000000\n"
 
 #: activity/activity.info:2
 msgid "Slider Puzzle"
-msgstr ""
+msgstr "Sleðapúsl"
 
 #: SliderPuzzleActivity.py:162
 #, python-format
 msgid "Buddy '%(buddy)s' changed status: %(status)s"
-msgstr ""
+msgstr "Vinurinn '%(buddy)s' breytti stöðu: %(status)s"
 
 #: SliderPuzzleActivity.py:177
 msgid "Waiting for Puzzle image to be transferred..."
@@ -61,28 +62,28 @@ msgstr ""
 #: SliderPuzzleActivity.py:346
 #, python-format
 msgid "Buddy '%s' joined the game!"
-msgstr ""
+msgstr "Vinurinn '%s' er kominn í leikinn!"
 
 #: SliderPuzzleActivity.py:350
 #, python-format
 msgid "Buddy '%s' left the game!"
-msgstr ""
+msgstr "Vinurinn '%s' er hættur í leiknum!"
 
 #: SliderPuzzleUI.py:214
 msgid "Solve"
-msgstr ""
+msgstr "Leysa"
 
 #: SliderPuzzleUI.py:218
 msgid "Shuffle"
-msgstr ""
+msgstr "Stokka"
 
 #: SliderPuzzleUI.py:222
 msgid "My Picture"
-msgstr ""
+msgstr "Myndin mín"
 
 #: SliderPuzzleUI.py:258
 msgid "Time: "
-msgstr ""
+msgstr "Tími: "
 
 #: SliderPuzzleUI.py:274 SliderPuzzleUI.py:576
 msgid "Lesson Plans"
@@ -94,7 +95,7 @@ msgstr ""
 
 #: SliderPuzzleUI.py:335
 msgid "Select image and press Start Game..."
-msgstr ""
+msgstr "Veldu mynd og ýttu á Hefja leik..."
 
 #: SliderPuzzleUI.py:339
 msgid "Waiting for Puzzle image to be chosen..."
@@ -102,15 +103,15 @@ msgstr ""
 
 #: SliderPuzzleUI.py:341 SliderPuzzleUI.py:350
 msgid "Buddies"
-msgstr ""
+msgstr "Vinir"
 
 #: SliderPuzzleUI.py:368
 msgid "Give Up"
-msgstr ""
+msgstr "Gefast upp"
 
 #: SliderPuzzleUI.py:370
 msgid "Start Game"
-msgstr ""
+msgstr "Hefja leik"
 
 #: SliderPuzzleUI.py:380
 msgid "Slider Puzzle Activity"
@@ -118,232 +119,232 @@ msgstr ""
 
 #: SliderPuzzleUI.py:462
 msgid "Puzzle Solved!"
-msgstr ""
+msgstr "Þrautin er leyst!"
 
 #: SliderPuzzleUI.py:465
 msgid "Gave Up"
-msgstr ""
+msgstr "Gafst upp"
 
 #: SliderPuzzleUI.py:493
 msgid "Choose a Subject"
-msgstr ""
+msgstr "Veldu viðfangsefni"
 
 #: SliderPuzzleUI.py:579
 msgid "Close Lesson"
-msgstr ""
+msgstr "Veldu verkefni"
 
 #: SliderPuzzleUI.py:649
 msgid "Game Started!"
-msgstr ""
+msgstr "Leikur er byrjaður!"
 
 #: i18n_misc_strings.py:1
 msgid "Sea Life"
-msgstr ""
+msgstr "Sjávarverur"
 
 #: i18n_misc_strings.py:2
 msgid "Animals"
-msgstr ""
+msgstr "Dýr"
 
 #: i18n_misc_strings.py:3
 msgid "Birds"
-msgstr ""
+msgstr "Fuglar"
 
 #: i18n_misc_strings.py:4
 msgid "XO"
-msgstr ""
+msgstr "XO"
 
 #: i18n_misc_strings.py:5
 msgid "Sequencing Puzzles"
-msgstr ""
+msgstr "Runuþrautir"
 
 #: i18n_misc_strings.py:6
 msgid "Sports"
-msgstr ""
+msgstr "Íþróttir"
 
 #: i18n_misc_strings.py:7
 msgid "Insects"
-msgstr ""
+msgstr "Pöddur"
 
 #: i18n_misc_strings.py:8
 msgid "Music"
-msgstr ""
+msgstr "Tónlist"
 
 #: i18n_misc_strings.py:9
 msgid "Space"
-msgstr ""
+msgstr "Geimurinn"
 
 #: i18n_misc_strings.py:10
 msgid "Lesson 5"
-msgstr ""
+msgstr "Verkefni 5"
 
 #: i18n_misc_strings.py:11
 msgid "Lesson 4"
-msgstr ""
+msgstr "Verkefni 4"
 
 #: i18n_misc_strings.py:12
 msgid "Overview"
-msgstr ""
+msgstr "Yfirlit"
 
 #: i18n_misc_strings.py:13
 msgid "Lesson 3"
-msgstr ""
+msgstr "Verkefni 3"
 
 #: i18n_misc_strings.py:14
 msgid "Lesson 7"
-msgstr ""
+msgstr "Verkefni 7"
 
 #: i18n_misc_strings.py:15
 msgid "Lesson 6"
-msgstr ""
+msgstr "Verkefni 6"
 
 #: i18n_misc_strings.py:16
 msgid "Lesson 1"
-msgstr ""
+msgstr "Verkefni 1"
 
 #: i18n_misc_strings.py:17
 msgid "Lesson 2"
-msgstr ""
+msgstr "Verkefni 2"
 
 #: mmm_modules/buddy_panel.py:49
 msgid "Buddy"
-msgstr ""
+msgstr "Vinur"
 
 #: mmm_modules/buddy_panel.py:55
 msgid "Status"
-msgstr ""
+msgstr "Staða"
 
 #: mmm_modules/buddy_panel.py:62
 msgid "Play Time"
-msgstr ""
+msgstr "Spilunartími"
 
 #: mmm_modules/buddy_panel.py:69
 msgid "Joined at"
-msgstr ""
+msgstr "Tók þátt klukkan"
 
 #: mmm_modules/buddy_panel.py:101
 msgid "synchronizing"
-msgstr ""
+msgstr "samstilling"
 
 #: mmm_modules/buddy_panel.py:115
 msgid "Playing"
-msgstr ""
+msgstr "Spila"
 
 #: mmm_modules/buddy_panel.py:115
 msgid "Paused"
-msgstr ""
+msgstr "Í biðstöðu"
 
 #: mmm_modules/buddy_panel.py:117
 msgid "Finished"
-msgstr ""
+msgstr "Lokið"
 
 #: mmm_modules/buddy_panel.py:119
 msgid "Gave up"
-msgstr ""
+msgstr "Gafst upp"
 
 #: mmm_modules/buddy_panel.py:121
 msgid "Unknown"
-msgstr ""
+msgstr "Óþekkt"
 
 #: mmm_modules/buddy_panel.py:123
 #, python-format
 msgid "%i minutes"
-msgstr ""
+msgstr "%i mínútur"
 
 #: mmm_modules/i18n.py:36
 msgid "Chinese (simplified)"
-msgstr ""
+msgstr "Kínverska (einfölduð)"
 
 #: mmm_modules/i18n.py:37
 msgid "Chinese (traditional)"
-msgstr ""
+msgstr "Kínverska (hefðbundin)"
 
 #: mmm_modules/i18n.py:38
 msgid "Czech"
-msgstr ""
+msgstr "Tékkneska"
 
 #: mmm_modules/i18n.py:39
 msgid "Danish"
-msgstr ""
+msgstr "Danska"
 
 #: mmm_modules/i18n.py:40
 msgid "Dutch"
-msgstr ""
+msgstr "Hollenska"
 
 #: mmm_modules/i18n.py:41
 msgid "English"
-msgstr ""
+msgstr "Enska"
 
 #: mmm_modules/i18n.py:42
 msgid "English - Great Britain"
-msgstr ""
+msgstr "Enska - Bretland"
 
 #: mmm_modules/i18n.py:43
 msgid "English - U.S."
-msgstr ""
+msgstr "Enska - Bandaríkin"
 
 #: mmm_modules/i18n.py:44
 msgid "Finnish"
-msgstr ""
+msgstr "Finnska"
 
 #: mmm_modules/i18n.py:45
 msgid "French"
-msgstr ""
+msgstr "Franska"
 
 #: mmm_modules/i18n.py:46
 msgid "German"
-msgstr ""
+msgstr "Þýska"
 
 #: mmm_modules/i18n.py:47
 msgid "Hungarian"
-msgstr ""
+msgstr "Ungverska"
 
 #: mmm_modules/i18n.py:48
 msgid "Italian"
-msgstr ""
+msgstr "Ítalska"
 
 #: mmm_modules/i18n.py:49
 msgid "Japanese"
-msgstr ""
+msgstr "Japanska"
 
 #: mmm_modules/i18n.py:50
 msgid "Korean"
-msgstr ""
+msgstr "Kóreska"
 
 #: mmm_modules/i18n.py:51
 msgid "Norwegian"
-msgstr ""
+msgstr "Norska"
 
 #: mmm_modules/i18n.py:52
 msgid "Polish"
-msgstr ""
+msgstr "Pólska"
 
 #: mmm_modules/i18n.py:53
 msgid "Portuguese"
-msgstr ""
+msgstr "Portúgalska"
 
 #: mmm_modules/i18n.py:54
 msgid "Portuguese - Brazilian"
-msgstr ""
+msgstr "Portúgalska - Brasílía"
 
 #: mmm_modules/i18n.py:55
 msgid "Russian"
-msgstr ""
+msgstr "Rússneska"
 
 #: mmm_modules/i18n.py:56
 msgid "Slovak"
-msgstr ""
+msgstr "Slóvakíska"
 
 #: mmm_modules/i18n.py:57
 msgid "Spanish"
-msgstr ""
+msgstr "Spænska"
 
 #: mmm_modules/i18n.py:58
 msgid "Swedish"
-msgstr ""
+msgstr "Sænska"
 
 #: mmm_modules/i18n.py:59
 msgid "Turkish"
-msgstr ""
+msgstr "Tyrkneska"
 
 #: mmm_modules/image_category.py:222
 msgid "Choose image"
@@ -351,4 +352,4 @@ msgstr "Veldu mynd"
 
 #: mmm_modules/image_category.py:234
 msgid "Not a valid image file"
-msgstr ""
+msgstr "Er ekki gild myndskrá"

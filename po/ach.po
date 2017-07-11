@@ -2,150 +2,124 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-02-15 00:33-0500\n"
-"PO-Revision-Date: 2008-10-06 08:32-0400\n"
-"Last-Translator: abdullah kocabas <abdullah.kocabas@abcdizustu.com>\n"
+"PO-Revision-Date: 2017-05-23 07:23+0000\n"
+"Last-Translator: chanchumgpa <chanchumgpa@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: tr\n"
+"Language: ach\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Pootle 1.1.0rc2\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Pootle 2.5.1.1\n"
+"X-POOTLE-MTIME: 1495524215.000000\n"
 
 #: activity/activity.info:2
 msgid "Slider Puzzle"
-msgstr "Slider yapboz"
+msgstr "Lacer Pazol"
 
 #: SliderPuzzleActivity.py:162
 #, python-format
 msgid "Buddy '%(buddy)s' changed status: %(status)s"
-msgstr ""
+msgstr "Luwote '%(luwote)s' gutyeko loko: %(kit matye kwede)s"
 
 #: SliderPuzzleActivity.py:177
 msgid "Waiting for Puzzle image to be transferred..."
-msgstr "Yapboz resminin yüklenmesi için bekleniyor..."
+msgstr "Tye kakuro kobo cal me Pazol..."
 
 #: SliderPuzzleActivity.py:346
 #, python-format
 msgid "Buddy '%s' joined the game!"
-msgstr "'%s' arkadaşınız oyunu kazandı!"
+msgstr "Luwote '%s otyeko donyo i tuku!"
 
 #: SliderPuzzleActivity.py:350
 #, python-format
 msgid "Buddy '%s' left the game!"
-msgstr "'%s' arkadaşınız oyunu bıraktı!"
+msgstr "Luwote '%' oweko tuku!"
 
 #: SliderPuzzleUI.py:214
 msgid "Solve"
-msgstr "Çöz"
+msgstr "Cobi"
 
 #: SliderPuzzleUI.py:218
 msgid "Shuffle"
-msgstr "Karıştır"
+msgstr "Lok kabedo"
 
 #: SliderPuzzleUI.py:222
 msgid "My Picture"
-msgstr "Resmim"
+msgstr "Cal Mamega"
 
 #: SliderPuzzleUI.py:258
 msgid "Time: "
-msgstr "Zaman:"
+msgstr "Caa: "
 
 #: SliderPuzzleUI.py:274 SliderPuzzleUI.py:576
 msgid "Lesson Plans"
-msgstr "Ders Planı"
+msgstr "Plan me Pwony"
 
 #: SliderPuzzleUI.py:291
 msgid "Waiting for remote game..."
-msgstr "Oyundan çıkmak için bekliyor..."
+msgstr "Tye kakuro tuku me kamabor..."
 
 #: SliderPuzzleUI.py:335
 msgid "Select image and press Start Game..."
-msgstr "Görüntüyü seç ve Oyuna Başla'ya bas"
+msgstr "Yer cal ci i dii Cak Tuku..."
 
 #: SliderPuzzleUI.py:339
 msgid "Waiting for Puzzle image to be chosen..."
-msgstr "Yapboz resminin seçilmesi bekleniyor.."
+msgstr "Tye kakuro cal me Pazol pi ayera..."
 
 #: SliderPuzzleUI.py:341 SliderPuzzleUI.py:350
 msgid "Buddies"
-msgstr "Arkadaşlar"
+msgstr "Luwote "
 
 #: SliderPuzzleUI.py:368
 msgid "Give Up"
-msgstr "Vazgeç"
+msgstr "Jal Woko"
 
 #: SliderPuzzleUI.py:370
 msgid "Start Game"
-msgstr "Oyuna Başla"
+msgstr "Cak Tuku"
 
 #: SliderPuzzleUI.py:380
 msgid "Slider Puzzle Activity"
-msgstr "Slider Yapboz Aktivitesi"
+msgstr "Tic me Pazol Macer"
 
 #: SliderPuzzleUI.py:462
 msgid "Puzzle Solved!"
-msgstr "Puzzle Çözüldü!"
+msgstr "Kityeko Cobo peko me Pazol!"
 
 #: SliderPuzzleUI.py:465
 msgid "Gave Up"
-msgstr "Vazgeçildi"
+msgstr "Ojalo Woko"
 
 #: SliderPuzzleUI.py:493
 msgid "Choose a Subject"
-msgstr "Bir konu seç"
+msgstr "Yer Cabjek acel"
 
 #: SliderPuzzleUI.py:579
 msgid "Close Lesson"
-msgstr "Dersi kapat"
+msgstr "Lor Pwony"
 
 #: SliderPuzzleUI.py:649
 msgid "Game Started!"
-msgstr "Oyun Başladı!"
+msgstr "Tuku dong Ocake!"
 
 #: i18n_misc_strings.py:1
 msgid "Sea Life"
-msgstr "Denizde Yaşam"
+msgstr "Kwo me Nam"
 
 #: i18n_misc_strings.py:2
 msgid "Animals"
-msgstr "Hayvanlar"
+msgstr "Leyi"
 
 #: i18n_misc_strings.py:3
 msgid "Birds"
-msgstr "Kuşlar"
+msgstr "Winyi"
 
 #: i18n_misc_strings.py:4
 msgid "XO"
@@ -153,95 +127,95 @@ msgstr "XO"
 
 #: i18n_misc_strings.py:5
 msgid "Sequencing Puzzles"
-msgstr "Yapbozları Sırala"
+msgstr "Bedo nwoyo Pazol mapol"
 
 #: i18n_misc_strings.py:6
 msgid "Sports"
-msgstr "Sporlar"
+msgstr "Tuku"
 
 #: i18n_misc_strings.py:7
 msgid "Insects"
-msgstr "Böcek"
+msgstr "Kwidi mapol"
 
 #: i18n_misc_strings.py:8
 msgid "Music"
-msgstr "Müzik"
+msgstr "Wer"
 
 #: i18n_misc_strings.py:9
 msgid "Space"
-msgstr "Uzay"
+msgstr "Kabedo"
 
 #: i18n_misc_strings.py:10
 msgid "Lesson 5"
-msgstr "Ders 5"
+msgstr "Pwony namba 5"
 
 #: i18n_misc_strings.py:11
 msgid "Lesson 4"
-msgstr "Ders 4"
+msgstr "Pwony 4"
 
 #: i18n_misc_strings.py:12
 msgid "Overview"
-msgstr "Göz gezdirme"
+msgstr "Neno wiewie"
 
 #: i18n_misc_strings.py:13
 msgid "Lesson 3"
-msgstr "Ders 3"
+msgstr "Pwony 3"
 
 #: i18n_misc_strings.py:14
 msgid "Lesson 7"
-msgstr "Ders 7"
+msgstr "Pwony 7"
 
 #: i18n_misc_strings.py:15
 msgid "Lesson 6"
-msgstr "Ders 6"
+msgstr "Pwony 6"
 
 #: i18n_misc_strings.py:16
 msgid "Lesson 1"
-msgstr "Ders 1"
+msgstr "Pwony me 1"
 
 #: i18n_misc_strings.py:17
 msgid "Lesson 2"
-msgstr "Ders 2"
+msgstr "Pwony me 3"
 
 #: mmm_modules/buddy_panel.py:49
 msgid "Buddy"
-msgstr "Arkadaş"
+msgstr "Larem"
 
 #: mmm_modules/buddy_panel.py:55
 msgid "Status"
-msgstr "Durum"
+msgstr "Kit matye kwede"
 
 #: mmm_modules/buddy_panel.py:62
 msgid "Play Time"
-msgstr "Oyun Zamanı"
+msgstr "Caa me Tuku"
 
 #: mmm_modules/buddy_panel.py:69
 msgid "Joined at"
-msgstr "katıldı"
+msgstr "Odonyo ki ii"
 
 #: mmm_modules/buddy_panel.py:101
 msgid "synchronizing"
-msgstr "birlikte hareket etmek"
+msgstr "tye katime kombedi"
 
 #: mmm_modules/buddy_panel.py:115
 msgid "Playing"
-msgstr "Oynama"
+msgstr "Tuko"
 
 #: mmm_modules/buddy_panel.py:115
 msgid "Paused"
-msgstr "Ara"
+msgstr "Cung manok"
 
 #: mmm_modules/buddy_panel.py:117
 msgid "Finished"
-msgstr "Tamamlandı"
+msgstr "Otum"
 
 #: mmm_modules/buddy_panel.py:119
 msgid "Gave up"
-msgstr "Vazgeçildi"
+msgstr "Ojalo woko"
 
 #: mmm_modules/buddy_panel.py:121
 msgid "Unknown"
-msgstr "Bilinmeyen"
+msgstr "Pengene"
 
 #: mmm_modules/buddy_panel.py:123
 #, python-format
@@ -250,108 +224,104 @@ msgstr "%i dakika"
 
 #: mmm_modules/i18n.py:36
 msgid "Chinese (simplified)"
-msgstr "Çince (basitleştirilmiş)"
+msgstr "Jo me China (yot odoco)"
 
 #: mmm_modules/i18n.py:37
 msgid "Chinese (traditional)"
-msgstr "Çince (geleneksel)"
+msgstr "Jo me China (tekwaro kikome)"
 
 #: mmm_modules/i18n.py:38
 msgid "Czech"
-msgstr "Çekçe"
+msgstr "Czech"
 
 #: mmm_modules/i18n.py:39
 msgid "Danish"
-msgstr "Danca"
+msgstr "Leb me Denmark"
 
 #: mmm_modules/i18n.py:40
 msgid "Dutch"
-msgstr "Hollandaca"
+msgstr "Duch"
 
 #: mmm_modules/i18n.py:41
 msgid "English"
-msgstr "İngilizce"
+msgstr "Leb Munu"
 
 #: mmm_modules/i18n.py:42
 msgid "English - Great Britain"
-msgstr "İngiliz İngilizcesi"
+msgstr "Leb Munu - Britain Madit"
 
 #: mmm_modules/i18n.py:43
 msgid "English - U.S."
-msgstr "Amerikan ingilizcesi "
+msgstr "Leb Munu - U.S."
 
 #: mmm_modules/i18n.py:44
 msgid "Finnish"
-msgstr "Fince"
+msgstr "Leb Finland"
 
 #: mmm_modules/i18n.py:45
 msgid "French"
-msgstr "Fransızca"
+msgstr "Leb France"
 
 #: mmm_modules/i18n.py:46
 msgid "German"
-msgstr "Almanca"
+msgstr "Leb Germany"
 
 #: mmm_modules/i18n.py:47
 msgid "Hungarian"
-msgstr "Macarca"
+msgstr "Leb Hungaria"
 
 #: mmm_modules/i18n.py:48
 msgid "Italian"
-msgstr "İtalyanca"
+msgstr "Leb Itally"
 
 #: mmm_modules/i18n.py:49
 msgid "Japanese"
-msgstr "Japonca"
+msgstr "Leb Japan"
 
 #: mmm_modules/i18n.py:50
 msgid "Korean"
-msgstr "Korece"
+msgstr "Jo Korea"
 
 #: mmm_modules/i18n.py:51
 msgid "Norwegian"
-msgstr "Norveçce"
+msgstr "Leb jo Norway"
 
 #: mmm_modules/i18n.py:52
 msgid "Polish"
-msgstr "Lehçe"
+msgstr "Polish"
 
 #: mmm_modules/i18n.py:53
 msgid "Portuguese"
-msgstr "Portekizce"
+msgstr "Jo me Portugal"
 
 #: mmm_modules/i18n.py:54
 msgid "Portuguese - Brazilian"
-msgstr "Brezilya Portekizcesi"
+msgstr "Portugal- Jo Brazil"
 
 #: mmm_modules/i18n.py:55
 msgid "Russian"
-msgstr "Rusça"
+msgstr "Leb jo Russia"
 
 #: mmm_modules/i18n.py:56
 msgid "Slovak"
-msgstr "Slovakça"
+msgstr "Leb Slavic"
 
 #: mmm_modules/i18n.py:57
 msgid "Spanish"
-msgstr "İspanyolca"
+msgstr "Leb Spain"
 
 #: mmm_modules/i18n.py:58
 msgid "Swedish"
-msgstr "İsveççe"
+msgstr "Leb Sweden"
 
 #: mmm_modules/i18n.py:59
 msgid "Turkish"
-msgstr "Türkçe"
+msgstr "Leb Turkey"
 
 #: mmm_modules/image_category.py:222
 msgid "Choose image"
-msgstr "Resim seç"
+msgstr "Yer cal"
 
 #: mmm_modules/image_category.py:234
 msgid "Not a valid image file"
-msgstr "Geçerli bir resim dosyası değil"
-
-#, python-format
-#~ msgid "Buddy '%s' changed status: %s"
-#~ msgstr "'%s' arkadaşınızın değişen durumu: %s"
+msgstr "Pe obedo pwail pa cal matio"
