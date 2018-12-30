@@ -311,7 +311,7 @@ class SliderPuzzleUI (Gtk.Table):
 
     @utils.trace
     def set_nr_pieces(self, btn=None, nr_pieces=None, path=None, path_from_journal=None):
-        # if isinstance(btn, gtk.ToggleButton) and not btn.get_active():
+        # if isinstance(btn, Gtk.ToggleButton) and not btn.get_active():
         #    return
         logger.debug('final path')
         if self.is_contest_mode() and nr_pieces == self.game.get_nr_pieces():
@@ -475,7 +475,7 @@ class SliderPuzzleUI (Gtk.Table):
                 return True
 
             if k in ('Escape', 'q'):
-                gtk.main_quit()
+                Gtk.main_quit()
                 return True
             return False
 
