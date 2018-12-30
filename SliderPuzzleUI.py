@@ -475,7 +475,7 @@ class SliderPuzzleUI (Gtk.Table):
                 return True
 
             if k in ('Escape', 'q'):
-                gtk.main_quit()
+                Gtk.main_quit()
                 return True
             return False
 
