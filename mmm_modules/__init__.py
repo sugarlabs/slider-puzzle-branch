@@ -6,4 +6,4 @@ from .i18n import *
 from .buddy_panel import *
 from .tube_helper import *
 from .utils import *  
-import json
+from . import json

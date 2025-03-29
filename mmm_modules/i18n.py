@@ -24,7 +24,8 @@
 import os
 import gettext
 import locale
-
+import gi
+gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk
 from gi.repository import GObject
 
@@ -166,11 +167,11 @@ class LanguageComboBox (Gtk.ComboBox):
 
 def gather_other_translations():
     from glob import glob
-    lessons = filter(lambda x: os.path.isdir(x), glob('lessons/*'))
-    lessons = map(lambda x: os.path.basename(x), lessons)
-    lessons = map(lambda x: x[0].isdigit() and x[1:] or x, lessons)
-    images = filter(lambda x: os.path.isdir(x), glob('images/*'))
-    images = map(lambda x: os.path.basename(x), images)
+    lessons = [x for x in glob('lessons/*') if os.path.isdir(x)]
+    lessons = [os.path.basename(x) for x in lessons]
+    lessons = [x[0].isdigit() and x[1:] or x for x in lessons]
+    images = [x for x in glob('images/*') if os.path.isdir(x)]
+    images = [os.path.basename(x) for x in images]
     f = file('i18n_misc_strings.py', 'w')
     for e in images + lessons:
         f.write('_("%s")\n' % e)

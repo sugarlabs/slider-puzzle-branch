@@ -20,6 +20,8 @@
 
 import os
 import sys
+import gi
+gi.require_version('Gtk', '3.0')
 
 cwd = os.path.split(__file__)[0]
 
