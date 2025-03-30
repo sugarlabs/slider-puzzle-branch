@@ -42,7 +42,7 @@ class ReaderProvider (object):
     def sync (self):
         """ must be called after language changes """
         self.lesson_array = []
-        lessons = filter(lambda x: os.path.isdir(os.path.join(self.path, x)), os.listdir(self.path))
+        lessons = [x for x in os.listdir(self.path) if os.path.isdir(os.path.join(self.path, x))]
         lessons.sort()
         for lesson in lessons:
             if lesson[0].isdigit():
@@ -58,9 +58,8 @@ class ReaderProvider (object):
             code, encoding = locale.getdefaultlocale()
         if code is None:
             code = 'en'
-        files = map(lambda x: os.path.join(path, '%s.abw' % x),
-                    ('_'+code.lower(), '_'+code.split('_')[0].lower(), 'default'))
-        files = filter(lambda x: os.path.exists(x), files)
+        files = [os.path.join(path, '%s.abw' % x) for x in ('_'+code.lower(), '_'+code.split('_')[0].lower(), 'default')]
+        files = [x for x in files if os.path.exists(x)]
         return os.path.join(os.getcwd(), files[0])
 
     def get_lessons (self):

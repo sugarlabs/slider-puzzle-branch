@@ -17,20 +17,22 @@
 # If you find this activity useful or end up using parts of it in one of your
 # own creations we would love to hear from you at info@WorldWideWorkshop.org !
 #
-
+import gi
+gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk, GObject, Pango, GdkPixbuf, Gdk
-import md5
+import hashlib
 import logging
 import tempfile
 from mamamedia_modules import utils
 
 #from utils import load_image, calculate_matrix, debug, SliderCreator, trace
 
-from types import TupleType, ListType
+TupleType = tuple
+ListType = list
 from random import random
 from time import time
 from math import sqrt
-from cStringIO import StringIO
+from io import StringIO
 import os
 
 ###
@@ -113,7 +115,7 @@ class SliderCreator (GdkPixbuf.Pixbuf):
                 # if c > 0 and r > 0:
                 #    pm.draw_line(gc, px, 0, px, self.height-1)
                 #    pm.draw_line(gc, 0, py, self.width-1, py)
-                pangolayout.set_text(str(item.next()))
+                pangolayout.set_text(str(next(item)))
                 pe = pangolayout.get_pixel_extents()
                 pe = pe[1][2] / 2, pe[1][3] / 2
                 pm.draw_layout(gc, px + (sw / 2) -
@@ -194,7 +196,7 @@ class SliderPuzzleMap (object):
 
     def reset(self, pieces=9):
         self.pieces, self.rowsize, self.colsize = calculate_matrix(pieces)
-        pieces_map = range(1, self.pieces + 1)
+        pieces_map = list(range(1, self.pieces + 1))
         self.pieces_map = []
         for i in range(self.rowsize):
             self.pieces_map.append(
@@ -399,7 +401,7 @@ class SliderPuzzleMap (object):
                 'pieces_map': self.pieces_map, 'hole_pos_freeze': self.hole_pos._freeze()}
 
     def _thaw(self, obj):
-        for k in obj.keys():
+        for k in list(obj.keys()):
             if hasattr(self, k):
                 setattr(self, k, obj[k])
         self.hole_pos._thaw(obj.get('hole_pos_freeze', None))
@@ -605,7 +607,7 @@ class SliderPuzzleWidget (Gtk.Table):
         """ retrieves a frozen status from a python object, as per _freeze """
         logging.debug(obj['jumbler'])
         self.jumbler._thaw(obj['jumbler'])
-        if obj.has_key('image') and obj['image'] is not None:
+        if 'image' in obj and obj['image'] is not None:
             self.set_image_from_str(obj['image'])
             del obj['image']
         self.full_refresh()
