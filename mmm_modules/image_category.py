@@ -25,10 +25,10 @@ from gi.repository import GObject
 import os
 from glob import glob
 import logging
-import md5
+import hashlib
 from sugar3.activity.activity import Activity, get_bundle_path
-from utils import load_image, resize_image, RESIZE_CUT
-from borderframe import BorderFrame
+from .utils import load_image, resize_image, RESIZE_CUT
+from .borderframe import BorderFrame
 from gettext import gettext as _
 
 THUMB_SIZE = 48

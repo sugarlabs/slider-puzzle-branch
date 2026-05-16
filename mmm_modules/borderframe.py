@@ -17,7 +17,8 @@
 # If you find this activity useful or end up using parts of it in one of your
 # own creations we would love to hear from you at info@WorldWideWorkshop.org !
 #
-
+import gi
+gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk, GObject, Gdk
 
 BORDER_LEFT = 1

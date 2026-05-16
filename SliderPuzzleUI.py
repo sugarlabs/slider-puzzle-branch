@@ -17,6 +17,8 @@
 # If you find this activity useful or end up using parts of it in one of your
 # own creations we would love to hear from you at info@WorldWideWorkshop.org !
 #
+import gi
+gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk, GObject, Pango, Gdk
 
 from mamamedia_modules import utils
@@ -38,7 +40,7 @@ from glob import glob
 from SliderPuzzleWidget import SliderPuzzleWidget
 from time import time
 import os
-import md5
+import hashlib
 from sugar3.activity.activity import get_bundle_path
 from sugar3 import mime
 from sugar3.graphics.objectchooser import ObjectChooser
@@ -491,11 +493,11 @@ class SliderPuzzleUI (Gtk.Table):
         if not obj[1]['image']:
             return
 
-        if not obj[1].has_key('image'):
+        if 'image' not in obj[1]:
             self.game.load_image(self.pbb)
         self.set_nr_pieces(None, obj[2])
-        logging.debug(obj[1].keys())
-        wimg = obj[1].has_key('image')
+        logging.debug(list(obj[1].keys()))
+        wimg = 'image' in obj[1]
         self.game._thaw(obj[1])
         if wimg:
             logging.debug("Forcing thumb image from the one in game")

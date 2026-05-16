@@ -38,7 +38,7 @@ from mamamedia_modules import TubeHelper
 import logging
 import os
 import sys
-import md5
+import hashlib
 
 logger = logging.getLogger('sliderpuzzle-activity')
 
@@ -48,11 +48,11 @@ from mamamedia_modules import json, utils
 # game tube
 import zlib
 import time
-from cStringIO import StringIO
+from io import StringIO
 
 from dbus import Interface, DBusException
 from dbus.service import method, signal
-from dbus.gobject_service import ExportedGObject
+from dbus.service import Object as ExportedGObject
 
 from mamamedia_modules import GAME_IDLE, GAME_STARTED, GAME_FINISHED, GAME_QUIT
 import logging

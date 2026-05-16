@@ -1,7 +1,7 @@
 [Activity]
 name = Slider Puzzle
 bundle_id = org.worldwideworkshop.olpc.SliderPuzzle
-exec = sugar-activity SliderPuzzleActivity.SliderPuzzleActivity
+exec = sugar-activity3 SliderPuzzleActivity.SliderPuzzleActivity
 icon = activity-sliderpuzzle
 activity_version = 10
 show_launcher = yes
