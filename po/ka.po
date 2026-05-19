@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-07-11 14:08+1000\n"
-"PO-Revision-Date: 2026-05-04 07:03+0000\n"
+"PO-Revision-Date: 2026-05-19 11:33+0000\n"
 "Last-Translator: NF <rkavt@smartprojects.ge>\n"
 "Language-Team: Georgian <http://weblate.sugarlabs.org/projects/"
 "sugar-activities/slider-puzzle/ka/>\n"
@@ -129,7 +129,7 @@ msgstr ""
 
 #: SliderPuzzleUI.py:455
 msgid "Lesson Plans"
-msgstr ""
+msgstr "გაკვეთილის გეგმები"
 
 #: SliderPuzzleUI.py:458
 msgid "Close Lesson"
